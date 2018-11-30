@@ -33,16 +33,16 @@ page_title ('Наши издания');
 					</div> <!-- row text-left -->
 				</div> <!-- col-10 -->
 
-				<div class="col-2">
+				<!-- <div class="col-2">
 					<div class="sidebar">
 						<h3>Панель администратора</h3>
 						<hr>
 						<ul>
 							<li><a href="/pages/admins/p_admin_add_new_publishing_block.php">Добавить новый блок издания</a></li><br>
 							<li><a href="/pages/admins/p_admin_add_new_publishing_post.php">Добавить новую единицу издания</a></li>
-						</ul>
-					</div> <!-- sidebar -->
-				</div>  <!-- col-2 -->
+						</ul> -->
+					<!-- </div> --> <!-- sidebar -->
+				<!-- </div> -->  <!-- col-2 -->
 			</div> <!-- строка контент-сайдбар -->
 		</section>
 	</div><!-- container-fluid -->
