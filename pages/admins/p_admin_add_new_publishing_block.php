@@ -16,7 +16,7 @@ get_open_form ("/pages/admins/s_admin_add_new_publishing_block.php", "POST", "В
 		<input type="text" name="block_name" >
 
 		<label for="block_description">Описание нового блока издания:</label>
-		<input type="text" name="block_description" >
+		<input type="text" name="block_description">
 
 		<label for="block_hidden">Тип хранения данных:</label>
 		<p><input type="radio" name="block_hidden" value="0" checked>Доступный</p>
