@@ -1,0 +1,647 @@
+
+@font-face {
+	font-family: 'Izhitsa Regular';
+	src: url('Izhitsa.eot');
+	src: url('Izhitsa.eot?#iefix') format('embedded-opentype'),
+	url('Izhitsa.woff') format('woff'),
+	url('Izhitsa.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	background: rgb(229,229,229);
+}
+
+a {
+	text-decoration: none !important;
+}
+
+a:hover {
+	color: red;
+}
+
+/* внешние границы таблицы серого цвета толщиной 1px */
+table {border: 1px solid black;}
+/* границы ячеек первого ряда таблицы */
+th {border: 1px solid black;}
+/* границы ячеек тела таблицы */
+td {border: 1px solid black;}
+/* сделает ширину таблицы равной ширине блока контейнера, в котором она находится */
+table {width: 100%;}
+/* задаст фиксированную ширину для таблицы */
+table {width: 100%;}
+table th {
+	border-top: 1px solid black !important;
+	text-align: center;
+}
+
+h1, h2, h3, h5, h6 {
+	font-family: 'Zanesennyj';
+}
+
+.button1 {
+	position: fixed;
+	margin-left: 85%;
+}
+
+.btn-outline-primary {
+	min-width: 150px;
+	color: #ffffff;
+	border-color: #dc3545;
+	background-image: url(https://c.pxhere.com/photos/f8/7c/landscape_scotland_kilmacolm_renfrewshire_knappsloch_canon6d_ef1635mmf4lisusm-383095.jpg!d);
+	font-family: 'Old Standard TT', serif;
+	font-size: 17px;
+	/*transition: .4s ease-out;*/
+ /*transition-delay: 0.5s;*/
+}
+
+.btn-outline-primary:hover {
+	color: #FDA834;
+	background-color: #dc3545;
+	border-color: #F9731E;
+}
+
+.btn-outline-primary:focus {
+ box-shadow: 0 0 0 0.2rem rgba(253,168,52,.5);
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
+	color: #fff;
+	background-color: #e77948;
+	border-color: #e77948;
+}
+
+.content {
+/*	margin-top: 100px;
+	padding: 0px 0px 0px 0px;
+	background-color: rgba(20,16,13,0.7);*/
+
+}
+
+#close {
+	cursor: pointer;
+	position: static;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	width: 30px;
+	height: 20px;
+}
+
+.checkbox {
+	display: inline-block;
+
+}
+
+.checkbox input[type=checkbox] {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.checkbox p {
+	display: inline-block;
+	margin: 0 !important;
+	padding: 0;
+	border-left: 3px solid grey;
+	padding-left: 10px;
+
+}
+
+
+.error {
+	padding-top: 20px;
+	text-align: center;
+	font-size: 18px;
+	color: red;
+}
+
+.no_error {
+	padding: 0;
+	margin-left: 10px;
+	margin-right: 10px;
+	/*padding-top: 20px;	*/
+	text-align: center;
+	font-size: 14px;
+	color: red;
+	background: #fff;
+}
+
+.no_error {
+	padding: 0;
+	text-align: center;
+	font-size: 14px;
+	color: red;
+	margin: 0 auto;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+}
+
+.edit_delete {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.edit_delete img {
+	margin-top: 20px;
+}
+
+.input {
+	display: block;
+	margin: 0 auto;
+	margin-top: 20px;
+	border-radius: 5px;
+	border: solid 1px green;
+}
+
+.info {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+}
+
+.info p {
+	text-align: center;
+}
+
+.img_edit {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	border: solid 1px lime;
+	margin-bottom: 20px;
+
+	height: 500px;
+	/*width: 200px*/
+}
+
+#input_file:hover {
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.form {
+	text-align: center;
+	margin-top: 100px;
+	border: solid 1px green;
+	padding: 10px;
+}
+
+.form a {
+	margin-top: 20px;
+	text-decoration: none;
+	border: solid 1px green;
+	color: green;
+}
+
+.form a:hover {
+	color: #ffe; /* Цвет текста активного пункта */
+ background-color: green;
+}
+
+.user_form {
+	margin: 0 auto;
+	/*border-bottom:1px solid #777;*/
+	/*border-top:1px solid #777;*/
+	width: 30vw;
+	padding: 10px 10px 10px 10px;
+	margin-top: 40px;
+}
+
+.user_form input, textarea {
+	display: block;
+	margin-left: 40%;
+	width: 60%;
+}
+
+.user_form select{
+	display: block;
+	margin-left: 25%;
+	padding: 4px;
+}
+
+.user_form h4 {
+	text-align: center;
+	margin-bottom: 20px;
+	/*border-bottom:1px solid #777;*/
+	padding-bottom: 10px;
+	font-family: 'Zanesennyj';
+	color: black;
+}
+
+.footer {
+	position: relative;
+	height: 55%;
+	background: url(http://www.vcmeat.com/images/bg_footer.png);
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+.header_site {
+	background-image: url(https://c.pxhere.com/photos/f8/7c/landscape_scotland_kilmacolm_renfrewshire_knappsloch_canon6d_ef1635mmf4lisusm-383095.jpg!d);
+	background-size: cover;
+	padding-top: 50px;
+}
+
+.header_title {
+	text-align: center;
+
+}
+
+.header_title h4 {
+	text-align: center;
+	font-family: 'Izhitsa Regular';
+	color: #fff;
+}
+
+.header_subtitle_doc {
+	font-family: 'Old Standard TT', serif;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.header_subtitle_doc h4 {
+	font-family: 'Old Standard TT', serif;
+	margin-bottom: 20px;
+	text-align: center;
+	color: black;
+}
+
+.header_subtitle {
+	font-family: 'Old Standard TT', serif;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	padding: 0px 20px 20px 20px;
+	text-align: center;
+	color: #eee;
+	text-shadow: 2px 2px 2px #756363;
+}
+
+.header_subtitle h4 {
+	font-weight: bold;
+	font-size: 40px;
+	color: black;
+}
+
+.login_signup {
+	position: absolute;
+	right: 50px;
+	padding: 0px;
+	text-align: right;
+	font-family: 'Old Standard TT', serif;
+	font-size: 18px;
+}
+
+.login_signup p {
+	margin: 0;
+	color: green;
+	/*text-align: left;*/
+}
+
+.login_signup p:hover {
+	margin: 0;
+	color: #EC6925;
+	/*text-align: left;*/
+}
+
+.logo_block {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-moz-flex-direction: row;
+	-ms-flex-direction: row;
+	-o-flex-direction: row;
+	flex-direction: row;
+	height: 200px;
+	justify-content: space-around;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+
+#logo_1 {
+	max-height: 77%;
+	max-width: 20%;
+}
+
+#logo_2 {
+	max-height: 80%;
+	max-width: 30%;
+}
+
+#logo_3 {
+	max-height: 70%;
+	max-width: 20%;
+}
+
+.my_menu {
+	margin-top: 30px;
+	margin-bottom: 100px;
+}
+
+.my_menu ul {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-moz-flex-direction: row;
+	-ms-flex-direction: row;
+	-o-flex-direction: row;
+	flex-direction: row;
+	list-style-type: none;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+
+.my_menu hr {
+	margin: 0;
+}
+
+.my_menu button {
+	margin: 5px;
+	/*min-width: 225px;*/
+}
+
+.opasity-block {
+	z-index: 999;
+	background-color: rgba(173, 57, 22, 1);
+}
+
+#p-block-name {
+	background: green;
+	color: #eee;
+}
+
+#pigeon {
+	width: 25%;
+}
+
+.place_to_sign {
+	margin-bottom: 200px;
+	text-align: right;
+	margin-right: 30px;
+	font-size: 30px;
+	font-family: 'Old Standard TT', serif;
+	padding-top: 80vw;
+}
+
+.page_title {
+	margin-bottom: 30px;
+	border-bottom: solid 2px #E47F50;
+}
+
+.page-break {
+
+}
+
+.prew label {
+  display: inline-block;
+  width: 8em;
+  height: 8em;
+  background: silver;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.prew input {
+  display: none;
+}
+
+/*.prew-block {
+	border: solid 1px #E47F50;
+	margin: 15px 15px 30px 15px;
+	border-radius: 5px;
+	padding: 30px 20px 20px 20px;
+	background: #6d6c6c;
+	max-height: 30vw;
+	min-height: 30vw;
+	overflow: hidden;
+	text-align: center;
+}
+
+.prew-block img {
+	margin-bottom: 10px;
+	width: 70%;
+	max-height: 371px;
+	overflow: hidden;
+}
+
+.prew-block h1, h2, h3, h4, h5, h6 {
+	text-align: center;
+	overflow: hidden;
+	color: #fff;
+	font-family: 'Zanesennyj';
+}*/
+
+.prew-img-block {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+	background: rgb(255, 255, 255);
+	align-items: center;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.prew-img-block img {
+	max-width: 60%;
+	margin: 0 auto;
+}
+
+.prew-img-block h4 {
+	border: 30px solid #40c4c8;
+  border-image: url(http://gmaindia.org/Images/shadowLine.png) 30 round round;
+}
+
+
+.prew-block hr {
+	border: none; /* Убираем границу для браузера Firefox */
+	color: #E47F50; /* Цвет линии для остальных браузеров */
+	background-color: #E47F50; /* Цвет линии для браузера Firefox и Opera */
+	height: 1px; /* Толщина линии */
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+/*.prew-block:hover {
+	background: #333232;
+}
+
+.prew-block:hover img {
+
+}*/
+
+/*.prew-block a {
+	color: #2E1F36;
+	overflow: hidden;
+}*/
+
+/*.prew-block a:hover {
+	color: #E47F50;
+}*/
+
+.submit {
+	padding: 0;
+	/* margin: 0 auto !important; */
+	margin-top: 20px !important;
+	width: 40% !important;
+	cursor: pointer;
+	background-color: lime;
+	border-radius: 5px;
+}
+
+.submit:hover {
+	background-color: green;
+}
+
+.sidebar {
+	border: solid 1px red;
+}
+
+.sidebar h3 {
+	text-align: center;
+	color: #2E1F36;
+}
+
+.title_table {
+	font-family: 'Old Standard TT', serif;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.table	{
+	width: 99%;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+
+.text_center {
+	text-align: center;
+}
+
+.warning {
+	color: red;
+}
+
+/*******************************************/
+
+
+#sem {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-moz-flex-direction: row;
+	-ms-flex-direction: row;
+	-o-flex-direction: row;
+	flex-direction: row;
+	justify-content: space-around;
+	-ms-align-items: center;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+#otrok_semeon1 {
+	height: 300px;
+	width: 385px;
+	margin-right: 10px;
+}
+
+#otrok_semeon2 {
+	height: 450px;
+	width: 300px;
+	border: solid 5px black;
+	margin-bottom: 10px;
+}
+
+#otrok_semeon3 {
+	height: 300px;
+	width: 385px;
+	margin-left: 10px;
+}
+
+
+
+
+@media print {
+	#printPageButton {
+		display: none;
+  }
+}
+
+@media print {
+	.page-break {
+		page-break-inside: avoid;
+ 	}
+}
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+/*// Малые девайсы («ландшафтные телефоны», >= 576px)*/
+@media (min-width: 576px) {
+.prew-img-block {
+	background: red;
+}
+}
+
+
+
+/*// Средние девайсы («таблетки», >= 768px)*/
+@media (min-width: 768px) {
+.prew-img-block {
+	background: blue;
+	
+}
+
+
+}
+
+
+/*// Большие девайсы (десктопы, >= 992px)*/
+@media (min-width: 992px) {
+.prew-img-block {
+	background: white;
+	
+}
+
+
+}
+
+

@@ -1,0 +1,11 @@
+/*// Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
+
+@media (min-width: 1200px) {
+.prew-img-block {
+	max-height: 562px;
+	min-height: 562px;
+	
+}
+
+
+}
