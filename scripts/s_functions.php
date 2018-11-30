@@ -33,6 +33,9 @@ function get_header_site ($title_br, $header_subtitle) {
 	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 	<link rel="stylesheet" href="/css/media_xl.css">
 
+	<!-- My js -->
+	<link rel="stylesheet" href="js/my_js.js">
+
 	<!-- Fonts -->
 	<link href="http://allfont.ru/allfont.css?fonts=ds-russia-demo" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
