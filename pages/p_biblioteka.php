@@ -11,7 +11,7 @@ get_menu ();
 page_title ('Издательство нашего храма');?>
 
 <main class="mt-5 pt-5">
-	<div class="container">
+	<div class="container-fluid">
 		<section class="wow fadeIn">
 			<div class="row">
 				<div class="col-10">
@@ -49,7 +49,7 @@ page_title ('Издательство нашего храма');?>
 																	} 
 														
 														echo "						
-						<div class='col-lg-6 col-md-12 mb-5'>
+						<div class='col-lg-4 col-md-12 mb-5'>
 							<div class='no_error' style='".$color." ".$border."'><strong>".$no_error."</strong><br>".$edit."<br>".$delete."</div>
 							<div class='prew-img-block view owerlay rounded z-depth-1-half mb-4'>
 								<h4 class='text-center'>
