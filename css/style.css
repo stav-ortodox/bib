@@ -15,7 +15,7 @@ html {
 
 body {
 	height: 100%;
-	background: rgb(229,229,229);
+	/*background: rgb(229,229,229);*/
 }
 
 a {
@@ -478,6 +478,7 @@ h1, h2, h3, h5, h6 {
 .prew-img-block img {
 	max-width: 60%;
 	margin: 0 auto;
+	border: 1px solid #E47F50;
 }
 
 .prew-img-block h4 {
@@ -600,85 +601,6 @@ h1, h2, h3, h5, h6 {
 
 
 
-:root {
-    /* set the sidebar width */
-	--sidebar-width: 20vw;
-}
-
-body {
-	overflow-x: hidden;
-	padding-top: 55px;
-}
-
-.w-sidebar {
-	width: var(--sidebar-width);
-	max-width: var(--sidebar-width);
-	top: 0;
-	z-index: 1060;
-}
-
-.row.collapse{
-	margin-left: calc(-1 * var(--sidebar-width));
-	left: 0;
-	transition: margin-left .15s linear;
-}  
-
-.row.collapse.show {
-  margin-left: 0 !important;
-}
-
-.row.collapsing {
-	margin-left: calc(-1 * var(--sidebar-width));
-	left: -0.05%;
-	transition: all .15s linear;
-}
-
-@media (max-width:768px) {
-
-	.row.collapse,
-	.row.collapsing {
-	    margin-left: 0 !important;
-	    left: 0 !important;
-	    overflow: visible;
-    }
-    
-    .row > .sidebar.collapse {
-        display: flex !important;
-        margin-left: -100% !important;
-        transition: all .3s ease;
-        position: fixed;
-        z-index: 1050;
-        max-width: 0;
-        min-width: 0;
-        flex-basis: auto;
-    }
-    
-    .row > .sidebar.collapse.show {
-        margin-left: 0 !important;
-        width: 100%;
-        max-width: 100%;
-        min-width: initial;
-    }
-    
-    .row > .sidebar.collapsing {
-        display: flex !important;
-        margin-left: -10% !important;
-        transition: all .3s ease !important;
-        position: fixed;
-        z-index: 1050;
-        min-width: initial;
-    }
-    
-}
-
-.spacer {
-	height: 50px;
-}
-
-
-
-
-
 
 
 
@@ -705,7 +627,7 @@ body {
 /*// Малые девайсы («ландшафтные телефоны», >= 576px)*/
 @media (min-width: 576px) {
 .prew-img-block {
-	background: red;
+	background: rgb(235, 235, 235);
 }
 }
 
@@ -714,22 +636,18 @@ body {
 /*// Средние девайсы («таблетки», >= 768px)*/
 @media (min-width: 768px) {
 .prew-img-block {
-	background: blue;
+	background: rgb(235, 235, 235);
 	
 }
-
-
 }
 
 
 /*// Большие девайсы (десктопы, >= 992px)*/
 @media (min-width: 992px) {
 .prew-img-block {
-	background: white;
+	background: rgb(235, 235, 235);
 	
 }
-
-
 }
 
 
