@@ -6,15 +6,21 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
 
 get_header_site ('Библиотека', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
+?>
+
+
+<?php
 get_menu ();
 // get_sidebar ();
 page_title ('Издательство нашего храма');?>
+
+
 
 <main class="mt-5 pt-5">
 	<div class="container-fluid">
 		<section class="wow fadeIn">
 			<div class="row">
-				<div class="col-10">
+				<div class="col-12">
 					<div class="row text-left">
 							<?php $select_query = sprintf("SELECT * FROM publishing_blocks");
 										$result = mysqli_query($link, $select_query);
@@ -67,6 +73,7 @@ page_title ('Издательство нашего храма');?>
 								if ($_SESSION['id'] == 1)
 								echo	'
 				<div class="col-2">
+
 					<div class="sidebar">
 						<h3>Панель администратора</h3>
 						<hr>
@@ -75,6 +82,7 @@ page_title ('Издательство нашего храма');?>
 							<li><a href="/pages/admins/p_admin_add_new_publishing_post.php">Добавить новое издание в существующий блок издания</a></li>
 						</ul>
 					</div>
+
 				</div>';?>
 			</div> <!-- row строка контент-сайдбар -->
 		</section>

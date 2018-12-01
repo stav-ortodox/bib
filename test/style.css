@@ -1,0 +1,111 @@
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100px;
+}
+
+header {
+	position: relative;
+	padding: 10px;
+	background: #3e4156;
+}
+
+/*.container {
+	overflow: hidden;
+}*/
+
+.content {
+	margin-left: 300px;
+	padding: 20px;
+	background: #ddd;
+}
+
+.sidebar {
+	width: 300px;
+	padding: 20px;
+	float: left;
+	background: #fff;
+	-webkit-transition: left 0.5s ease-out 0.2s;
+	-moz-transition: left 0.5s ease-out 0.2s;
+	-o-transition: left 0.5s ease-out 0.2s;
+	transition: left 0.5s ease-out 0.2s;
+}
+
+.clearfix:before,
+.clearfix:before {
+	content: " ";
+	display: table;
+}
+
+.clearfix:afte {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.divide {
+	display: block;
+	height: 2px;
+	margin: 3px 0;
+	background: black;
+}
+
+.icon-menu {
+	display: none;
+	height: 30px;
+	width: 12px;
+	float: left;
+	padding: 5px 0;
+	cursor: pointer;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+
+
+
+@media (max-width: 768px) {
+		body {
+			padding-top: 50px;
+		}
+
+		header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 50px;
+		}
+
+	.icon-menu {
+		display: block;
+	}
+
+	.sidebar {
+		position: fixed;
+		left: -250px;
+		width: 250px;
+		height: 100%;
+	}
+
+	.sidebar.active {
+		left: 0px;
+	}
+
+	.content {
+		margin-left: 0;	
+}
+}

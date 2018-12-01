@@ -74,6 +74,14 @@ function get_header_site ($title_br, $header_subtitle) {
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 	<title>$title_br</title>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+		$('.icon-menu').click(function(event) {
+		$('.sidebar').toggleClass('active')
+		});
+		});
+	</script>
 </head>
 
 <body>

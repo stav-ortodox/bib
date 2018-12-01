@@ -2,133 +2,65 @@
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
+
+
+get_header_site ('Главная', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
+// get_menu ();
+// get_sidebar ();
 ?>
+<!-- меню -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light white">
 
-	<!DOCTYPE html>
-	<html lang='ru'>
-	<head>
-	<meta charset='UTF-8'>
-	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="description" content="Hover Effect Ideas: Inspiration for subtle hover effects" />
-	<meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
-	<meta name="author" content="Stav_Orthodox" />
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-primary">Главная</button>
+    <button type="button" class="btn btn-primary">Библиотека</button>
+    <button type="button" class="btn btn-primary">Новости</button>
+    <button type="button" class="btn btn-primary">О храме</button>
+    <button type="button" class="btn btn-primary">Профиль</button>
+    <button type="button" class="btn btn-primary">Администратор</button>
+  </div>
 
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    <!-- Links -->
+    <ul class="navbar-nav nav-flex-icons ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#!">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#!">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#!">
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+    <!-- Links -->
 
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </div>
+  <!-- Collapsible content -->
 
-	<!-- Bootstrap core CSS -->
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- Material Design Bootstrap -->
-	<link href="/css/mdb.min.css" rel="stylesheet">
-
-	<!-- Your custom styles (optional) -->
-	<link href="/css/style.css" rel="stylesheet">
-	<link rel="stylesheet" href="/css/media_xl.css">
-	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
-
-	<!-- My js -->
-	<link rel="stylesheet" href="js/my_js.js">
-
-	<!-- Fonts -->
-	<link href="http://allfont.ru/allfont.css?fonts=ds-russia-demo" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
-	<link href="http://allfont.ru/allfont.css?fonts=zanesennyj" rel="stylesheet" type="text/css">
-	<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
-
-	<!-- Yandex.Metrika counter -->
-	<script type="text/javascript" >
-	    (function (d, w, c) {
-	        (w[c] = w[c] || []).push(function() {
-	            try {
-	                w.yaCounter51093191 = new Ya.Metrika2({
-	                    id:51093191,
-	                    clickmap:true,
-	                    trackLinks:true,
-	                    accurateTrackBounce:true,
-	                    webvisor:true
-	                });
-	            } catch(e) { }
-	        });
-
-	        var n = d.getElementsByTagName("script")[0],
-	            s = d.createElement("script"),
-	            f = function () { n.parentNode.insertBefore(s, n); };
-	        s.type = "text/javascript";
-	        s.async = true;
-	        s.src = "https://mc.yandex.ru/metrika/tag.js";
-
-	        if (w.opera == "[object Opera]") {
-	            d.addEventListener("DOMContentLoaded", f, false);
-	        } else { f(); }
-	    })(document, window, "yandex_metrika_callbacks2");
-	</script>
-	<noscript><div><img src="https://mc.yandex.ru/watch/51093191" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-	<!-- /Yandex.Metrika counter -->
-
-	<script
-  src="http://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-	<title>Электронная библиотекаr</title>
-
-			<script type="text/javascript">
-			  jQuery(document).ready(function($) {
-			    $('.icon-menu').click(function(event) {
-			      $('.sidebar').toggleClass('active')
-			  });
-			  });
-			</script>
-</head>
-
-<body>
-
-	<header class="container clearfix header_site">
-
-		<div class="logo_block">
-			<img id="logo_1" src="/images/original-233x285.png" alt="">
-			<img id="logo_2" src="/images/logo.png" alt="">
-			<img id="logo_3" src="/images/iconPanteleimon.jpg" alt="">
-		</div>
-
-		<div class="header_title">
-		<h4>Больничный храм святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь</h4>
-		</div>
+</nav>
+<!-- Navbar -->
 	
 
-		<div class="header_subtitle">
-			<img id="pigeon" src="/images/58388f74ceff21589cf06070.png" alt="">
-			<h4>Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь</h4>
+
+
+<main>
+	<section class="container-fluid mt-5">
+		<div class="row">
+			<div class="col-12 text-justify">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti mollitia odit quos. Saepe voluptatibus eveniet dignissimos aliquam omnis officiis harum fugiat cupiditate quae beatae, reiciendis natus. Ratione quis cumque repellat, sunt facilis sapiente ducimus totam, ad at minima ut dolorem, blanditiis rerum. Minima accusamus, odio ipsam similique voluptatem. Cumque dolores molestias accusamus, consequatur ut amet necessitatibus omnis ratione nobis quibusdam numquam repudiandae accusantium dignissimos aliquid, quas mollitia, sapiente porro perspiciatis? Nulla enim repellendus, accusantium dicta ad animi cupiditate maxime repellat, rerum veniam ut deserunt soluta, autem? Repudiandae eveniet aliquid error ut architecto dolor nostrum quia minus? Enim dolores quam maxime doloremque ut sapiente nam ducimus in optio autem iusto dolorum quasi mollitia, omnis similique nemo tenetur provident! Iste culpa modi sequi ab velit explicabo accusamus omnis blanditiis quaerat necessitatibus tempore eos porro impedit deleniti, voluptatibus id, repudiandae, voluptatem perferendis, distinctio excepturi earum assumenda pariatur neque illum! Voluptatem nobis eaque delectus! Aperiam temporibus sint enim hic odit repellendus a adipisci quo sequi quasi ipsa, repellat veritatis soluta incidunt necessitatibus quia corrupti sunt unde nostrum itaque earum pariatur error similique. Magnam ipsa et, numquam recusandae quia perspiciatis. Ullam ratione quibusdam recusandae cumque velit iure ex suscipit facere perspiciatis. Repudiandae perferendis non et dolorum numquam id omnis esse tempora, optio quaerat expedita quisquam rerum nostrum quod in cum facilis laboriosam est illum. Sed, necessitatibus, quia. Quod ab cupiditate nisi placeat nemo ipsam labore maxime natus laboriosam eum. Et, necessitatibus, enim. Temporibus nemo ex eos ad. Unde consectetur ipsum, soluta nihil tempora saepe quas quia hic libero consequatur suscipit non, voluptatum esse similique ipsam aliquid commodi magnam doloremque! Voluptas libero accusamus, incidunt inventore mollitia magni non debitis ad facere quae, impedit cumque numquam deserunt, illum sit ut laborum maiores delectus facilis dolores rerum saepe! Accusantium ut eius ullam qui, reiciendis odit hic corporis placeat cumque aliquam nam velit eum ex voluptas sint natus quia minima repudiandae, sapiente sed suscipit. Animi odit et neque ut est, doloribus corrupti quidem eius, voluptate nam placeat illum libero minus aspernatur! Iusto dolore minus cupiditate similique, ut tenetur, vel laborum dolor tempore eum numquam dolores, possimus impedit, qui ipsa explicabo autem. Minima ab recusandae explicabo reiciendis dolorum optio facere necessitatibus quia, tempore, quas, accusamus, eaque impedit eum? Dolores ab deserunt, amet iusto, itaque praesentium omnis fuga incidunt! Ut aut minus nam tempora. Dolores numquam assumenda ea sit repudiandae eligendi molestias magni, dolorum. A reiciendis sequi cupiditate maiores unde aspernatur vero, iure. Iure nesciunt quis, rem iste pariatur maiores, fugiat cum error ad vel laborum ab quidem, nostrum maxime velit facilis inventore molestiae. Aut, repellendus sint, a laudantium modi earum possimus vitae quo quia at voluptate similique debitis incidunt hic explicabo fuga ipsa neque, tempore ducimus sunt ullam praesentium necessitatibus placeat! Commodi pariatur, velit quia nulla laborum eos ducimus enim laboriosam eligendi, at debitis molestiae ab necessitatibus architecto dolore voluptatibus tenetur, inventore. Tempora mollitia saepe quae, expedita tempore voluptates reiciendis officia blanditiis dolorem accusamus eligendi, praesentium est soluta odit deserunt beatae repellat veritatis itaque veniam maiores ducimus, iste porro atque aspernatur! Iste, tempora. Aperiam cupiditate cum debitis vel repudiandae soluta corrupti aliquid molestiae obcaecati nam natus sapiente dolorem nostrum nulla, exercitationem dicta tenetur velit, laborum hic repellat reiciendis voluptate in ad, architecto tempore! Non sed maxime saepe iusto fuga eius voluptas possimus, beatae iure porro eos atque voluptatum impedit minus, nisi alias a fugiat eveniet, perferendis facere similique voluptate. Saepe reprehenderit blanditiis id, ex accusamus expedita consequuntur animi non unde, voluptatem sit quidem facilis debitis aliquam magnam excepturi. Natus explicabo, ea dignissimos iusto, aut incidunt. Accusamus architecto fugit velit, unde, autem culpa. Ipsum sunt minus eius autem commodi rem, nobis laborum voluptatem asperiores labore dolorum! Repudiandae cumque sit aliquam quae ex neque, similique dicta, minima inventore consequuntur totam optio eveniet. Laudantium dolore, nostrum nam necessitatibus maiores obcaecati! Saepe dolores, possimus dignissimos pariatur, nulla temporibus debitis voluptatum fuga aperiam nobis nam voluptates. Cumque sed quod excepturi quidem provident eos natus dolore quasi tempora incidunt ut repellat architecto accusamus veniam, rem, placeat dolores ipsam iusto nulla dolorum eligendi modi accusantium. Impedit dicta officiis eaque hic, voluptatem ad et excepturi quis nostrum in, quas magni commodi eos inventore provident eius praesentium perferendis, ea odio neque. Repudiandae eveniet atque reiciendis excepturi mollitia quos adipisci reprehenderit modi ex minus fugiat, voluptatum a doloribus, voluptate nesciunt illum ab placeat quisquam animi error aliquid possimus accusamus aspernatur. Esse corrupti nobis, in, facilis iusto explicabo consequuntur accusantium, fugit unde quam, quaerat error excepturi rem impedit facere non tempora sint voluptatem! Reiciendis possimus inventore commodi rerum velit ipsam, similique vitae tenetur maiores quas! Odit similique consequuntur sequi doloremque nemo deserunt beatae omnis dignissimos, molestias dolore aliquam saepe temporibus tempora accusantium doloribus vitae rem fugiat obcaecati, ex voluptate. Architecto quasi, tempora autem incidunt nesciunt voluptas, nam corporis quia mollitia numquam rem eveniet quisquam aliquid quis voluptatibus dolorem eius veritatis. Ducimus vitae suscipit labore obcaecati error, laboriosam inventore neque. Sint praesentium dignissimos iste, nisi ipsa impedit sunt illum dolorem, dolores repellendus velit porro nihil? Iste doloribus dicta, ratione, vitae porro quam repudiandae pariatur voluptates obcaecati quasi tenetur. Repellat odit dolores unde. Ut unde provident error, mollitia, deleniti quasi commodi? Labore nisi ullam fugiat, molestiae, ad iusto non voluptatum culpa aspernatur a deserunt facere quasi hic eos. Pariatur sed nisi blanditiis. Harum iste, nobis dicta amet minus similique deleniti repudiandae reiciendis numquam, aut laboriosam, quaerat labore hic vel dolor perferendis impedit, molestias earum explicabo enim id ipsa. Distinctio eaque debitis, eveniet officia tempora hic vero nobis aliquid, natus non et, mollitia. Incidunt maiores velit mollitia ex perferendis autem porro similique, ab officiis, omnis dignissimos debitis totam eaque deleniti voluptas laudantium ducimus atque reiciendis, possimus iusto! Sit tempora facilis earum inventore. Corporis harum iure, provident, doloribus architecto fugit nisi eligendi porro, quam quis cumque quisquam amet at. Suscipit soluta error laudantium tempora quas. Omnis id quibusdam, iure mollitia corporis sequi sit laborum praesentium quam soluta laudantium. Nihil earum aspernatur blanditiis voluptatem, omnis quae, atque ex, officia perspiciatis cupiditate natus? Debitis est eaque accusamus totam ea, alias, reprehenderit temporibus ipsam itaque recusandae inventore animi.
+			</div>
 		</div>
-
-		<div class="icon-menu">
-		  <span class="divide"></span>
-		  <span class="divide"></span>
-		  <span class="divide"></span>
-		</div>
-	</header>
-<?php
-get_menu ();
-?>
-
-
-
-		<div class="container clearfix">
-			<div class="sidebar">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id ipsum explicabo, adipisci ratione ea ipsa officia voluptatum animi, distinctio iusto saepe illo quaerat, mollitia accusamus rerum iure molestiae odit veniam vel sequi dolor quas iste similique! Ex commodi quam magni neque adipisci! Aliquid adipisci rem reiciendis ullam minima enim maiores nostrum doloribus praesentium esse nisi dicta aspernatur quisquam sint, reprehenderit expedita minus recusandae quam possimus, accusantium eveniet itaque iste beatae totam voluptate. Blanditiis dicta fugiat earum molestiae, odit qui porro laboriosam, dolores quisquam reprehenderit, reiciendis ratione accusamus similique nemo quae illum repudiandae iure atque autem laborum! Cum nobis, quam optio.
-			</div>		
-			<div class="content">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, libero voluptates. Cumque consectetur vel voluptate suscipit pariatur! Voluptate officia ipsa officiis vero est tempore quas possimus, nulla, mollitia id blanditiis nesciunt deleniti. Blanditiis voluptate doloremque, nihil fuga, cum voluptatem dignissimos. Dicta facilis hic voluptate eligendi tenetur quasi harum architecto nostrum dolorum sunt, sapiente minus quidem incidunt aspernatur distinctio odit quia. A quam mollitia, quas aperiam tempore velit culpa veniam ullam, blanditiis porro repudiandae molestias similique omnis illum quo officia magnam quod nostrum cumque libero tenetur officiis recusandae laborum. Voluptatibus veritatis aliquid architecto eveniet libero vitae rerum a rem, numquam molestiae, magnam fugit minus tenetur? Laborum reprehenderit illum aspernatur obcaecati, in ratione veniam eum magni a unde possimus assumenda libero consequatur voluptate molestias nesciunt aliquid quibusdam? Neque pariatur facilis repudiandae tempore, aliquam a vero deleniti consectetur eveniet eius ratione eum repellat, ducimus magnam fugit fugiat velit veritatis quam! Consectetur modi harum, officiis deleniti fugit ipsam ullam quaerat praesentium quis obcaecati deserunt ipsa nemo similique, rem numquam vel odio dolorem libero architecto, sint nulla dicta voluptates blanditiis! Esse doloribus explicabo officia. Sunt dolorem necessitatibus in fugit illum error enim repudiandae ea dolore ipsa obcaecati ad, maxime, itaque numquam. Asperiores omnis voluptas beatae ab dicta molestias dolor, ducimus itaque animi corrupti magnam eum sunt ipsa quod, voluptatem dolorem ipsum ad aut corporis nulla fugiat, debitis possimus, quisquam modi? Architecto in, esse omnis nostrum maiores earum, nemo illo necessitatibus adipisci velit. Asperiores dolor delectus a aliquam excepturi minima ad, sunt hic repellendus numquam explicabo dolore totam facere nemo assumenda voluptatum similique, nulla et porro tempora perspiciatis? Velit quis ducimus rem veritatis ea natus tempore sapiente enim vel id sit dolorem totam, impedit esse atque cum, quas, necessitatibus fugiat quam unde ad eligendi nesciunt. Ducimus recusandae, veniam vitae asperiores iste eveniet, nesciunt. Maiores quia, fuga ut mollitia aspernatur delectus nam ea quidem repellat! Deserunt atque ipsum autem unde est eveniet, nesciunt neque. Dolores illo voluptatibus, nemo qui, vero quis esse molestiae asperiores odit quam soluta, voluptas aperiam recusandae ipsam. Aliquam a dolorum molestiae dolores sequi tempore asperiores iure odit fuga optio modi recusandae fugit vero deserunt voluptatum, iusto expedita molestias officiis! Consectetur laborum, pariatur ducimus iste, similique voluptas incidunt modi nulla numquam facere eveniet, labore vel quia recusandae, magnam fuga error illum. Eos ab explicabo nulla sequi veniam? Debitis in quos illum odio expedita quo, veniam amet eaque fuga officia deserunt facere sapiente, quas blanditiis saepe deleniti autem suscipit. Unde quis ex asperiores itaque vel, dolore consequuntur, sit deleniti consectetur molestiae! Molestiae quas vel hic esse facere vitae perferendis sequi optio suscipit obcaecati dolores nulla inventore, amet voluptates repellat numquam. Modi saepe eaque temporibus expedita accusamus minima aperiam libero, nemo inventore sed magni facilis magnam atque quo quibusdam nostrum nisi impedit nesciunt eveniet! Itaque necessitatibus accusamus ipsum autem numquam harum excepturi modi, perferendis commodi sit quaerat iste voluptatum possimus ad ducimus sapiente eaque sunt inventore, culpa quibusdam adipisci illo reprehenderit, consectetur deleniti architecto! Porro nobis voluptates eius, ut inventore sequi officiis. Vero excepturi, blanditiis impedit!
-			</div>				
-		</div>
-
-
-
-
-
+	</section>
+</main>
 
 
 
@@ -142,7 +74,7 @@ get_menu ();
 
 
 <?php get_footer ();
- ?>
+?>
 
 
 
