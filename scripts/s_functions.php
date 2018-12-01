@@ -27,11 +27,8 @@ function get_header_site ($title_br, $header_subtitle) {
 
 	<!-- Your custom styles (optional) -->
 	<link href="/css/style.css" rel="stylesheet">
-	
-	<!-- My css -->
-	<link rel='stylesheet' href='/css/test.css'>
-	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 	<link rel="stylesheet" href="/css/media_xl.css">
+	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 
 	<!-- My js -->
 	<link rel="stylesheet" href="js/my_js.js">
@@ -203,6 +200,16 @@ echo <<<EOD
 
 </body>
 </html>
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
 EOD;
 }
 

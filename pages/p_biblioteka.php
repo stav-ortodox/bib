@@ -11,7 +11,7 @@ get_menu ();
 page_title ('Издательство нашего храма');?>
 
 <main class="mt-5 pt-5">
-	<div class="container">
+	<div class="container-fluid">
 		<section class="wow fadeIn">
 			<div class="row">
 				<div class="col-10">
@@ -37,7 +37,7 @@ page_title ('Издательство нашего храма');?>
 																		}
 														if ($_SESSION['id'] == null or $_SESSION['id'] > 1) {
 														$hidden = $row['block_hidden'];
-														if(strlen($row["block_description"])>120) $str = "...<br><a href=........Ссылка......=''>подробнее</a>"; else $str = "!!!";
+														if(strlen($row["block_description"])>"120") $str = "...<br><a href=........Ссылка......=''>подробнее</a>"; else $str = "";
 														$descr_cut = mb_substr(strip_tags($row["block_description"]), 0, 120, 'utf-8');
 														// Если новость длинная, то выводим троеточие...
 														
@@ -47,9 +47,13 @@ page_title ('Издательство нашего храма');?>
 																		 continue(1);
 																		}
 																	} 
+<<<<<<< HEAD
 														// var_dump($str);
+=======
+														
+>>>>>>> origin/sidebar
 														echo "						
-						<div class='col-lg-6 col-md-12 mb-5'>
+						<div class='col-lg-4 col-md-12 mb-5'>
 							<div class='no_error' style='".$color." ".$border."'><strong>".$no_error."</strong><br>".$edit."<br>".$delete."</div>
 							<div class='prew-img-block view owerlay rounded z-depth-1-half mb-4'>
 								<h4 class='text-center'>
@@ -58,7 +62,7 @@ page_title ('Издательство нашего храма');?>
 								<a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
 									<img class='img-fluid' src=/".$row["block_image"]." alt=''>
 								</a>
-								<p class='text-center p-2'>".$descr_cut."</p>
+								<p class='text-center p-2'>".$descr_cut.$str."</p>
 							</div>
 						</div>";}?>
 					</div> <!-- row text-left -->
