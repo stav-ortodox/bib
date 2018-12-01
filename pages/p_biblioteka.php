@@ -47,11 +47,7 @@ page_title ('Издательство нашего храма');?>
 																		 continue(1);
 																		}
 																	} 
-<<<<<<< HEAD
-														// var_dump($str);
-=======
-														
->>>>>>> origin/sidebar
+
 														echo "						
 						<div class='col-lg-4 col-md-12 mb-5'>
 							<div class='no_error' style='".$color." ".$border."'><strong>".$no_error."</strong><br>".$edit."<br>".$delete."</div>

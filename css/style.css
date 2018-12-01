@@ -15,7 +15,6 @@ html {
 
 body {
 	height: 100%;
-	/*background: rgb(229,229,229);*/
 }
 
 a {
@@ -57,8 +56,6 @@ h1, h2, h3, h5, h6 {
 	background-image: url(https://c.pxhere.com/photos/f8/7c/landscape_scotland_kilmacolm_renfrewshire_knappsloch_canon6d_ef1635mmf4lisusm-383095.jpg!d);
 	font-family: 'Old Standard TT', serif;
 	font-size: 17px;
-	/*transition: .4s ease-out;*/
- /*transition-delay: 0.5s;*/
 }
 
 .btn-outline-primary:hover {
@@ -77,13 +74,6 @@ h1, h2, h3, h5, h6 {
 	border-color: #e77948;
 }
 
-.content {
-	margin-left: 300px;
-	padding: 20px;
-	background: #fff;
-
-}
-
 #close {
 	cursor: pointer;
 	position: static;
@@ -96,7 +86,6 @@ h1, h2, h3, h5, h6 {
 
 .checkbox {
 	display: inline-block;
-
 }
 
 .checkbox input[type=checkbox] {
@@ -112,14 +101,6 @@ h1, h2, h3, h5, h6 {
 	border-left: 3px solid grey;
 	padding-left: 10px;
 }
-
-.divide {
-	display: block;
-	height: 2px;
-	margin: 3px 0;
-	background: black;
-}
-
 
 .error {
 	padding-top: 20px;
@@ -157,17 +138,6 @@ h1, h2, h3, h5, h6 {
 
 .edit_delete img {
 	margin-top: 20px;
-}
-
-.icon-menu {
-	display: none;
-	height: 30px;
-	width: 12px;
-	float: left;
-	padding: 5px 0;
-	cursor: pointer;
-	margin-right: 10px;
-	margin-left: 10px;
 }
 
 .input {
@@ -524,7 +494,6 @@ h1, h2, h3, h5, h6 {
 
 .submit {
 	padding: 0;
-	/* margin: 0 auto !important; */
 	margin-top: 20px !important;
 	width: 40% !important;
 	cursor: pointer;
@@ -534,16 +503,6 @@ h1, h2, h3, h5, h6 {
 
 .submit:hover {
 	background-color: green;
-}
-
-.sidebar {
-	width: 300px;
-	padding: 20px;
-	float: left;
-	background: #fff;
-	-webkit-transition: left 1s east-out 0.5s;
-	-o-transition: left 1s east-out 0.5s;
-	transition: left 1s east-out 0.5s;
 }
 
 .sidebar h3 {
@@ -612,17 +571,6 @@ h1, h2, h3, h5, h6 {
 }
 
 
-/*сайдбар */
-
-
-
-
-
-
-
-
-
-
 @media print {
 	#printPageButton {
 		display: none;
@@ -640,31 +588,14 @@ h1, h2, h3, h5, h6 {
 
 
 /*// Малые девайсы («ландшафтные телефоны», >= 576px)*/
-@media (max-width: 576px) {
+@media (min-width: 576px) {
 .prew-img-block {
 	background: rgb(235, 235, 235);
 }
-
-.icon-menu {
-	display: block;
 }
 
-.sidebar {
-	position: fixed;
-	left: -250px;
-	width: 250px;
-	height: 100px;
-}
 
-.sidebar.active {
-	left: 0px;
-}
 
-.content {
-	margin-left: 0;	
-
-}
-}
 
 
 
