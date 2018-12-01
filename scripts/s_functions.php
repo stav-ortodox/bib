@@ -101,7 +101,6 @@ function get_header_site ($title_br, $header_subtitle) {
 
 		<div class="header_subtitle">
 			<img id="pigeon" src="/images/58388f74ceff21589cf06070.png" alt="">
-			<h4>$header_subtitle</h4>
 		</div>
 	</div>
 EOD;

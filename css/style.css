@@ -243,7 +243,7 @@ h1, h2, h3, h5, h6 {
 }
 
 .header_site {
-	background-image: url(https://c.pxhere.com/photos/f8/7c/landscape_scotland_kilmacolm_renfrewshire_knappsloch_canon6d_ef1635mmf4lisusm-383095.jpg!d);
+	/*background-image: url(https://c.pxhere.com/photos/f8/7c/landscape_scotland_kilmacolm_renfrewshire_knappsloch_canon6d_ef1635mmf4lisusm-383095.jpg!d);*/
 	background-size: cover;
 	padding-top: 50px;
 }
@@ -256,7 +256,8 @@ h1, h2, h3, h5, h6 {
 .header_title h4 {
 	text-align: center;
 	font-family: 'Izhitsa Regular';
-	color: #fff;
+	color: #999;
+	font-size: 20px;
 }
 
 .header_subtitle_doc {
@@ -284,7 +285,7 @@ h1, h2, h3, h5, h6 {
 
 .header_subtitle h4 {
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 30px;
 	color: black;
 }
 
@@ -338,6 +339,14 @@ h1, h2, h3, h5, h6 {
 #logo_3 {
 	max-height: 70%;
 	max-width: 20%;
+}
+
+.main-title-page h1 {
+	font-family: 'Old Standard TT', serif;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 27px;
 }
 
 .my_menu {
@@ -417,32 +426,6 @@ h1, h2, h3, h5, h6 {
   display: none;
 }
 
-/*.prew-block {
-	border: solid 1px #E47F50;
-	margin: 15px 15px 30px 15px;
-	border-radius: 5px;
-	padding: 30px 20px 20px 20px;
-	background: #6d6c6c;
-	max-height: 30vw;
-	min-height: 30vw;
-	overflow: hidden;
-	text-align: center;
-}
-
-.prew-block img {
-	margin-bottom: 10px;
-	width: 70%;
-	max-height: 371px;
-	overflow: hidden;
-}
-
-.prew-block h1, h2, h3, h4, h5, h6 {
-	text-align: center;
-	overflow: hidden;
-	color: #fff;
-	font-family: 'Zanesennyj';
-}*/
-
 .prew-img-block {
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -480,23 +463,6 @@ h1, h2, h3, h5, h6 {
 	margin: 0;
 	margin-bottom: 10px;
 }
-
-/*.prew-block:hover {
-	background: #333232;
-}
-
-.prew-block:hover img {
-
-}*/
-
-/*.prew-block a {
-	color: #2E1F36;
-	overflow: hidden;
-}*/
-
-/*.prew-block a:hover {
-	color: #E47F50;
-}*/
 
 .submit {
 	padding: 0;
@@ -596,7 +562,7 @@ h1, h2, h3, h5, h6 {
 .content {
 	margin-left: 300px;
 	padding: 20px;
-	background: #ddd;
+	/*background: #ddd;*/
 }
 
 .sidebar {
@@ -650,39 +616,51 @@ h1, h2, h3, h5, h6 {
 	margin-left: 10px;
 }
 
+.wrap {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+
 
 
 
 @media (max-width: 768px) {
-		body {
-			padding-top: 50px;
-		}
-
-		header {
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 50px;
-		}
-
-	.icon-menu {
-		display: block;
+	body {
+		padding-top: 50px;
 	}
 
-	.sidebar {
+	header {
 		position: fixed;
-		left: -250px;
-		width: 250px;
-		height: 100%;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 50px;
 	}
 
-	.sidebar.active {
-		left: 0px;
-	}
+.icon-menu {
+	display: block;
+}
 
-	.content {
-		margin-left: 0;	
+.sidebar {
+	position: fixed;
+	left: -250px;
+	width: 250px;
+	height: 100%;
+}
+
+.sidebar.active {
+	left: 0px;
+}
+
+.content {
+	margin-left: 0;	
+}
+
+.wrap {
+	display: none;
 }
 }
 
