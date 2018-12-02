@@ -70,10 +70,10 @@ page_title ('Издательство нашего храма');?>
 					echo "
 					<div class='card mb-4 col-xl-4 col-sm-6 col-md-8'>
 					<div class='view overlay'>
-					<img class='card-img-top' src=/".$row["block_image"]." alt=''>
-					<a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
-					<div class='mask rgba-white-slight'></div>
-					</a>
+						<img class='card-img-top' src=/".$row["block_image"]." alt=''>
+						<a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
+						<div class='mask rgba-white-slight'></div>
+						</a>
 					</div>
 					<div class='card-body'>
 					<h4 class='card-title'>".$row["block_name"]."</h4>
