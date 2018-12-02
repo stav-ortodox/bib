@@ -15,7 +15,12 @@ html {
 
 body {
 	height: 100%;
-	background: rgb(229,229,229);
+}
+
+header {
+	position: relative;
+	padding: 25px;
+	background: #999;
 }
 
 a {
@@ -57,8 +62,6 @@ h1, h2, h3, h5, h6 {
 	background-image: url(https://c.pxhere.com/photos/f8/7c/landscape_scotland_kilmacolm_renfrewshire_knappsloch_canon6d_ef1635mmf4lisusm-383095.jpg!d);
 	font-family: 'Old Standard TT', serif;
 	font-size: 17px;
-	/*transition: .4s ease-out;*/
- /*transition-delay: 0.5s;*/
 }
 
 .btn-outline-primary:hover {
@@ -77,13 +80,6 @@ h1, h2, h3, h5, h6 {
 	border-color: #e77948;
 }
 
-.content {
-/*	margin-top: 100px;
-	padding: 0px 0px 0px 0px;
-	background-color: rgba(20,16,13,0.7);*/
-
-}
-
 #close {
 	cursor: pointer;
 	position: static;
@@ -96,7 +92,6 @@ h1, h2, h3, h5, h6 {
 
 .checkbox {
 	display: inline-block;
-
 }
 
 .checkbox input[type=checkbox] {
@@ -111,9 +106,7 @@ h1, h2, h3, h5, h6 {
 	padding: 0;
 	border-left: 3px solid grey;
 	padding-left: 10px;
-
 }
-
 
 .error {
 	padding-top: 20px;
@@ -126,7 +119,6 @@ h1, h2, h3, h5, h6 {
 	padding: 0;
 	margin-left: 10px;
 	margin-right: 10px;
-	/*padding-top: 20px;	*/
 	text-align: center;
 	font-size: 14px;
 	color: red;
@@ -188,9 +180,7 @@ h1, h2, h3, h5, h6 {
 	justify-content: center;
 	border: solid 1px lime;
 	margin-bottom: 20px;
-
 	height: 500px;
-	/*width: 200px*/
 }
 
 #input_file:hover {
@@ -219,8 +209,6 @@ h1, h2, h3, h5, h6 {
 
 .user_form {
 	margin: 0 auto;
-	/*border-bottom:1px solid #777;*/
-	/*border-top:1px solid #777;*/
 	width: 30vw;
 	padding: 10px 10px 10px 10px;
 	margin-top: 40px;
@@ -241,7 +229,6 @@ h1, h2, h3, h5, h6 {
 .user_form h4 {
 	text-align: center;
 	margin-bottom: 20px;
-	/*border-bottom:1px solid #777;*/
 	padding-bottom: 10px;
 	font-family: 'Zanesennyj';
 	color: black;
@@ -256,7 +243,7 @@ h1, h2, h3, h5, h6 {
 }
 
 .header_site {
-	background-image: url(https://c.pxhere.com/photos/f8/7c/landscape_scotland_kilmacolm_renfrewshire_knappsloch_canon6d_ef1635mmf4lisusm-383095.jpg!d);
+	/*background-image: url(https://c.pxhere.com/photos/f8/7c/landscape_scotland_kilmacolm_renfrewshire_knappsloch_canon6d_ef1635mmf4lisusm-383095.jpg!d);*/
 	background-size: cover;
 	padding-top: 50px;
 }
@@ -269,7 +256,8 @@ h1, h2, h3, h5, h6 {
 .header_title h4 {
 	text-align: center;
 	font-family: 'Izhitsa Regular';
-	color: #fff;
+	color: #999;
+	font-size: 20px;
 }
 
 .header_subtitle_doc {
@@ -297,7 +285,7 @@ h1, h2, h3, h5, h6 {
 
 .header_subtitle h4 {
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 30px;
 	color: black;
 }
 
@@ -313,13 +301,11 @@ h1, h2, h3, h5, h6 {
 .login_signup p {
 	margin: 0;
 	color: green;
-	/*text-align: left;*/
 }
 
 .login_signup p:hover {
 	margin: 0;
 	color: #EC6925;
-	/*text-align: left;*/
 }
 
 .logo_block {
@@ -353,6 +339,14 @@ h1, h2, h3, h5, h6 {
 #logo_3 {
 	max-height: 70%;
 	max-width: 20%;
+}
+
+.main-title-page h1 {
+	font-family: 'Old Standard TT', serif;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 27px;
 }
 
 .my_menu {
@@ -432,32 +426,6 @@ h1, h2, h3, h5, h6 {
   display: none;
 }
 
-/*.prew-block {
-	border: solid 1px #E47F50;
-	margin: 15px 15px 30px 15px;
-	border-radius: 5px;
-	padding: 30px 20px 20px 20px;
-	background: #6d6c6c;
-	max-height: 30vw;
-	min-height: 30vw;
-	overflow: hidden;
-	text-align: center;
-}
-
-.prew-block img {
-	margin-bottom: 10px;
-	width: 70%;
-	max-height: 371px;
-	overflow: hidden;
-}
-
-.prew-block h1, h2, h3, h4, h5, h6 {
-	text-align: center;
-	overflow: hidden;
-	color: #fff;
-	font-family: 'Zanesennyj';
-}*/
-
 .prew-img-block {
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -478,6 +446,7 @@ h1, h2, h3, h5, h6 {
 .prew-img-block img {
 	max-width: 60%;
 	margin: 0 auto;
+	border: 1px solid #E47F50;
 }
 
 .prew-img-block h4 {
@@ -495,26 +464,8 @@ h1, h2, h3, h5, h6 {
 	margin-bottom: 10px;
 }
 
-/*.prew-block:hover {
-	background: #333232;
-}
-
-.prew-block:hover img {
-
-}*/
-
-/*.prew-block a {
-	color: #2E1F36;
-	overflow: hidden;
-}*/
-
-/*.prew-block a:hover {
-	color: #E47F50;
-}*/
-
 .submit {
 	padding: 0;
-	/* margin: 0 auto !important; */
 	margin-top: 20px !important;
 	width: 40% !important;
 	cursor: pointer;
@@ -524,10 +475,6 @@ h1, h2, h3, h5, h6 {
 
 .submit:hover {
 	background-color: green;
-}
-
-.sidebar {
-	border: solid 1px red;
 }
 
 .sidebar h3 {
@@ -596,8 +543,6 @@ h1, h2, h3, h5, h6 {
 }
 
 
-
-
 @media print {
 	#printPageButton {
 		display: none;
@@ -611,37 +556,145 @@ h1, h2, h3, h5, h6 {
 }
 
 
+/*сайдбар*/
+
+
+.content {
+	margin-left: 300px;
+	padding: 20px;
+	/*background: #ddd;*/
+}
+
+.sidebar {
+	width: 300px;
+	padding: 20px;
+	float: left;
+	background: #fff;
+	-webkit-transition: left 0.5s ease-out 0.2s;
+	-moz-transition: left 0.5s ease-out 0.2s;
+	-o-transition: left 0.5s ease-out 0.2s;
+	transition: left 0.5s ease-out 0.2s;
+}
+
+.clearfix:before,
+.clearfix:before {
+	content: " ";
+	display: table;
+}
+
+.clearfix:afte {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.divide {
+	display: block;
+	height: 2px;
+	margin: 3px 0;
+	background: black;
+}
+
+.icon-menu {
+	display: none;
+	height: 30px;
+	width: 12px;
+	float: left;
+	padding: 5px 0;
+	cursor: pointer;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.wrap {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+
+
+
+
+@media (max-width: 768px) {
+	body {
+		padding-top: 50px;
+	}
+
+	header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 50px;
+	}
+
+.icon-menu {
+	display: block;
+}
+
+.sidebar {
+	position: fixed;
+	left: -250px;
+	width: 250px;
+	height: 100%;
+}
+
+.sidebar.active {
+	left: 0px;
+}
+
+.content {
+	margin-left: 0;	
+}
+
+.wrap {
+	display: none;
+}
+}
+
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 
 /*// Малые девайсы («ландшафтные телефоны», >= 576px)*/
 @media (min-width: 576px) {
 .prew-img-block {
-	background: red;
+	background: rgb(235, 235, 235);
 }
 }
+
+
+
 
 
 
 /*// Средние девайсы («таблетки», >= 768px)*/
 @media (min-width: 768px) {
 .prew-img-block {
-	background: blue;
+	background: rgb(235, 235, 235);
 	
 }
-
-
 }
 
 
 /*// Большие девайсы (десктопы, >= 992px)*/
 @media (min-width: 992px) {
 .prew-img-block {
-	background: white;
+	background: rgb(235, 235, 235);
 	
 }
-
-
 }
 
 

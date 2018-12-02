@@ -87,14 +87,14 @@ if (isset($_FILES['pub_file'])) {
 
 $insert_sql = sprintf("INSERT INTO publishing_post (select_block, block_id,  pub_name, pub_description, pub_image, pub_file, pub_hidden) 
 	VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
-			mysqli_real_escape_string($link, $block_name_sel),
-			mysqli_real_escape_string($link, $block_id),
-   mysqli_real_escape_string($link, $pub_name),
-   mysqli_real_escape_string($link, $pub_description),
-   mysqli_real_escape_string($link, $name_img),
-   mysqli_real_escape_string($link, $name_file),
-   mysqli_real_escape_string($link, $pub_hidden),
-   mysqli_insert_id($link));
+		mysqli_real_escape_string($link, $block_name_sel),
+		mysqli_real_escape_string($link, $block_id),
+		mysqli_real_escape_string($link, $pub_name),
+		mysqli_real_escape_string($link, $pub_description),
+		mysqli_real_escape_string($link, $name_img),
+		mysqli_real_escape_string($link, $name_file),
+		mysqli_real_escape_string($link, $pub_hidden),
+		mysqli_insert_id($link));
 
 // Insert the user into the database
 mysqli_query($link, $insert_sql)

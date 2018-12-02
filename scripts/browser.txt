@@ -1,1 +1,1 @@
-browser-sync start --proxy "stav-panteleimon-biblioteka-local" --files "**/*.css, **/*.html, **/*.php, **/*.js"
+browser-sync start --proxy "bib" --files "**/*.css, **/*.html, **/*.php, **/*.js"

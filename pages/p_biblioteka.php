@@ -4,16 +4,23 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
+
 get_header_site ('Библиотека', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
+?>
+
+
+<?php
 get_menu ();
 // get_sidebar ();
 page_title ('Издательство нашего храма');?>
 
+
+
 <main class="mt-5 pt-5">
-	<div class="container">
+	<div class="container-fluid">
 		<section class="wow fadeIn">
 			<div class="row">
-				<div class="col-10">
+				<div class="col-12">
 					<div class="row text-left">
 							<?php $select_query = sprintf("SELECT * FROM publishing_blocks");
 										$result = mysqli_query($link, $select_query);
@@ -36,18 +43,19 @@ page_title ('Издательство нашего храма');?>
 																		}
 														if ($_SESSION['id'] == null or $_SESSION['id'] > 1) {
 														$hidden = $row['block_hidden'];
-														if(strlen($row["block_description"])>"120") $str = "...<br><a href=........Ссылка......=".$news['id'].">подробнее</a></p>"; else $str = "";
+														if(strlen($row["block_description"])>"120") $str = "...<br><a href=........Ссылка......=''>подробнее</a>"; else $str = "";
 														$descr_cut = mb_substr(strip_tags($row["block_description"]), 0, 120, 'utf-8');
 														// Если новость длинная, то выводим троеточие...
 														
-														      
 																		if ($hidden == 0) {
 																			$color = "display: none";}
 																		else {
 																		 continue(1);
 																		}
-																	} echo "						
-						<div class='col-lg-6 col-md-12 mb-5'>
+																	} 
+
+														echo "						
+						<div class='col-lg-4 col-md-12 mb-5'>
 							<div class='no_error' style='".$color." ".$border."'><strong>".$no_error."</strong><br>".$edit."<br>".$delete."</div>
 							<div class='prew-img-block view owerlay rounded z-depth-1-half mb-4'>
 								<h4 class='text-center'>
@@ -65,6 +73,7 @@ page_title ('Издательство нашего храма');?>
 								if ($_SESSION['id'] == 1)
 								echo	'
 				<div class="col-2">
+
 					<div class="sidebar">
 						<h3>Панель администратора</h3>
 						<hr>
@@ -73,6 +82,7 @@ page_title ('Издательство нашего храма');?>
 							<li><a href="/pages/admins/p_admin_add_new_publishing_post.php">Добавить новое издание в существующий блок издания</a></li>
 						</ul>
 					</div>
+
 				</div>';?>
 			</div> <!-- row строка контент-сайдбар -->
 		</section>

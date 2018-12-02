@@ -27,11 +27,11 @@ function get_header_site ($title_br, $header_subtitle) {
 
 	<!-- Your custom styles (optional) -->
 	<link href="/css/style.css" rel="stylesheet">
-	
-	<!-- My css -->
-	<link rel='stylesheet' href='/css/test.css'>
-	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 	<link rel="stylesheet" href="/css/media_xl.css">
+	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
+
+	<!-- My js -->
+	<link rel="stylesheet" href="js/my_js.js">
 
 	<!-- Fonts -->
 	<link href="http://allfont.ru/allfont.css?fonts=ds-russia-demo" rel="stylesheet" type="text/css">
@@ -74,6 +74,14 @@ function get_header_site ($title_br, $header_subtitle) {
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 	<title>$title_br</title>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+		$('.icon-menu').click(function(event) {
+		$('.sidebar').toggleClass('active')
+		});
+		});
+	</script>
 </head>
 
 <body>
@@ -93,7 +101,6 @@ function get_header_site ($title_br, $header_subtitle) {
 
 		<div class="header_subtitle">
 			<img id="pigeon" src="/images/58388f74ceff21589cf06070.png" alt="">
-			<h4>$header_subtitle</h4>
 		</div>
 	</div>
 EOD;
@@ -200,6 +207,8 @@ echo <<<EOD
 
 </body>
 </html>
+
+
 EOD;
 }
 
