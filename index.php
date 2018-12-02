@@ -28,7 +28,7 @@ get_header_site ('Главная', 'Электронная библиотека 
 <div class="wrap justify-content-center">
   <div class="btn-group " role="group" aria-label="Basic example">
     <button type="button" class="btn btn-cyan">Главная</button>
-    <button type="button" class="btn btn-cyan">Библиотека</button>
+    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_biblioteka.php">Библиотека</button>
     <button type="button" class="btn btn-cyan">Новости</button>
     <button type="button" class="btn btn-cyan">О храме</button>
     <button type="button" class="btn btn-cyan">Профиль</button>
@@ -36,14 +36,6 @@ get_header_site ('Главная', 'Электронная библиотека 
   </div>
 </div>
 
-
-  <header class="container clearfix">
-    <div class="icon-menu">
-      <span class="divide"></span>
-      <span class="divide"></span>
-      <span class="divide"></span>
-    </div>
-  </header>
 
 
 <div class="main-title-page"><h1>Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь</h1></div>

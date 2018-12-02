@@ -17,12 +17,6 @@ body {
 	height: 100%;
 }
 
-header {
-	position: relative;
-	padding: 25px;
-	background: #999;
-}
-
 a {
 	text-decoration: none !important;
 }
