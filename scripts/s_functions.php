@@ -124,7 +124,6 @@ echo <<<EOD
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_biblioteka.php">$s2</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_news.php">$s3</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_o_hrame.php">$s4</button>
-		    
 		    <button type="button" class="btn btn-cyan" onclick=location.href='/pages/p_admins.php'>$s5</button>
 		  
 EOD;
@@ -137,37 +136,19 @@ EOD;
    	echo "<button type='button' class='btn btn-cyan' onclick=location.href='/pages/p_admins.php'>".$s5."</button>";
   }
 
-		if (empty($_SESSION['login']) or empty($_SESSION['id'])) {
-    
-		echo 
-					"<div class='login_signup'>
-							<a href='/pages/p_login.php'><p>Войти</p></a>
-							<a href='/pages/p_registration.php'><p>Зарегистрироваться</p></a>
-							</div>
-						</div>";		
-    
- } else {
-
-		echo
-					"<div class='login_signup'>
-							Здравствуйте, <b>".$_SESSION['login']."</b>
-							<a href='/scripts/s_logout.php'><p>Выйти</p></a>
-						</div>";			
-    }
-
 echo <<<EOD
     </div>
 		</div>
 EOD;
 }
 
+
 // *************************************************************************
 
 function get_sidebar () {
-echo <<<EOD
+  }
 
-EOD;
-}
+
 
 // *************************************************************************
 

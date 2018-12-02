@@ -46,7 +46,7 @@ get_header_site ('Главная', 'Электронная библиотека 
     <div class="sidebar">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id ipsum explicabo, adipisci ratione ea ipsa officia voluptatum animi, distinctio iusto saepe illo quaerat, mollitia accusamus rerum iure molestiae odit veniam vel sequi dolor quas iste similique! Ex commodi quam magni neque adipisci! Aliquid adipisci rem reiciendis ullam minima enim maiores nostrum doloribus praesentium esse nisi dicta aspernatur quisquam sint, reprehenderit expedita minus recusandae quam possimus, accusantium eveniet itaque iste beatae totam voluptate. Blanditiis dicta fugiat earum molestiae, odit qui porro laboriosam, dolores quisquam reprehenderit, reiciendis ratione accusamus similique nemo quae illum repudiandae iure atque autem laborum! Cum nobis, quam optio.
     </div> 
-              
+
     <div class="content">
       <div class="row col-12">
 
@@ -132,22 +132,10 @@ get_header_site ('Главная', 'Электронная библиотека 
         </div>
         <!-- Card deck -->
         
-
-        
-
-
-
-
-
-
-
-
-
-       
       </div>
     </div> 
   </section>
-<!-- </main> -->
+  <!-- </main> -->
 
 
 
