@@ -11,7 +11,7 @@ get_header_site ('Библиотека', 'Электронная библиот�
 
 <?php
 get_menu ();
-// get_sidebar ();
+get_sm_menu ();
 page_title ('Издательство нашего храма');?>
 
 
@@ -68,7 +68,7 @@ page_title ('Издательство нашего храма');?>
 								}
 							} 
 					echo "
-					<div class='card mb-4 col-xl-4 col-sm-6 col-md-8'>
+					<div class='card mb-4 col-xl-4 col-sm-6 col-md-8 p-5 m-5'>
 					<div class='view overlay'>
 						<img class='card-img-top' src=/".$row["block_image"]." alt=''>
 						<a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>

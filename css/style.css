@@ -102,6 +102,10 @@ h1, h2, h3, h5, h6 {
 	padding-left: 10px;
 }
 
+.dropdown_z {
+		display: none;
+	}
+
 .error {
 	padding-top: 20px;
 	text-align: center;
@@ -662,12 +666,7 @@ h1, h2, h3, h5, h6 {
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 
-/*// Малые девайсы («ландшафтные телефоны», >= 576px)*/
-@media (min-width: 576px) {
-.prew-img-block {
-	background: rgb(235, 235, 235);
-}
-}
+
 
 
 

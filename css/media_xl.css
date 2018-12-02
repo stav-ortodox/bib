@@ -1,7 +1,7 @@
 /*// Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
 
 @media (min-width: 1200px) {
-.overlay {
+.my {
 	max-height: 562px;
 	min-height: 562px;
 	max-width: 425px;

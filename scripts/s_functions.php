@@ -28,10 +28,11 @@ function get_header_site ($title_br, $header_subtitle) {
 	<!-- Your custom styles (optional) -->
 	<link href="/css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="/css/media_xl.css">
+	<link rel="stylesheet" href="/css/media_sm.css">
 	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 
 	<!-- My js -->
-	<link rel="stylesheet" href="js/my_js.js">
+	<link rel="stylesheet" href="/js/my_js.js">
 
 	<!-- Fonts -->
 	<link href="http://allfont.ru/allfont.css?fonts=ds-russia-demo" rel="stylesheet" type="text/css">
@@ -143,6 +144,29 @@ EOD;
 }
 
 
+
+
+function get_sm_menu ()
+{ 
+
+echo '	
+<div class="dropdown_z">
+		<div class="dropdown">
+		<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1-1" data-toggle="dropdown">Bootstrap
+		search</button>
+		<div class="dropdown-menu dropdown-primary" id="your-custom-id">
+		<input class="form-control" type="text" placeholder="Search" aria-label="Search">
+		<a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/">MDB</a>
+		<a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/docs/react/">MDB react</a>
+		<a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/docs/angular/">MDB angular</a>
+		<a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/docs/vue/">MDB vue</a>
+		<a class="dropdown-item mdb-dropdownLink-1" href="https://brandflow.net/">BrandFlow</a>
+		<a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/education/bootstrap/">MDB Rocks</a>
+		</div>
+		</div>
+		</div>
+';
+}
 // *************************************************************************
 
 function get_sidebar () {
@@ -189,10 +213,12 @@ echo <<<EOD
 г. Ставрополь
 	</div>
 </footer>
-
 </body>
 </html>
-
+<script>$('#your-custom-id').mdbDropSearch();</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 EOD;
 }
