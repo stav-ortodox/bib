@@ -50,7 +50,7 @@ get_header_site ('Главная', 'Электронная библиотека 
 
 
 <!-- <main> -->
-	<section class="container clearfix mt-5">
+	<section class="container-fluid clearfix mt-5">
     <div class="sidebar">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id ipsum explicabo, adipisci ratione ea ipsa officia voluptatum animi, distinctio iusto saepe illo quaerat, mollitia accusamus rerum iure molestiae odit veniam vel sequi dolor quas iste similique! Ex commodi quam magni neque adipisci! Aliquid adipisci rem reiciendis ullam minima enim maiores nostrum doloribus praesentium esse nisi dicta aspernatur quisquam sint, reprehenderit expedita minus recusandae quam possimus, accusantium eveniet itaque iste beatae totam voluptate. Blanditiis dicta fugiat earum molestiae, odit qui porro laboriosam, dolores quisquam reprehenderit, reiciendis ratione accusamus similique nemo quae illum repudiandae iure atque autem laborum! Cum nobis, quam optio.
     </div> 
@@ -132,7 +132,7 @@ get_header_site ('Главная', 'Электронная библиотека 
               <!--Text-->
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-              <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+              <button type="button" class="btn btn-light-blue btn-md" onclick=location.href="/test/">Read more</button>
 
             </div>
           </div>
