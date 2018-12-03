@@ -115,7 +115,7 @@ function get_menu () {
 	$s5 = "Администрация";
 	$s6 = "Профиль";
 echo <<<EOD
-		<div class="wrap justify-content-center">
+		<div class="wrap justify-content-center mb-5">
 		  <div class="btn-group" role="group" aria-label="Basic example">
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/index.php">$s1</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_biblioteka.php">$s2</button>
@@ -132,7 +132,6 @@ EOD;
   }
 
 echo <<<EOD
-			
     	</div>
 		</div>
 EOD;
@@ -149,7 +148,7 @@ function get_sm_menu (){
 	$s6 = "Профиль";
 echo '	
 <script>$("#your-custom-id").mdbDropSearch();</script>
-<div class="dropdown_z">
+<div class="dropdown_z mb-5">
 	<div class="dropdown">
 		<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1-1" data-toggle="dropdown">Меню</button>
 
@@ -170,7 +169,7 @@ echo '
 
 function get_sidebar () {
 echo <<<EOD
-	<header class="container clearfix">
+	<header class="container-fluid clearfix">
     <div class="icon-menu">
       <span class="divide"></span>
       <span class="divide"></span>
@@ -193,7 +192,9 @@ EOD;
 			
 echo 
 <<<EOD
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto suscipit voluptate quos dolore amet magni vitae p_registrationatur voluptatibus. Provident ullam tenetur similique eveniet asperiores autem, velit fugit fuga voluptates sequi.	
+<b>Lorem ipsum dolor sit amet...</b><br><br>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto suscipit voluptate quos dolore amet magni vitae p_registrationatur voluptatibus. Provident ullam tenetur similique eveniet asperiores autem, velit fugit fuga voluptates sequi.	<br> 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium reiciendis minus quaerat veniam alias rem consequatur repellat dolore odio accusamus, nisi officiis, maxime enim, hic expedita. Dolorum quos nemo veritatis praesentium, impedit voluptatem possimus aut velit magni, dolorem vel architecto expedita! Aperiam nesciunt eum culpa illo ipsa nostrum consequatur amet voluptatum alias tenetur fugiat ad et commodi eius non ullam harum delectus officiis perspiciatis corrupti dignissimos nihil, dolorum ipsam sed! Modi dolores dolorum voluptate, sunt unde eum suscipit a ipsam quia porro et rem minima magni assumenda magnam fugit. Natus ipsa alias, numquam a voluptas laboriosam earum inventore totam autem.
 </div>
 EOD;
 }

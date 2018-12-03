@@ -16,6 +16,10 @@ body {
 	height: 100px;
 	background: #eee;
 }
+/*
+header {
+	width: 100vw !important;
+}*/
 
 .container {
 	overflow: hidden;
@@ -27,12 +31,11 @@ body {
 }
 
 .sidebar {
-	z-index: 1000;
+	z-index: 999;
 	width: 300px;
 	padding-right: 30px;
-	padding-top: 15px;
+	padding-left: 15px;
 	float: left;
-	background: #fff;
 	-webkit-transition: left 0.5s ease-out 0.2s;
 	-moz-transition: left 0.5s ease-out 0.2s;
 	-o-transition: left 0.5s ease-out 0.2s;
@@ -460,7 +463,6 @@ h1, h2, h3, h5, h6 {
 	margin: 5px;
 }
 
-
 .opasity-block {
 	z-index: 999;
 	background-color: rgba(173, 57, 22, 1);
@@ -535,6 +537,9 @@ h1, h2, h3, h5, h6 {
   border-image: url(http://gmaindia.org/Images/shadowLine.png) 30 round round;
 }
 
+.pub-block {
+	max-width: 370px;
+}
 
 .wrap hr {
 	border: none; /* Убираем границу для браузера Firefox */
@@ -637,8 +642,8 @@ header {
 	position: absolute;
 	left: -250px;
 	width: 250px;
-	height: 100%;
 	border: solid 1px #00BCD4;
+	top: 60px;
 }
 
 .sidebar.active {
@@ -656,6 +661,54 @@ header {
 .dropdown_z {
 	display: block;
 }
+
+.wrap {
+	display: none;
+}
+
+body {
+	padding-top: 50px;
+}
+
+header {
+	position: relative;
+	padding: 10px;
+	background-color: #00BCD4;
+	z-index: 1000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+}
+
+.icon-menu {
+	display: block;
+}
+
+.dropdown_z {
+	display: block;
+}
+
+.wrap {
+	display: none;
+}
+
+.sidebar {
+	position: absolute;
+	left: -250px;
+	width: 250px;
+	border: solid 1px #00BCD4;
+	top: 60px;
+}
+
+.sidebar.active {
+	left: 0px;
+}
+
+.content {
+	margin-left: 0;	
+}
 }
 
 
@@ -668,9 +721,15 @@ header {
 
 /*// Большие девайсы (десктопы, >= 992px)*/
 @media (min-width: 992px) {
+
+header {
+	display: none;
+}
+
 .dropdown_z {
 	display: none;
 }
+
 .wrap {
 	display: flex;
 }

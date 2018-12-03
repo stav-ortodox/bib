@@ -12,10 +12,10 @@ get_header_site ('Библиотека', 'Электронная библиот�
 <?php
 get_menu ();
 get_sm_menu ();
-page_title ('Издательство нашего храма');
+page_title ('Издания нашего храма');
 ?>
 
-<section class="container-fluid clearfix mt-5">
+<section class="container-fluid clearfix">
 	<?php get_sidebar (); ?>
 	<div class="content">
 		<div class="row">
@@ -53,8 +53,8 @@ page_title ('Издательство нашего храма');
 								}
 							} 
 					echo "
-					<div class='card mb-4 col-xl-4 col-sm-6 col-md-8 p-5 m-5'>
-					<div class='view overlay'>
+					<div class='card col-xl-3 col-lg-6 col-md-4 col-sm-8 ml-5 mr-5 mb-5'>
+					<div class='view overlay pub-block'>
 						<img class='card-img-top' src=/".$row["block_image"]." alt=''>
 						<a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
 						<div class='mask rgba-white-slight'></div>
@@ -63,7 +63,7 @@ page_title ('Издательство нашего храма');
 					<div class='card-body'>
 					<h4 class='card-title'>".$row["block_name"]."</h4>
 					<p class='card-text'>".$descr_cut.$str."</p>
-					<a href='#' class='btn btn-primary'>Button</a>
+					<a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."' class='btn btn-primary'>Просмотр</a>
 					</div>
 					</div>";}?>
 				</div>
