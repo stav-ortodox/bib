@@ -375,7 +375,6 @@ h1, h2, h3, h5, h6 {
 
 .my_menu button {
 	margin: 5px;
-	/*min-width: 225px;*/
 }
 
 .opasity-block {
@@ -647,6 +646,29 @@ h1, h2, h3, h5, h6 {
 	display: none;
 }
 
+.some-class {
+    display: none;
+    min-width: 100px;
+    min-height: 100px;
+    background: black;
+  }
 
 
 
+
+@media (min-width: 1200px) {
+/*.my {
+	max-height: 562px;
+	min-height: 562px;
+	max-width: 425px;
+	max-width: 425px;
+}*/
+
+.no_error {
+	max-width: 425px;
+	min-width: 425px;
+}
+
+
+
+}

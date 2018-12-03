@@ -27,11 +27,6 @@ function get_header_site ($title_br, $header_subtitle) {
 
 	<!-- Your custom styles (optional) -->
 	<link href="/css/style.css" rel="stylesheet">
-	<link rel="stylesheet" href="/css/media_es.css">
-	<link rel="stylesheet" href="/css/media_lg.css">
-	<link rel="stylesheet" href="/css/media_md.css">
-	<link rel="stylesheet" href="/css/media_xl.css">
-	<link rel="stylesheet" href="/css/media_sm.css">
 	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 
 	<!-- My js -->
@@ -121,15 +116,12 @@ function get_menu () {
 	$s5 = "Администрация";
 	$s6 = "Профиль";
 echo <<<EOD
-
 		<div class="wrap justify-content-center">
 		  <div class="btn-group " role="group" aria-label="Basic example">
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/index.php">$s1</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_biblioteka.php">$s2</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_news.php">$s3</button>
-		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_o_hrame.php">$s4</button>
-		    
-		  
+		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_o_hrame.php">$s4</button>	  
 EOD;
 
   if (isset($_SESSION['id'])) {
@@ -146,8 +138,7 @@ echo <<<EOD
 EOD;
 }
 
-
-
+// *************************************************************************
 
 function get_sm_menu (){
 	$s1 = "Главная";

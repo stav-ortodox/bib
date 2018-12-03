@@ -8,8 +8,7 @@ get_header_site ('Главная', 'Электронная библиотека 
 get_menu ();
 get_sm_menu ();
 ?>
-
-    
+  
 
   <script type="text/javascript">
     jQuery(document).ready(function($) {
@@ -20,18 +19,6 @@ get_sm_menu ();
   </script>
 <!-- меню -->
 <!-- Navbar -->
-
-
-<div class="wrap justify-content-center">
-  <div class="btn-group " role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-cyan">Главная</button>
-    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_biblioteka.php">Библиотека</button>
-    <button type="button" class="btn btn-cyan">Новости</button>
-    <button type="button" class="btn btn-cyan">О храме</button>
-    <button type="button" class="btn btn-cyan">Профиль</button>
-    <button type="button" class="btn btn-cyan" onclick=location.href="http://localhost:3000/test/">Администратор</button>
-  </div>
-</div>
 
 
 
