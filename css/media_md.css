@@ -1,0 +1,8 @@
+
+/*// Средние девайсы («таблетки», >= 768px)*/
+@media (min-width: 768px) {
+.prew-img-block {
+	background: rgb(235, 235, 235);
+	
+}
+}

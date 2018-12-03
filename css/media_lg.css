@@ -1,0 +1,7 @@
+/*// Большие девайсы (десктопы, >= 992px)*/
+@media (min-width: 992px) {
+.prew-img-block {
+	background: rgb(235, 235, 235);
+	
+}
+}

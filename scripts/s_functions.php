@@ -27,6 +27,9 @@ function get_header_site ($title_br, $header_subtitle) {
 
 	<!-- Your custom styles (optional) -->
 	<link href="/css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/media_es.css">
+	<link rel="stylesheet" href="/css/media_lg.css">
+	<link rel="stylesheet" href="/css/media_md.css">
 	<link rel="stylesheet" href="/css/media_xl.css">
 	<link rel="stylesheet" href="/css/media_sm.css">
 	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
@@ -108,15 +111,15 @@ EOD;
 }
 
 // *************************************************************************
-
+	
 function get_menu () {
+	
 	$s1 = "Главная";
 	$s2 = "Библиотека";
 	$s3 = "Новости";
 	$s4 = "О храме";
 	$s5 = "Администрация";
 	$s6 = "Профиль";
-
 echo <<<EOD
 
 		<div class="wrap justify-content-center">
@@ -125,7 +128,7 @@ echo <<<EOD
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_biblioteka.php">$s2</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_news.php">$s3</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_o_hrame.php">$s4</button>
-		    <button type="button" class="btn btn-cyan" onclick=location.href='/pages/p_admins.php'>$s5</button>
+		    
 		  
 EOD;
 
@@ -146,25 +149,29 @@ EOD;
 
 
 
-function get_sm_menu ()
-{ 
-
+function get_sm_menu (){
+	$s1 = "Главная";
+	$s2 = "Библиотека";
+	$s3 = "Новости";
+	$s4 = "О храме";
+	$s5 = "Администрация";
+	$s6 = "Профиль";
 echo '	
 <div class="dropdown_z">
-		<div class="dropdown">
-		<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1-1" data-toggle="dropdown">Bootstrap
-		search</button>
+	<div class="dropdown">
+		<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1-1" data-toggle="dropdown">Меню</button>
+
 		<div class="dropdown-menu dropdown-primary" id="your-custom-id">
-		<input class="form-control" type="text" placeholder="Search" aria-label="Search">
-		<a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/">MDB</a>
-		<a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/docs/react/">MDB react</a>
-		<a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/docs/angular/">MDB angular</a>
-		<a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/docs/vue/">MDB vue</a>
-		<a class="dropdown-item mdb-dropdownLink-1" href="https://brandflow.net/">BrandFlow</a>
-		<a class="dropdown-item mdb-dropdownLink-1" href="https://mdbootstrap.com/education/bootstrap/">MDB Rocks</a>
+			<input class="form-control" type="text" placeholder="Поиск" aria-label="Search">
+			<a class="dropdown-item mdb-dropdownLink-1" href="/index.php">'.$s1.'</a>
+			<a class="dropdown-item mdb-dropdownLink-1" href="/pages/p_biblioteka.php">'.$s2.'</a>
+			<a class="dropdown-item mdb-dropdownLink-1" href="/pages/p_news.php">'.$s3.'</a>
+			<a class="dropdown-item mdb-dropdownLink-1" href="/pages/p_o_hrame.php">'.$s4.'</a>
+			<a class="dropdown-item mdb-dropdownLink-1" href="/pages/p_profile.php">'.$s6.'</a>
+			<a class="dropdown-item mdb-dropdownLink-1" href="/pages/p_admins.php">'.$s5.'</a>
 		</div>
-		</div>
-		</div>
+	</div>
+</div>
 ';
 }
 // *************************************************************************

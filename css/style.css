@@ -103,7 +103,7 @@ h1, h2, h3, h5, h6 {
 }
 
 .dropdown_z {
-		display: none;
+		display: block;
 	}
 
 .error {
@@ -624,20 +624,6 @@ h1, h2, h3, h5, h6 {
 
 
 
-
-@media (max-width: 768px) {
-	body {
-		padding-top: 50px;
-	}
-
-	header {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 50px;
-	}
-
 .icon-menu {
 	display: block;
 }
@@ -660,34 +646,7 @@ h1, h2, h3, h5, h6 {
 .wrap {
 	display: none;
 }
-}
 
 
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
-
-
-
-
-
-
-
-
-/*// Средние девайсы («таблетки», >= 768px)*/
-@media (min-width: 768px) {
-.prew-img-block {
-	background: rgb(235, 235, 235);
-	
-}
-}
-
-
-/*// Большие девайсы (десктопы, >= 992px)*/
-@media (min-width: 992px) {
-.prew-img-block {
-	background: rgb(235, 235, 235);
-	
-}
-}
 
 
