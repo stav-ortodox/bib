@@ -1,4 +1,3 @@
-
 @font-face {
 	font-family: 'Izhitsa Regular';
 	src: url('Izhitsa.eot');
@@ -14,8 +13,78 @@ html {
 }
 
 body {
-	height: 100%;
+	height: 100px;
+	background: #eee;
 }
+
+.container {
+	overflow: hidden;
+}
+
+.content {
+	margin-left: 300px;
+	/*padding: 20px;*/
+}
+
+.sidebar {
+	z-index: 1000;
+	width: 300px;
+	padding-right: 30px;
+	padding-top: 15px;
+	float: left;
+	background: #fff;
+	-webkit-transition: left 0.5s ease-out 0.2s;
+	-moz-transition: left 0.5s ease-out 0.2s;
+	-o-transition: left 0.5s ease-out 0.2s;
+	transition: left 0.5s ease-out 0.2s;
+	background: #eee;
+}
+
+.sidebar h3 {
+	text-align: center;
+	color: #2E1F36;
+}
+
+.clearfix:before,
+.clearfix:before {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.divide {
+	display: block;
+	height: 2px;
+	margin: 3px 0;
+	background: black;
+}
+
+.icon-menu {
+	display: none;
+	height: 30px;
+	width: 12px;
+	float: left;
+	padding: 5px 0;
+	cursor: pointer;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
 
 a {
 	text-decoration: none !important;
@@ -391,6 +460,7 @@ h1, h2, h3, h5, h6 {
 	margin: 5px;
 }
 
+
 .opasity-block {
 	z-index: 999;
 	background-color: rgba(173, 57, 22, 1);
@@ -466,13 +536,14 @@ h1, h2, h3, h5, h6 {
 }
 
 
-.prew-block hr {
+.wrap hr {
 	border: none; /* Убираем границу для браузера Firefox */
 	color: #E47F50; /* Цвет линии для остальных браузеров */
 	background-color: #E47F50; /* Цвет линии для браузера Firefox и Opera */
-	height: 1px; /* Толщина линии */
+	height: 3px; /* Толщина линии */
 	margin: 0;
 	margin-bottom: 10px;
+	width: 100%;
 }
 
 .submit {
@@ -506,94 +577,68 @@ h1, h2, h3, h5, h6 {
 	color: red;
 }
 
+.wrap {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+
 #your-custom-id {
-
 }
 
 
-@media print {
-	#printPageButton {
-		display: none;
-  }
-}
-
-@media print {
-	.page-break {
-		page-break-inside: avoid;
- 	}
-}
 
 
-/*сайдбар*/
 
 
-.content {
-	margin-left: 300px;
-	padding: 20px;
-	/*background: #ddd;*/
-}
 
-.sidebar {
-	width: 300px;
-	padding: 20px;
-	float: left;
-	background: #fff;
-	-webkit-transition: left 0.5s ease-out 0.2s;
-	-moz-transition: left 0.5s ease-out 0.2s;
-	-o-transition: left 0.5s ease-out 0.2s;
-	transition: left 0.5s ease-out 0.2s;
-}
 
-.sidebar h3 {
-	text-align: center;
-	color: #2E1F36;
-}
-
-.clearfix:before,
-.clearfix:before {
-	content: " ";
-	display: table;
-}
-
-.clearfix:afte {
-	clear: both;
-}
-
-.left {
-	float: left;
-}
-
-.right {
-	float: right;
-}
-
-.text-right {
-	text-align: right;
-}
-
-.divide {
+/*// Малые девайсы («ландшафтные телефоны», <= 576px)*/
+@media (max-width: 576px) {
+.dropdown_z {
 	display: block;
-	height: 2px;
-	margin: 3px 0;
-	background: black;
+}
+
+.wrap {
+	display: none;
+}
+
+body {
+	padding-top: 50px;
+}
+
+header {
+	position: relative;
+	padding: 10px;
+	background-color: #00BCD4;
+	z-index: 1000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
 }
 
 .icon-menu {
+	display: block;
+}
+
+.dropdown_z {
+	display: block;
+}
+
+.wrap {
 	display: none;
-	height: 30px;
-	width: 12px;
-	float: left;
-	padding: 5px 0;
-	cursor: pointer;
-	margin-right: 10px;
-	margin-left: 10px;
 }
 
 .sidebar {
-	position: fixed;
+	position: absolute;
 	left: -250px;
 	width: 250px;
 	height: 100%;
+	border: solid 1px #00BCD4;
 }
 
 .sidebar.active {
@@ -603,45 +648,6 @@ h1, h2, h3, h5, h6 {
 .content {
 	margin-left: 0;	
 }
-
-.wrap {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-}
-
-.some-class {
-	display: none;
-	min-width: 100px;
-	min-height: 100px;
-	background: black;
-  }
-
-
-
-/*// Малые девайсы («ландшафтные телефоны», <= 576px)*/
-@media (max-width: 576px) {
-body {
-	padding-top: 50px;
-}
-
-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 50px;
-}
-
-.dropdown_z {
-	display: block;
-}
-
-.wrap {
-	display: none;
-}
 }
 
 
@@ -650,13 +656,7 @@ header {
 .dropdown_z {
 	display: block;
 }
-
-.wrap {
-	display: none;
 }
-
-}
-
 
 
 /*// Средние девайсы («таблетки», >= 768px)*/
@@ -664,8 +664,6 @@ header {
 .dropdown_z {
 	display: block;
 }
-
-
 }
 
 /*// Большие девайсы (десктопы, >= 992px)*/
@@ -673,15 +671,9 @@ header {
 .dropdown_z {
 	display: none;
 }
-
 .wrap {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
 	display: flex;
 }
-	
 }
 
 /*// Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
@@ -689,7 +681,6 @@ header {
 
 .dropdown_z {
 	display: none;
-
 }
 /*.no_error {
 	max-width: 425px;
@@ -737,4 +728,18 @@ header {
 	height: 300px;
 	width: 385px;
 	margin-left: 10px;
+}
+
+
+
+@media print {
+	#printPageButton {
+		display: none;
+  }
+}
+
+@media print {
+	.page-break {
+		page-break-inside: avoid;
+ 	}
 }

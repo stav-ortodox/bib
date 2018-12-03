@@ -12,28 +12,11 @@ get_header_site ('Библиотека', 'Электронная библиот�
 <?php
 get_menu ();
 get_sm_menu ();
-page_title ('Издательство нашего храма');?>
-
-<div class="some-class">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At natus distinctio commodi, et consequuntur nemo molestiae aut iure error sit pariatur magnam mollitia ratione labore tempore minima excepturi debitis voluptatibus!
-</div>
+page_title ('Издательство нашего храма');
+?>
 
 <section class="container-fluid clearfix mt-5">
-	<div class="sidebar">
-		<?php 
-		if (empty($_SESSION['login']) or empty($_SESSION['id'])) {
-			echo 
-			"<a href='/pages/p_login.php'><p>Войти</p></a>
-			<a href='/pages/p_registration.php'><p>Зарегистрироваться</p></a>";		
-		} else {
-			echo
-			"Здравствуйте, <b>".$_SESSION['login']."</b>
-			<a href='/scripts/s_logout.php'><p>Выйти</p></a>";			
-		}
-		?>
-
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto suscipit voluptate quos dolore amet magni vitae p_registrationatur voluptatibus. Provident ullam tenetur similique eveniet asperiores autem, velit fugit fuga voluptates sequi.	
-	</div>
-
+	<?php get_sidebar (); ?>
 	<div class="content">
 		<div class="row">
 			<div class="col-12">

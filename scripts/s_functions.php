@@ -132,7 +132,8 @@ EOD;
   }
 
 echo <<<EOD
-    </div>
+			
+    	</div>
 		</div>
 EOD;
 }
@@ -168,7 +169,34 @@ echo '
 // *************************************************************************
 
 function get_sidebar () {
-  }
+echo <<<EOD
+	<header class="container clearfix">
+    <div class="icon-menu">
+      <span class="divide"></span>
+      <span class="divide"></span>
+      <span class="divide"></span>
+    </div>
+  </header>
+<section class="container-fluid clearfix mt-5">
+<div class="sidebar">
+EOD;
+			 
+			if (empty($_SESSION['login']) or empty($_SESSION['id'])) {
+				echo 
+				"<a href='/pages/p_login.php'><p>Войти</p></a>
+				<a href='/pages/p_registration.php'><p>Зарегистрироваться</p></a>";		
+			} else {
+				echo
+				"Здравствуйте, <b>".$_SESSION['login']."</b>
+				<a href='/scripts/s_logout.php'><p>Выйти</p></a>";			
+			}
+			
+echo 
+<<<EOD
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto suscipit voluptate quos dolore amet magni vitae p_registrationatur voluptatibus. Provident ullam tenetur similique eveniet asperiores autem, velit fugit fuga voluptates sequi.	
+</div>
+EOD;
+}
 
 
 
