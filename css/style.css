@@ -103,8 +103,24 @@ h1, h2, h3, h5, h6 {
 }
 
 .dropdown_z {
-		display: block;
-	}
+	text-align: center;
+}
+
+.btn-primary.dropdown-toggle {
+	background-color: #00BCD4 !important;
+}
+
+.btn-primary.dropdown-toggle:hover {
+	background-color: #00BCD4 !important;
+}
+
+.btn-primary:not([disabled]):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+	background-color: #00BCD4 !important;
+}
+
+.btn-primary.dropdown-toggle:focus {
+	background-color: #00BCD4 !important;
+}
 
 .error {
 	padding-top: 20px;
@@ -248,7 +264,6 @@ h1, h2, h3, h5, h6 {
 
 .header_title {
 	text-align: center;
-
 }
 
 .header_title h4 {
@@ -322,7 +337,6 @@ h1, h2, h3, h5, h6 {
 	-ms-align-items: center;
 	align-items: center;
 }
-
 
 #logo_1 {
 	max-height: 77%;
@@ -474,10 +488,6 @@ h1, h2, h3, h5, h6 {
 	background-color: green;
 }
 
-.sidebar h3 {
-	text-align: center;
-	color: #2E1F36;
-}
 
 .title_table {
 	font-family: 'Old Standard TT', serif;
@@ -492,51 +502,12 @@ h1, h2, h3, h5, h6 {
 	margin-bottom: 50px;
 }
 
-.text_center {
-	text-align: center;
-}
-
 .warning {
 	color: red;
 }
 
-/*******************************************/
+#your-custom-id {
 
-
-#sem {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	-webkit-flex-direction: row;
-	-moz-flex-direction: row;
-	-ms-flex-direction: row;
-	-o-flex-direction: row;
-	flex-direction: row;
-	justify-content: space-around;
-	-ms-align-items: center;
-	align-items: center;
-	margin-bottom: 30px;
-}
-
-#otrok_semeon1 {
-	height: 300px;
-	width: 385px;
-	margin-right: 10px;
-}
-
-#otrok_semeon2 {
-	height: 450px;
-	width: 300px;
-	border: solid 5px black;
-	margin-bottom: 10px;
-}
-
-#otrok_semeon3 {
-	height: 300px;
-	width: 385px;
-	margin-left: 10px;
 }
 
 
@@ -571,6 +542,11 @@ h1, h2, h3, h5, h6 {
 	-moz-transition: left 0.5s ease-out 0.2s;
 	-o-transition: left 0.5s ease-out 0.2s;
 	transition: left 0.5s ease-out 0.2s;
+}
+
+.sidebar h3 {
+	text-align: center;
+	color: #2E1F36;
 }
 
 .clearfix:before,
@@ -613,20 +589,6 @@ h1, h2, h3, h5, h6 {
 	margin-left: 10px;
 }
 
-.wrap {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-}
-
-
-
-.icon-menu {
-	display: block;
-}
-
 .sidebar {
 	position: fixed;
 	left: -250px;
@@ -643,32 +605,136 @@ h1, h2, h3, h5, h6 {
 }
 
 .wrap {
-	display: none;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
 }
 
 .some-class {
-    display: none;
-    min-width: 100px;
-    min-height: 100px;
-    background: black;
+	display: none;
+	min-width: 100px;
+	min-height: 100px;
+	background: black;
   }
 
 
 
+/*// Малые девайсы («ландшафтные телефоны», <= 576px)*/
+@media (max-width: 576px) {
+body {
+	padding-top: 50px;
+}
 
-@media (min-width: 1200px) {
-/*.my {
-	max-height: 562px;
-	min-height: 562px;
-	max-width: 425px;
-	max-width: 425px;
-}*/
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+}
 
-.no_error {
-	max-width: 425px;
-	min-width: 425px;
+.dropdown_z {
+	display: block;
+}
+
+.wrap {
+	display: none;
+}
+}
+
+
+/*// Малые девайсы («ландшафтные телефоны», >= 576px)*/
+@media (min-width: 576px) {
+.dropdown_z {
+	display: block;
+}
+
+.wrap {
+	display: none;
+}
+
 }
 
 
 
+/*// Средние девайсы («таблетки», >= 768px)*/
+@media (min-width: 768px) {
+.dropdown_z {
+	display: block;
+}
+
+
+}
+
+/*// Большие девайсы (десктопы, >= 992px)*/
+@media (min-width: 992px) {
+.dropdown_z {
+	display: none;
+}
+
+.wrap {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+	
+}
+
+/*// Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
+@media (min-width: 1200px) {
+
+.dropdown_z {
+	display: none;
+
+}
+/*.no_error {
+	max-width: 425px;
+	min-width: 425px;
+}*/
+}
+
+
+
+
+/*******************************************/
+
+
+#sem {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-moz-flex-direction: row;
+	-ms-flex-direction: row;
+	-o-flex-direction: row;
+	flex-direction: row;
+	justify-content: space-around;
+	-ms-align-items: center;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+#otrok_semeon1 {
+	height: 300px;
+	width: 385px;
+	margin-right: 10px;
+}
+
+#otrok_semeon2 {
+	height: 450px;
+	width: 300px;
+	border: solid 5px black;
+	margin-bottom: 10px;
+}
+
+#otrok_semeon3 {
+	height: 300px;
+	width: 385px;
+	margin-left: 10px;
 }

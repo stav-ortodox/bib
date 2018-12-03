@@ -6,6 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
 get_header_site ('Главная', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
 get_menu ();
+echo "<script>$('#your-custom-id').mdbDropSearch();</script>";
 get_sm_menu ();
 ?>
   

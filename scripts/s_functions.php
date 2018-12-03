@@ -108,7 +108,6 @@ EOD;
 // *************************************************************************
 	
 function get_menu () {
-	
 	$s1 = "Главная";
 	$s2 = "Библиотека";
 	$s3 = "Новости";
@@ -117,7 +116,7 @@ function get_menu () {
 	$s6 = "Профиль";
 echo <<<EOD
 		<div class="wrap justify-content-center">
-		  <div class="btn-group " role="group" aria-label="Basic example">
+		  <div class="btn-group" role="group" aria-label="Basic example">
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/index.php">$s1</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_biblioteka.php">$s2</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_news.php">$s3</button>
@@ -148,6 +147,7 @@ function get_sm_menu (){
 	$s5 = "Администрация";
 	$s6 = "Профиль";
 echo '	
+<script>$("#your-custom-id").mdbDropSearch();</script>
 <div class="dropdown_z">
 	<div class="dropdown">
 		<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1-1" data-toggle="dropdown">Меню</button>
@@ -213,7 +213,7 @@ echo <<<EOD
 </footer>
 </body>
 </html>
-<script>$('#your-custom-id').mdbDropSearch();</script>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

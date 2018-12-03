@@ -1,8 +1,0 @@
-/*// Малые девайсы («ландшафтные телефоны», >= 576px)*/
-@media (min-width: 576px) {
-	.dropdown_z {
-		display: block;
-	}
-
-}
-

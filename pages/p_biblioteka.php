@@ -11,7 +11,7 @@ get_header_site ('Библиотека', 'Электронная библиот�
 
 <?php
 get_menu ();
-// get_sm_menu ();
+get_sm_menu ();
 page_title ('Издательство нашего храма');?>
 
 <div class="some-class">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At natus distinctio commodi, et consequuntur nemo molestiae aut iure error sit pariatur magnam mollitia ratione labore tempore minima excepturi debitis voluptatibus!
