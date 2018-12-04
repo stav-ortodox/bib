@@ -6,190 +6,205 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
 get_header_site ('Главная', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
 get_menu ();
-
 get_sm_menu ();
-
 ?>
-  
+
 
 
 <div class="main-title-page"><h1>Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь</h1></div>
 
 
-<!-- <main> -->
-	<section class="container-fluid clearfix mt-5">
-    <?php get_sidebar (); ?>
-    <div class="content">
-      <div class="row col-12">
 
-        <!-- Card deck -->
-        <div class="card-deck">
 
-          <!-- Card -->
-          <div class="card mb-4">
 
-            <!--Card image-->
-            <div class="view overlay">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-              <a href="#!">
-                <div class="mask rgba-white-slight"></div>
-              </a>
-            </div>
+<main>
+  <section class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
 
-            <!--Card content-->
-            <div class="card-body">
-
-              <!--Title-->
-              <h4 class="card-title">Card title</h4>
-              <!--Text-->
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-              <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
-            </div>
-
-          </div>
-          <!-- Card -->
-
-          <!-- Card -->
-          <div class="card mb-4">
-
-            <!--Card image-->
-            <div class="view overlay">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
-              <a href="#!">
-                <div class="mask rgba-white-slight"></div>
-              </a>
-            </div>
-
-            <!--Card content-->
-            <div class="card-body">
-
-              <!--Title-->
-              <h4 class="card-title">Card title</h4>
-              <!--Text-->
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-              <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-
-            </div>
-
-          </div>
-          <!-- Card -->
-
-          <!-- Card -->
-          <div class="card mb-4">
-
-            <!--Card image-->
-            <div class="view overlay">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
-              <a href="#!">
-                <div class="mask rgba-white-slight"></div>
-              </a>
-            </div>
-
-            <!--Card content-->
-            <div class="card-body">
-
-              <!--Title-->
-              <h4 class="card-title">Card title</h4>
-              <!--Text-->
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-              <button type="button" class="btn btn-light-blue btn-md" onclick=location.href="/test/">Read more</button>
-
-            </div>
-          </div>
-          <!-- Card -->
+        <div class="sidebar">
+          <a href='/pages/p_login.php'><p>Войти</p></a>
+          <a href='/pages/p_registration.php'><p>Зарегистрироваться</p></a>
+          <a href='/scripts/s_logout.php'><p>Выйти</p></a> 
+          <img src="images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" class="img-fluid z-depth-2" alt="">    
+          <b>Lorem ipsum dolor sit amet...</b><br><br>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto suscipit voluptate quos dolore amet magni vitae p_registrationatur voluptatibus. Provident ullam tenetur similique eveniet asperiores autem, velit fugit fuga voluptates sequi. <br> 
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium reiciendis minus quaerat veniam alias rem consequatur repellat dolore odio accusamus, nisi officiis, maxime enim, hic expedita. Dolorum quos nemo veritatis praesentium, impedit voluptatem possimus aut velit magni, dolorem vel architecto expedita! Aperiam nesciunt eum culpa illo ipsa nostrum consequatur amet voluptatum alias tenetur fugiat ad et commodi eius non ullam harum delectus officiis perspiciatis corrupti dignissimos nihil, dolorum ipsam sed! Modi dolores dolorum voluptate, sunt unde eum suscipit a ipsam quia porro et rem minima magni assumenda magnam fugit. Natus ipsa alias, numquam a voluptas laboriosam earum inventore totam autem.
         </div>
-        <!-- Card deck -->
         
       </div>
-    </div> 
+
+      <div class="col-sm-10">
+        <div class="content">
+        <div class="row">
+
+
+            <div class="col-sm-4 pub-block">
+              <div class='card'>
+                <div class='view overlay'>
+                  <img class='card-img-top' src=/".$row["block_image"]." alt=''>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
+                    <div class='mask rgba-white-slight'></div>
+                  </a>
+                </div>
+                <div class='card-body'>
+                  <h4 class='card-title'>".$row["block_name"]."</h4>
+                  <p class='card-text'>".$descr_cut.$str."</p>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."' class='btn btn-primary'>Просмотр</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4 pub-block">
+              <div class='card'>
+                <div class='view overlay'>
+                  <img class='card-img-top' src=/".$row["block_image"]." alt=''>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
+                    <div class='mask rgba-white-slight'></div>
+                  </a>
+                </div>
+                <div class='card-body'>
+                  <h4 class='card-title'>".$row["block_name"]."</h4>
+                  <p class='card-text'>".$descr_cut.$str."</p>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."' class='btn btn-primary'>Просмотр</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4 pub-block">
+              <div class='card'>
+                <div class='view overlay'>
+                  <img class='card-img-top' src=/".$row["block_image"]." alt=''>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
+                    <div class='mask rgba-white-slight'></div>
+                  </a>
+                </div>
+                <div class='card-body'>
+                  <h4 class='card-title'>".$row["block_name"]."</h4>
+                  <p class='card-text'>".$descr_cut.$str."</p>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."' class='btn btn-primary'>Просмотр</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4 pub-block">
+              <div class='card'>
+                <div class='view overlay'>
+                  <img class='card-img-top' src=/".$row["block_image"]." alt=''>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
+                    <div class='mask rgba-white-slight'></div>
+                  </a>
+                </div>
+                <div class='card-body'>
+                  <h4 class='card-title'>".$row["block_name"]."</h4>
+                  <p class='card-text'>".$descr_cut.$str."</p>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."' class='btn btn-primary'>Просмотр</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4 pub-block">
+              <div class='card'>
+                <div class='view overlay'>
+                  <img class='card-img-top' src=/".$row["block_image"]." alt=''>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
+                    <div class='mask rgba-white-slight'></div>
+                  </a>
+                </div>
+                <div class='card-body'>
+                  <h4 class='card-title'>".$row["block_name"]."</h4>
+                  <p class='card-text'>".$descr_cut.$str."</p>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."' class='btn btn-primary'>Просмотр</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4 pub-block">
+              <div class='card'>
+                <div class='view overlay'>
+                  <img class='card-img-top' src=/".$row["block_image"]." alt=''>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
+                    <div class='mask rgba-white-slight'></div>
+                  </a>
+                </div>
+                <div class='card-body'>
+                  <h4 class='card-title'>".$row["block_name"]."</h4>
+                  <p class='card-text'>".$descr_cut.$str."</p>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."' class='btn btn-primary'>Просмотр</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4 pub-block">
+              <div class='card'>
+                <div class='view overlay'>
+                  <img class='card-img-top' src=/".$row["block_image"]." alt=''>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
+                    <div class='mask rgba-white-slight'></div>
+                  </a>
+                </div>
+                <div class='card-body'>
+                  <h4 class='card-title'>".$row["block_name"]."</h4>
+                  <p class='card-text'>".$descr_cut.$str."</p>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."' class='btn btn-primary'>Просмотр</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4 pub-block">
+              <div class='card'>
+                <div class='view overlay'>
+                  <img class='card-img-top' src=/".$row["block_image"]." alt=''>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
+                    <div class='mask rgba-white-slight'></div>
+                  </a>
+                </div>
+                <div class='card-body'>
+                  <h4 class='card-title'>".$row["block_name"]."</h4>
+                  <p class='card-text'>".$descr_cut.$str."</p>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."' class='btn btn-primary'>Просмотр</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4 pub-block">
+              <div class='card'>
+                <div class='view overlay'>
+                  <img class='card-img-top' src=/".$row["block_image"]." alt=''>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
+                    <div class='mask rgba-white-slight'></div>
+                  </a>
+                </div>
+                <div class='card-body'>
+                  <h4 class='card-title'>".$row["block_name"]."</h4>
+                  <p class='card-text'>".$descr_cut.$str."</p>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."' class='btn btn-primary'>Просмотр</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4 pub-block">
+              <div class='card'>
+                <div class='view overlay'>
+                  <img class='card-img-top' src=/".$row["block_image"]." alt=''>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
+                    <div class='mask rgba-white-slight'></div>
+                  </a>
+                </div>
+                <div class='card-body'>
+                  <h4 class='card-title'>".$row["block_name"]."</h4>
+                  <p class='card-text'>".$descr_cut.$str."</p>
+                  <a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."' class='btn btn-primary'>Просмотр</a>
+                </div>
+              </div>
+            </div>
+
+          </div>    
+        </div>
+      </div>
+    </div>
   </section>
-  <!-- </main> -->
-
-
-
-  <main>
-    <section class="container">
-      <div class="row" data-sticky-container="">
-        <div class="medium-3 columns show-for-medium">
-          <img src="http://placehold.it/250x250" class="float-left" alt="Sticky" data-sticky="" data-margin-top="20" style="position: fixed; width: 153px; left: 15px; top: 20px;">
-        </div>
-        <div class="small-12 medium-9 large-7 columns">
-          <h1>Sticky-js</h1>
-          <!-- <a href="https://github.com/rgalus/sticky-js" title="Sticky-js">https://github.com/rgalus/sticky-js</a> -->
-          <h2>Sticky-js is a library for sticky elements written in vanilla javascript. With this library you can easily set sticky elements on your website. It's also responsive.</h2>
-          <div class="gh-buttons">
-            <span></span>
-            <span></span>
-          </div>
-          <h3>Features</h3>
-          <ul>
-            <li>Written in vanilla javascript, no dependencies needed</li>
-            <li>Lightweight (minified: ~6.08kb, gzipped: ~1.67kb)</li>
-            <li>It can be sticky to the entire page or to selected parent container</li>
-            <li>No additional CSS needed</li>
-          </ul>
-          <h3>Install</h3>
-          <pre>npm install sticky-js</pre>
-          <br>
-          <pre>bower install sticky.js</pre>
-          <h3>Usage</h3>
-          <p><strong>Simply include</strong></p>
-          <pre>&lt;script src="sticky.min.js"&gt;&lt;/script&gt;</pre>
-          <p><strong>Then have element</strong></p>
-          <pre>&lt;div class="selector"&gt;Sticky element&lt;/div&gt;</pre>
-          <p><strong>Initialize with javascript</strong></p>
-          <pre>var sticky = new Sticky('.selector');</pre>
-          <p><strong>CommonJS</strong></p>
-          <pre>var Sticky = require('sticky-js');<br><br>var sticky = new Sticky('.selector');</pre>
-          <p><strong>Sticky to the nearest parent container with [data-sticky-container]</strong></p>
-          <pre>&lt;div data-sticky-container&gt;<br>    &lt;div class="selector"&gt;Sticky element&lt;/div&gt;<br>&lt;/div&gt;</pre>
-          <br>
-          <p>List of options available <a href="https://github.com/rgalus/sticky-js#available-options" title="Sticky-js - Available options">here</a>.</p>
-          <p><a href="https://github.com/rgalus/sticky-js#examples" title="Sticky-js - examples">Examples</a></p>
-          <br>
-          <p><a href="https://github.com/rgalus/sticky-js/blob/master/LICENSE" title="Sticky-js - License">MIT License</a></p>
-        </div>
-        <div class="large-2 columns show-for-large" style="padding-top: 10rem;">
-          <img src="http://placehold.it/160x600" class="float-right" alt="Sticky" data-sticky="" data-margin-top="20" style="position: fixed; width: 0px; left: 0px; top: 20px;">
-        </div>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="row column medium-text-center">
-        <h3>Browser compatibility</h3>
-        <p>Library is using ECMAScript 5 features. Full support available on <a href="http://caniuse.com/#search=ECMAScript%205" title="Can i use ECMAScript 5?">caniuse</a>.</p>
-        <br>
-        <ul class="no-bullet">
-          <li>IE 9+</li>
-          <li>Chrome 23+</li>
-          <li>Firefox 21+</li>
-          <li>Safari 6+</li>
-          <li>Opera 15+</li>
-        </ul>
-        <p>If you need this library working with older browsers you should use ECMAScript 5 polyfill.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="text-center">
-    <p>Sticky-js</p>
-    <p>Copyright © 2016 <a href="https://github.com/rgalus" title="Rafał Gałus">Rafał Gałus</a></p>
-    <p><a href="https://github.com/rgalus/sticky-js" title="Sticky-js"><i class="fa fa-github fa-2x"></i></a></p>
-  </footer>
-
-
-
-
-
-
-
-
-
+</main>
 
 
 

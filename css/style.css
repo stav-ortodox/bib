@@ -17,149 +17,6 @@ body {
 	background: #eee;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
-  border: 0;
-}
-
-h1 {
-  margin-top: 0;
-  font-size: 3rem;
-}
-
-h2 {
-  font-size: 1.25rem;
-  font-weight: 300;
-}
-
-h3 {
-  margin: 3rem 0 1rem;
-}
-
-p:last-child {
-  margin-bottom: 0;
-}
-
-pre {
-  display: inline-block;
-  padding: 1rem 2rem;
-  margin-bottom: 2rem;
-
-  color: #2c3e50;
-  font-family: 'Ubuntu Mono', monospace;
-
-  background: #ecf0f1;
-  border-radius: 0.25rem;
-}
-
-h3 + pre {
-  margin-bottom: 0;
-}
-
-footer {
-  margin-top: 6rem;
-  color: #fff;
-  background: #34495e;
-  padding: 6rem 0;
-}
-
-.container {
-  padding: 6rem 0;
-}
-
-.columns {
-  min-height: 1px;
-}
-
-.gh-fork {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 4;
-}
-
-.gh-buttons {
-  margin: 1rem 0;
-  height: 1.6rem;
-}
-
-.github-button {
-  display: none;
-}
-
-
-
-
-
-.container {
-	overflow: hidden;
-}
-
-.content {
-	margin-left: 300px;
-	/*padding: 20px;*/
-}
-
-.sidebar {
-	z-index: 999;
-	width: 300px;
-	padding-right: 30px;
-	padding-left: 15px;
-	float: left;
-	-webkit-transition: left 0.5s ease-out 0.2s;
-	-moz-transition: left 0.5s ease-out 0.2s;
-	-o-transition: left 0.5s ease-out 0.2s;
-	transition: left 0.5s ease-out 0.2s;
-	background: #eee;
-}
-
-.sidebar h3 {
-	text-align: center;
-	color: #2E1F36;
-}
-
-.clearfix:before,
-.clearfix:before {
-	content: " ";
-	display: table;
-}
-
-.clearfix:after {
-	clear: both;
-}
-
-.left {
-	float: left;
-}
-
-.right {
-	float: right;
-}
-
-.text-right {
-	text-align: right;
-}
-
-.divide {
-	display: block;
-	height: 2px;
-	margin: 3px 0;
-	background: black;
-}
-
-.icon-menu {
-	display: none;
-	height: 30px;
-	width: 12px;
-	float: left;
-	padding: 5px 0;
-	cursor: pointer;
-	margin-right: 10px;
-	margin-left: 10px;
-}
-
 a {
 	text-decoration: none !important;
 }
@@ -183,9 +40,9 @@ table th {
 	text-align: center;
 }
 
-/*h1, h2, h3, h5, h6 {
+h1, h2, h3, h5, h6 {
 	font-family: 'Zanesennyj';
-}*/
+}
 
 .button1 {
 	position: fixed;
@@ -402,7 +259,7 @@ table th {
 .header_site {
 	/*background-image: url(https://c.pxhere.com/photos/f8/7c/landscape_scotland_kilmacolm_renfrewshire_knappsloch_canon6d_ef1635mmf4lisusm-383095.jpg!d);*/
 	background-size: cover;
-	padding-top: 50px;
+	/*padding-top: 50px;*/
 }
 
 .header_title {
@@ -499,7 +356,7 @@ table th {
 .main-title-page h1 {
 	font-family: 'Old Standard TT', serif;
 	margin-top: 50px;
-	margin-bottom: 20px;
+	margin-bottom: 100px;
 	text-align: center;
 	font-size: 27px;
 }
@@ -558,7 +415,7 @@ table th {
 }
 
 .page_title {
-	margin-bottom: 30px;
+	margin-bottom: 100px;
 	border-bottom: solid 2px #E47F50;
 }
 
@@ -609,17 +466,9 @@ table th {
 }
 
 .pub-block {
-	max-width: 370px;
-}
-
-.wrap hr {
-	border: none; /* Убираем границу для браузера Firefox */
-	color: #E47F50; /* Цвет линии для остальных браузеров */
-	background-color: #E47F50; /* Цвет линии для браузера Firefox и Opera */
-	height: 3px; /* Толщина линии */
-	margin: 0;
-	margin-bottom: 10px;
-	width: 100%;
+	justify-content: center;
+	max-width: 80%;
+	margin-bottom: 20px;
 }
 
 .submit {
@@ -635,6 +484,10 @@ table th {
 	background-color: green;
 }
 
+.sidebar {
+	margin-right: 10px;
+	margin-bottom: 30px;
+}
 
 .title_table {
 	font-family: 'Old Standard TT', serif;
@@ -661,6 +514,17 @@ table th {
 	display: flex;
 }
 
+.wrap hr {
+	border: none; /* Убираем границу для браузера Firefox */
+	color: #E47F50; /* Цвет линии для остальных браузеров */
+	background-color: #E47F50; /* Цвет линии для браузера Firefox и Opera */
+	height: 3px; /* Толщина линии */
+	margin: 0;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+
 #your-custom-id {
 }
 
@@ -681,48 +545,6 @@ table th {
 	display: none;
 }
 
-body {
-	padding-top: 50px;
-}
-
-header {
-	padding: 10px;
-	background-color: #00BCD4;
-	z-index: 1000;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 50px;
-}
-
-.icon-menu {
-	display: block;
-}
-
-.dropdown_z {
-	display: block;
-}
-
-.wrap {
-	display: none;
-}
-
-.sidebar {
-	position: fixed;
-	left: -250px;
-	width: 250px;
-	border: solid 1px #00BCD4;
-	top: 60px;
-}
-
-.sidebar.active {
-	left: 0px;
-}
-
-.content {
-	margin-left: 0;	
-}
 }
 
 
@@ -736,48 +558,6 @@ header {
 	display: none;
 }
 
-body {
-	padding-top: 50px;
-}
-
-header {
-	padding: 10px;
-	background-color: #00BCD4;
-	z-index: 1000;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 50px;
-}
-
-.icon-menu {
-	display: block;
-}
-
-.dropdown_z {
-	display: block;
-}
-
-.wrap {
-	display: none;
-}
-
-.sidebar {
-	position: fixed;
-	left: -250px;
-	width: 250px;
-	border: solid 1px #00BCD4;
-	top: 60px;
-}
-
-.sidebar.active {
-	left: 0px;
-}
-
-.content {
-	margin-left: 0;	
-}
 }
 
 
@@ -786,31 +566,25 @@ header {
 .dropdown_z {
 	display: block;
 }
-
+.wrap {
+	display: none;
+}
 
 }
 
 /*// Большие девайсы (десктопы, >= 992px)*/
 @media (min-width: 992px) {
 
-header {
-	display: none;
 }
 
+/*// Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
+@media (min-width: 1200px) {
 .dropdown_z {
 	display: none;
 }
 
 .wrap {
 	display: flex;
-}
-}
-
-/*// Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
-@media (min-width: 1200px) {
-
-.dropdown_z {
-	display: none;
 }
 /*.no_error {
 	max-width: 425px;
@@ -872,4 +646,4 @@ header {
 	.page-break {
 		page-break-inside: avoid;
  	}
-}
+}col-xl-3 col-lg-3 col-md-4 col-sm-8 ml-5 mr-5 mb-5

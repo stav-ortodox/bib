@@ -26,12 +26,11 @@ function get_header_site ($title_br, $header_subtitle) {
 	<link href="/css/mdb.min.css" rel="stylesheet">
 
 	<!-- Your custom styles (optional) -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.css">
 	<link href="/css/style.css" rel="stylesheet">
 	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 
 	<!-- My js -->
-	<script src="/js/sticky.min.js"></script>
+	
 
 	<!-- Fonts -->
 	<link href="http://allfont.ru/allfont.css?fonts=ds-russia-demo" rel="stylesheet" type="text/css">
@@ -180,14 +179,7 @@ echo '
 
 function get_sidebar () {
 echo <<<EOD
-	<header class="container-fluid clearfix">
-    <div class="icon-menu">
-      <span class="divide"></span>
-      <span class="divide"></span>
-      <span class="divide"></span>
-    </div>
-  </header>
-<section class="container-fluid clearfix mt-5">
+	
 <div class="sidebar">
 EOD;
 			 
@@ -203,6 +195,7 @@ EOD;
 			
 echo 
 <<<EOD
+<img src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" class="img-fluid z-depth-2 mb-3" alt=""> 
 <b>Lorem ipsum dolor sit amet...</b><br><br>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto suscipit voluptate quos dolore amet magni vitae p_registrationatur voluptatibus. Provident ullam tenetur similique eveniet asperiores autem, velit fugit fuga voluptates sequi.	<br> 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium reiciendis minus quaerat veniam alias rem consequatur repellat dolore odio accusamus, nisi officiis, maxime enim, hic expedita. Dolorum quos nemo veritatis praesentium, impedit voluptatem possimus aut velit magni, dolorem vel architecto expedita! Aperiam nesciunt eum culpa illo ipsa nostrum consequatur amet voluptatum alias tenetur fugiat ad et commodi eius non ullam harum delectus officiis perspiciatis corrupti dignissimos nihil, dolorum ipsam sed! Modi dolores dolorum voluptate, sunt unde eum suscipit a ipsam quia porro et rem minima magni assumenda magnam fugit. Natus ipsa alias, numquam a voluptas laboriosam earum inventore totam autem.
@@ -247,7 +240,7 @@ echo <<<EOD
 		<a href="#"><i class="fa fa-facebook mr-3"></i></a>
 	</div>
 	<div class="footer-copyright py-3">
-		Больничный храм святого Великомученика и Целителя Пантелеимона 
+		Copyright © 2018 Больничный храм святого Великомученика и Целителя Пантелеимона 
 г. Ставрополь
 	</div>
 </footer>
