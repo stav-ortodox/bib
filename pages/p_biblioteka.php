@@ -31,6 +31,9 @@ page_title ('Издания нашего храма');
 				$result = mysqli_query($link, $select_query);
 				while ($row = mysqli_fetch_array($result)) {
 								 // выводим данные
+					if(strlen($row["block_description"])>"120") $str = "...<br><a href=........Ссылка......=''>подробнее</a>"; else $str = "";
+						$descr_cut = mb_substr(strip_tags($row["block_description"]), 0, 120, 'utf-8');
+
 					if ($_SESSION['id'] == 1) {  #Для админа
 						$hidden = $row['block_hidden'];
 						$edit = "<a href= /pages/biblioteka/p_edit_publisher_block.php?id=".$row["id"].">Редактировать</a>";
@@ -48,8 +51,7 @@ page_title ('Издания нашего храма');
 					}
 					if ($_SESSION['id'] == null or $_SESSION['id'] > 1) {
 						$hidden = $row['block_hidden'];
-						if(strlen($row["block_description"])>"120") $str = "...<br><a href=........Ссылка......=''>подробнее</a>"; else $str = "";
-						$descr_cut = mb_substr(strip_tags($row["block_description"]), 0, 120, 'utf-8');
+						
 					// Если новость длинная, то выводим троеточие...
 
 						if ($hidden == 0) {
@@ -60,7 +62,9 @@ page_title ('Издания нашего храма');
 						} 
 						echo "
 						<div class='col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center'>
+
 						<div class='card pub-block'>
+						<div class='no_error' style='".$color." ".$border."'><strong>".$no_error."</strong><br>".$edit."<br>".$delete."</div>
 						<div class='view overlay'>
 						<img class='card-img-top m-0 p-0' src=/".$row["block_image"]." alt=''>
 						<a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'>
