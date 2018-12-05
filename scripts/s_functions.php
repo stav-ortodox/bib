@@ -179,8 +179,8 @@ echo '
 
 function get_sidebar () {
 echo <<<EOD
-	
 <div class="sidebar">
+<hr>
 EOD;
 			 
 			if (empty($_SESSION['login']) or empty($_SESSION['id'])) {
@@ -190,15 +190,27 @@ EOD;
 			} else {
 				echo
 				"Здравствуйте, <b>".$_SESSION['login']."</b>
-				<a href='/scripts/s_logout.php'><p>Выйти</p></a>";			
+				<a href='/scripts/s_logout.php'><p>Выйти</p></a>
+				<hr>";			
 			}
 			
 echo 
 <<<EOD
 <img src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" class="img-fluid z-depth-2 mb-3" alt=""> 
-<b>Lorem ipsum dolor sit amet...</b><br><br>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto suscipit voluptate quos dolore amet magni vitae p_registrationatur voluptatibus. Provident ullam tenetur similique eveniet asperiores autem, velit fugit fuga voluptates sequi.	<br> 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium reiciendis minus quaerat veniam alias rem consequatur repellat dolore odio accusamus, nisi officiis, maxime enim, hic expedita. Dolorum quos nemo veritatis praesentium, impedit voluptatem possimus aut velit magni, dolorem vel architecto expedita! Aperiam nesciunt eum culpa illo ipsa nostrum consequatur amet voluptatum alias tenetur fugiat ad et commodi eius non ullam harum delectus officiis perspiciatis corrupti dignissimos nihil, dolorum ipsam sed! Modi dolores dolorum voluptate, sunt unde eum suscipit a ipsam quia porro et rem minima magni assumenda magnam fugit. Natus ipsa alias, numquam a voluptas laboriosam earum inventore totam autem.
+EOD;
+			if ($_SESSION['id'] == 1) {
+   	echo "
+   	<div class='admin-panel'>
+   	<hr>
+		<h3>Панель администратора</h3>
+		<ul>
+		<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'>Добавить новый блок издания</a></li><br>
+		<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'>Добавить новую единицу издания</a></li>
+		</ul>
+		<hr>
+		</div>";
+}
+echo <<<EOD
 </div>
 EOD;
 }

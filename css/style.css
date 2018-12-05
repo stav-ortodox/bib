@@ -44,6 +44,24 @@ h1, h2, h3, h5, h6 {
 	font-family: 'Zanesennyj';
 }
 
+.admin-panel {
+
+}
+
+.admin-panel ul{
+	padding: 0;
+	padding-left: 10px;
+}
+
+.admin-panel li{
+	margin: 0;
+	padding: 0;
+}
+
+.admin-panel h3{
+	font-size: 25px;
+}
+
 .button1 {
 	position: fixed;
 	margin-left: 85%;
@@ -72,6 +90,17 @@ h1, h2, h3, h5, h6 {
 	color: #fff;
 	background-color: #e77948;
 	border-color: #e77948;
+}
+
+.card-text {
+	position: absolute;
+	bottom: 0;
+	padding-bottom: 5px;
+}
+
+.card-title {
+	position: relative;
+	padding-bottom: 100px;
 }
 
 #close {
@@ -131,24 +160,14 @@ h1, h2, h3, h5, h6 {
 
 .no_error {
 	padding: 0;
-	margin-left: 10px;
-	margin-right: 10px;
 	text-align: center;
 	font-size: 14px;
 	color: red;
-	background: #fff;
-}
-
-.no_error {
-	padding: 0;
-	text-align: center;
-	font-size: 14px;
-	color: red;
-	margin: 0 auto;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-bottom: 5px;
 	border-radius: 5px;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 4px;
+	margin-bottom: 4px;
 }
 
 .edit_delete {

@@ -31,7 +31,7 @@ page_title ('Издания нашего храма');
 				$result = mysqli_query($link, $select_query);
 				while ($row = mysqli_fetch_array($result)) {
 								 // выводим данные
-					if(strlen($row["block_description"])>"120") $str = "...<br><a href=........Ссылка......=''>подробнее</a>"; else $str = "";
+					if(strlen($row["block_description"])>"120") $str = "...<a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."'> подробнее <i class='fa fa-level-down' aria-hidden='true'></i></i></a>"; else $str = "";
 						$descr_cut = mb_substr(strip_tags($row["block_description"]), 0, 120, 'utf-8');
 
 					if ($_SESSION['id'] == 1) {  #Для админа
@@ -62,7 +62,6 @@ page_title ('Издания нашего храма');
 						} 
 						echo "
 						<div class='col-sm-6 col-md-6 col-lg-4 d-flex justify-content-center'>
-
 						<div class='card pub-block'>
 						<div class='no_error' style='".$color." ".$border."'><strong>".$no_error."</strong><br>".$edit."<br>".$delete."</div>
 						<div class='view overlay'>
@@ -74,7 +73,6 @@ page_title ('Издания нашего храма');
 						<div class='card-body'>
 						<h4 class='card-title'>".$row["block_name"]."</h4>
 						<p class='card-text'>".$descr_cut.$str."</p>
-						<a href='/pages/biblioteka/p_publishing_page.php?id=".$row["id"]."' class='btn btn-primary'>Просмотр</a>
 						</div>
 						</div>
 						</div>";}?>
