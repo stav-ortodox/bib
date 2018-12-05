@@ -6,10 +6,6 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
 
 get_header_site ('Библиотека', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
-?>
-
-
-<?php
 get_menu ();
 get_sm_menu ();
 get_sm_sidebar ();
