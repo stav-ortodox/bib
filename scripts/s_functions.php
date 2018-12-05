@@ -180,18 +180,21 @@ echo '
 function get_sidebar () {
 echo <<<EOD
 <div class="sidebar">
-<hr>
+
 EOD;
 			 
 			if (empty($_SESSION['login']) or empty($_SESSION['id'])) {
 				echo 
-				"<a href='/pages/p_login.php'><p>Войти</p></a>
-				<a href='/pages/p_registration.php'><p>Зарегистрироваться</p></a>";		
+				"<div class='login_signup'>
+				<a href='/pages/p_login.php'><p>Войти</p></a>
+				<a href='/pages/p_registration.php'><p>Зарегистрироваться</p></a>
+				</div>";		
 			} else {
 				echo
-				"Здравствуйте, <b>".$_SESSION['login']."</b>
+				"<div class='login_signup'>
+				Здравствуйте, <b>".$_SESSION['login']."</b>
 				<a href='/scripts/s_logout.php'><p>Выйти</p></a>
-				<hr>";			
+				</div>";			
 			}
 			
 echo 
@@ -202,10 +205,12 @@ EOD;
    	echo "
    	<div class='admin-panel'>
    	<hr>
-		<h3>Панель администратора</h3>
+		Панель администратора
+		<br>
+			<small>(Вам доступна эта панель, потому что Вы являетесь администратором сайта)</small>
 		<ul>
-		<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'>Добавить новый блок издания</a></li><br>
-		<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'>Добавить новую единицу издания</a></li>
+		<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить новый блок издания</p></a></li>
+		<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить новую единицу издания</p></a></li>
 		</ul>
 		<hr>
 		</div>";
@@ -215,7 +220,43 @@ echo <<<EOD
 EOD;
 }
 
+// *************************************************************************
 
+function get_sm_sidebar () {
+echo <<<EOD
+<div class="sm-sidebar">
+EOD;
+			 
+			if (empty($_SESSION['login']) or empty($_SESSION['id'])) {
+				echo 
+				"<div class='sm-login_signup'>
+				<a href='/pages/p_login.php'><p>Войти</p></a>
+				<a href='/pages/p_registration.php'><p>Зарегистрироваться</p></a>
+				</div>";		
+			} else {
+				echo
+				"<div class='sm-login_signup'>
+				Здравствуйте, <b>".$_SESSION['login']."</b>
+				<a href='/scripts/s_logout.php'><p>Выйти</p></a>
+				</div>";			
+			}
+			
+		if ($_SESSION['id'] == 1) {
+	   	echo "
+	   	<div class='sm-admin-panel'>
+			Панель администратора <br>
+			<small>(Вам доступна эта панель, потому что Вы являетесь администратором сайта)</small>
+			<ul>
+			<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить новый блок издания</p></a></li>
+			<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить новую единицу издания</p></a></li>
+			</ul>
+			<hr>
+			</div>";
+}
+echo <<<EOD
+</div>
+EOD;
+}
 
 // *************************************************************************
 

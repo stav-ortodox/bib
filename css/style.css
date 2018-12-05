@@ -45,21 +45,61 @@ h1, h2, h3, h5, h6 {
 }
 
 .admin-panel {
-
+	padding: 0px;
+	font-family: 'Old Standard TT', serif;
+	font-size: 18px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
-.admin-panel ul{
+.admin-panel p {
+	margin: 0;
+	color: green;
+}
+
+.admin-panel p:hover {
+	margin: 0;
+	color: #EC6925;
+}
+
+.admin-panel ul {
 	padding: 0;
 	padding-left: 10px;
 }
 
-.admin-panel li{
-	margin: 0;
+.admin-panel li {
+	margin-left: 10px;
 	padding: 0;
+	margin-bottom: 5px;
 }
 
-.admin-panel h3{
-	font-size: 25px;
+.sm-admin-panel {
+	padding: 0px;
+	font-family: 'Old Standard TT', serif;
+	font-size: 18px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.sm-admin-panel p {
+	margin: 0;
+	color: green;
+}
+
+.sm-admin-panel p:hover {
+	margin: 0;
+	color: #EC6925;
+}
+
+.sm-admin-panel ul {
+	padding: 0;
+	padding-left: 20px;
+}
+
+.sm-admin-panel li {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 5px;
 }
 
 .button1 {
@@ -90,17 +130,6 @@ h1, h2, h3, h5, h6 {
 	color: #fff;
 	background-color: #e77948;
 	border-color: #e77948;
-}
-
-.card-text {
-	position: absolute;
-	bottom: 0;
-	padding-bottom: 5px;
-}
-
-.card-title {
-	position: relative;
-	padding-bottom: 100px;
 }
 
 #close {
@@ -322,12 +351,11 @@ h1, h2, h3, h5, h6 {
 }
 
 .login_signup {
-	position: absolute;
-	right: 50px;
 	padding: 0px;
-	text-align: right;
 	font-family: 'Old Standard TT', serif;
 	font-size: 18px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .login_signup p {
@@ -336,6 +364,24 @@ h1, h2, h3, h5, h6 {
 }
 
 .login_signup p:hover {
+	margin: 0;
+	color: #EC6925;
+}
+
+.sm-login_signup {
+	padding: 0px;
+	font-family: 'Old Standard TT', serif;
+	font-size: 18px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.sm-login_signup p {
+	margin: 0;
+	color: green;
+}
+
+.sm-login_signup p:hover {
 	margin: 0;
 	color: #EC6925;
 }
@@ -490,6 +536,14 @@ h1, h2, h3, h5, h6 {
 	margin-bottom: 20px;
 }
 
+.pub-block-wrap td, table{
+	border: none;
+}
+
+.pub-block-wrap p:hover {
+	color: green !important;
+}
+
 .submit {
 	padding: 0;
 	margin-top: 20px !important;
@@ -506,6 +560,13 @@ h1, h2, h3, h5, h6 {
 .sidebar {
 	margin-right: 10px;
 	margin-bottom: 30px;
+	border-top: 1px solid #ddd;
+}
+
+.sm-sidebar {
+	margin-left: 10px;
+	margin-bottom: 30px;
+	border-top: 1px solid #ddd;
 }
 
 .title_table {
@@ -559,12 +620,17 @@ h1, h2, h3, h5, h6 {
 .dropdown_z {
 	display: block;
 }
-
 .wrap {
 	display: none;
 }
-
+.sm-sidebar {
+	display: block;
 }
+.sidebar {
+	display: none;
+}
+}
+
 
 
 /*// Малые девайсы («ландшафтные телефоны», >= 576px)*/
@@ -572,12 +638,17 @@ h1, h2, h3, h5, h6 {
 .dropdown_z {
 	display: block;
 }
-
 .wrap {
 	display: none;
 }
-
+.sm-sidebar {
+	display: block;
 }
+.sidebar {
+	display: none;
+}
+}
+
 
 
 /*// Средние девайсы («таблетки», >= 768px)*/
@@ -588,27 +659,31 @@ h1, h2, h3, h5, h6 {
 .wrap {
 	display: none;
 }
-
 }
+
+
 
 /*// Большие девайсы (десктопы, >= 992px)*/
 @media (min-width: 992px) {
-
-}
-
-/*// Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
-@media (min-width: 1200px) {
 .dropdown_z {
 	display: none;
 }
-
 .wrap {
 	display: flex;
 }
-/*.no_error {
-	max-width: 425px;
-	min-width: 425px;
-}*/
+.sm-sidebar {
+	display: none;
+}
+.sidebar {
+	display: block;
+}
+}
+
+
+
+/*// Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
+@media (min-width: 1200px) {
+
 }
 
 
