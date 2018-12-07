@@ -221,6 +221,15 @@ h1, h2, h3, h5, h6 {
 	border: solid 1px green;
 }
 
+.fa-edit:hover {
+	color: black !important;
+}
+
+.fa-times-circle-o:hover {
+	color: black !important;
+}
+
+
 .info {
 	display: -webkit-flex;
 	display: -moz-flex;

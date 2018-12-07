@@ -42,7 +42,7 @@ if(isset($_GET['id']))
 
             <p class="h4 mb-4 text-center"></p>
 
-            <input type="text" name="id" value="<?php echo $id ?>" class="form-control mb-4">
+            <input type="hidden" name="id" value="<?php echo $id ?>" class="form-control mb-4">
 
             <label for="fond">Фонд:</label>
             <input type="text" name="fond" class="form-control mb-4" value="<?php echo $fond ?>">
