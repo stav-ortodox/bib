@@ -132,6 +132,11 @@ h1, h2, h3, h5, h6 {
 	border-color: #e77948;
 }
 
+.card-form {
+	max-width: 30% !important;
+	margin: 0 auto;
+}
+
 #close {
 	cursor: pointer;
 	position: static;

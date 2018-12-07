@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 29 2018 г., 01:48
+-- Время создания: Дек 06 2018 г., 09:20
 -- Версия сервера: 8.0.12
 -- Версия PHP: 7.2.10
 
@@ -61,8 +61,12 @@ CREATE TABLE `publishing_blocks` (
 --
 
 INSERT INTO `publishing_blocks` (`id`, `block_name`, `block_image`, `block_description`, `block_hidden`) VALUES
-(13, 'Приходская газета &quot;Воскресение&quot;', '../../images/biblioteka/publishing_blocks/20181127032401880.jpg', '&laquo;451&deg; по Фаренгейту&raquo; - философский роман Рэя Брэдбери, получивший широкую известность. Название выбрано не случайно: при температуре 451&deg; воспламеняется бумага.  Рэй Брэдбери описывает мир,', 1),
-(14, 'Газета &quot;Воскресение&quot;', '../../images/biblioteka/publishing_blocks/20181127130247440.jpg', '&laquo;451&deg; по Фаренгейту&raquo; - философский роман Рэя Брэдбери, получивший широкую известность. Название выбрано не случайно: при температуре 451&deg; воспламеняется бумага.  Рэй Брэдбери описывает мир,', 1);
+(13, 'Приходская газета &quot;Воскресение&quot;', '../../images/biblioteka/publishing_blocks/20181205214659203.jpg', '&laquo;451&deg; по Фаренгейту&raquo; - философский роман Рэя Брэдбери, получивший широкую известность. Название выбрано не случайно: при температуре 451&deg; воспламеняется бумага.  Рэй Брэдбери описывает мир,', 0),
+(14, 'Газета &quot;Воскресение&quot;', '../../images/biblioteka/publishing_blocks/20181205215055809.jpg', '&laquo;451&deg; по Фаренгейту&raquo; - философский роман Рэя Брэдбери, получивший широкую известность. Название выбрано не случайно: при температуре 451&deg; воспламеняется бумага.  Рэй Брэдбери описывает мир,', 1),
+(20, 'До встречи с тобой', '../../images/biblioteka/publishing_blocks/20181205214813820.jpg', 'Газета Воскресной школы храма святого Великомученика и Целителя Пантелеимона г. Ставрополя.', 0),
+(30, 'Газета 1232`3', '../../images/biblioteka/publishing_blocks/20181205015951778.jpg', 'Целителя Пантелеимона г. Ставрополя', 0),
+(31, 'Газета 1qqqq', '../../images/biblioteka/publishing_blocks/20181205020051136.jpg', 'Газета Воскресной школы храма святого Великомученика и Целителя Пантелеимона г. Ставрополя.', 0),
+(32, 'Какая-то газета111222', '../../images/biblioteka/publishing_blocks/20181205195801902.jpg', '«451° по Фаренгейту» - философский роман Рэя Брэдбери, получивший широкую известность. Название выбрано не случайно: при температуре 451° воспламеняется бумага.  Рэй Брэдбери описывает мир,', 0);
 
 -- --------------------------------------------------------
 
@@ -87,7 +91,9 @@ CREATE TABLE `publishing_post` (
 
 INSERT INTO `publishing_post` (`id`, `select_block`, `block_id`, `pub_name`, `pub_description`, `pub_image`, `pub_file`, `pub_hidden`) VALUES
 (1, 'Приходская газета \"Воскресение\"', 1, 'Новая газета', 'Хорошая газета', '../../images/biblioteka/publishing_blocks/20181126044711541.jpg', '../../images/biblioteka/publishing_files/20181126044711338.jpg', 0),
-(2, 'Приходская газета \"Свет Христов просвещает всех\"', 2, 'Новая газета', 'Хорошая газета', '../../images/biblioteka/publishing_blocks/20181126044746212.jpg', '../../images/biblioteka/publishing_files/20181126044746899.jpg', 0);
+(2, 'Приходская газета \"Свет Христов просвещает всех\"', 2, 'Новая газета', 'Хорошая газета', '../../images/biblioteka/publishing_blocks/20181126044746212.jpg', '../../images/biblioteka/publishing_files/20181126044746899.jpg', 0),
+(3, 'Приходская газета \"Воскресение\"', 111, 'Новая газета', 'Хорошая газета', '../../images/biblioteka/publishing_blocks/20181204011308261.jpg', '../../images/biblioteka/publishing_files/20181204011308671.jpg', 0),
+(4, 'Приходская газета \"Воскресение\"', 111, 'Новая газета', 'Хорошая газета', '../../images/biblioteka/publishing_blocks/20181206022301497.jpg', '../../images/biblioteka/publishing_files/20181206022301265.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -235,13 +241,13 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT для таблицы `publishing_blocks`
 --
 ALTER TABLE `publishing_blocks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT для таблицы `publishing_post`
 --
 ALTER TABLE `publishing_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `reestr_comps`
