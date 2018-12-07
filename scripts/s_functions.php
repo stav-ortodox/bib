@@ -205,8 +205,7 @@ EOD;
    	echo "
    	<div class='admin-panel'>
    	<hr>
-		Панель администратора
-		<br>
+		<h4 class='text-center'>Панель администратора</h4>
 			<small>(Вам доступна эта панель, потому что Вы являетесь администратором сайта)</small>
 		<ul>
 		<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить новый блок издания</p></a></li>

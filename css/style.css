@@ -30,7 +30,8 @@ table {border: 1px solid black;}
 /* границы ячеек первого ряда таблицы */
 th {border: 1px solid black;}
 /* границы ячеек тела таблицы */
-td {border: 1px solid black;}
+td {border: 1px solid black;
+text-align: center;}
 /* сделает ширину таблицы равной ширине блока контейнера, в котором она находится */
 table {width: 100%;}
 /* задаст фиксированную ширину для таблицы */
@@ -42,6 +43,15 @@ table th {
 
 h1, h2, h3, h5, h6 {
 	font-family: 'Zanesennyj';
+}
+
+table th {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+table td {
+	font-size: 22px;
 }
 
 .admin-panel {

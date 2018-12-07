@@ -17,7 +17,21 @@ $zakaz = trim($_REQUEST['zakaz']);
 $poluch = trim($_REQUEST['poluch']);
 $zakaz_cop = trim($_REQUEST['zakaz_cop']);
 $poluch_cop = trim($_REQUEST['poluch_cop']);
-$gotovnost = trim($_REQUEST['gotovnost']);
+
+if ($listov == null) $listov = '';
+if ($fond == null) $fond = '';
+if ($opis == null) $opis = '';
+if ($delo == null) $delo = '';
+if ($nach == null) $nach = '';
+if ($okonch == null) $okonch = '';
+if ($naimen == null) $naimen = '';
+if ($prim == null) $prim = '';
+if ($tom == null) $tom = '';
+if ($zakaz == null) $zakaz = '';
+if ($poluch == null) $poluch = '';
+if ($zakaz_cop == null) $zakaz_cop = '';
+if ($poluch_cop == null) $poluch_cop = '';
+
 
 
 $query ="UPDATE reestr_rgia SET 
@@ -33,8 +47,8 @@ $query ="UPDATE reestr_rgia SET
          zakaz='$zakaz',
          poluch='$poluch',
          zakaz_cop='$zakaz_cop',
-         poluch_cop='$poluch_cop',
-         gotovnost='$gotovnost'
+         poluch_cop='$poluch_cop'
+         
 
        WHERE id='$id'";
     $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
