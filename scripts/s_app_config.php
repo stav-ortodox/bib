@@ -123,7 +123,7 @@ EOD;
 
 function table_reestr_comp ($title_table) {
 	echo "<div class='title_table'>
-	<h4>$title_table</h4>
+	<h1>$title_table</h1>
 </div>
 <div class='table'>
 <table>
@@ -143,7 +143,7 @@ function table_reestr_comp ($title_table) {
 
 function table_reestr_RGIA ($title_table) {
 	echo "<div class='title_table'>
-	<h4>$title_table</h4>
+	<h1>$title_table</h1>
 </div>
 <div class='table'>
 <table>
@@ -162,7 +162,6 @@ function table_reestr_RGIA ($title_table) {
 			<th>Получено в ч/з РГИА</th>
 			<th>Заказана копия</th>
 			<th>Получена копия</th>
-			<th>Готовность</th>
 		</tr>";
 }
 

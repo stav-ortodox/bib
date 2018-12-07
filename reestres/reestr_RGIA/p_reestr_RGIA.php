@@ -41,8 +41,8 @@ echo "
 <td>".$row["poluch"]."</td>"."\n"."
 <td>".$row["zakaz_cop"]."</td>"."\n"."
 <td>".$row["poluch_cop"]."</td>"."\n"."
-<td>".$row["gotovnost"]."</td>"."\n"."
-<td><a href= p_edit_reestr_RGIA.php?id=".$row["id"]."><i class='fa fa-edit fa-2x green-text' aria-hidden='true' title='Редактировать'></i></a>"."\n"."
+
+<td id='printPageButton'><a href= p_edit_reestr_RGIA.php?id=".$row["id"]."><i class='fa fa-edit fa-2x green-text' aria-hidden='true' title='Редактировать'></i></a>"."\n"."
 <a href= delete_reestr_RGIA.php?id=".$row["id"]."><i class='fa fa-times-circle-o fa-2x red-text' aria-hidden='true' title='Удалить'></i></a></td>"."\n"."
 </tr>\n";
 }
