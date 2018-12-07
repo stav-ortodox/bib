@@ -1,5 +1,6 @@
 <?php 
-
+session_start(); 
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 
 
 $id = $_REQUEST['id'];
@@ -39,5 +40,4 @@ $query ="UPDATE reestr_rgia SET
     $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
  
     if($result)
-        echo "<span style='color:blue;'>Данные обновлены</span>";
         header('Location: p_reestr_rgia.php');?>
