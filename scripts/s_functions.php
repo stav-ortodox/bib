@@ -211,6 +211,11 @@ EOD;
 		<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить новый блок издания</p></a></li>
 		<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить новую единицу издания</p></a></li>
 		</ul>
+		<ul>
+		<h4 class='text-center'>Документы</h4>
+			<li><a href='/reestres/reestr_RGIA/p_reestr_RGIA.php'>Реестр дел из РГИА</a></li>
+			<li><a href='/pages/p_reestr_comp.php'>Реестр техники</a></li>
+		</ul>
 		<hr>
 		</div>";
 }
