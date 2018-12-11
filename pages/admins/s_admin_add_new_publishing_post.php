@@ -65,27 +65,7 @@ if (isset($_FILES['pub_file'])) {
 
 
 
- // var_dump($_GET);
-// echo "<br>";
-// var_dump($block_id);
-// echo "<br>";
-// var_dump($pub_name);
-// echo "<br>";
-// var_dump($pub_description);
-// echo "<br>";
-// var_dump($name_img);
-// echo "<br>";
-// var_dump($name_file);
-// echo "<br>";
-// var_dump($pub_hidden);
-// echo "<br>";
-// var_dump($_FILES['pub_image']);
-// echo "<br>";
-// var_dump($_FILES['pub_file']);
-// echo "<br>";
-
-
-$insert_sql = sprintf("INSERT INTO publishing_post (select_block, block_id,  pub_name, pub_description, pub_image, pub_file, pub_hidden) 
+$insert_sql = sprintf("INSERT INTO publishing_post (select_block, block_id, pub_name, pub_description, pub_image, pub_file, pub_hidden) 
 	VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
 		mysqli_real_escape_string($link, $block_name_sel),
 		mysqli_real_escape_string($link, $block_id),

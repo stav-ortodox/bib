@@ -43,11 +43,13 @@ page_title ('Страница издания: '.$name_page.'');
 			</div> <!-- /cайдбар -->
 
 			<div class="col-sm-12 col-lg-10">
+				<div class="page-header">
+				  <h1><small><?php echo $block_description; ?></small></h1>
+				</div>
 				<div class="content">
 					<div class="row">
 
 				<?php 
-				echo $block_description;
 				$result = mysqli_query($link, $select_query);
 				while ($row = mysqli_fetch_array($result)) {
 				 // выводим данные
