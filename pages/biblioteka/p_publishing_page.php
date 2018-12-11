@@ -15,13 +15,24 @@ $select_query = sprintf("SELECT publishing_post.*, publishing_blocks.id FROM	pub
 
 $id_page = $_REQUEST['id'];
 
-$query_id_page = sprintf("SELECT block_name FROM	publishing_blocks WHERE id = $id_page");
+$query_id_page = sprintf("SELECT * FROM	publishing_blocks WHERE id = $id_page");
 $result = mysqli_query($link, $query_id_page) or die ("Ошибка " . mysqli_error($link));
-while($object = mysqli_fetch_object($result))
-	$name_page = $object->block_name;
+
+    //если в запросе более нуля строк
+    if($result && mysqli_num_rows($result)>0) 
+    {
+        $row = mysqli_fetch_row($result); // получаем первую строку
+        $name_page = $row[1];
+        $block_image = $row[2];
+        $block_description = $row[3];
+        $block_hidden = $row[4];
+	
+        mysqli_free_result($result);
+}
 
 page_title ('Страница издания: '.$name_page.'');
-echo $row['block_description']. "Здесь описание блока издания, который сокращён в превью";?>
+
+?>
 
 <main>
 	<section class="container-fluid">
@@ -35,7 +46,9 @@ echo $row['block_description']. "Здесь описание блока изда
 				<div class="content">
 					<div class="row">
 
-				<?php $result = mysqli_query($link, $select_query);
+				<?php 
+				echo $block_description;
+				$result = mysqli_query($link, $select_query);
 				while ($row = mysqli_fetch_array($result)) {
 				 // выводим данные
 

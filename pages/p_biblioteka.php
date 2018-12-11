@@ -24,7 +24,8 @@ page_title ('Издания нашего храма');
 				<div class="content">
 					<div class="row">
 
-				<?php $select_query = sprintf("SELECT * FROM publishing_blocks");
+				<?php 
+				$select_query = sprintf("SELECT * FROM publishing_blocks");
 				$result = mysqli_query($link, $select_query);
 				while ($row = mysqli_fetch_array($result)) {
 								 // выводим данные
