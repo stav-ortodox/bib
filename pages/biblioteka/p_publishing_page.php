@@ -51,7 +51,7 @@ page_title ('Страница издания: '.$name_page.'');
 				$result = mysqli_query($link, $select_query);
 				while ($row = mysqli_fetch_array($result)) {
 				 // выводим данные
-
+var_dump($row);
 							if ($_SESSION['id'] == 1) {  #Для админа
 
 								$hidden = $row['pub_hidden'];
@@ -61,11 +61,13 @@ page_title ('Страница издания: '.$name_page.'');
 								if ($hidden == 0) {
 									$no_error = 'файл открыт';
 									$color = "color: green";
+									$border = "border: solid 1px green;";
 								}
 
 								if ($hidden == 1) {
 									$no_error = 'файл скрыт';
 									$color = "color: red";
+									$border = "border: solid 1px #E47F50;";
 								}
 							}
 

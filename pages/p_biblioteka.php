@@ -36,6 +36,7 @@ page_title ('Издания нашего храма');
 						$hidden = $row['block_hidden'];
 						$edit = "<a href= /pages/biblioteka/p_edit_publisher_block.php?id=".$row["id"].">Редактировать</a>";
 						$delete = "<a href= /pages/biblioteka/s_delete_publisher_block.php?id=".$row["id"].">Удалить блок</a>";
+						
 						if ($hidden == 0) {
 							$no_error = 'блок открыт';
 							$color = "color: green;";
