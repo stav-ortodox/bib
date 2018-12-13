@@ -277,6 +277,19 @@ EOD;
 
 // *************************************************************************
 
+function admin () {
+	if ($_SESSION['id'] == 1) { #допуск админа
+	} else {
+		echo "Нужно иметь права администратора, чтобы перейти на эту страницу
+		<br> <a href='/index.php'>перейти на главную</a>";
+		exit();
+	} 
+}
+
+
+// *************************************************************************
+
+
 function get_footer () {
 echo <<<EOD
 	<footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">

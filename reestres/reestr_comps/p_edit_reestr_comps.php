@@ -1,9 +1,10 @@
-<?php 
-session_start(); 
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';  
-get_header_doc ('Форма редактирования', 'Форма редактирования');
+<?php session_start();
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php'; 
 
+get_header_doc ('Форма редактирования', 'Форма редактирования');
+admin ();
 ?>
 
 	<?php
@@ -33,7 +34,7 @@ get_header_doc ('Форма редактирования', 'Форма реда�
     $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
  
     if($result)
-        echo "<span style='color:blue;'>Данные обновлены</span>";
+        // echo "<span style='color:blue;'>Данные обновлены</span>";
     header('Location: p_reestr_comp.php');
 }
  

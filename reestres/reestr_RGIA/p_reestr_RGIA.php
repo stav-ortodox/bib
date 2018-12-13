@@ -1,18 +1,11 @@
 <?php 
 session_start();
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 
-
-if ($_SESSION['id'] == 1) { #допуск админа
-} else {
-	echo "Нужно иметь права администратора, чтобы перейти на эту страницу
-	<br> <a href='/index.php'>перейти на главную</a>";
-	exit();
-} 
-
 get_header_doc ('', 'Реестр дел РГИА');
-
+admin ();
 
 $select_query = sprintf("SELECT * FROM reestr_rgia");
 

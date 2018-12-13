@@ -1,7 +1,11 @@
 <?php 
 session_start();
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php'; 
+
 get_header_doc('Форма для реестра', 'Форма для реестра');
+admin ();
 ?>
 
 <div class="user_form">
@@ -28,11 +32,6 @@ get_header_doc('Форма для реестра', 'Форма для реест
 		<label for="image">Фотография:</label>
 		<input type="hidden" name="MAX_FILE_SIZE" value="2000000">
 		<input type="file" name="image" id="image">
-
-		<!-- <div class="prew">
-			<label for="pct">Загруженное фото:</label>
-			<input type="file" id="pct">
-		</div> -->
 
 		<input class="submit" type="submit" value="Готово!">
 	</form>
