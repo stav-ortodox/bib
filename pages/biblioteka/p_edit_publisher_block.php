@@ -49,7 +49,7 @@ endif;
 
             <p>Обложка блока издания: <br> 
             <div class='img_edit'>
-            <img src='<?php echo $block_image ?>'>
+            <img src='<?php echo $block_image ?>' class='img-thumbnail'  style="width: 300px">
             </div>
             </p>
 

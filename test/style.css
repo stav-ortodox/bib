@@ -24,6 +24,7 @@ header {
 }
 
 .sidebar {
+	z-
 	width: 300px;
 	padding: 20px;
 	float: left;
@@ -40,7 +41,7 @@ header {
 	display: table;
 }
 
-.clearfix:afte {
+.clearfix:after {
 	clear: both;
 }
 

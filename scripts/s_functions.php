@@ -27,11 +27,10 @@ function get_header_site ($title_br, $header_subtitle) {
 
 	<!-- Your custom styles (optional) -->
 	<link href="/css/style.css" rel="stylesheet">
-	<link rel="stylesheet" href="/css/media_xl.css">
 	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 
 	<!-- My js -->
-	<link rel="stylesheet" href="js/my_js.js">
+	
 
 	<!-- Fonts -->
 	<link href="http://allfont.ru/allfont.css?fonts=ds-russia-demo" rel="stylesheet" type="text/css">
@@ -82,6 +81,16 @@ function get_header_site ($title_br, $header_subtitle) {
 		});
 		});
 	</script>
+
+	<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-30914018-3', 'auto');
+      ga('send', 'pageview');
+  </script>
 </head>
 
 <body>
@@ -107,7 +116,7 @@ EOD;
 }
 
 // *************************************************************************
-
+	
 function get_menu () {
 	$s1 = "Главная";
 	$s2 = "Библиотека";
@@ -115,18 +124,13 @@ function get_menu () {
 	$s4 = "О храме";
 	$s5 = "Администрация";
 	$s6 = "Профиль";
-
 echo <<<EOD
-
-		<div class="wrap justify-content-center">
-		  <div class="btn-group " role="group" aria-label="Basic example">
+		<div class="wrap justify-content-center mb-5">
+		  <div class="btn-group" role="group" aria-label="Basic example">
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/index.php">$s1</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_biblioteka.php">$s2</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_news.php">$s3</button>
-		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_o_hrame.php">$s4</button>
-		    
-		    <button type="button" class="btn btn-cyan" onclick=location.href='/pages/p_admins.php'>$s5</button>
-		  
+		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_o_hrame.php">$s4</button>	  
 EOD;
 
   if (isset($_SESSION['id'])) {
@@ -137,35 +141,124 @@ EOD;
    	echo "<button type='button' class='btn btn-cyan' onclick=location.href='/pages/p_admins.php'>".$s5."</button>";
   }
 
-		if (empty($_SESSION['login']) or empty($_SESSION['id'])) {
-    
-		echo 
-					"<div class='login_signup'>
-							<a href='/pages/p_login.php'><p>Войти</p></a>
-							<a href='/pages/p_registration.php'><p>Зарегистрироваться</p></a>
-							</div>
-						</div>";		
-    
- } else {
-
-		echo
-					"<div class='login_signup'>
-							Здравствуйте, <b>".$_SESSION['login']."</b>
-							<a href='/scripts/s_logout.php'><p>Выйти</p></a>
-						</div>";			
-    }
-
 echo <<<EOD
-    </div>
+    	</div>
 		</div>
 EOD;
 }
 
 // *************************************************************************
 
+function get_sm_menu (){
+	$s1 = "Главная";
+	$s2 = "Библиотека";
+	$s3 = "Новости";
+	$s4 = "О храме";
+	$s5 = "Администрация";
+	$s6 = "Профиль";
+echo '	
+<script>$("#your-custom-id").mdbDropSearch();</script>
+<div class="dropdown_z mb-5">
+	<div class="dropdown">
+		<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1-1" data-toggle="dropdown">Меню</button>
+
+		<div class="dropdown-menu dropdown-primary" id="your-custom-id">
+			<input class="form-control" type="text" placeholder="Поиск" aria-label="Search">
+			<a class="dropdown-item mdb-dropdownLink-1" href="/index.php">'.$s1.'</a>
+			<a class="dropdown-item mdb-dropdownLink-1" href="/pages/p_biblioteka.php">'.$s2.'</a>
+			<a class="dropdown-item mdb-dropdownLink-1" href="/pages/p_news.php">'.$s3.'</a>
+			<a class="dropdown-item mdb-dropdownLink-1" href="/pages/p_o_hrame.php">'.$s4.'</a>
+			<a class="dropdown-item mdb-dropdownLink-1" href="/pages/p_profile.php">'.$s6.'</a>
+			<a class="dropdown-item mdb-dropdownLink-1" href="/pages/p_admins.php">'.$s5.'</a>
+		</div>
+	</div>
+</div>
+';
+}
+// *************************************************************************
+
 function get_sidebar () {
 echo <<<EOD
+<div class="sidebar">
 
+EOD;
+			 
+			if (empty($_SESSION['login']) or empty($_SESSION['id'])) {
+				echo 
+				"<div class='login_signup'>
+				<a href='/pages/p_login.php'><p>Войти</p></a>
+				<a href='/pages/p_registration.php'><p>Зарегистрироваться</p></a>
+				</div>";		
+			} else {
+				echo
+				"<div class='login_signup'>
+				Здравствуйте, <b>".$_SESSION['login']."</b>
+				<a href='/scripts/s_logout.php'><p>Выйти</p></a>
+				</div>";			
+			}
+			
+echo 
+<<<EOD
+<img src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" class="img-fluid z-depth-2 mb-3" alt=""> 
+EOD;
+			if ($_SESSION['id'] == 1) {
+   	echo "
+   	<div class='admin-panel'>
+   	<hr>
+		<h4 class='text-center'>Панель администратора</h4>
+			<small>(Вам доступна эта панель, потому что Вы являетесь администратором сайта)</small>
+		<ul>
+		<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить новый блок издания</p></a></li>
+		<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить новую единицу издания</p></a></li>
+		</ul>
+		<ul>
+		<h4 class='text-center'>Документы</h4>
+			<li><a href='/reestres/reestr_RGIA/p_reestr_RGIA.php'>Реестр дел из РГИА</a></li>
+			<li><a href='/pages/p_reestr_comp.php'>Реестр техники</a></li>
+		</ul>
+		<hr>
+		</div>";
+}
+echo <<<EOD
+</div>
+EOD;
+}
+
+// *************************************************************************
+
+function get_sm_sidebar () {
+echo <<<EOD
+<div class="sm-sidebar">
+EOD;
+			 
+			if (empty($_SESSION['login']) or empty($_SESSION['id'])) {
+				echo 
+				"<div class='sm-login_signup'>
+				<a href='/pages/p_login.php'><p>Войти</p></a>
+				<a href='/pages/p_registration.php'><p>Зарегистрироваться</p></a>
+				</div>";		
+			} else {
+				echo
+				"<div class='sm-login_signup'>
+				Здравствуйте, <b>".$_SESSION['login']."</b>
+				<a href='/scripts/s_logout.php'><p>Выйти</p></a>
+				</div>";			
+			}
+			
+		if ($_SESSION['id'] == 1) {
+	   	echo "
+	   	<div class='sm-admin-panel'>
+			Панель администратора <br>
+			<small>(Вам доступна эта панель, потому что Вы являетесь администратором сайта)</small>
+			<ul>
+			<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить новый блок издания</p></a></li>
+			<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить новую единицу издания</p></a></li>
+			</ul>
+			<hr>
+			</div>";
+}
+echo <<<EOD
+</div>
 EOD;
 }
 
@@ -204,15 +297,18 @@ echo <<<EOD
 		<a href="#"><i class="fa fa-facebook mr-3"></i></a>
 	</div>
 	<div class="footer-copyright py-3">
-		Больничный храм святого Великомученика и Целителя Пантелеимона 
+		Copyright © 2018 Больничный храм святого Великомученика и Целителя Пантелеимона 
 г. Ставрополь
 	</div>
 </footer>
-
 </body>
 </html>
-
-
+<script>
+  var sticky = new Sticky('[data-sticky]');
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 EOD;
 }
 

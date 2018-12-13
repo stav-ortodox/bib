@@ -40,7 +40,7 @@ header {
 	display: table;
 }
 
-.clearfix:afte {
+.clearfix:after {
 	clear: both;
 }
 

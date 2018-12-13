@@ -14,12 +14,8 @@ page_title ('Добавление нового издания');
 
 
 
-
-
-
 get_open_form ("/pages/admins/s_admin_add_new_publishing_post.php", "POST", "Введите данные", '');?>
 		
-
 
 <label for="select_block">Выберите блок издания:</label>
 <?php 
@@ -60,9 +56,7 @@ echo "</select>";
 		<input type="file" name="pub_file" id="pub_file">
 
 
-<?php get_close_form ();
-
-
+<?php get_close_form (); 
 get_footer ();
 
 ?>

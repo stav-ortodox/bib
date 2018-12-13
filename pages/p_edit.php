@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
-  
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';  
 get_header_doc ('Форма редактирования', 'Форма редактирования');
 
 ?>
@@ -125,7 +125,7 @@ if ($_FILES['image']['size'] > 0) {
             } else {
                 print $errors;
             }
-}
+        }
 
 
 $id = ($_POST['id']);
@@ -142,10 +142,10 @@ if(isset($name_img)) {
         echo "<span style='color:blue;'>Данные обновлены</span>";
         header('Location: /pages/p_reestr_comp.php');
 
-}
+    }
 
 // закрываем подключение
- mysqli_close($link);
+mysqli_close($link);
 //
 get_footer ();
 

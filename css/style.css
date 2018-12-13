@@ -1,4 +1,3 @@
-
 @font-face {
 	font-family: 'Izhitsa Regular';
 	src: url('Izhitsa.eot');
@@ -10,11 +9,12 @@
 }
 
 html {
-	height: 100%;
+	height: auto;
 }
 
 body {
-	height: 100%;
+	height: auto;
+	background: #eee;
 }
 
 a {
@@ -30,7 +30,9 @@ table {border: 1px solid black;}
 /* границы ячеек первого ряда таблицы */
 th {border: 1px solid black;}
 /* границы ячеек тела таблицы */
-td {border: 1px solid black;}
+td {
+	border: 1px solid black;
+	text-align: center;}
 /* сделает ширину таблицы равной ширине блока контейнера, в котором она находится */
 table {width: 100%;}
 /* задаст фиксированную ширину для таблицы */
@@ -42,6 +44,73 @@ table th {
 
 h1, h2, h3, h5, h6 {
 	font-family: 'Zanesennyj';
+}
+
+table th {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+table td {
+	font-size: 22px;
+}
+
+.admin-panel {
+	padding: 0px;
+	font-family: 'Old Standard TT', serif;
+	font-size: 18px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.admin-panel p {
+	margin: 0;
+	color: green;
+}
+
+.admin-panel p:hover {
+	margin: 0;
+	color: #EC6925;
+}
+
+.admin-panel ul {
+	padding: 0;
+	padding-left: 10px;
+}
+
+.admin-panel li {
+	margin-left: 10px;
+	padding: 0;
+	margin-bottom: 5px;
+}
+
+.sm-admin-panel {
+	padding: 0px;
+	font-family: 'Old Standard TT', serif;
+	font-size: 18px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.sm-admin-panel p {
+	margin: 0;
+	color: green;
+}
+
+.sm-admin-panel p:hover {
+	margin: 0;
+	color: #EC6925;
+}
+
+.sm-admin-panel ul {
+	padding: 0;
+	padding-left: 20px;
+}
+
+.sm-admin-panel li {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 5px;
 }
 
 .button1 {
@@ -74,6 +143,11 @@ h1, h2, h3, h5, h6 {
 	border-color: #e77948;
 }
 
+.card-form {
+	max-width: 30% !important;
+	margin: 0 auto;
+}
+
 #close {
 	cursor: pointer;
 	position: static;
@@ -102,6 +176,26 @@ h1, h2, h3, h5, h6 {
 	padding-left: 10px;
 }
 
+.dropdown_z {
+	text-align: center;
+}
+
+.btn-primary.dropdown-toggle {
+	background-color: #00BCD4 !important;
+}
+
+.btn-primary.dropdown-toggle:hover {
+	background-color: #00BCD4 !important;
+}
+
+.btn-primary:not([disabled]):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+	background-color: #00BCD4 !important;
+}
+
+.btn-primary.dropdown-toggle:focus {
+	background-color: #00BCD4 !important;
+}
+
 .error {
 	padding-top: 20px;
 	text-align: center;
@@ -111,24 +205,14 @@ h1, h2, h3, h5, h6 {
 
 .no_error {
 	padding: 0;
-	margin-left: 10px;
-	margin-right: 10px;
 	text-align: center;
 	font-size: 14px;
 	color: red;
-	background: #fff;
-}
-
-.no_error {
-	padding: 0;
-	text-align: center;
-	font-size: 14px;
-	color: red;
-	margin: 0 auto;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-bottom: 5px;
 	border-radius: 5px;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 4px;
+	margin-bottom: 4px;
 }
 
 .edit_delete {
@@ -147,6 +231,15 @@ h1, h2, h3, h5, h6 {
 	border-radius: 5px;
 	border: solid 1px green;
 }
+
+.fa-edit:hover {
+	color: black !important;
+}
+
+.fa-times-circle-o:hover {
+	color: black !important;
+}
+
 
 .info {
 	display: -webkit-flex;
@@ -174,7 +267,7 @@ h1, h2, h3, h5, h6 {
 	justify-content: center;
 	border: solid 1px lime;
 	margin-bottom: 20px;
-	height: 500px;
+	width: 200px;
 }
 
 #input_file:hover {
@@ -239,12 +332,11 @@ h1, h2, h3, h5, h6 {
 .header_site {
 	/*background-image: url(https://c.pxhere.com/photos/f8/7c/landscape_scotland_kilmacolm_renfrewshire_knappsloch_canon6d_ef1635mmf4lisusm-383095.jpg!d);*/
 	background-size: cover;
-	padding-top: 50px;
+	/*padding-top: 50px;*/
 }
 
 .header_title {
 	text-align: center;
-
 }
 
 .header_title h4 {
@@ -284,12 +376,11 @@ h1, h2, h3, h5, h6 {
 }
 
 .login_signup {
-	position: absolute;
-	right: 50px;
 	padding: 0px;
-	text-align: right;
 	font-family: 'Old Standard TT', serif;
 	font-size: 18px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .login_signup p {
@@ -298,6 +389,24 @@ h1, h2, h3, h5, h6 {
 }
 
 .login_signup p:hover {
+	margin: 0;
+	color: #EC6925;
+}
+
+.sm-login_signup {
+	padding: 0px;
+	font-family: 'Old Standard TT', serif;
+	font-size: 18px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.sm-login_signup p {
+	margin: 0;
+	color: green;
+}
+
+.sm-login_signup p:hover {
 	margin: 0;
 	color: #EC6925;
 }
@@ -319,7 +428,6 @@ h1, h2, h3, h5, h6 {
 	align-items: center;
 }
 
-
 #logo_1 {
 	max-height: 77%;
 	max-width: 20%;
@@ -338,7 +446,7 @@ h1, h2, h3, h5, h6 {
 .main-title-page h1 {
 	font-family: 'Old Standard TT', serif;
 	margin-top: 50px;
-	margin-bottom: 20px;
+	margin-bottom: 100px;
 	text-align: center;
 	font-size: 27px;
 }
@@ -371,7 +479,6 @@ h1, h2, h3, h5, h6 {
 
 .my_menu button {
 	margin: 5px;
-	/*min-width: 225px;*/
 }
 
 .opasity-block {
@@ -398,7 +505,7 @@ h1, h2, h3, h5, h6 {
 }
 
 .page_title {
-	margin-bottom: 30px;
+	margin-bottom: 100px;
 	border-bottom: solid 2px #E47F50;
 }
 
@@ -448,14 +555,18 @@ h1, h2, h3, h5, h6 {
   border-image: url(http://gmaindia.org/Images/shadowLine.png) 30 round round;
 }
 
+.pub-block {
+	justify-content: center;
+	max-width: 80%;
+	margin-bottom: 20px;
+}
 
-.prew-block hr {
-	border: none; /* Убираем границу для браузера Firefox */
-	color: #E47F50; /* Цвет линии для остальных браузеров */
-	background-color: #E47F50; /* Цвет линии для браузера Firefox и Opera */
-	height: 1px; /* Толщина линии */
-	margin: 0;
-	margin-bottom: 10px;
+.pub-block-wrap td, table{
+	border: none;
+}
+
+.pub-block-wrap p:hover {
+	color: green !important;
 }
 
 .submit {
@@ -471,9 +582,16 @@ h1, h2, h3, h5, h6 {
 	background-color: green;
 }
 
-.sidebar h3 {
-	text-align: center;
-	color: #2E1F36;
+.sidebar {
+	margin-right: 10px;
+	margin-bottom: 30px;
+	border-top: 1px solid #ddd;
+}
+
+.sm-sidebar {
+	margin-left: 10px;
+	margin-bottom: 30px;
+	border-top: 1px solid #ddd;
 }
 
 .title_table {
@@ -489,13 +607,112 @@ h1, h2, h3, h5, h6 {
 	margin-bottom: 50px;
 }
 
-.text_center {
-	text-align: center;
-}
-
 .warning {
 	color: red;
 }
+
+.wrap {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+
+.wrap hr {
+	border: none; /* Убираем границу для браузера Firefox */
+	color: #E47F50; /* Цвет линии для остальных браузеров */
+	background-color: #E47F50; /* Цвет линии для браузера Firefox и Opera */
+	height: 3px; /* Толщина линии */
+	margin: 0;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+
+#your-custom-id {
+}
+
+
+
+
+
+
+
+
+/*// Малые девайсы («ландшафтные телефоны», <= 576px)*/
+@media (max-width: 576px) {
+.dropdown_z {
+	display: block;
+}
+.wrap {
+	display: none;
+}
+.sm-sidebar {
+	display: block;
+}
+.sidebar {
+	display: none;
+}
+}
+
+
+
+/*// Малые девайсы («ландшафтные телефоны», >= 576px)*/
+@media (min-width: 576px) {
+.dropdown_z {
+	display: block;
+}
+.wrap {
+	display: none;
+}
+.sm-sidebar {
+	display: block;
+}
+.sidebar {
+	display: none;
+}
+}
+
+
+
+/*// Средние девайсы («таблетки», >= 768px)*/
+@media (min-width: 768px) {
+.dropdown_z {
+	display: block;
+}
+.wrap {
+	display: none;
+}
+}
+
+
+
+/*// Большие девайсы (десктопы, >= 992px)*/
+@media (min-width: 992px) {
+.dropdown_z {
+	display: none;
+}
+.wrap {
+	display: flex;
+}
+.sm-sidebar {
+	display: none;
+}
+.sidebar {
+	display: block;
+}
+}
+
+
+
+/*// Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
+@media (min-width: 1200px) {
+
+}
+
+
+
 
 /*******************************************/
 
@@ -537,6 +754,7 @@ h1, h2, h3, h5, h6 {
 }
 
 
+
 @media print {
 	#printPageButton {
 		display: none;
@@ -548,147 +766,3 @@ h1, h2, h3, h5, h6 {
 		page-break-inside: avoid;
  	}
 }
-
-
-/*сайдбар*/
-
-
-.content {
-	margin-left: 300px;
-	padding: 20px;
-	/*background: #ddd;*/
-}
-
-.sidebar {
-	width: 300px;
-	padding: 20px;
-	float: left;
-	background: #fff;
-	-webkit-transition: left 0.5s ease-out 0.2s;
-	-moz-transition: left 0.5s ease-out 0.2s;
-	-o-transition: left 0.5s ease-out 0.2s;
-	transition: left 0.5s ease-out 0.2s;
-}
-
-.clearfix:before,
-.clearfix:before {
-	content: " ";
-	display: table;
-}
-
-.clearfix:afte {
-	clear: both;
-}
-
-.left {
-	float: left;
-}
-
-.right {
-	float: right;
-}
-
-.text-right {
-	text-align: right;
-}
-
-.divide {
-	display: block;
-	height: 2px;
-	margin: 3px 0;
-	background: black;
-}
-
-.icon-menu {
-	display: none;
-	height: 30px;
-	width: 12px;
-	float: left;
-	padding: 5px 0;
-	cursor: pointer;
-	margin-right: 10px;
-	margin-left: 10px;
-}
-
-.wrap {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-}
-
-
-
-
-@media (max-width: 768px) {
-	body {
-		padding-top: 50px;
-	}
-
-	header {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 50px;
-	}
-
-.icon-menu {
-	display: block;
-}
-
-.sidebar {
-	position: fixed;
-	left: -250px;
-	width: 250px;
-	height: 100%;
-}
-
-.sidebar.active {
-	left: 0px;
-}
-
-.content {
-	margin-left: 0;	
-}
-
-.wrap {
-	display: none;
-}
-}
-
-
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
-
-/*// Малые девайсы («ландшафтные телефоны», >= 576px)*/
-@media (min-width: 576px) {
-.prew-img-block {
-	background: rgb(235, 235, 235);
-}
-}
-
-
-
-
-
-
-/*// Средние девайсы («таблетки», >= 768px)*/
-@media (min-width: 768px) {
-.prew-img-block {
-	background: rgb(235, 235, 235);
-	
-}
-}
-
-
-/*// Большие девайсы (десктопы, >= 992px)*/
-@media (min-width: 992px) {
-.prew-img-block {
-	background: rgb(235, 235, 235);
-	
-}
-}
-
-

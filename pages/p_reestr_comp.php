@@ -3,10 +3,10 @@ session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 
-if(isset($_SESSION['login'])) {
-
+if ($_SESSION['id'] == 1) { #допуск админа
 } else {
-	echo "Нужно иметь права администратора, чтобы перейти на эту страницу";
+	echo "Нужно иметь права администратора, чтобы перейти на эту страницу
+	<br> <a href='/index.php'>перейти на главную</a>";
 	exit();
 } 
 
@@ -17,7 +17,7 @@ $select_query = sprintf("SELECT * FROM reestr_comps");
 
 echo "<button type='button' class='button1 btn btn-outline-primary' id='printPageButton'><a href='p_reestr_form.php'>Вызвать форму</a></button>";
 
-title_table('Реестр компьютеров и оргтехники храма св. Великомученика и Целителя Пантелеимона г. Ставрополя');
+table_reestr_comp('Реестр компьютеров и оргтехники храма св. Великомученика и Целителя Пантелеимона г. Ставрополя');
 
 
 $result = mysqli_query($link, $select_query);
@@ -48,7 +48,7 @@ echo "</table>
 </div>
 ";
 
-place_to_sign();
+place_to_sign('../pages/p_reestr_comp.php');
 
 
 ?>

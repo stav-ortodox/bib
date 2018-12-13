@@ -1,4 +1,5 @@
 <?php 
+
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';  
@@ -10,7 +11,6 @@ $pub_name = trim($_REQUEST['pub_name']);
 $pub_description = trim($_REQUEST['pub_description']);
 $pub_hidden = ($_REQUEST['pub_hidden']);
 $block_id = 111;
-
 
 
 
@@ -38,8 +38,6 @@ if (isset($_FILES['pub_image'])) {
 }
 
 
-
-
 if (isset($_FILES['pub_file'])) {
 	$errors_file = array();
 	$file_name_file = $_FILES['pub_file']['name'];
@@ -65,27 +63,8 @@ if (isset($_FILES['pub_file'])) {
 
 
 
- // var_dump($_GET);
-// echo "<br>";
-// var_dump($block_id);
-// echo "<br>";
-// var_dump($pub_name);
-// echo "<br>";
-// var_dump($pub_description);
-// echo "<br>";
-// var_dump($name_img);
-// echo "<br>";
-// var_dump($name_file);
-// echo "<br>";
-// var_dump($pub_hidden);
-// echo "<br>";
-// var_dump($_FILES['pub_image']);
-// echo "<br>";
-// var_dump($_FILES['pub_file']);
-// echo "<br>";
 
-
-$insert_sql = sprintf("INSERT INTO publishing_post (select_block, block_id,  pub_name, pub_description, pub_image, pub_file, pub_hidden) 
+$insert_sql = sprintf("INSERT INTO publishing_post (select_block, block_id, pub_name, pub_description, pub_image, pub_file, pub_hidden) 
 	VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
 		mysqli_real_escape_string($link, $block_name_sel),
 		mysqli_real_escape_string($link, $block_id),
@@ -106,10 +85,18 @@ $id = (mysqli_insert_id($link));
 
 
 
-$sql = "SELECT id FROM publishing_blocks WHERE block_name='$block_name_sel'";
-            $result = mysqli_query($link, $sql) or die ("Ошибка " . mysqli_error($link));
-             while($object = mysqli_fetch_object($result))
-$new_block_id = $object->id;
+$sql = htmlspecialchars("SELECT id FROM publishing_blocks WHERE block_name = '$block_name_sel'");
+$result = mysqli_query($link, $sql) or die ("Ошибка " . mysqli_error($link));
+						if($result && mysqli_num_rows($result)>0) 
+							{
+        $row = mysqli_fetch_row($result); // получаем первую строку
+        $new_block_id = $row[0];
+        
+	
+        mysqli_free_result($result);
+}
+
+
 
 $query ="UPDATE publishing_post SET 
             block_id='$new_block_id'

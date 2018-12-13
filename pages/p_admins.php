@@ -10,8 +10,10 @@ page_title ('Страница администратора');
 ?>
 
 <ul>
-<li><a href="/pages/admins/p_admin_add_new_publishing_block.php">Добавить новый блок издания</a></li>
-<li><a href="/pages/admins/p_admin_add_new_publishing_block.php">Добавить новое издание в существующий блок издания</a></li>
+	<li><a href="/pages/admins/p_admin_add_new_publishing_block.php">Добавить новый блок издания</a></li>
+	<li><a href="/pages/admins/p_admin_add_new_publishing_block.php">Добавить новое издание в существующий блок издания</a></li>
+	<li><a href="/reestres/reestr_RGIA/p_reestr_RGIA.php">Реестр дел из РГИА</a></li>
+	<li><a href="/pages/p_reestr_comp.php">Реестр техники</a></li>
 </ul>
 
 

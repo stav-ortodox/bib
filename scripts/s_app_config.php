@@ -121,9 +121,9 @@ EOD;
 
 // **************************************************************
 
-function title_table ($title_table) {
+function table_reestr_comp ($title_table) {
 	echo "<div class='title_table'>
-	<h4>$title_table</h4>
+	<h1>$title_table</h1>
 </div>
 <div class='table'>
 <table>
@@ -141,15 +141,41 @@ function title_table ($title_table) {
 
 // **************************************************************
 
-function place_to_sign() { #место для подписи
+function table_reestr_RGIA ($title_table) {
+	echo "<div class='title_table'>
+	<h1>$title_table</h1>
+</div>
+<div class='table'>
+<table>
+		<tr>
+			<th>№</th>
+			<th>Фонд</th>
+			<th>Опись</th>
+			<th>Дело</th>
+			<th>Начато</th>
+			<th>Окончено</th>
+			<th>Наименование</th>
+			<th>Кол-во листов</th>
+			<th>Примечание</th>
+			<th>Том</th>
+			<th>Заказано</th>
+			<th>Получено в ч/з РГИА</th>
+			<th>Заказана копия</th>
+			<th>Получена копия</th>
+		</tr>";
+}
+
+// **************************************************************
+
+function place_to_sign($filename) { #место для подписи
 $date_today = date("d.m.y"); 
 $today = date("H:i"); 
-$filename = '../pages/p_reestr_comp.php';
+// $filename = '../pages/p_reestr_comp.php';
 if (file_exists($filename)) 
 
 	echo 
 	"
-	<div class='place_to_sign page-break'>
+		<div class='place_to_sign page-break'>
 			<p>Документ создан: " . date ("d.m.y в H:i", filemtime($filename)). "
 			<br> и распечатан $date_today в $today 
 			<br> клириком храма св. Вел. и Цел. Пантелеимона г. Ставрополя
@@ -164,9 +190,6 @@ if (file_exists($filename))
 			<p><b>митрофорный протоиерей _______________________Павел Самойленко</b></p>
 		</div>";
 }
-
-
-
 
 
 
