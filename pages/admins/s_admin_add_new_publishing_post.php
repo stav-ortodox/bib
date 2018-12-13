@@ -63,10 +63,7 @@ if (isset($_FILES['pub_file'])) {
 
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/biblioteka-&-menu
 $insert_sql = sprintf("INSERT INTO publishing_post (select_block, block_id, pub_name, pub_description, pub_image, pub_file, pub_hidden) 
 	VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
 		mysqli_real_escape_string($link, $block_name_sel),

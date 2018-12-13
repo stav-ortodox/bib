@@ -53,7 +53,7 @@ page_title ('Страница издания: '.$name_page.'');
 				$result = mysqli_query($link, $select_query);
 				while ($row = mysqli_fetch_array($result)) {
 				 // выводим данные
-var_dump($row);
+
 							if ($_SESSION['id'] == 1) {  #Для админа
 
 								$hidden = $row['pub_hidden'];
