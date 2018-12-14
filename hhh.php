@@ -8,7 +8,7 @@ get_header_doc ('Форма редактирования', 'Форма реда�
 admin ();
 
 
-    if(isset($_POST['name']) && isset($_POST['name_type']) && isset($_POST['id'])){
+if(isset($_POST['name']) && isset($_POST['name_type']) && isset($_POST['id'])){
 
  
     $id = htmlentities(mysqli_real_escape_string($link, $_POST['id']));
@@ -143,9 +143,9 @@ if(isset($name_img)) {
 
     }
 
-// закрываем подключение
+
 mysqli_close($link);
-//
+
 get_footer ();
 
 ?>

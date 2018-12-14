@@ -35,7 +35,7 @@ admin ();
 
 
     <div class="card-form">
-        <form class="border border-light p-5" action="s_edit_reestr_comps.php" method="POST">
+        <form class="border border-light p-5" action="s_edit_reestr_comps.php" method="POST" enctype="multipart/form-data">
 
             <p class="h4 mb-4 text-center"></p>
 
@@ -64,8 +64,8 @@ admin ();
                 <div class="box"><img class="img-thumbnail" src="<?php echo $image ?>" alt=""></div>
             </div>
 
-            <label for="image">Новое изображение:</label>
-            <input type="file" name="image" id="image" class="form-control mb-4" value="">
+            <label for="new_image">Новое изображение:</label>
+            <input type="file" name="new_image" id="new_image" class="form-control mb-4" value="">
 
 
             <button class="btn btn-info btn-block my-4" type="submit">Изменить</button>

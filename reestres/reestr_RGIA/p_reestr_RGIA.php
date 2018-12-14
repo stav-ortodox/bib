@@ -9,8 +9,10 @@ admin ();
 
 $select_query = sprintf("SELECT * FROM reestr_rgia");
 
-echo "<button type='button' class='btn aqua-gradient' id='printPageButton'><a href='form_reestr_RGIA.php'>Вызвать форму</a></button>";
-
+echo "<button type='button' class='button1 btn aqua-gradient' id='printPageButton'><a href='form_reestr_RGIA.php'>Вызвать форму</a></button>";
+// echo '<pre>';
+//  var_dump($_REQUEST);
+//  echo '</pre>';
 table_reestr_RGIA ('Реестр дел из РГИА');
 
 

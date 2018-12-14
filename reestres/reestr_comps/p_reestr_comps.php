@@ -4,6 +4,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 
+ 
+
 get_header_doc ('', 'Реестр компов');
 admin ();
 
@@ -27,12 +29,15 @@ echo "
 <td>".$row["place"]."</td>"."\n"."	
 <td>".$row["of_face"]."</td>"."\n"."
 <td>".$row["sost"]."</td>"."\n"."
-<td><div class='box'>
-	<img class='img-thumbnail' src=".$row["image"]." alt=''>
-</div> 
-<div id='printPageButton'>
-<a href= p_edit_reestr_comps.php?id=".$row["id"]."><i class='fa fa-edit fa-2x green-text' aria-hidden='true' title='Редактировать'></i></a>"."\n"."
-<a href= delete_reestr_comps.php?id=".$row["id"]."><i class='fa fa-times-circle-o fa-2x red-text' aria-hidden='true' title='Удалить'></i></a></div></td>"."\n"."
+<td>
+	<div class='box'>
+		<img class='img-thumbnail' src=".$row["image"]." alt=''>
+	</div> 
+	<div id='printPageButton'>
+	<a href= p_edit_reestr_comps.php?id=".$row["id"]."><i class='fa fa-edit fa-2x green-text' aria-hidden='true' title='Редактировать'></i></a>"."\n"."
+	<a href= delete_reestr_comps.php?id=".$row["id"]."><i class='fa fa-times-circle-o fa-2x red-text' aria-hidden='true' title='Удалить'></i></a>
+	</div>
+</td>"."\n"."
 </tr>\n";
 }
 

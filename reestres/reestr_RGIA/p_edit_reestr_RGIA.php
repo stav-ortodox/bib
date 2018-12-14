@@ -11,7 +11,7 @@ admin ();
 if(isset($_GET['id']))
 {   
     $id = htmlentities(mysqli_real_escape_string($link, $_GET['id']));
-     
+    
     // создание строки запроса
     $query ="SELECT * FROM reestr_rgia WHERE id = '$id'";
     // выполняем запрос
@@ -34,7 +34,7 @@ if(isset($_GET['id']))
         $poluch= $row[11];
         $zakaz_cop= $row[12];
         $poluch_cop= $row[13];
-}
+    }
 }
 ?>
 
@@ -85,10 +85,6 @@ if(isset($_GET['id']))
         <label for="poluch_cop">Получена копия:</label>
         <input type="text" name="poluch_cop" class="form-control mb-4" value="<?php echo $poluch_cop ?>">
 
-        <div class="custom-control custom-checkbox mb-4">
-            <input type="checkbox" class="custom-control-input" id="gotovnost" name="gotovnost">
-            <label class="custom-control-label" for="gotovnost">Готовность</label>
-        </div>
 
         <button class="btn btn-info btn-block my-4" type="submit">Изменить</button>
     </form>
