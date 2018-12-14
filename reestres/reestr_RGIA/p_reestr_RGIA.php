@@ -6,13 +6,14 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 
 get_header_doc ('', 'Реестр дел РГИА');
 admin ();
+get_menu ();
 
 $select_query = sprintf("SELECT * FROM reestr_rgia");
 
 echo "<button type='button' class='button1 btn aqua-gradient' id='printPageButton'><a href='form_reestr_RGIA.php'>Вызвать форму</a></button>";
 // echo '<pre>';
-//  var_dump($_REQUEST);
-//  echo '</pre>';
+// var_dump($_REQUEST);
+// echo '</pre>';
 table_reestr_RGIA ('Реестр дел из РГИА');
 
 
@@ -28,7 +29,7 @@ echo "
 <td>".$row["delo"]."</td>"."\n"."
 <td>".$row["nach"]."</td>"."\n"."
 <td>".$row["okonch"]."</td>"."\n"."
-<td>".preg_replace("/[\r\n]+/", "</p><p>", $row['naimen'])."</td>"."\n"."
+<td><b>".preg_replace("/[\r\n]+/", "</p><p>", $row['naimen'])."</b></td>"."\n"."
 <td>".$row["listov"]."</td>"."\n"."	
 <td>".preg_replace("/[\r\n]+/", "</p><p>", $row["prim"])."</td>"."\n"."
 <td>".$row["tom"]."</td>"."\n"."

@@ -125,7 +125,7 @@ function get_menu () {
 	$s5 = "Администрация";
 	$s6 = "Профиль";
 echo <<<EOD
-		<div class="wrap justify-content-center mb-5">
+		<div class="wrap justify-content-center mb-5" id="printPageButton">
 		  <div class="btn-group" role="group" aria-label="Basic example">
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/index.php">$s1</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_biblioteka.php">$s2</button>
@@ -286,15 +286,33 @@ EOD;
 function admin () {
 	if ($_SESSION['id'] == 1) { #допуск админа
 	} else {
-		echo "Нужно иметь права администратора, чтобы перейти на эту страницу
-		<br> <a href='/index.php'>перейти на главную</a>";
+		// get_header_doc('Ошибка', 'Ошибка');
+		echo "<div class='text-center'>
+    		<h1 class='text-danger'>Ошибка 404! Такой страницы не существует!</h1> <br><button class='btn aqua-gradient' type='button' onclick=location.href='/index.php';>ОK</button>
+    			</div></a>";
 		exit();
 	} 
 }
 
+// *************************************************************************
+
+function redirect () {
+	echo "<script>window.location.href = history.go(-2);</script>";
+}
 
 // *************************************************************************
 
+function numeric_test ($variable, $string_ru) {
+	if (!is_numeric ($variable)) {
+		get_header_doc('Ошибка', 'Ошибка');
+    die ("<div class='text-center'>
+    		<h1 class='text-danger'>В строкe '$string_ru' нужно вводить только числа!</h1> <br><button class='btn aqua-gradient' type='button' onclick='history.back();'>ОK</button>
+    			</div>");
+	}
+	if ($variable == null) {$variable = '0';} else {$variable = $variable;};
+}
+
+// *************************************************************************
 
 function get_footer () {
 echo <<<EOD

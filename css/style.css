@@ -246,6 +246,9 @@ table td {
 	color: black !important;
 }
 
+.font-RGIA {
+	font-size: 18px;
+}
 
 .info {
 	display: -webkit-flex;

@@ -1,26 +1,24 @@
 <?php 
 session_start(); 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php'; 
 
 admin ();
 
-$redirect = "<script>window.location.href = history.go(-2);</script>";
+
 $id = $_REQUEST['id'];
 $fond = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['fond'])));
-// if (is_int($fond) === false) {echo "в строку 'фонд' нужно вводить только числа! $redirect";} else {echo "в строку 'фонд' !";};
-if ($fond == null) {$fond = '0';} else {$fond = $fond;};
-
+numeric_test ($fond, 'фонд');
 $opis = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['opis'])));
-if ($opis == null) {$opis = '0';} else {$opis = $opis;};
+numeric_test ($opis, 'опись');
 $delo = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['delo'])));
-if ($delo == null) {$delo = '0';} else {$delo = $delo;};
+numeric_test ($delo, 'дело');
 $nach = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['nach'])));
 $okonch = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['okonch'])));
 $naimen = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['naimen'])));
 $listov = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['listov'])));
-if ($listov == null) {$listov = '0';} else {$listov = $listov;};
+numeric_test ($listov, 'кол-во листов');
 $prim = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['prim'])));
 $tom = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['tom'])));
 $zakaz = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['zakaz'])));
@@ -49,6 +47,6 @@ $poluch_cop = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['poluc
    WHERE `reestr_rgia`.`id` = $id";
    $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link));
 
-   echo $redirect;
+   redirect ();
 
    ?>

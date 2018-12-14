@@ -1,7 +1,7 @@
 <?php 
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php'; 
 
 get_header_doc('Форма редактирования', 'Форма редактирования');
@@ -11,7 +11,7 @@ admin ();
 if(isset($_GET['id']))
 {   
     $id = htmlentities(mysqli_real_escape_string($link, $_GET['id']));
-    
+
     // создание строки запроса
     $query ="SELECT * FROM reestr_rgia WHERE id = '$id'";
     // выполняем запрос
