@@ -9,7 +9,7 @@ admin ();
 
 $select_query = sprintf("SELECT * FROM reestr_comps");
 
-echo "<button type='button' class='button1 btn btn-outline-primary' id='printPageButton'><a href='p_reestr_form.php'>Вызвать форму</a></button>";
+echo "<button type='button' class='button1 btn btn-outline-primary' id='printPageButton'><a href='form_reestr_comps.php'>Вызвать форму</a></button>";
 
 table_reestr_comp('Реестр компьютеров и оргтехники храма св. Великомученика и Целителя Пантелеимона г. Ставрополя');
 
@@ -21,28 +21,26 @@ while ($row = mysqli_fetch_array($result))
 echo "
 <tr>\n
 <td>".$row[""]."</td>"."\n"."
-<td>"."".$row["name"]."</td>"."\n"."
-<td>"."".$row["name_type"]."</td>"."\n"."
-<td>"."".preg_replace("/[\r\n]+/", "</p><p>", $row['characterics'])."</td>"."\n"."
-<td>"."".$row["place"]."</td>"."\n"."	
-<td>"."".$row["of_face"]."</td>"."\n"."
-<td>"."".$row["sost"]."</td>"."\n"."
-
-<td>"."".'<img src=/'.$row["image"].' alt="" width=150 height=150>
-<div class="edit_delete" id="printPageButton">
-<a href= /pages/p_edit.php?id='.$row["id"].'.>'."редактировать</a>".'
-<a href= /pages/p_delete.php?id='.$row["id"].'.>'."<img src='http://lifesguide.ru/wp-content/uploads/2014/04/delete-big.jpg' width=40 height=40></a>
-</div>
-"."</td>"."\n"."
-
-</tr>"."\n";
+<td>".$row["name"]."</td>"."\n"."
+<td>".$row["name_type"]."</td>"."\n"."
+<td>".preg_replace("/[\r\n]+/", "</p><p>", $row['characterics'])."</td>"."\n"."
+<td>".$row["place"]."</td>"."\n"."	
+<td>".$row["of_face"]."</td>"."\n"."
+<td>".$row["sost"]."</td>"."\n"."
+<td><div class='box'>
+	<img class='img-thumbnail' src=".$row["image"]." alt=''>
+</div> 
+<div id='printPageButton'>
+<a href= p_edit_reestr_comps.php?id=".$row["id"]."><i class='fa fa-edit fa-2x green-text' aria-hidden='true' title='Редактировать'></i></a>"."\n"."
+<a href= delete_reestr_comps.php?id=".$row["id"]."><i class='fa fa-times-circle-o fa-2x red-text' aria-hidden='true' title='Удалить'></i></a></div></td>"."\n"."
+</tr>\n";
 }
 
 echo "</table>
 </div>
 ";
 
-place_to_sign('../pages/p_reestr_comp.php');
+place_to_sign('p_reestr_comps.php');
 
 
 ?>
@@ -51,9 +49,3 @@ place_to_sign('../pages/p_reestr_comp.php');
 $('.table tr').each(function(i) {
 i && $(this).find('td:first').text(i);});
 </script>
-
-
-
-
-
-	

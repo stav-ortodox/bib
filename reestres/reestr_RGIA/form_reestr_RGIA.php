@@ -9,8 +9,7 @@ admin ();
 ?>
 
 <div class="card-form">
-	<form class="border border-light p-5" action="s_reestr_RGIA.php
-	      " method="POST">
+	<form class="border border-light p-5" action="s_reestr_RGIA.php" method="POST">
 
     <p class="h4 mb-4 text-center"></p>
 
@@ -52,11 +51,6 @@ admin ();
 
     <label for="poluch_cop">Получена копия:</label>
     <input type="text" name="poluch_cop" class="form-control mb-4">
-
-    <div class="custom-control custom-checkbox mb-4">
-        <input type="checkbox" class="custom-control-input" id="gotovnost" name="gotovnost">
-        <label class="custom-control-label" for="gotovnost">Готовность</label>
-    </div>
 
     <button class="btn btn-info btn-block my-4" type="submit">Добавить</button>
 </form>

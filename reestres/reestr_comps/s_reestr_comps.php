@@ -1,6 +1,10 @@
 <?php 
 session_start();
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';  
+
+admin ();  
 
 
 $name = trim($_REQUEST['name']);
@@ -26,15 +30,14 @@ if (isset($_FILES['image'])) {
 			}
 
 			if (empty($errors) == true) {
-				$upload_dir = '../uploads/reestr_comp/';
-				$name_img = $upload_dir.date('YmdHis').rand(100,1000).'.jpg'; // 
+				$upload_dir = 'uploads/';
+				$name_img = $upload_dir.date('YmdHis').rand(100,1000).'.jpg'; 
 				$mov = move_uploaded_file($_FILES['image']['tmp_name'],$name_img);
 					
 			} else {
 				print $errors;
 			}
-}
-
+		}
 
 
 
@@ -54,8 +57,9 @@ mysqli_query($link, $insert_sql)
   or die(mysqli_connect_error($link));
 
 
+echo "<script>window.location.href = history.go(-2);
+    </script>";
 
-// Redirect the user to the page that displays user information
-header("Location: ../pages/p_reestr_comp.php");
+// header("Location: p_reestr_comps.php");
 exit();
 ?>

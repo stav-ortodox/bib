@@ -14,12 +14,10 @@ if(isset($_POST['id'])){
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
  
     mysqli_close($link);
-    // перенаправление на скрипт index.php
-    // header('Location: p_reestr_comp.php');
-  // header('Location: '.$_SERVER["HTTP_REFERER"]);
+   
     echo "<script>window.location.href = history.go(-2);
     </script>";
-    header('Location: p_reestr_rgia.php');
+    
     
 }
 

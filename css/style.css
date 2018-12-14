@@ -143,6 +143,12 @@ table td {
 	border-color: #e77948;
 }
 
+.box {
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+}
+
 .card-form {
 	max-width: 30% !important;
 	margin: 0 auto;

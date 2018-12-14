@@ -58,4 +58,5 @@ $query ="UPDATE reestr_rgia SET
     $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
  
     if($result)
-        header('Location: p_reestr_rgia.php');?>
+        echo "<script>window.location.href = history.go(-2);
+    </script>";?>

@@ -20,9 +20,9 @@ $zakaz = trim($_REQUEST['zakaz']);
 $poluch = trim($_REQUEST['poluch']);
 $zakaz_cop = trim($_REQUEST['zakaz_cop']);
 $poluch_cop = trim($_REQUEST['poluch_cop']);
-// $gotovnost = trim($_REQUEST['gotovnost']);
 
 
+ 
 
 $insert_sql = sprintf("INSERT INTO reestr_rgia (fond, opis, delo, nach, okonch, naimen, listov, prim, tom, zakaz, poluch, zakaz_cop, poluch_cop) 
 	VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
@@ -39,17 +39,15 @@ $insert_sql = sprintf("INSERT INTO reestr_rgia (fond, opis, delo, nach, okonch, 
    mysqli_real_escape_string($link, $poluch),
    mysqli_real_escape_string($link, $zakaz_cop),
    mysqli_real_escape_string($link, $poluch_cop),
-   // mysqli_real_escape_string($link, $gotovnost),
+   
    
    mysqli_insert_id($link));
 
-// Insert the user into the database
+
 mysqli_query($link, $insert_sql)
-  or die(mysqli_connect_error($link));
+  or die(mysqli_error($link));
 
-
-
-// Redirect the user to the page that displays user information
-header("Location: p_reestr_RGIA.php");
+echo "<script>window.location.href = history.go(-2);
+    </script>";
 exit();
 ?>
