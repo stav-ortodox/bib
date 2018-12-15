@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 
-get_header_doc ('', 'Реестр дел РГИА');
+get_header_doc ('', 'Реестр архивных дел РГИА');
 admin ();
 get_menu ();
 
@@ -14,8 +14,10 @@ echo "<button type='button' class='button1 btn aqua-gradient' id='printPageButto
 // echo '<pre>';
 // var_dump($_REQUEST);
 // echo '</pre>';
-table_reestr_RGIA ('Реестр дел из РГИА');
 
+print_button ();
+
+table_reestr_RGIA ('Реестр архивных дел РГИА');
 
 $result = mysqli_query($link, $select_query);
 while ($row = mysqli_fetch_array($result))

@@ -714,13 +714,10 @@ table td {
 }
 
 
-
 /*// Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
 @media (min-width: 1200px) {
 
 }
-
-
 
 
 /*******************************************/
@@ -774,8 +771,10 @@ table td {
 	.page-break {
 		page-break-inside: avoid;
  	}
-	@page {
-		size: landscape;
-}
 }
 
+/*@media print and (orientation: landscape), all and (min-width: 480px) { ... }*/
+
+@media print (orientation: landscape) { 
+  
+}

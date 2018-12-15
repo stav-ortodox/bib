@@ -312,6 +312,14 @@ function numeric_test ($variable, $string_ru) {
 	if ($variable == null) {$variable = '0';} else {$variable = $variable;};
 }
 
+
+// *************************************************************************
+function print_button () {
+echo '<style type="text/css" media="print">
+button {display: none; }
+</style>
+<button class="btn aqua-gradient" onclick="window.print();">Печать</button>';
+}
 // *************************************************************************
 
 function get_footer () {
