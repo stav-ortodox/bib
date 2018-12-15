@@ -25,9 +25,9 @@ if (isset($_FILES['image'])) {
 	$file_ext = strtolower(end(explode('.', $_FILES['image']['name'])));
 	$expensions = array("jpeg", "jpg", "png");
 
-			if ($file_size > 2097152) {
-				$errors[] = 'Файл должен быть не более 2мб';
-			}
+			// if ($file_size > 19097152) {
+			// 	$errors[] = 'Файл должен быть не более 2мб';
+			// }
 
 			if (empty($errors) == true) {
 				$upload_dir = 'uploads/';
