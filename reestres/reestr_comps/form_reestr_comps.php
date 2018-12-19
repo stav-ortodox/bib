@@ -9,7 +9,7 @@ admin ();
 ?>
 
 <div class="user_form">
-	<form action="../scripts/s_action.php" method="POST" enctype="multipart/form-data">
+	<form action="s_reestr_comps.php" method="POST" enctype="multipart/form-data">
 		<h4>Введение данных</h4>
 		<label for="name">Наименование техники:</label>
 		<input type="text" name="name" >

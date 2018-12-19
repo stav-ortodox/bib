@@ -1,6 +1,4 @@
-<?php 
-// require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';  
-
+﻿<?php 
 define("DATABASE_HOST", "localhost");
 define("DATABASE_USERNAME", "root");
 define("DATABASE_PASSWORD", "");
@@ -9,7 +7,6 @@ define("MY_PASS", "123vc3718123");
 
 function get_header_doc ($header_subtitle, $title_br) {
 
-	
 	echo <<<EOD
 	<!DOCTYPE html>
 		<html lang='ru'>
@@ -128,14 +125,14 @@ function table_reestr_comp ($title_table) {
 <div class='table'>
 <table>
 		<tr>
-			<th>№</th>
-			<th>Наименование техники</th>
-			<th>марка/модель</th>
-			<th>Технические характеристики</th>
-			<th>Место нахождения</th>
-			<th>Ответственное лицо</th>
-			<th>Состояние</th>
-			<th>Фотография</th>
+			<th class='font-RGIA'>№</th>
+			<th class='font-RGIA'>Наименование</th>
+			<th class='font-RGIA'>марка/модель</th>
+			<th class='font-RGIA'>Технические характеристики</th>
+			<th class='font-RGIA'>Место нахождения</th>
+			<th class='font-RGIA'>Ответственное лицо</th>
+			<th class='font-RGIA'>Состояние</th>
+			<th class='font-RGIA'>Фотография</th>
 		</tr>";
 }
 
@@ -148,20 +145,20 @@ function table_reestr_RGIA ($title_table) {
 <div class='table'>
 <table>
 		<tr>
-			<th>№</th>
-			<th>Фонд</th>
-			<th>Опись</th>
-			<th>Дело</th>
-			<th>Начато</th>
-			<th>Окончено</th>
-			<th>Наименование</th>
-			<th>Кол-во листов</th>
-			<th>Примечание</th>
-			<th>Том</th>
-			<th>Заказано</th>
-			<th>Получено в ч/з РГИА</th>
-			<th>Заказана копия</th>
-			<th>Получена копия</th>
+			<th class='font-RGIA'>№</th>
+			<th class='font-RGIA'>Фонд</th>
+			<th class='font-RGIA'>Опись</th>
+			<th class='font-RGIA'>Дело</th>
+			<th class='font-RGIA'>Начато</th>
+			<th class='font-RGIA'>Окончено</th>
+			<th class='font-RGIA'>Наименование</th>
+			<th class='font-RGIA'>Кол-во листов</th>
+			<th class='font-RGIA'>Примечание</th>
+			<th class='font-RGIA'>Том</th>
+			<th class='font-RGIA'>Заказано</th>
+			<th class='font-RGIA'>Получено в ч/з РГИА</th>
+			<th class='font-RGIA'>Заказана копия</th>
+			<th class='font-RGIA'>Получена копия</th>
 		</tr>";
 }
 
