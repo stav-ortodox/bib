@@ -18,9 +18,30 @@ admin ();
 		<input type="text" name="name_type" >
 		
 		<label for="characterics">Технические характеристики:</label>
-		<textarea type="text" name="characterics" rows="10" cols="45" ></textarea> 
+		<textarea type="text" name="characterics" rows="10" cols="45" ></textarea>
+
+		<label for="house">Место нахождения:</label>
+		<input type="text" name="house" >
+
+
+		<?php  $sql = "SELECT house FROM reestr_comps";
+
+		$result_select = mysqli_query($link, $sql);
+
+		/*Выпадающий список*/
+
+		echo "<select name = 'select_block' autofocus>";
+
+		while($object = mysqli_fetch_object($result_select)){
+		$block_name_sel = $object->house;
+
+			
+		echo "<option value = '$block_name_sel'> $block_name_sel </option>
+			";}
+		echo "</select>"; ?> 
+
 		
-		<label for="place">Место нахождения:</label>
+		<label for="place">Помещение нахождения:</label>
 		<input type="text" name="place" >
 
 		<label for="of_face">Ответственное лицо:</label>
