@@ -47,12 +47,12 @@ h1, h2, h3, h5, h6 {
 }
 
 table th {
-	font-size: 22px;
+	font-size: 14px;
 	font-weight: bold;
 }
 
 table td {
-	font-size: 22px;
+	font-size: 14px;
 }
 
 .admin-panel {
@@ -247,7 +247,7 @@ table td {
 }
 
 .font-RGIA {
-	font-size: 18px;
+	font-size: 14px;
 }
 
 .info {
@@ -771,6 +771,12 @@ table td {
 	.page-break {
 		page-break-inside: avoid;
  	}
+ 	.font-RGIA {
+	font-size: 18px;
+	}
+	table td {
+	font-size: 20px;
+}
 }
 
 /*@media print and (orientation: landscape), all and (min-width: 480px) { ... }*/
