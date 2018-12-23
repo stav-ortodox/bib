@@ -12,7 +12,10 @@ echo "<button type='button' class='button1 btn aqua-gradient' id='printPageButto
 
 table_reestr_comp('Реестр компьютеров и оргтехники храма св. Великомученика и Целителя Пантелеимона г. Ставрополя');
 
-$select_query = sprintf("SELECT * FROM `reestr_comps` ORDER BY `house`");
+$select_query = 
+sprintf("SELECT * FROM `reestr_comps`");
+
+
 $result = mysqli_query($link, $select_query);
 while ($row = mysqli_fetch_array($result))
 

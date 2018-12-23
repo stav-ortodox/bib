@@ -4,8 +4,6 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
-
-
 $block_name = trim($_REQUEST['block_name']);
 $block_description = trim($_REQUEST['block_description']);
 $block_hidden = ($_REQUEST['block_hidden']);

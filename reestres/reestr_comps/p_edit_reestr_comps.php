@@ -3,6 +3,7 @@ session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php'; 
+$array = require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/arrays.php'; 
 
 get_header_doc ('Форма редактирования', 'Форма редактирования');
 admin ();
@@ -24,10 +25,11 @@ admin ();
             $name= $row[1];
             $name_type= $row[2];
             $characterics= $row[3];
-            $place= $row[4];
-            $of_face= $row[5];
-            $sost= $row[6];
-            $image= $row[7];
+            $house= $row[4];
+            $place= $row[5];
+            $of_face= $row[6];
+            $sost= $row[7];
+            $image= $row[8];
     }
     }
     
@@ -50,28 +52,57 @@ admin ();
             <label for="characterics">Характеристики:</label>
             <textarea name="characterics" class="form-control mb-4"><?php echo $characterics ?></textarea>
 
-            <label for="place">Место нахождения:</label>
-            <input type="text" name="place" class="form-control mb-4" value="<?php echo $place ?>">
 
-            <label for="of_face">Ответственное лицо:</label>
-            <input type="text" name="of_face" class="form-control mb-4" value="<?php echo $of_face ?>">
+            <label for="house">Место нахождения:</label>
+            <select class="form-control mb-4" name='house'>
+                <option selected><?php echo $house?></option>
+                <?php 
+                $select_query = sprintf("SELECT `house` FROM `house` ORDER BY `house`");
+                $result = mysqli_query($link, $select_query);
+                while ($houses = mysqli_fetch_array($result)) {
+                    if ($houses['house'] == $house) {
+                        continue;
+                    }
+                   echo "<option>".$houses['house']."</option>";
+               }
+               ?>
+           </select>
 
-            <label for="sost">Состояние:</label>
-            <input type="text" name="sost" class="form-control mb-4" value="<?php echo $sost ?>">
+           <label for="place">Помещение нахождения:</label>
+           <select class="form-control mb-4" name='place'>
+            <option selected><?php echo $place ?></option>
+            <?php 
+            $select_query = sprintf("SELECT `place` FROM `place` ORDER BY `place`");
+                           $result = mysqli_query($link, $select_query);
+                           while ($places = mysqli_fetch_array($result)) {
+                               if ($places['place'] == $place) {
+                                   continue;
+                               }
+                              echo "<option>".$places['place']."</option>";
+                          }
+            ?>
+        </select>
 
-            <div class="">
-                <p>Прежнее изображение</p>
-                <div class="box"><img class="img-thumbnail" src="<?php echo $image ?>" alt=""></div>
-            </div>
 
-            <label for="new_image">Новое изображение:</label>
-            <input type="file" name="new_image" id="new_image" class="form-control mb-4" value="">
+        <label for="of_face">Ответственное лицо:</label>
+        <input type="text" name="of_face" class="form-control mb-4" value="<?php echo $of_face ?>">
+
+        <label for="sost">Состояние:</label>
+        <input type="text" name="sost" class="form-control mb-4" value="<?php echo $sost ?>">
+
+        <div class="">
+            <p>Прежнее изображение</p>
+            <div class="box"><img class="img-thumbnail" src="<?php echo $image ?>" alt=""></div>
+        </div>
+
+        <label for="new_image">Новое изображение:</label>
+        <input type="file" name="new_image" id="new_image" class="form-control mb-4" value="">
 
 
-            <button class="btn btn-info btn-block my-4" type="submit">Изменить</button>
-        </form>
+        <button class="btn btn-info btn-block my-4" type="submit">Изменить</button>
+    </form>
 
-    </div>
+</div>
 
 
 

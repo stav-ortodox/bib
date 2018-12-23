@@ -7,12 +7,13 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 admin ();  
 
 
-$name = trim($_REQUEST['name']);
-$name_type = trim($_REQUEST['name_type']);
-$characterics = trim($_REQUEST['characterics']);
-$place = trim($_REQUEST['place']);
-$of_face = trim($_REQUEST['of_face']);
-$sost = trim($_REQUEST['sost']);
+$name = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['name'])));
+$name_type = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['name_type'])));
+$characterics = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['characterics'])));
+$place = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['place'])));
+$of_face = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['of_face'])));
+$sost = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['sost'])));
+$house = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['house'])));
 
 
 
@@ -40,12 +41,12 @@ if (isset($_FILES['image'])) {
 		}
 
 
-
-$insert_sql = sprintf("INSERT INTO reestr_comps (name, name_type, characterics, place, of_face, sost, image) 
-	VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+$insert_sql = sprintf("INSERT INTO reestr_comps (name, name_type, characterics, house, place, of_face, sost, image) 
+	VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
    mysqli_real_escape_string($link, $name),
    mysqli_real_escape_string($link, $name_type),
    mysqli_real_escape_string($link, $characterics),
+   mysqli_real_escape_string($link, $house),
    mysqli_real_escape_string($link, $place),
    mysqli_real_escape_string($link, $of_face),
    mysqli_real_escape_string($link, $sost),
@@ -54,11 +55,13 @@ $insert_sql = sprintf("INSERT INTO reestr_comps (name, name_type, characterics, 
 
 // Insert the user into the database
 mysqli_query($link, $insert_sql)
-  or die(mysqli_connect_error($link));
+  or die(mysqli_error($link));
 
 
-echo "<script>window.location.href = history.go(-2);
-    </script>";
+echo "
+<script>
+window.location.href = history.go(-2);
+</script>";
 
 // header("Location: p_reestr_comps.php");
 exit();
