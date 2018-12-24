@@ -3,7 +3,7 @@ session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php'; 
-$array = require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/arrays.php'; 
+ 
 
 get_header_doc('Форма для реестра', 'Форма для реестра');
 admin ();
@@ -25,35 +25,34 @@ admin ();
 
 		
 		<label for="house">Место нахождения:</label>
-		<select class="form-control mb-4" name='house'>
+		           <select class="form-control mb-4" name='house'>
+		               <option selected><?php echo $house?></option>
+		               <?php 
+		               $select_query = sprintf("SELECT `house` FROM `house` ORDER BY `house`");
+		               $result = mysqli_query($link, $select_query);
+		               while ($houses = mysqli_fetch_array($result)) {
+		                   if ($houses['house'] == $house) {
+		                       continue;
+		                   }
+		                  echo "<option>".$houses['house']."</option>";
+		              }
+		              ?>
+		          </select>
 
-		<?php 
-		$houses = [
-		'1'=>'Административный корпус',
-		'2'=>'Приходской дом',
-		'3'=>'Храм',
-		'4'=>'Гостевой дом'
-];
-		foreach ($houses as $arr) {
-			 
-			 echo "<option>$arr</option>";
-		 
-	}
-		?>
-		
-		</select>
-		
-		<label for="place">Помещение нахождения:</label>
-		<select class="form-control mb-4" name='place'>
-			<?php 
-		foreach ($array as $arr => $value) {
-			foreach ($value as $ar => $val) {
-			echo "<option>$val</option>";
-		}
-	}
-		?>
-	
-		</select>
+		          <label for="place">Помещение нахождения:</label>
+		          <select class="form-control mb-4" name='place'>
+		           <option selected><?php echo $place ?></option>
+		           <?php 
+		           $select_query = sprintf("SELECT `place` FROM `place` ORDER BY `place`");
+		                          $result = mysqli_query($link, $select_query);
+		                          while ($places = mysqli_fetch_array($result)) {
+		                              if ($places['place'] == $place) {
+		                                  continue;
+		                              }
+		                             echo "<option>".$places['place']."</option>";
+		                         }
+		           ?>
+		       </select>
 
 		<label for="of_face">Ответственное лицо:</label>
 		<input class="form-control mb-4" type="text" name="of_face" >
