@@ -16,7 +16,7 @@ $select_query =
 sprintf("
 	SELECT * FROM reestr_comps, house, place 
 	WHERE reestr_comps.house = house.house and reestr_comps.place = place.place
-	ORDER BY house.house_id, place.place_id");
+	ORDER BY house.house_id, place.place_id, reestr_comps.name");
 
 
 $result = mysqli_query($link, $select_query);

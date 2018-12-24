@@ -17,8 +17,6 @@ $sost = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['sost'])));
 $house = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['house'])));
 
 
-// echo '<pre>';
-// var_dump($_FILES);
 
 if ($_FILES['new_image']['size'] > 0) { 
 
