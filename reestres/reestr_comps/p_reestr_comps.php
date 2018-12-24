@@ -13,7 +13,10 @@ echo "<button type='button' class='button1 btn aqua-gradient' id='printPageButto
 table_reestr_comp('Реестр компьютеров и оргтехники храма св. Великомученика и Целителя Пантелеимона г. Ставрополя');
 
 $select_query = 
-sprintf("SELECT * FROM `reestr_comps`");
+sprintf("
+	SELECT * FROM reestr_comps, house, place 
+	WHERE reestr_comps.house = house.house and reestr_comps.place = place.place
+	ORDER BY house.house_id, place.place_id");
 
 
 $result = mysqli_query($link, $select_query);
