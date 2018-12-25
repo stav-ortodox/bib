@@ -12,8 +12,6 @@ get_menu ();
 page_title ('Добавление нового издания');
 
 
-
-
 get_open_form ("/pages/admins/s_admin_add_new_publishing_post.php", "POST", "Введите данные", '');?>
 		
 

@@ -14,10 +14,9 @@ $characterics = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['cha
 $place = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['place'])));
 $of_face = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['of_face'])));
 $sost = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['sost'])));
+$house = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['house'])));
 
 
-// echo '<pre>';
-// var_dump($_FILES);
 
 if ($_FILES['new_image']['size'] > 0) { 
 
@@ -56,6 +55,7 @@ if ($_FILES['new_image']['size'] > 0) {
    `name` = '$name',
    `name_type` = '$name_type',
    `characterics` = '$characterics',
+   `house` = '$house',
    `place` = '$place',
    `of_face` = '$of_face',
    `sost` = '$sost' 
