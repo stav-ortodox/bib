@@ -48,6 +48,32 @@ echo "</table>
 </div>
 ";
 
+
+
+$select_query = 
+sprintf("SELECT COUNT(1) FROM reestr_comps");
+$result = mysqli_query($link, $select_query);
+$row = mysqli_fetch_array($result);
+$count = $row[0] - 1;	
+
+?>
+<div><p>Всего количество техники: <?php echo $count?></p></div>
+<?php
+
+function reestr_comps_exit () {
+$select_query = sprintf("SELECT COUNT(1) FROM reestr_comps");
+$result = mysqli_query($link, $select_query);
+$row = mysqli_fetch_array($result);
+$count = $row[0] - 1;	
+echo $count;
+
+}
+
+?>
+<div><p>Из них: <?php reestr_comps_exit()?></p></div>
+
+<?php
+var_dump($count);
 place_to_sign('p_reestr_comps.php');
 
 
