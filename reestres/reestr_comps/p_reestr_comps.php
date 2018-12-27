@@ -258,42 +258,40 @@ echo "
 </td>"."\n"."
 </tr>\n";
 }
-
 echo "</table>
 </div>
-";?>
+";
 
 
 
 
-$select_query = 
-sprintf("SELECT COUNT(1) FROM reestr_comps");
-$result = mysqli_query($link, $select_query);
-$row = mysqli_fetch_array($result);
-$count = $row[0] - 1;	
-?>
-
-<div><p>Всего количество техники: <?php echo $count?></p></div>
+// $select_query = 
+// sprintf("SELECT COUNT(1) FROM reestr_comps");
+// $result = mysqli_query($link, $select_query);
+// $row = mysqli_fetch_array($result);
+// $count = $row[0];	
+// ?>
+<!-- <div><p>Всего количество техники: <?php #echo $count?></p></div> -->
 <?php
 
-function reestr_comps_exit () {
-$select_query = sprintf("SELECT COUNT(1) FROM reestr_comps");
-$result = mysqli_query($link, $select_query);
-$row = mysqli_fetch_array($result);
-$count = $row[0] - 1;	
-echo $count;
 
-}
+// $select_query = 
+// sprintf("SELECT name, COUNT(name) FROM reestr_comps GROUP BY name");
+// $result = mysqli_query($link, $select_query);
+// while ($row = mysqli_fetch_array($result))
+
+// { // выводим данные
+// echo "<pre>
+// 	".$row[0] . ' ' . $row[1]." шт.
+// </pre>";
+// }
 
 ?>
-<div><p>Из них: <?php reestr_comps_exit()?></p></div>
 
 <?php
-var_dump($count);
 place_to_sign('p_reestr_comps.php');
-
-
 ?>
+
 <!-- нумерация строк таблиц-->
 <script>
 $('.table tr').each(function(i) {
