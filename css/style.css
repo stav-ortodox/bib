@@ -308,7 +308,7 @@ table td {
 
 .form a:hover {
 	color: #ffe; /* Цвет текста активного пункта */
- background-color: green;
+	background-color: green;
 }
 
 .user_form {
