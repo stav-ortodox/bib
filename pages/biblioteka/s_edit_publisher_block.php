@@ -85,7 +85,7 @@ if(isset($_POST['block_name']) && isset($_POST['id'])){
     $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
  
     if($result)
-    header('Location: /pages/p_biblioteka.php');
+    echo "<script>window.location.href = history.go(-2);</script>";
 }
  
 
@@ -94,7 +94,6 @@ if(isset($_POST['block_name']) && isset($_POST['id'])){
 // если запрос GET
 if(isset($_GET['id'])) {   
 
-// 
 
     $id = htmlentities(mysqli_real_escape_string($link, $_GET['id']));
      
