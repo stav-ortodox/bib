@@ -310,29 +310,33 @@ echo "</table>
 ";
 
 
-// $select_query = 
-// sprintf("SELECT COUNT(1) FROM reestr_comps");
-// $result = mysqli_query($link, $select_query);
-// $row = mysqli_fetch_array($result);
-// $count = $row[0];	
+$select_query = 
+sprintf("SELECT COUNT(1) FROM reestr_comps");
+$result = mysqli_query($link, $select_query);
+$row = mysqli_fetch_array($result);
+$count = $row[0];	
 // ?>
-<!-- <div><p>Всего количество техники: <?php #echo $count?></p></div> -->
+
+
+<div class="reestr-comps-parrent ml-5 mt-5">
+	<h4><b>Итого техники: <?php echo $count?> ед.</b></h4>
+	<br>
+	<h4><b>Из них: </b></h4>
 <?php
+$select_query = 
+sprintf("SELECT name, COUNT(name) FROM reestr_comps GROUP BY name");
+$result = mysqli_query($link, $select_query);
+while ($row = mysqli_fetch_array($result))
 
+{ // выводим данные
 
-// $select_query = 
-// sprintf("SELECT name, COUNT(name) FROM reestr_comps GROUP BY name");
-// $result = mysqli_query($link, $select_query);
-// while ($row = mysqli_fetch_array($result))
-
-// { // выводим данные
-// echo "<pre>
-// 	".$row[0] . ' ' . $row[1]." шт.
-// </pre>";
-// }
+echo "<h5>
+	".$row[0] . ' - ' . $row[1]." шт.
+</h5>";
+}
 
 ?>
-
+</div>
 <?php
 place_to_sign('p_reestr_comps.php');
 ?>
