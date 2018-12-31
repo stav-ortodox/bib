@@ -123,12 +123,13 @@ p {
 
 
 @media print {
- /* body, page[size="A4"] {
+  /*body, page[size="A4"] {
+  	min-width: 690px;
     margin: 0;
     padding: 0;
     box-shadow: 0 0 0cm;
-  }*/
-
+  }
+*/
   table {
 		margin: 0 auto !important;
 	}
@@ -144,6 +145,7 @@ p {
 	}
 
   .A4 {
+  	min-width: 800px;
 		page-break-after: always;
 		page-break-inside: avoid;
 
