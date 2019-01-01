@@ -1,3 +1,13 @@
+@font-face {
+	font-family: 'Izhitsa Regular';
+	src: url('Izhitsa.eot');
+	src: url('Izhitsa.eot?#iefix') format('embedded-opentype'),
+	url('Izhitsa.woff') format('woff'),
+	url('Izhitsa.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 html {
 	height: 100%;
 }
