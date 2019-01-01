@@ -2,14 +2,6 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 
 
-    
-// var_dump($_REQUEST);
-// echo "<br>";
-// echo "<br>";
-// var_dump($_GET);
-// echo "<br>";
-// echo "<br>";
-
 if (isset($_POST['id'])) {
     $id = htmlentities(mysqli_real_escape_string($link, $_POST['id']));
 
