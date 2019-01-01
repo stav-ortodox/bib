@@ -10,6 +10,7 @@ body {
 }
 
 .format {
+<<<<<<< HEAD
 
 	width: 39cm;
 	height: 55cm;
@@ -123,4 +124,22 @@ p {
 		page-break-after: always;
 		page-break-inside: avoid;
 }	
+=======
+	max-height: 29.7cm;
+	min-height: 29.7cm;
+	max-width: 21cm;
+	min-width: 21cm;
+	border: 1px red solid;
+}
+
+@media print {
+.format {
+	max-height: 29.7cm;
+	min-height: 29.7cm;
+	max-width: 21cm;
+	min-width: 21cm;
+	border: 1px red solid;
+}
+	
+>>>>>>> origin/Classes
 }
