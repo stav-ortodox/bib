@@ -99,7 +99,7 @@ admin ();
         <input type="file" name="new_image" id="new_image" class="form-control mb-4" value="">
 
 
-        <button class="btn btn-info btn-block my-4" type="submit">Изменить</button>
+        <button class="btn btn-info btn-block my-4" type="submit">Сохранить изменения</button>
     </form>
 
 </div>

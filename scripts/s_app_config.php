@@ -122,18 +122,8 @@ function table_reestr_comp ($title_table) {
 	echo "<div class='title_table'>
 	<h1>$title_table</h1>
 </div>
-<div class='table'>
-<table>
-		<tr>
-			<th class='font-RGIA'>№</th>
-			<th class='font-RGIA'>Наименование</th>
-			<th class='font-RGIA'>марка/модель</th>
-			<th class='font-RGIA'>Технические характеристики</th>
-			<th class='font-RGIA'>Место нахождения</th>
-			<th class='font-RGIA'>Ответственное лицо</th>
-			<th class='font-RGIA'>Состояние</th>
-			<th class='font-RGIA'>Фотография</th>
-		</tr>";
+
+";
 }
 
 // **************************************************************

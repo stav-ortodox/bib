@@ -182,6 +182,14 @@ table td {
 	padding-left: 10px;
 }
 
+.copyright {
+	color: #e77948;
+	font-size: 30px;
+	font-family: 'Old Standard TT', serif;
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+
 .dropdown_z {
 	text-align: center;
 }
@@ -300,7 +308,7 @@ table td {
 
 .form a:hover {
 	color: #ffe; /* Цвет текста активного пункта */
- background-color: green;
+	background-color: green;
 }
 
 .user_form {
@@ -382,6 +390,10 @@ table td {
 	font-weight: bold;
 	font-size: 30px;
 	color: black;
+}
+
+.house_html {
+
 }
 
 .login_signup {
@@ -578,6 +590,11 @@ table td {
 	color: green !important;
 }
 
+.reestr-comps-parrent {
+	margin-top: 200px;
+	margin-bottom: 200px;
+}
+
 .submit {
 	padding: 0;
 	margin-top: 20px !important;
@@ -771,16 +788,36 @@ table td {
 	.page-break {
 		page-break-inside: avoid;
  	}
+
  	.font-RGIA {
-	font-size: 18px;
+		font-size: 18px;
 	}
+
 	table td {
-	font-size: 20px;
-}
+		font-size: 20px;
+	}
+
+	.reestr-comps-parrent {
+		margin-top: 100px;
+		margin-bottom: 200px;
+		width: 80%;
+		page-break-after: always;
+		page-break-inside: avoid;
+	}
+
+	.copyright {
+		/*margin-bottom: 20px;*/
+		margin-top: 55%;
+	}
+	
+	.house_html h1 {
+		/*padding-top: 15%;*/
+	}
+
+	.house_html_img {
+		margin-top: 30%;
+	}
 }
 
-/*@media print and (orientation: landscape), all and (min-width: 480px) { ... }*/
 
-@media print (orientation: landscape) { 
-  
-}
+ 
