@@ -1,34 +1,34 @@
-@font-face {
-	font-family: 'Izhitsa Regular';
-	src: url('Izhitsa.eot');
-	src: url('Izhitsa.eot?#iefix') format('embedded-opentype'),
-	url('Izhitsa.woff') format('woff'),
-	url('Izhitsa.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+html {
+	height: 100%;
 }
 
 body {
+	height: 100px;
   background: rgb(204,204,204) !important; 
+  box-sizing: border-box;
 }
 
-.A4 {
-/*	width: auto !important;
-	height: auto !important;*/
+.format {
+
+	width: 39cm;
+	height: 55cm;
+	/*border: red solid 1px;*/
+	margin: 0 auto;
+	background: white; 
 }
 
 .A4-border img {
 	position: absolute;
-	width: 21cm;
-  height: 29.5cm;
+	width: 37.5cm;
+	height: 54cm;
 	z-index: 1;
 }
 
 .opacity img {
 	position: absolute;
 	filter: opacity(10%);
-	width: 21cm;
-	height: 29.5cm;
+	width: 37.5cm;
+	height: 54cm;
 }
 
 .header {
@@ -70,32 +70,16 @@ body {
 	margin-top: 30px;
 }
 
-page[size="A4"] {
-  background: white;
-  min-width: 21cm;
-  min-height: 29.5cm;
-  max-width: 21cm;
-  max-height: 29.5cm;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 0.5cm;
-  margin-top: 20px;
-  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
-  border: 1px solid black;
-}
-
 table {
-	width: 19.5cm;
+	width: 92%;
 	margin: 0 auto;
-	/*border: 1px solid grey;*/
 	font-style: italic;
 	margin-bottom: 10px;
+	border-top: 1px solid #E69B80;
+	border-bottom: 1px solid #E69B80;
 }
 
 td {
-	border: 1px solid #E69B80;
-	border-left: none;
-	border-right: none;
 	padding-right: 15px;
 	padding-left: 15px;
 }
@@ -109,49 +93,33 @@ p {
 	width: 150px;
 	text-align: center;
 	font-weight: bold;
+	font-size: 30px;
 }
 
 .footer {
 	margin-bottom: auto 0;
 }
 
+.wrap {
+	margin: 0 auto;
+	margin-top: 0.6cm;
+	width: 37.5cm;
+	height: 54cm;
+}
 
+.bold {
+	font-weight: bold;
+}
 
-/*************************************************************************************************/
-
-
-
+.content {
+	/*position: absolute;*/
+  /*top: 50%;*/
+  /*transform: translateY(20%)*/
+}
 
 @media print {
-  /*body, page[size="A4"] {
-  	min-width: 690px;
-    margin: 0;
-    padding: 0;
-    box-shadow: 0 0 0cm;
-  }
-*/
-  table {
-		margin: 0 auto !important;
-	}
-
-	.table-r {
+	.format {
 		page-break-after: always;
 		page-break-inside: avoid;
-	}
-
-	td {
-		padding-right: 15px !important;
-		padding-left: 15px !important;
-	}
-
-  .A4 {
-  	min-width: 800px;
-		page-break-after: always;
-		page-break-inside: avoid;
-
-	}
-
-	.footer {
-		margin-bottom: 0;
-	}
+}	
 }
