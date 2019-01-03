@@ -13,33 +13,54 @@
 
 
 <?php
+
+
+
+ 
+
+
 echo "<div class='content'>";
+
+$query = 
+sprintf("SELECT id_day, COUNT(id_day) FROM raspisanie GROUP BY id_day");
+$res = mysqli_query($link, $query);
+
 
 $select_query = 
 sprintf("
-	SELECT * FROM raspisanie, calendar");
+SELECT * FROM raspisanie, calendar WHERE raspisanie.id_day = calendar.id");
 $result = mysqli_query($link, $select_query);
-while ($row = mysqli_fetch_array($result))
- 
 
-{ // выводим данные
-echo '
-			<table class="table-r">
-				<tr>
-					<td rowspan="1" class="td-min-width">'.$row[10].'<br>'.$row[11].' '.$row[9].'</td>
-					<td style="color: red;"><h3>'.$row[1].'</h3></td>
-					<td>
-						<br>
-						<p><h3 class="bold"><u>'.$row[2].'</u><br>
-							'.$row[3].'</h3></p><hr>
-						<h3><p style="color: #54749C;">служащий священник:</p></h3>
-						<h3><p style="color: #7030A0;">сослужащий(-е) священник(-и):</p></h3>
-						<h3><p style="color: #943634;">помогающий священник:</p></h3> 
-						<h3><p style="color: #35A907;">отдыхающий священник:</p></h3><br>
-					</td>
-				</tr>
-			</table>
-		';
+while ($id_day = mysqli_fetch_array($res)) {
+	$array['id_day'][] = $id_day[1];
+}
+
+while ($row = mysqli_fetch_array($result)) {
+	$array['row'][] = $row;
+
+  // print_r($array);
+
+	if ($row[1] == $row[1]); {
+		$i++;
+	
+		echo ''.$i.'
+					<table class="table-r">
+						<tr>
+							<td rowspan="'.$row['id_day'].'" class="td-min-width">'.$row[10].'<br>'.$row[11].' '.$row[12].'</td>
+							<td style="color: red;"><h3>'.$row[2].'</h3></td>
+							<td>
+								<br>
+								<p><h3 class="bold"><u>'.$row[3].'</u><br>
+									'.$row[4].'</h3></p><hr>
+								<h3><p style="color: #54749C;">служащий священник:</p></h3>
+								<h3><p style="color: #7030A0;">сослужащий(-е) священник(-и):</p></h3>
+								<h3><p style="color: #943634;">помогающий священник:</p></h3> 
+								<h3><p style="color: #35A907;">отдыхающий священник:</p></h3><br>
+							</td>
+						</tr>
+					</table>
+				';
+}
 }
 
 echo "
