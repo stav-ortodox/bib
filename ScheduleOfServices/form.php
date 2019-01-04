@@ -15,8 +15,22 @@ get_header_doc('Форма для расписания', 'Форма для ра
 <div class="new_form">
 	<form action="action.php" method="POST" enctype="multipart/form-data">
 
-		<label for="time">Время:</label>
-		<input class="my-form-control mb-4 w-25" type="text" name="time" value="7:30"><br>
+		<label for="s_date">Дата:</label>
+		<input class="my-form-control mb-4 w-25" type="date" name="s_date"><br>
+
+		<!-- <label for="week">День недели:</label>
+		<select class="my-form-control mb-4 w-25" type="text" name="week">
+			<option value="Понедельник">Понедельник</option>
+			<option value="Вторник">Вторник</option>
+			<option value="Среда">Среда</option>
+			<option value="Четверг">Четверг</option>
+			<option value="Пятница">Пятница</option>
+			<option value="Суббота">Суббота</option>
+			<option value="Воскресение">Воскресение</option>
+		</select><br> -->
+
+		<label for="s_time">Время:</label>
+		<input class="my-form-control mb-4 w-25" type="text" name="s_time" value="7:30"><br>
 
 		<label for="u_text">Подчеркнутый текст:</label>
 		<input class="my-form-control mb-4" type="text" name="u_text" placeholder="если не нужен оставить пустым"><br>
@@ -56,13 +70,11 @@ get_header_doc('Форма для расписания', 'Форма для ра
 			<input class="btn btn-success w-10" type="submit" value="+" name="plus">
 		</div>
 		
-		<input class="btn btn-info btn-block w-25 mb-5" type="submit" value="Готово!">
+		<input class="btn btn-info btn-block w-25 mb-5" type="submit" value="Готово!" name="gotovo">
 	</form>
 </div>
 	
 
-<?php var_dump($_REQUEST);
- // exit();?>
 
 </body>
 </html>

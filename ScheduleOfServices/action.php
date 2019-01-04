@@ -1,8 +1,8 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';   
 
-
-$s_time = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['time'])));
+$s_date = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['s_date'])));
+$s_time = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['s_time'])));
 $u_text = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['u_text'])));
 $s_text = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['text'])));
 $color_text = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['color-text'])));
@@ -13,11 +13,10 @@ $otdihaushiy = trim(htmlentities(mysqli_real_escape_string($link,$_REQUEST['prie
 $id_day = rand();
 
 
-
-
-$insert_sql = sprintf("INSERT INTO raspisanie (id_day, s_time, u_text, s_text, color_text, slugashiy, soslugashiy, pomogaushiy, otdihaushiy) 
-	VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+$insert_sql = sprintf("INSERT INTO raspisanie (id_day, s_date, s_time, u_text, s_text, color_text, slugashiy, soslugashiy, pomogaushiy, otdihaushiy) 
+	VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
 	mysqli_real_escape_string($link, $id_day),
+	mysqli_real_escape_string($link, $s_date),
 	mysqli_real_escape_string($link, $s_time),
 	mysqli_real_escape_string($link, $u_text),
 	mysqli_real_escape_string($link, $s_text),
@@ -36,17 +35,7 @@ $insert_sql = sprintf("INSERT INTO raspisanie (id_day, s_time, u_text, s_text, c
 
 
 if (isset($_REQUEST['plus'])) {
- $query = ("SELECT id_day FROM raspisanie ORDER BY id DESC LIMIT 1");
-			$result = mysqli_query($link, $query);
-
-			$row = mysqli_fetch_assoc($result);
-		
-
-	$query = "UPDATE `raspisanie` SET 
-	   `id_day` = '$row'
-	   
-	   WHERE `raspisanie`.`id_day` = $id_day";
-	   $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link));
+ 	
 
 	echo "
 		<script>

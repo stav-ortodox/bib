@@ -20,24 +20,69 @@ echo "<div class='content'>
 <table class='table-r'>";
 
 // $query = 
-// sprintf("SELECT id_day, COUNT(id_day) FROM raspisanie GROUP BY id_day");
+//SELECT * FROM raspisanie, calendar WHERE raspisanie.id_day = calendar.id");
 // $res = mysqli_query($link, $query);
 
 
+// $date=@date('Y.m.d', strtotime($date))
+
 $select_query = 
 sprintf("
-SELECT * FROM raspisanie, calendar WHERE raspisanie.id_day = calendar.id");
+SELECT * FROM raspisanie");
 $result = mysqli_query($link, $select_query);
 
 while ($row = mysqli_fetch_array($result)) {
-	var_dump($rowspan);
 
 
 				if ($rowspan == null) {
+					$date = $row['s_date'];
+					//список месяцев с названиями для замены
+					// $date=date('l j-m-', strtotime($date));
+
+					$monthsList = array(1 => 
+						"января", 
+						"февраля",
+					  "марта",
+					  "апреля",
+					  "мая",
+					  "июня",
+					  "июля",
+					  "августа",
+					  "сентября",
+					  "октября",
+					  "ноября",
+					  "декабря"
+					);
+
+					// $weeksList = array(1 => "Понедельник",
+					//   "Вторник",
+					//   "Среда",
+					//   "Четверг",
+					//   "Пятница",
+					//   "Суббота",
+					//   "Воскресение"
+					// );
+
+					$weeksList = array(
+					  "Monday" => "Понедельник",
+					  "Tuesday" => "Вторник",
+					  "Wednesday" => "Среда",
+					  "Thursday" => "Четверг",
+					  "Friday" => "Пятница",
+					  "Saturday" => "Суббота",
+					  "Sunday" => "Воскресение"
+					);
+					
+
+					$date = date($weeksList[date( 'l' )] . ' j '. $monthsList[date( 'n' )], strtotime($date));
+					 
+
+					echo '<pre>';
+					print_r($row);
 					echo ''.$rowspan.'
 						<tr>
-							<td rowspan="'.$rowspan.'" class="td-min-width">'.$row[12].'<br>'.$row[10].' '.$row[11].'</td>
-							<td style="color: red;"><h3>'.$row[2].'</h3></td>
+							<td rowspan="'.$rowspan.'" class="td-min-width">'.$date.' '.$row[15].'</td>
+							<td style="color: red;"><h3>'.$row[4].'</h3></td>
 							<td>
 								<br>
 								<p><h3 class="bold"><u>'.$row[3].'</u><br>
@@ -49,7 +94,7 @@ while ($row = mysqli_fetch_array($result)) {
 							</td>
 						</tr>
 					';
-					 // $rowspan=$row['id_day'];
+					 
 			}
 					 
 				
@@ -64,6 +109,7 @@ echo "
 </table>
 </div>
 ";
+mysqli_free_result($result);
 ?>
 
 		
