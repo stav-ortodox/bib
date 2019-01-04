@@ -2,20 +2,21 @@
 // session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php'; 
-
- 
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 
 get_header_doc('Форма для расписания', 'Форма для расписания');
-
 ?>
+
+
+
+
 <link rel="stylesheet" href="style.css">	
 
 <div class="new_form">
 	<form action="action.php" method="POST" enctype="multipart/form-data">
 
 		<label for="time">Время:</label>
-		<input class="my-form-control mb-4 w-25" type="text" name="time" placeholder="7:30"><br>
+		<input class="my-form-control mb-4 w-25" type="text" name="time" value="7:30"><br>
 
 		<label for="u_text">Подчеркнутый текст:</label>
 		<input class="my-form-control mb-4" type="text" name="u_text" placeholder="если не нужен оставить пустым"><br>
@@ -52,7 +53,7 @@ get_header_doc('Форма для расписания', 'Форма для ра
 
 		<div class="sobitie">
 			<h5>Добавить событие на этот день</h5>
-			<input class="btn btn-success w-10" type="submit" value="+">
+			<input class="btn btn-success w-10" type="submit" value="+" name="plus">
 		</div>
 		
 		<input class="btn btn-info btn-block w-25 mb-5" type="submit" value="Готово!">
@@ -60,13 +61,8 @@ get_header_doc('Форма для расписания', 'Форма для ра
 </div>
 	
 
-
-
+<?php var_dump($_REQUEST);
+ // exit();?>
 
 </body>
 </html>
-
-
-
-
-
