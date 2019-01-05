@@ -1,30 +1,17 @@
 <?php 
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
+
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 
+function get_day () {
 
-get_header_doc ('Расписание богослужений', 'Расписание богослужений');
-admin ();
-get_menu ();
-
-echo "<button type='button' class='button1 btn aqua-gradient' id='printPageButton'><a href='form.php'>Вызвать форму</a></button>";?>
-
-<link rel="stylesheet" href="style.css">
-
-
-<?php
 $select_query = 
-sprintf("
-	SELECT * FROM raspisanie ORDER BY id");
-
+sprintf("SELECT * FROM raspisanie ORDER BY id");
 
 $result = mysqli_query($link, $select_query);
-while ($row = mysqli_fetch_array($result))
 
+while ($row = mysqli_fetch_array($result)) {
 
-{
 echo "
 <div class='container'>
 
@@ -66,31 +53,10 @@ echo "
 	<hr>
 	</div>
 	";}
-?>
+}
 
+function get_event () {
+	
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php get_footer() ?>
+ ?>
