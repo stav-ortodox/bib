@@ -1,0 +1,66 @@
+.font-icons {
+		font-size: 25px;
+	}
+
+th {
+	display: none;
+}
+
+td {
+	font-family: 'Old Standard TT', serif;
+	font-size: 30px !important;
+	height: 500px;
+	border: none !important;
+	padding-top: 120px !important;
+	/*padding-bottom: 100px !important;*/
+}
+
+table {
+	border: none !important;
+}
+
+#icon {
+	width: 400px;
+}
+
+#name {
+	font-family: 'Izhitsa Regular';
+	font-size: 35px !important;
+}
+
+
+.title_table h1{
+	font-size: 50px !important;
+}
+
+.image {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+	/*width: 100%;*/
+	
+}
+
+.copyright {}
+
+.image img {
+	position: relative;
+	width: 60%;
+	height: 50%;
+	margin: 0 auto;
+	/*margin: 0 auto;*/
+}
+
+
+@media print {
+	.copyright {
+		margin: 20px;
+	}
+ 	}

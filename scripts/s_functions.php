@@ -216,7 +216,7 @@ EOD;
 			<li><a href='/reestres/reestr_RGIA/p_reestr_RGIA.php'>Реестр дел из РГИА</a></li>
 			<li><a href='/reestres/reestr_comps/p_reestr_comps.php'>Реестр техники</a></li>
 			<li><a href='/reestres/reestr_icons/index.php'>Реестр икон</a></li>
-			<li><a href='/ScheduleOfServices/index.php'>Расписание богослужений</a></li>
+			<li><a href='/reestres/raspisanie/index.php'>Расписание богослужений</a></li>
 		</ul>
 		<hr>
 		</div>";
@@ -262,7 +262,7 @@ EOD;
 				<li><a href='/reestres/reestr_RGIA/p_reestr_RGIA.php'>Реестр дел из РГИА</a></li>
 				<li><a href='/reestres/reestr_comps/p_reestr_comps.php'>Реестр техники</a></li>
 				<li><a href='/reestres/reestr_icons/index.php'>Реестр икон</a></li>
-				<li><a href='/ScheduleOfServices/index.php'>Расписание богослужений</a></li>
+				<li><a href='/reestres/raspisanie/index.php'>Расписание богослужений</a></li>
 			</ul>
 			<hr>
 			</div>";
