@@ -132,24 +132,29 @@ function table_reestr_RGIA ($title_table) {
 	echo "<div class='title_table'>
 	<h1>$title_table</h1>
 </div>
-<div class='table'>
+
+<section>
+<div class='container-fluid'>
 <table>
-		<tr>
-			<th class='font-RGIA'>№</th>
-			<th class='font-RGIA'>Фонд</th>
-			<th class='font-RGIA'>Опись</th>
-			<th class='font-RGIA'>Дело</th>
-			<th class='font-RGIA'>Начато</th>
-			<th class='font-RGIA'>Окончено</th>
-			<th class='font-RGIA'>Наименование</th>
-			<th class='font-RGIA'>Кол-во листов</th>
-			<th class='font-RGIA'>Примечание</th>
-			<th class='font-RGIA'>Том</th>
-			<th class='font-RGIA'>Заказано</th>
-			<th class='font-RGIA'>Получено в ч/з РГИА</th>
-			<th class='font-RGIA'>Заказана копия</th>
-			<th class='font-RGIA'>Получена копия</th>
-		</tr>";
+<thead>
+		<tr class='header'>
+			<th class='font-RGIA'><div>№</div></th>
+			<th class='font-RGIA'><div>Фонд</div></th>
+			<th class='font-RGIA'><div>Опись</div></th>
+			<th class='font-RGIA'><div>Дело</div></th>
+			<th class='font-RGIA'><div>Начато</div></th>
+			<th class='font-RGIA'><div>Окончено</div></th>
+			<th class='font-RGIA'><div>Наименование</div></th>
+			<th class='font-RGIA'><div>Кол-во листов</div></th>
+			<th class='font-RGIA'><div>Примечание</div></th>
+			<th class='font-RGIA'><div>Том</div></th>
+			<th class='font-RGIA'><div>Заказано</div></th>
+			<th class='font-RGIA'><div>Получено в ч/з РГИА</div></th>
+			<th class='font-RGIA'><div>Заказана копия</div></th>
+			<th class='font-RGIA'><div>Получена копия</div></th>
+		</tr>
+		</thead>
+		<tbody>";
 }
 
 // **************************************************************

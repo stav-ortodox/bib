@@ -346,6 +346,11 @@ table td {
 	background-size: cover;
 }
 
+.fixed {
+	position: fixed !important;
+
+}
+
 .header_site {
 	/*background-image: url(https://c.pxhere.com/photos/f8/7c/landscape_scotland_kilmacolm_renfrewshire_knappsloch_canon6d_ef1635mmf4lisusm-383095.jpg!d);*/
 	background-size: cover;
