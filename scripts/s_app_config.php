@@ -163,7 +163,7 @@ if (file_exists($filename))
 	echo 
 	"
 		<div class='place_to_sign page-break'>
-			<p>Документ создан: 28.12.12 в 12:51 
+			<p>Документ создан: 28.12.18 в 12:51 
 			<br> и распечатан $date_today в $today 
 			<br> клириком храма св. Вел. и Цел. Пантелеимона г. Ставрополя
 			<br></p>
