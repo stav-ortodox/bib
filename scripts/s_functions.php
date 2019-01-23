@@ -218,6 +218,7 @@ EOD;
 			<li><a href='/reestres/reestr_icons/index.php'>Реестр икон</a></li>
 			<li><a href='/reestres/raspisanie/index.php'>Расписание богослужений</a></li>
 			<li><a href='/RGIA_editions/index.php'>Издания документов РГИА</a></li>
+			<li><a href='/reestres/inventory_altar/index.php'>Журнал инвентаризации алтарей</a></li>
 		</ul>
 		<hr>
 		</div>";
@@ -265,6 +266,7 @@ EOD;
 				<li><a href='/reestres/reestr_icons/index.php'>Реестр икон</a></li>
 				<li><a href='/reestres/raspisanie/index.php'>Расписание богослужений</a></li>
 				<li><a href='/RGIA_editions/index.php'>Издания документов РГИА</a></li>
+				<li><a href='/reestres/inventory_altar/index.php'>Журнал инвентаризации алтарей</a></li>
 			</ul>
 			<hr>
 			</div>";

@@ -3,7 +3,7 @@ session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
-$link_css = "<link rel='stylesheet' href='style.css'>";
+$link_css = "<link rel='stylesheet' href='my_style.css'>";
 echo $link_css;
 get_header_doc ('', 'Реестр архивных дел РГИА');
 

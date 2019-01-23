@@ -3,9 +3,7 @@ session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
-
-
-get_header_doc ('', 'Реестр икон');
+get_header_doc ('', 'Журнал инвентаризации');
 admin ();
 get_menu ();
 
@@ -15,10 +13,10 @@ echo "<button type='button' class='button1 btn aqua-gradient' id='printPageButto
 
 
 <?php 
-table_reestr_comp('Реестр икон храма св. Великомученика и Целителя Пантелеимона г. Ставрополя');?>
+table_reestr_comp('Журнал инвентаризации алтаря храма св. Великомученика и Целителя Пантелеимона г. Ставрополя');?>
 
 
-<div class="image"><img class="card img-thumbnail"src="images/20161119-0009.jpg" alt="">
+<div class="image"><img class="card img-thumbnail" style="width: 500px; margin-bottom: 150px;" src="images/20161119-0009.jpg" alt="">
 
 <div class="copyright text-center">
 	<span>Издательский центр храма св. Великомученика и Целителя Пантелеимона</span> <br>
@@ -30,13 +28,12 @@ table_reestr_comp('Реестр икон храма св. Великомучен
 		<tr>
 			<th class='font-icons'>№</th>
 			<th class='font-icons'>Изображение</th>
-			<th class='font-icons'>Название иконы</th>
+			<th class='font-icons'>Название</th>
 		</tr>
 
 <?php
 $select_query = 
-sprintf("SELECT * FROM `reestr_icons` ORDER BY id");
-
+sprintf("SELECT * FROM inventory_altar ORDER BY id");
 $result = mysqli_query($link, $select_query);
 while ($row = mysqli_fetch_array($result))
 
@@ -46,23 +43,25 @@ echo "
 
 <td>".$row[""]."</td>"."\n"."
 <td id='icon'>
-	<div class='box-icon'>
-		<img class='img-thumbnail' src=".$row["image"]." alt=''>
+	<div class=''>
+		<img class='img-thumbnail' style='width: 200px' src=".$row["image"]." alt=''>
 	</div> 
 	<div id='printPageButton'>
-	<a href= form_edit.php?id=".$row["id"]."><i class='fa fa-edit fa-2x green-text' aria-hidden='true' title='Редактировать'></i></a>"."\n"."
-	<a href= form_delete.php?id=".$row["id"]."><i class='fa fa-times-circle-o fa-2x red-text' aria-hidden='true' title='Удалить'></i></a>
+	<a href= /reestres/inventory_altar/form_edit.php?id=".$row["id"]."><i class='fa fa-edit fa-2x green-text' aria-hidden='true' title='Редактировать'></i></a>"."\n"."
+	<a href= /reestres/inventory_altar/delete.php?id=".$row["id"]."><i class='fa fa-times-circle-o fa-2x red-text' aria-hidden='true' title='Удалить'></i></a>
 	</div>
 </td>"."\n"."
-<td><b id='name'>".preg_replace("/[\r\n]+/", "</p><p>", $row["name"])."</b>"."\n"."<br><br><br>
-".preg_replace("/[\r\n]+/", "</p><p>", $row["desk"])."</td>"."\n"."
+<td><b id='name'>".preg_replace("/[\r\n]+/", "</p><p>", $row["name"])."</b>"."\n"."<br><br>
+Количество: ".preg_replace("/[\r\n]+/", "</p><p>", $row["count"])."<br><br>
+".preg_replace("/[\r\n]+/", "</p><p>", $row["desk"]).
+"</td>"."\n"."
 
 </tr>\n";
-}
+}?>
 
-echo "</table>
+</table>
 </div>
-";?>
+
 
 
 
