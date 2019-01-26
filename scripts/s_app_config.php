@@ -1,9 +1,5 @@
 ﻿<?php 
-define("DATABASE_HOST", "localhost");
-define("DATABASE_USERNAME", "root");
-define("DATABASE_PASSWORD", "");
-define("DATABASE_NAME", "stavr213_stavpant");
-define("MY_PASS", "123vc3718123");
+
 
 function get_header_doc ($header_subtitle, $title_br) {
 

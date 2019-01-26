@@ -219,6 +219,8 @@ EOD;
 			<li><a href='/reestres/raspisanie/index.php'>Расписание богослужений</a></li>
 			<li><a href='/RGIA_editions/index.php'>Издания документов РГИА</a></li>
 			<li><a href='/reestres/inventory_altar/index.php'>Журнал инвентаризации алтарей</a></li>
+			<li><a href='/reestres/annual_review/index.php'>Годовая Богослужебная статистика</a></li>
+			
 		</ul>
 		<hr>
 		</div>";
@@ -267,6 +269,8 @@ EOD;
 				<li><a href='/reestres/raspisanie/index.php'>Расписание богослужений</a></li>
 				<li><a href='/RGIA_editions/index.php'>Издания документов РГИА</a></li>
 				<li><a href='/reestres/inventory_altar/index.php'>Журнал инвентаризации алтарей</a></li>
+				<li><a href='/reestres/annual_review/index.php'>Годовая Богослужебная статистика</a></li>
+				
 			</ul>
 			<hr>
 			</div>";

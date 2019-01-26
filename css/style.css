@@ -782,7 +782,6 @@ table td {
 }
 
 
-
 @media print {
 	#printPageButton {
 		display: none;
@@ -793,6 +792,7 @@ table td {
 	.page-break {
 		page-break-inside: avoid;
  	}
+
 
  	.font-RGIA {
 		font-size: 18px;

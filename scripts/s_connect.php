@@ -1,6 +1,10 @@
 <?php
+define("DATABASE_HOST", "localhost");
+define("DATABASE_USERNAME", "root");
+define("DATABASE_PASSWORD", "");
+define("DATABASE_NAME", "stavr213_stavpant");
+define("MY_PASS", "123vc3718123");
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 
 
 

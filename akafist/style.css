@@ -1,0 +1,9 @@
+.akafist-icon {
+    width: 700px;
+    margin: 0 auto;
+}
+@media print {
+    .copyright {
+        margin: 20px;
+    }
+}
