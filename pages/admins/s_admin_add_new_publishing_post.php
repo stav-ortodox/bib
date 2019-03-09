@@ -1,16 +1,17 @@
 <?php 
-
-session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';  
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
+// require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';  
+// require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
+// echo "<pre>";
+// var_dump($_REQUEST);
+// echo "</pre>";
 
-$block_name_sel = $_REQUEST['select_block'];
-$pub_name = trim($_REQUEST['pub_name']);
-$pub_description = trim($_REQUEST['pub_description']);
-$pub_hidden = ($_REQUEST['pub_hidden']);
-$block_id = 111;
+$block_name_sel = htmlentities(mysqli_real_escape_string($link, $_REQUEST['select_block']));
+$pub_name = trim(htmlentities(mysqli_real_escape_string($link, $_REQUEST['pub_name'])));
+$pub_description = trim(htmlentities(mysqli_real_escape_string($link, $_REQUEST['pub_description'])));
+$pub_hidden = (int)($_REQUEST['pub_hidden']);
+// $block_id = 111;
 
 
 
@@ -60,14 +61,13 @@ if (isset($_FILES['pub_file'])) {
 				print $errors_file;
 			}
 }
+echo "<pre>";
+var_dump($block_name_sel);
+echo "</pre>";
 
-
-
-
-$insert_sql = sprintf("INSERT INTO publishing_post (select_block, block_id, pub_name, pub_description, pub_image, pub_file, pub_hidden) 
+$insert_sql = sprintf("INSERT INTO publishing_post (select_block, pub_name, pub_description, pub_image, pub_file, pub_hidden) 
 	VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
 		mysqli_real_escape_string($link, $block_name_sel),
-		mysqli_real_escape_string($link, $block_id),
 		mysqli_real_escape_string($link, $pub_name),
 		mysqli_real_escape_string($link, $pub_description),
 		mysqli_real_escape_string($link, $name_img),
@@ -79,37 +79,30 @@ $insert_sql = sprintf("INSERT INTO publishing_post (select_block, block_id, pub_
 mysqli_query($link, $insert_sql)
   or die(mysqli_connect_error($link)); 
 
-
-
-$id = (mysqli_insert_id($link));
-
-
+$id = mysqli_insert_id($link);
 
 $sql = htmlspecialchars("SELECT id FROM publishing_blocks WHERE block_name = '$block_name_sel'");
 $result = mysqli_query($link, $sql) or die ("Ошибка " . mysqli_error($link));
-						if($result && mysqli_num_rows($result)>0) 
-							{
-        $row = mysqli_fetch_row($result); // получаем первую строку
-        $new_block_id = $row[0];
-        
-	
-        mysqli_free_result($result);
-}
+		if($result && mysqli_num_rows($result)>0) {
+			$row = mysqli_fetch_row($result); // получаем первую строку
+			$new_block_id = (int)$row[0];
+			mysqli_free_result($result);
+		}
 
 
 
-$query ="UPDATE publishing_post SET 
-            block_id='$new_block_id'
+$query =sprintf("INSERT INTO publishing_post (block_id) WHERE id='$id' VALUES ('%s')",
+mysqli_real_escape_string($link, $block_id));
 
-            WHERE id='$id'";
-            $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
+
+$result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
                // echo "загруженa переменная ".$new_block_id."";
    
 
 // Redirect the user to the page that displays user information
 header("Location: /pages/biblioteka/p_publishing_page.php?id=$new_block_id");
 
-exit();
+exit('!');
 
 
 
