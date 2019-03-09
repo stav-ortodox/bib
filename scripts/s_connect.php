@@ -10,7 +10,9 @@ define("MY_PASS", "123vc3718123");
 
 
 $link = mysqli_connect( 
-            DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME);     /* База данных для запросов по умолчанию */ 
+            DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME); 
+            session_start();    /* База данных для запросов по умолчанию */ 
+            
 if (!$link) { 
    printf("Невозможно подключиться к базе данных. Код ошибки: %s\n", mysqli_connect_error()); 
    exit; 

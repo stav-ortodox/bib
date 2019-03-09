@@ -581,6 +581,10 @@ table td {
   border-image: url(http://gmaindia.org/Images/shadowLine.png) 30 round round;
 }
 
+.pub-post {
+	max-width: 400px;
+}
+
 .pub-block {
 	justify-content: center;
 	max-width: 80%;

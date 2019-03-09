@@ -133,9 +133,9 @@ echo <<<EOD
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_o_hrame.php">$s4</button>	  
 EOD;
 
-  if (isset($_SESSION['id'])) {
-    echo "<button type='button' class='btn btn-cyan' onclick=location.href='/pages/p_profile.php'>".$s6.": ".$_SESSION['login']."</button>";
-   }
+  // if (isset($_SESSION['id'])) {
+  //   echo "<button type='button' class='btn btn-cyan' onclick=location.href='/pages/p_profile.php'>".$s6.": ".$_SESSION['login']."</button>";
+  //  }
 
   if ($_SESSION['id'] == 1) {
    	echo "<button type='button' class='btn btn-cyan' onclick=location.href='/pages/p_admins.php'>".$s5."</button>";
@@ -220,6 +220,7 @@ EOD;
 			<li><a href='/RGIA_editions/index.php'>Издания документов РГИА</a></li>
 			<li><a href='/reestres/inventory_altar/index.php'>Журнал инвентаризации алтарей</a></li>
 			<li><a href='/reestres/annual_review/index.php'>Годовая Богослужебная статистика</a></li>
+			<li><a href='http://bib/akafist/'>Редактор акафистов</a></li>
 			
 		</ul>
 		<hr>
@@ -270,6 +271,7 @@ EOD;
 				<li><a href='/RGIA_editions/index.php'>Издания документов РГИА</a></li>
 				<li><a href='/reestres/inventory_altar/index.php'>Журнал инвентаризации алтарей</a></li>
 				<li><a href='/reestres/annual_review/index.php'>Годовая Богослужебная статистика</a></li>
+				<li><a href='http://bib/akafist/'>Редактор акафистов</a></li>
 				
 			</ul>
 			<hr>

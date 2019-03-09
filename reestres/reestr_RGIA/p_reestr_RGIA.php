@@ -10,7 +10,7 @@ get_header_doc ('', 'Реестр архивных дел РГИА');
 admin ();
 get_menu ();
 
-$select_query = sprintf("SELECT * FROM reestr_rgia");
+$select_query = sprintf("SELECT * FROM reestr_rgia ORDER BY tom+0 ASC LIMIT 22");
 
 echo "<button type='button' class='button1 btn aqua-gradient' id='printPageButton'><a href='form_reestr_RGIA.php'>Вызвать форму</a></button>";
 // echo '<pre>';

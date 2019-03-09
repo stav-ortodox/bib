@@ -26,27 +26,37 @@ table_reestr_comp('Богослужебный журнал за 2018 год хр
 
 
 <div class="image">
-    <img style="width: 400px; margin-bottom: 30px;page-break-after: avoid;" class="card img-thumbnail page-break" src="images/99d800ce-f8c3-42b8-8749-5e53277e3a12.jpg" alt="">
-    <img style="width: 400px; margin-bottom: 255px;page-break-after: avoid;" class="card img-thumbnail page-break" src="images/6bdceef4-0bcb-4d3d-83df-07ae36175979.jpg" alt="">
+
+    <img style="width: 500px; margin-bottom: 30px;page-break-after: avoid;" class="card img-thumbnail page-break" src="images/99d800ce-f8c3-42b8-8749-5e53277e3a12.jpg" alt="Храм">
     <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid; page-break-after: avoid;" class="card img-thumbnail" src="images/68768f41-4619-4d14-bfae-53d29ff6037d.jpg" alt="">
-    <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/d28b6c12-9d54-453b-b141-2eda8ac94516.jpg" alt="">
-    <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/f4ba998b-f9f8-46b1-9009-beb6b0fb5699.jpg" alt="">
-    <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/93918158-af73-492a-933c-a62d8fc1806e.jpg" alt="">
-    <img style="width: 400px; margin-bottom: 30px; margin-top: 23px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/57dbdd84-6403-4f1f-bf8f-f27b5224beb9.jpg" alt="">
-    <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/78c51276-adc4-45cc-a9f2-dfe12b4def8b.jpg" alt="">
-    <img style="width: 300px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/7cd095d7-aac3-4d46-99c4-4dd0e7fcc687.jpg" alt="">
-    <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/0347b1aa-30c1-41f7-ba3b-34c90eba2462.jpg" alt="">
-    <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/DSC_0353.JPG" alt="">
+    <img style="width: 490px; margin-bottom: 30px; page-break-after: avoid; page-break-after: avoid;" class="card img-thumbnail" src="images/IMG_6040.JPG" alt="о. Павел с в. Пантелеимоном">
+
+    <img style="width: 490px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/57dbdd84-6403-4f1f-bf8f-f27b5224beb9.jpg" alt="Владыка">
+    <img style="width: 490px; margin-bottom: 30px; page-break-after: avoid; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/d28b6c12-9d54-453b-b141-2eda8ac94516.jpg" alt="">
+    <img style="width: 490px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/93918158-af73-492a-933c-a62d8fc1806e.jpg" alt="">
+
+    <img style="width: 490px; margin-bottom: 30px; page-break-after: avoid; page-break-after: avoid;" class="card img-thumbnail" src="images/DSC_0447.JPG" alt="о. Павел с матушкой">
+    <img style="width: 490px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/78c51276-adc4-45cc-a9f2-dfe12b4def8b.jpg" alt="">
+    <img style="width: 490px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/93918158-af73-492a-933c-a62d8fc1806e.jpg" alt="">
+
+    <img style="width: 490px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/7cd095d7-aac3-4d46-99c4-4dd0e7fcc687.jpg" alt="Книга свеча">
+    <img style="width: 490px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/0347b1aa-30c1-41f7-ba3b-34c90eba2462.jpg" alt="">
+    <img style="width: 490px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/DSC_0353.JPG" alt="">
+
+   
     <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/DSC_0375.JPG" alt="">
     <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/DSC_0385.JPG" alt="">
     <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/DSC_0414.JPG" alt="">
-    <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/DSC_0484.JPG" alt="">
-    <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/eb764253-e584-483f-9fc5-b0f8d899d944.jpg" alt="">
+    <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/eb764253-e584-483f-9fc5-b0f8d899d944.jpg" alt="Половин с Владыкой">
     <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/IMG_6101.JPG" alt="">
     <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/foto1.JPG" alt="">
     <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/foto3.JPG" alt="">
     <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/foto4.JPG" alt="">
+    <img style="width: 500px; margin-bottom: 30px; page-break-after: avoid;" class="card img-thumbnail page-break" src="images/6bdceef4-0bcb-4d3d-83df-07ae36175979.jpg" alt="Половин">
 </div>
+<br><br><br><br><br><br><br><br><br>
+
+<!--*********************************ДУХОВЕНСТВО**********************************************************************-->
 
 <?php
 table_reestr_comp('Причт храма св. Великомученика и Целителя Пантелеимона г. Ставрополя в 2018 году');?>
@@ -60,10 +70,16 @@ table_reestr_comp('Причт храма св. Великомученика и �
     <h5>
         Настоятель храма св. Великомученика и Целителя Пантелеимона г. Ставрополя<br>
         Митрофорный протоиерей Павел Михайлович Самойленко <br><br>
-        кандидат богословских наук,<br>
-        первый проректор СтДС,<br>
-        председатель Епархиального комитета по взаимодействию с казачеством, <br>
-        благочинный III Ставропольского округа <br>
+        Секретарь Митрополита Ставропольского и Невинномысского по
+        г.Ставрополю, <br>
+        Благочинный III Ставропольского округа, 
+        <br>настоятель храмов:
+        Святого Великомученика и Целителя Пантелеимона и преподобного
+        Даниила Столпника г. Ставрополя, <br>
+        кандидат богословских наук,
+        Первый проректор и преподаватель Ставропольской Православной Духовной Семинарии, <br>
+        Председатель Ставленнической Комиссии Ставропольской и Невинномысской епархии, <br>
+        Войсковой священник ТВКО, Член краевого Комитета Победы
     </h5>
 </div>
 <div class="clergy card">
@@ -97,7 +113,7 @@ table_reestr_comp('Причт храма св. Великомученика и �
     </h5>
 </div>
 <div class="clergy card">
-    <img style="width: 198px;" class="img-thumbnail" src="images/i-200x300.png" alt="">
+    <img style="width: 195px;" class="img-thumbnail" src="images/i-200x300.png" alt="">
     <h5>
         Диакон Симеон Вячеславович Чикин<br><br>
         выпускник СтДС 2016 г.<br>
@@ -105,6 +121,35 @@ table_reestr_comp('Причт храма св. Великомученика и �
         с 28 мая 2014 г. по 30 декабря 2018 г.
     </h5>
 </div>
+
+
+<!--****************************************************************************************************************
+Знаменательные события **********************************************************************************************-->
+
+
+
+
+
+<!-- <div class="" style="float: left; margin-right: 10px;">
+    <img src="uploads/39508621915_22b9b1515a_c.jpg" alt="">
+</div>
+    <h2>Митрополит Кирилл возглавил чтение Великого покаянного канона в храме великомученика Пантелеимона</h2>
+    <h4>
+        В Чистую Среду 21 февраля сего года в храме Святого Великомученика и Целителя Пантелеимона в 17.00 на Вечернем Богослужении Великий Покаянный Канон преподобного и богоносного отца нашего Андрея Критского прочитал Его Высокопреосвященство, Высокопреосвященнейший Кирилл,
+
+        Митрополит Ставропольский и Невинномысский.
+
+        Немало людей торопилось на службу, с трепетом и радостью спешили на совместную Великопостную молитву с нашим Архипастырем!
+
+        А в храме темно и уютно и все готово для встречи и молитвы…
+
+        Владыка Митрополит прибыл в храм под звон колоколов и началась служба, зажглись свечи. По окончании службы Владыка осмотрел своды храма и полюбовался новой росписью. В своей проповеди он рассказал о том, в чем смысл чтения Великого Покаянного Канона, а также напомнил об истинных человеческих ценностях, которые в наше трудное безнравственное время нужно суметь сохранить
+    </h4>  -->
+
+
+
+
+
 
 
 <?$date_today = date("d.m.y"); 
