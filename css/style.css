@@ -664,10 +664,14 @@ table td {
 	width: 100%;
 }
 
-
-#your-custom-id {
+.image_pb {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
 }
-
 
 
 

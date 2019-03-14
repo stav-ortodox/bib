@@ -1,4 +1,7 @@
-﻿<?php function get_header_doc ($header_subtitle, $title_br) {
+﻿<?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/templates.php';
+
+ function get_header_doc ($header_subtitle, $title_br) {
 
 	echo <<<EOD
 	<!DOCTYPE html>
