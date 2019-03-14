@@ -31,6 +31,7 @@ get_sm_menu ();
             $query = "SELECT * FROM publishing_post WHERE pub_hidden = '0' ORDER BY `id` DESC LIMIT 6";
             $res = mysqli_query($link, $query);
             while ($row = mysqli_fetch_array($res)) { ?>
+    
               <div class="col-sm-4 pub-block">
                 <div class='card pub-post'>
                   <div class='view overlay'>
@@ -46,13 +47,8 @@ get_sm_menu ();
                   </div>
                 </div>
               </div>
-           <? }
-           
-            // echo "<pre>";
-            // var_dump($row);
-            // echo "</pre>";
-          ?>
-        
+           <? } ?>
+          
   
           </div>    
         </div>

@@ -1,5 +1,4 @@
 <?php 
-session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';  
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
@@ -10,11 +9,9 @@ get_menu ();
 get_sm_menu ();
 get_sm_sidebar ();
 
-
-$select_query = sprintf("SELECT publishing_post.*, publishing_blocks.id FROM	publishing_post, publishing_blocks WHERE publishing_post.block_id = publishing_blocks.id");
+$select_query = sprintf("SELECT publishing_post.*, publishing_blocks.id FROM publishing_post, publishing_blocks WHERE publishing_post.block_id = publishing_blocks.id");
 
 $id_page = $_REQUEST['id'];
-
 $query_id_page = sprintf("SELECT * FROM	publishing_blocks WHERE id = $id_page");
 $result = mysqli_query($link, $query_id_page) or die ("Ошибка " . mysqli_error($link));
 

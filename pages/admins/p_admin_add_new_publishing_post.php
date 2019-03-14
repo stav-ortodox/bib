@@ -15,25 +15,22 @@ page_title ('Добавление нового издания');
 get_open_form ("/pages/admins/s_admin_add_new_publishing_post.php", "POST", "Введите данные", '');?>
 		
 
-<label for="select_block">Выберите блок издания:</label>
+<label for="id_pb">Выберите блок издания:</label>
 <?php 
-
-
-$sql = "SELECT * FROM publishing_blocks";
+$sql = "SELECT block_name, id FROM publishing_blocks";
 
 $result_select = mysqli_query($link, $sql);
 
 /*Выпадающий список*/
 
-echo "<select name = 'select_block' autofocus>";
+?><select name = 'id_pb' autofocus><?
 
 while($object = mysqli_fetch_object($result_select)){
 $block_name_sel = $object->block_name;
-echo "<option value = '$block_name_sel'> $block_name_sel </option>
-	";}
-echo "</select>";
-
-?>
+$id_pb = $object->id; ?>
+<option value = '<?=$id_pb?>'> <?=$block_name_sel?> </option>
+<? } ?>
+</select>
 
 <br>
 
