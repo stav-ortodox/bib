@@ -6,9 +6,6 @@ define("DATABASE_NAME", "stavr213_stavpant");
 define("MY_PASS", "123vc3718123");
 
 
-
-
-
 $link = mysqli_connect( 
             DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME); 
             session_start();    /* База данных для запросов по умолчанию */ 
@@ -17,6 +14,7 @@ if (!$link) {
    printf("Невозможно подключиться к базе данных. Код ошибки: %s\n", mysqli_connect_error()); 
    exit; 
 } 
-
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
 ?>
