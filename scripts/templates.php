@@ -87,5 +87,102 @@ function taplate_pb () {
 <? } }
 
 
+/**************************************************************************************************************/
+// функция вывода шаблона единицы издания (publishing post)
+function template_pp () { 
+	global $link; 
+	$select_query = sprintf("SELECT publishing_post.*, publishing_blocks.id FROM publishing_post, publishing_blocks WHERE publishing_post.block_id = publishing_blocks.id");
+
+	$id_page = $_REQUEST['id'];
+	$query_id_page = sprintf("SELECT * FROM	publishing_blocks WHERE id = $id_page");
+	$result = mysqli_query($link, $query_id_page) or die ("Ошибка " . mysqli_error($link));
+
+	    //если в запросе более нуля строк
+	    if($result && mysqli_num_rows($result)>0) 
+	    {
+	        $row = mysqli_fetch_row($result); // получаем первую строку
+	        $name_page = $row[1];
+	        $block_image = $row[2];
+	        $block_description = $row[3];
+	        $block_hidden = $row[4];
+		
+	        mysqli_free_result($result);
+	}?>
+
+	<div class="row">
+
+		<? $result = mysqli_query($link, $select_query);
+				while ($row = mysqli_fetch_array($result)) {
+	 			// выводим данные
+					// echo "<pre>";
+					// 	 var_dump($row);
+					// echo "</pre>";
+					// exit();
+				if ($_SESSION['id'] == 1) {  #Для админа
+
+					$hidden = $row['pub_hidden'];
+					$edit = "<a href= /pages/admins/p_edit_publisher_post.php?id=".$row["id"].">Редактировать</a>";
+					$delete = "<a href= /pages/admins/s_delete_publisher_post.php?id=".$row["id"].">Удалить единицу</a>";
+
+					if ($hidden == 0) {
+						$no_error = 'файл открыт';
+						$color = "color: green";
+						$border = "border: solid 1px green;";
+					}
+
+					if ($hidden == 1) {
+						$no_error = 'файл скрыт';
+						$color = "color: red";
+						$border = "border: solid 1px #E47F50;";
+					}
+				}
+
+				if ($_SESSION['id'] == null or $_SESSION['id'] > 1) {
+					$hidden = $row['pub_hidden'];
+
+					if ($hidden == 0) {
+						$color = "display: none";
+					}
+					else {
+						continue(1);
+					}
+				}
+
+				if ($_GET['id'] == $row["block_id"]) { ?>
+					
+					<div class='col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center'>
+						<div class='card pub-block'>
+							<div class='no_error' style='<?= $color . $border ?>'><strong><?=$no_error?></strong><br><?=$edit?><br><?=$delete?></div>
+							<table class='pub-block-wrap card-title-color'>
+									<tbody>
+										<tr>
+											<td><h4 class='card-title-my'><?=$row["pub_name"]?></h4></td>
+										</tr> 
+									</tbody>
+								</table>
+							<div class='view overlay'>
+
+								<img class='img-fluid m-0 p-0' src=/<?=$row["pub_image"]?> alt=''>
+								<img class='img-fluid m-0 p-0' src=/<?=$row["pub_file"]?> alt=''>
+
+								<a href='/pages/biblioteka/p_opened_post.php?id=<?=$row["0"]?>'>
+									<div class='mask rgba-white-slight'></div>
+								</a>
+							</div>
+							<div class='card-body'>
+								<br>
+								<table class='pub-block-wrap'>
+									<tbody>
+										<tr>
+											<td class='align-bottom'><a href='/pages/biblioteka/p_opened_post.php?id=<?=$row["id"]?>'><p class='card-text align-text-bottom'><?=$row["pub_description"]?></p></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						</div> <?}}?>
+					</div>
+<?}
 
 ?>
