@@ -2,8 +2,8 @@
 // require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 
 
-function get_header_site ($title_br, $header_subtitle) {
-	echo <<<EOD
+function get_header_site ($title_br, $header_subtitle) { ?>
+	
 	<!DOCTYPE html>
 	<html lang='ru'>
 	<head>
@@ -38,59 +38,6 @@ function get_header_site ($title_br, $header_subtitle) {
 	<link href="http://allfont.ru/allfont.css?fonts=zanesennyj" rel="stylesheet" type="text/css">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
 
-	<!-- Yandex.Metrika counter -->
-	<script type="text/javascript" >
-	    (function (d, w, c) {
-	        (w[c] = w[c] || []).push(function() {
-	            try {
-	                w.yaCounter51093191 = new Ya.Metrika2({
-	                    id:51093191,
-	                    clickmap:true,
-	                    trackLinks:true,
-	                    accurateTrackBounce:true,
-	                    webvisor:true
-	                });
-	            } catch(e) { }
-	        });
-
-	        var n = d.getElementsByTagName("script")[0],
-	            s = d.createElement("script"),
-	            f = function () { n.parentNode.insertBefore(s, n); };
-	        s.type = "text/javascript";
-	        s.async = true;
-	        s.src = "https://mc.yandex.ru/metrika/tag.js";
-
-	        if (w.opera == "[object Opera]") {
-	            d.addEventListener("DOMContentLoaded", f, false);
-	        } else { f(); }
-	    })(document, window, "yandex_metrika_callbacks2");
-	</script>
-	<noscript><div><img src="https://mc.yandex.ru/watch/51093191" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-	<!-- /Yandex.Metrika counter -->
-
-	<script
-  src="http://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-	<title>$title_br</title>
-
-	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-		$('.icon-menu').click(function(event) {
-		$('.sidebar').toggleClass('active')
-		});
-		});
-	</script>
-
-	<script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-30914018-3', 'auto');
-      ga('send', 'pageview');
-  </script>
 </head>
 
 <body>
@@ -98,7 +45,7 @@ function get_header_site ($title_br, $header_subtitle) {
 	<div class="header_site ">
 
 		<div class="logo_block">
-			<img id="logo_1" src="/images/original-233x285.png" alt="">
+			<!-- <img id="logo_1" src="/images/19089116.png" alt=""> -->
 			<img id="logo_2" src="/images/logo.png" alt="">
 			<img id="logo_3" src="/images/iconPanteleimon.jpg" alt="">
 		</div>
@@ -110,11 +57,11 @@ function get_header_site ($title_br, $header_subtitle) {
 	
 
 		<div class="header_subtitle">
-			<img id="pigeon" src="/images/58388f74ceff21589cf06070.png" alt="">
+			<!-- <img id="pigeon" src="/images/58388f74ceff21589cf06070.png" alt=""> -->
 		</div>
 	</div>
-EOD;
-}
+
+ <? }
 
 // *************************************************************************
 	
@@ -363,9 +310,7 @@ echo <<<EOD
 </footer>
 </body>
 </html>
-<script>
-  var sticky = new Sticky('[data-sticky]');
-</script>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -432,24 +377,25 @@ function taplate_pb () {
 	<div class='col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center'>
 		<div class='card pub-block'>
 			<div class='no_error' style='<?= $color . $border ?>'><strong><?=$no_error?></strong><br><?=$edit?><br><?=$delete?></div>
-			<table class='pub-block-wrap' style='height: 150px;'>
+			<table class='pub-block-wrap card-title-block-color'>
 				<tbody>
 					<tr>
-						<td class=''><h4 class='card-title'><?=$name_pb?><hr></h4></td>
+						<td class=''><h4 class='card-title-my'><?=$name_pb?></h4></td>
 					</tr> 
 				</tbody>
 			</table>
-			<div class='image_pb'>
+			<div class='view overlay'>
+				
+					<img class='img-fluid m-0 p-0' src=/<?=$image_pb?> alt=''>
 				<a href='/pages/biblioteka/p_publishing_page.php?id=<?=$id_pb?>'>
-					<img class='img-fluid' src='/<?=$image_pb?>' alt=''>
+					<div class='mask rgba-white-slight'></div>
 				</a>
 			</div>
-			<div class='card-body'>
-				<table class='pub-block-wrap' style='height: 150px;'>
+			<div class='card-body card-title-block-color'>
+				<table class='pub-block-wrap'>
 					<tbody>
-						<hr>
 						<tr>
-							<td class=''><a href='/pages/biblioteka/p_publishing_page.php?id=<?=$id_pb?>'><p class='card-text align-text-bottom'><?=$descr_cut . $str?></p></a>
+							<td class='align-bottom'><a href='/pages/biblioteka/p_publishing_page.php?id=<?=$id_pb?>'><p class='card-text card-text-my align-text-bottom'><?=$descr_cut . $str?></p></a>
 							</td>
 						</tr>
 					</tbody>
@@ -466,7 +412,6 @@ function taplate_pb () {
 function template_pp () { 
 	global $link;
 	$id_pb = $_GET["id"];
-	
 
 	if (isset($id_pb)) {
 		$query = sprintf("SELECT * FROM publishing_post where block_id = $id_pb ORDER BY `id` DESC");
@@ -478,16 +423,17 @@ function template_pp () {
 								$image_pp = $row["pub_image"];
 								$image_pf = $row["pub_file"];
 								$hidden = $row['pub_hidden'];
+								$block_name = $row['block_name'];
 
 							// выводим данные
 
-							if (strlen($descr_pp)>170) {
+							if (strlen($descr_pp)>120) {
 								$str = "..."; 
 							} 
 							else {
 								$str = "";
 							}
-							$descr_cut = mb_substr(strip_tags($descr_pp), 0, 120, 'utf-8');
+							$descr_cut = mb_substr(strip_tags($descr_pp), 0, 80, 'utf-8');
 
 
 							if ($_SESSION['id'] == 1) {  #Для админа
@@ -527,16 +473,17 @@ function template_pp () {
             	$image_pp = $row["pub_image"];
             	$image_pf = $row["pub_file"];
             	$hidden = $row['pub_hidden'];
+            	$block_name = $row['block_name'];
 
             		// выводим данные
 
-            		if (strlen($descr_pp)>170) {
+            		if (strlen($descr_pp)>120) {
             			$str = "..."; 
             		} 
             		else {
             			$str = "";
             		}
-            		$descr_cut = mb_substr(strip_tags($descr_pp), 0, 120, 'utf-8');
+            		$descr_cut = mb_substr(strip_tags($descr_pp), 0, 80, 'utf-8');
 
 
             		if ($_SESSION['id'] == 1) {  #Для админа

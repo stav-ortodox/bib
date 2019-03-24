@@ -9,7 +9,14 @@ $id_pb = (int)$_REQUEST['id_pb'];
 $pub_name = trim(htmlentities($_REQUEST['pub_name']));
 $pub_description = trim(htmlentities($_REQUEST['pub_description']));
 $pub_hidden = (int)($_REQUEST['pub_hidden']);
-$id_pb = (int)($_REQUEST['id_pb']);
+
+
+// получение имени блока издания
+$query = ("SELECT block_name FROM publishing_blocks WHERE id = $id_pb");
+$result = mysqli_query($link, $query);
+$row = mysqli_fetch_assoc($result);
+$name_pb = $row["block_name"]; 
+
 
 
 if (isset($_FILES['pub_image'])) {
@@ -64,9 +71,10 @@ if (isset($_FILES['pub_file'])) {
 }
 
 
-$insert_sql = sprintf("INSERT INTO publishing_post (block_id, pub_name, pub_description, pub_image, pub_file, pub_hidden) 
-	VALUES ('%s', '%s', '%s', '%s', '%s', '%s')",
+$insert_sql = sprintf("INSERT INTO publishing_post (block_id, block_name, pub_name, pub_description, pub_image, pub_file, pub_hidden) 
+	VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
 		mysqli_real_escape_string($link, $id_pb),
+		mysqli_real_escape_string($link, $name_pb),
 		mysqli_real_escape_string($link, $pub_name),
 		mysqli_real_escape_string($link, $pub_description),
 		mysqli_real_escape_string($link, $name_img),
@@ -78,7 +86,8 @@ $insert_sql = sprintf("INSERT INTO publishing_post (block_id, pub_name, pub_desc
 mysqli_query($link, $insert_sql) or die(mysqli_connect_error($link));
 $id = mysqli_insert_id($link);
 
-
+// var_dump($_POST);
+// exit();
 // Redirect the user to the page that displays user information
 header("Location: /pages/biblioteka/p_publishing_page.php?id=$id_pb");
 

@@ -14,15 +14,11 @@ get_sm_menu ();
        <?php get_sidebar (); ?>
       </div>
   <section class="container">
-    <div class="container">
+    <div>
       <div class="page_title"><h2>Последние издания</h2></div>
     </div>
     <div class="row">
-      
-
-      
-
-      <div class="col-sm-12 col-lg-10">
+     
         <div class="content">
           <div class="row">
 
@@ -30,7 +26,7 @@ get_sm_menu ();
 
           </div>    
         </div>
-      </div>
+      
     </div>
   </section>
 </main>

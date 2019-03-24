@@ -6,7 +6,7 @@
 		<table class='pub-block-wrap card-title-color'>
 			<tbody>
 				<tr>
-					<td><h4 class='card-title-my'><?=$name_pp?></h4></td>
+					<td><h4 class='card-title-my'><?=$block_name?></h4></td>
 				</tr> 
 			</tbody>
 		</table>
@@ -19,17 +19,17 @@
 				<div class='mask rgba-white-slight'></div>
 			</a>
 		</div>
-		<div class='card-body'>
-			<br>
+		<div class='card-body card-title-color'>
+			
 			<table class='pub-block-wrap'>
 				<tbody>
 					<tr>
-						<td class='align-bottom'><a href='/pages/biblioteka/p_opened_post.php?id=<?=$id_pp?>'><p class='card-text align-text-bottom'><?=$descr_cut . $str?></p></a>
+						<p class="text-center m-0"><?=$name_pp?></p>
+						<td class='align-bottom'><a href='/pages/biblioteka/p_opened_post.php?id=<?=$id_pp?>'><p class='card-text card-text-my align-text-bottom'><?=$descr_cut . $str?></p></a>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-
 		</div>
 	</div>
 </div>

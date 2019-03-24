@@ -26,16 +26,19 @@ $result_select = mysqli_query($link, $sql);
 ?><select name = 'id_pb' autofocus><?
 
 while($object = mysqli_fetch_object($result_select)){
-$block_name_sel = $object->block_name;
-$id_pb = $object->id; ?>
-<option value = '<?=$id_pb?>'> <?=$block_name_sel?> </option>
+$name_pb = $object->block_name;
+$id_pb = $object->id;?>
+<option value = '<?=$id_pb?>'> <?=$name_pb?> </option>
 <? } ?>
 </select>
+
+
 
 <br>
 
 		<label for="pub_name">Имя новой единицы издания:</label>
 		<input type="text" name="pub_name" >
+		
 
 		<label for="pub_description">Описание новой единицы издания:</label>
 		<input type="text" name="pub_description" >
@@ -53,5 +56,7 @@ $id_pb = $object->id; ?>
 
 <?php get_close_form (); 
 get_footer ();
+
+
 
 ?>

@@ -14,7 +14,6 @@ html {
 
 body {
 	height: auto;
-	/*background: #eee;*/
 }
 
 a {
@@ -460,7 +459,7 @@ table td {
 }
 
 #logo_2 {
-	max-height: 80%;
+	max-height: 60%;
 	max-width: 30%;
 }
 
@@ -593,8 +592,8 @@ table td {
 
 .pub-block-wrap td, table{
 	border: none;
-	border-radius: 4px;
-	margin-bottom: 10px;
+	/*border-radius: 4px;*/
+	/*margin-bottom: 10px;*/
 }
 
 .pub-block-wrap p:hover {
@@ -623,6 +622,7 @@ table td {
 	margin-right: 10px;
 	margin-bottom: 30px;
 	border-top: 1px solid #ddd;
+	float: left;
 }
 
 .sm-sidebar {
@@ -683,7 +683,6 @@ table td {
 
 .card-title-my {
 	padding-top: 1rem;
-
 	font-weight: bold;
 	font-family: 'Old Standard TT', serif;
 	color: white;
@@ -693,6 +692,13 @@ table td {
 	background: #e77948;
 }
 
+.card-title-block-color {
+	background: #60262C;
+}
+
+.card-text-my {
+	color: white !important;
+}
 
 
 

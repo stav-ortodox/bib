@@ -12,14 +12,15 @@ page_title ('Издания нашего храма');
 ?>
 
 <main>
-	<section class="container-fluid">
-		<div class="row">
-
-			<div class="col-sm-0 col-lg-2">
+	<div class="col-sm-0 col-lg-2">
 				<?php get_sidebar (); ?>
 			</div> <!-- /cайдбар -->
+	<section class="container">
+		<div class="row">
 
-			<div class="col-sm-12 col-lg-10">
+			
+
+			
 				<div class="content">
 					<div class="row">
 
@@ -30,7 +31,7 @@ page_title ('Издания нашего храма');
 				
 					</div>
 				</div>
-			</div>
+			
 		</div>
 	</section>
 </main>

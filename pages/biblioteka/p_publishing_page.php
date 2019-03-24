@@ -13,22 +13,19 @@ page_title ('Страница издания: '.$name_page.'');
 ?>
 
 <main>
-	<section class="container-fluid">
+	<div class="col-sm-0 col-lg-2">
+		<?php get_sidebar (); ?>
+	</div> <!-- /cайдбар -->
+	<section class="container">
 		<div class="row">
 
-			<div class="col-sm-0 col-lg-2">
-				<?php get_sidebar (); ?>
-			</div> <!-- /cайдбар -->
-
-			<div class="col-sm-12 col-lg-10">
-				<div class="page-header">
-				  <h1><small><?php echo $block_description; ?></small></h1>
-				</div>
-				<div class="content">
-					<div class="row">
-						<!-- вызов функции выводы шаблона единицы издания -->
-						<?php template_pp () ?>
-					</div>
+			<div class="page-header">
+				<h1><small><?php echo $block_description; ?></small></h1>
+			</div>
+			<div class="content">
+				<div class="row">
+					<!-- вызов функции выводы шаблона единицы издания -->
+					<?php template_pp () ?>
 				</div>
 			</div>
 		</div>
