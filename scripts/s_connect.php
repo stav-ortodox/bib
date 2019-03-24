@@ -14,7 +14,6 @@ if (!$link) {
    printf("Невозможно подключиться к базе данных. Код ошибки: %s\n", mysqli_connect_error()); 
    exit; 
 } 
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
+
 
 ?>
