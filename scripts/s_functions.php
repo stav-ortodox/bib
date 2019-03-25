@@ -388,7 +388,7 @@ function taplate_pb () {
 				
 					<img class='img-fluid m-0 p-0' src=/<?=$image_pb?> alt=''>
 				<a href='/pages/biblioteka/p_publishing_page.php?id=<?=$id_pb?>'>
-					<div class='mask rgba-white-slight'></div>
+					<div class='mask rgba-stylish-light'></div>
 				</a>
 			</div>
 			<div class='card-body card-title-block-color'>

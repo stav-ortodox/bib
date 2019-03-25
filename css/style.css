@@ -597,7 +597,7 @@ table td {
 }
 
 .pub-block-wrap p:hover {
-	color: green !important;
+	color: lightgrey !important;
 }
 
 .reestr-comps-parrent {
@@ -698,6 +698,14 @@ table td {
 
 .card-text-my {
 	color: white !important;
+}
+
+.container:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
 
