@@ -4,6 +4,7 @@ define("DATABASE_USERNAME", "root");
 define("DATABASE_PASSWORD", "");
 define("DATABASE_NAME", "stavr213_stavpant");
 define("MY_PASS", "123vc3718123");
+define("PATH", "http://bib/");
 
 
 $link = mysqli_connect( 

@@ -5,7 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_biblioteka_functions.php';
 admin ();
 get_header_site ('Администрация', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
-get_menu ();
+new_menu ();
 page_title ('Страница администратора'); 
 ?>
 

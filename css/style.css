@@ -1,3 +1,10 @@
+
+/*font-family: 'Caveat', cursive;
+font-family: 'Marck Script', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Ruslan Display', cursive;*/
+
+
 @font-face {
 	font-family: 'Izhitsa Regular';
 	src: url('Izhitsa.eot');
@@ -347,24 +354,43 @@ table td {
 
 .fixed {
 	position: fixed !important;
+}
 
+#header {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-moz-flex-direction: row;
+	-ms-flex-direction: row;
+	-o-flex-direction: row;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-top: 40px;
+	-ms-align-items: center;
+	align-items: center;
 }
 
 .header_site {
-	/*background-image: url(https://c.pxhere.com/photos/f8/7c/landscape_scotland_kilmacolm_renfrewshire_knappsloch_canon6d_ef1635mmf4lisusm-383095.jpg!d);*/
+	/*background-color: #E77948;*/
 	background-size: cover;
 	/*padding-top: 50px;*/
 }
 
 .header_title {
-	text-align: center;
+	display: inline;
+	padding: 0 !important;
+	/*text-align: center;*/
 }
 
-.header_title h4 {
+.header_title h1 {
 	text-align: center;
-	font-family: 'Izhitsa Regular';
-	color: #999;
-	font-size: 20px;
+	font-family: 'Marck Script', cursive;
+	font-weight: 400;
+	font-size: 32px;
+	color: #722321;
 }
 
 .header_subtitle_doc {
@@ -394,10 +420,6 @@ table td {
 	font-weight: bold;
 	font-size: 30px;
 	color: black;
-}
-
-.house_html {
-
 }
 
 .login_signup {
@@ -447,25 +469,22 @@ table td {
 	-ms-flex-direction: row;
 	-o-flex-direction: row;
 	flex-direction: row;
-	height: 200px;
-	justify-content: space-around;
+	padding-top: 40px;
 	-ms-align-items: center;
 	align-items: center;
 }
 
-#logo_1 {
+/*#logo_1 {
 	max-height: 77%;
 	max-width: 20%;
-}
+}*/
 
 #logo_2 {
-	max-height: 60%;
-	max-width: 30%;
+	height: 100px;
 }
 
 #logo_3 {
-	max-height: 70%;
-	max-width: 20%;
+	height: 125px;
 }
 
 .main-title-page h1 {
@@ -530,7 +549,7 @@ table td {
 }
 
 .page_title {
-	margin-bottom: 100px;
+	margin-bottom: 50px;
 	border-bottom: solid 2px #E47F50;
 }
 
@@ -592,8 +611,6 @@ table td {
 
 .pub-block-wrap td, table{
 	border: none;
-	/*border-radius: 4px;*/
-	/*margin-bottom: 10px;*/
 }
 
 .pub-block-wrap p:hover {
@@ -700,18 +717,54 @@ table td {
 	color: white !important;
 }
 
-.container:after {
-  content: ".";
+/*.container:after {
+  content: " ";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
+}*/
+
+#new_menu {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-moz-flex-direction: row;
+	-ms-flex-direction: row;
+	-o-flex-direction: row;
+	flex-direction: row;
+	justify-content: space-around;
+	-ms-align-items: center;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+#new_menu_title {
+ 	font-family: 'Caveat', cursive;
+ 	color: #722321;
+}
+
+.nav_item {
+	cursor: pointer;
+	-moz-transition: all 0.4s ease-out;
+ 	-o-transition: all 0.4s ease-out;
+ 	-webkit-transition: all 0.4s ease-out;
+	border-bottom: 1px white solid;
+}
+
+.nav_item:hover {
+	border-bottom: 1px grey solid;
+}
+
+.nav_item_active {
+	border-bottom: 1px grey solid;
 }
 
 
-
-
-
+ 
 
 /*// Малые девайсы («ландшафтные телефоны», <= 576px)*/
 @media (max-width: 576px) {

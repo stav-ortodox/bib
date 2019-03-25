@@ -5,10 +5,11 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
 
 get_header_site ('Библиотека', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
-get_menu ();
+new_menu ();
 get_sm_menu ();
 get_sm_sidebar ();
 page_title ('Издания нашего храма');
+
 ?>
 
 <main>
@@ -16,11 +17,9 @@ page_title ('Издания нашего храма');
 				<?php get_sidebar (); ?>
 			</div> <!-- /cайдбар -->
 	<section class="container">
+		<?php bread (); ?>
 		<div class="row">
 
-			
-
-			
 				<div class="content">
 					<div class="row">
 

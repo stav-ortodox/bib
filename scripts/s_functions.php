@@ -37,34 +37,68 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 	<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
 	<link href="http://allfont.ru/allfont.css?fonts=zanesennyj" rel="stylesheet" type="text/css">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Caveat|Lobster|Marck+Script|Ruslan+Display" rel="stylesheet">
 
 </head>
 
 <body>
+	<!-- <header id="header" class="container">
+		<img id="logo_2" src="/images/logo.png" alt="">
+		<img class="card" id="logo_3" src="/images/iconPanteleimon.jpg" alt="">
+	</header> -->
 
-	<div class="header_site ">
+	<div class="container header_site">
 
 		<div class="logo_block">
-			<!-- <img id="logo_1" src="/images/19089116.png" alt=""> -->
-			<img id="logo_2" src="/images/logo.png" alt="">
-			<img id="logo_3" src="/images/iconPanteleimon.jpg" alt="">
+			<img class="ml-4" src="/images/nestor.gif" style="height: 150px" alt="">
+			<div class="header_title">
+			<h1>Электронная библиотека <br>храма святого Великомученика и Целителя Пантелеимона<br> 
+	г. Ставрополя</h1>
+			</div>
+			<img src="/images/book_logo1.gif" style="height: 200px" alt="">
 		</div>
-
-		<div class="header_title">
-		<h4>Электронная библиотека храма святого Великомученика и Целителя Пантелеимона 
-г. Ставрополь</h4>
-		</div>
-	
-
-		<div class="header_subtitle">
-			<!-- <img id="pigeon" src="/images/58388f74ceff21589cf06070.png" alt=""> -->
-		</div>
+		<div class="header_subtitle"></div>
 	</div>
-
  <? }
 
 // *************************************************************************
-	
+// новое меню
+function new_menu () { 
+	global $link;
+	$query = ("SELECT * FROM menu");
+	$result = mysqli_query($link, $query);
+	$row = mysqli_fetch_array($result);
+	?>
+
+	<div class="container" id="new_menu"><?
+
+	foreach ($result as $row) { 
+		$name = $row["name"];
+		$name_img = $row["name_img"];
+		$path = $row["path"];
+		$server = $_SERVER["REQUEST_URI"];
+		
+		if ('/'.$path == $server) {
+			$active = 'nav_item_active';
+		} else {
+			$active = '';
+		}
+		?>
+
+			<div class="nav_item <?=$active?>">
+				<a href="<?=PATH . $path?>">
+				<img src="<?=PATH?>images/menu/<?=$name_img?>" style="max-height: 60px; min-height: 50px;" alt="" id=""><br>
+				<h4 class="mt-2" id="new_menu_title"><?=$name?></h4>
+				</a>
+			</div>
+
+		<?}?>
+	</div>
+<?}
+
+
+
+// *************************************************************************	
 function get_menu () {
 	$s1 = "Главная";
 	$s2 = "Библиотека";
@@ -73,7 +107,7 @@ function get_menu () {
 	$s5 = "Администрация";
 	$s6 = "Профиль";
 echo <<<EOD
-		<div class="wrap justify-content-center mb-5" id="printPageButton">
+		<div class="wrap justify-content-center mb-5 container" id="printPageButton">
 		  <div class="btn-group" role="group" aria-label="Basic example">
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/index.php">$s1</button>
 		    <button type="button" class="btn btn-cyan" onclick=location.href="/pages/p_biblioteka.php">$s2</button>
@@ -515,6 +549,38 @@ function template_pp () {
             }
 					}
 				}
+
+
+/**************************************************************************************************************/
+// распечатка массива
+function arr ($var) {
+	echo '<pre>';
+	var_dump($var);
+	echo '</pre>';
+}			
+
+
+/**************************************************************************************************************/
+// хлебные крошки
+function bread ()	{
+	
+	global $link;
+	$query = ("SELECT * FROM menu");
+	$result = mysqli_query($link, $query);
+	$row = mysqli_fetch_array($result);
+	// while ($row) {
+	    
+	// }
+
+	arr($_SERVER["REQUEST_URI"]);
+	arr($row);
+
+	$name = $row["name"];
+	$name_img = $row["name_img"];
+	$path = $row["path"];
+	$server = $_SERVER["REQUEST_URI"];
+
+}
 
 
 ?>
