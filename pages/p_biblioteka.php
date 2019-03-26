@@ -17,7 +17,7 @@ page_title ('Издания нашего храма');
 				<?php get_sidebar (); ?>
 			</div> <!-- /cайдбар -->
 	<section class="container">
-		<?php bread (); ?>
+		<?php echo bread (); ?>
 		<div class="row">
 
 				<div class="content">

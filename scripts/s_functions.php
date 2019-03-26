@@ -67,7 +67,7 @@ function new_menu () {
 	global $link;
 	$query = ("SELECT * FROM menu");
 	$result = mysqli_query($link, $query);
-	$row = mysqli_fetch_array($result);
+	// $row = mysqli_fetch_array($result);
 	?>
 
 	<div class="container" id="new_menu"><?
@@ -565,20 +565,49 @@ function arr ($var) {
 function bread ()	{
 	
 	global $link;
-	$query = ("SELECT * FROM menu");
+	$query = ("SELECT * FROM bread");
 	$result = mysqli_query($link, $query);
-	$row = mysqli_fetch_array($result);
-	// while ($row) {
-	    
-	// }
+	//$row = mysqli_fetch_array($result);
 
-	arr($_SERVER["REQUEST_URI"]);
-	arr($row);
 
-	$name = $row["name"];
-	$name_img = $row["name_img"];
-	$path = $row["path"];
-	$server = $_SERVER["REQUEST_URI"];
+	foreach ($result as $row) {
+		
+		if (isset($SESSION['bread'])){
+
+		} else {
+			$_SERVER["REQUEST_URI"] == $row['path_page'];
+			$bread = $row['name_page'].' / ';
+			$SESSION['bread'] = $bread;
+		}
+	}
+
+		if (expr) {
+			
+		}
+	return $SESSION['bread'];
+		
+		// if (isset($bread1)) {
+		// 	$SESSION['bread'] = $bread1;
+
+		// 	foreach ($result as $row) {
+		// 		if ($_SERVER["REQUEST_URI"] == $row['path_page']) {
+		// 			$bread2 = $bread1 . $row['name_page'].' / ';
+		// 			// $SESSION['bread'] = $bread2;
+		// 		} 
+		// 	}
+		// } else {
+
+		// }
+
+		
+	// echo $page;
+	// arr($_SERVER["REQUEST_URI"]);
+	// arr($row);
+
+	// $name = $row["name"];
+	// $name_img = $row["name_img"];
+	// $path = $row["path"];
+	// $server = $_SERVER["REQUEST_URI"];
 
 }
 

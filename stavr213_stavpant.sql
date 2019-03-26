@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 26 2019 г., 02:12
+-- Время создания: Мар 26 2019 г., 15:45
 -- Версия сервера: 8.0.12
 -- Версия PHP: 7.2.10
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- База данных: `stavr213_stavpant`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `bread`
+--
+
+CREATE TABLE `bread` (
+  `id` int(11) NOT NULL,
+  `name_page` varchar(500) NOT NULL,
+  `path_page` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `bread`
+--
+
+INSERT INTO `bread` (`id`, `name_page`, `path_page`) VALUES
+(1, 'Библиотека', '/pages/p_biblioteka.php');
 
 -- --------------------------------------------------------
 
@@ -199,6 +218,7 @@ CREATE TABLE `publishing_blocks` (
   `block_name` varchar(100) NOT NULL,
   `block_image` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `block_description` varchar(500) NOT NULL,
+  `block_path` varchar(500) NOT NULL,
   `block_hidden` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -206,10 +226,10 @@ CREATE TABLE `publishing_blocks` (
 -- Дамп данных таблицы `publishing_blocks`
 --
 
-INSERT INTO `publishing_blocks` (`id`, `block_name`, `block_image`, `block_description`, `block_hidden`) VALUES
-(13, 'Приходская газета &quot;Воскресение&quot;', '../../images/biblioteka/publishing_blocks/20190325012525769.jpg', 'Газета Воскресной школы храма святого Великомученика и Целителя Пантелеимона г. Ставрополя.', 0),
-(33, 'Свет Христов просвещает всех', '../../images/biblioteka/publishing_blocks/20190325012813441.jpg', 'Газета Воскресной школы храма святого Великомученика и Целителя Пантелеимона г. Ставрополя.', 0),
-(34, 'Приходская газета &quot;Свет Христов просвещает всех&quot;', '../../images/biblioteka/publishing_blocks/20190325013714206.jpg', 'Газета Воскресной школы храма святого Великомученика и Целителя Пантелеимона г. Ставрополя.', 0);
+INSERT INTO `publishing_blocks` (`id`, `block_name`, `block_image`, `block_description`, `block_path`, `block_hidden`) VALUES
+(13, 'Приходская газета &quot;Воскресение&quot;', '../../images/biblioteka/publishing_blocks/20190325012525769.jpg', 'Газета Воскресной школы храма святого Великомученика и Целителя Пантелеимона г. Ставрополя.', '', 0),
+(33, 'Свет Христов просвещает всех', '../../images/biblioteka/publishing_blocks/20190325012813441.jpg', 'Газета Воскресной школы храма святого Великомученика и Целителя Пантелеимона г. Ставрополя.', '', 0),
+(34, 'Приходская газета &quot;Свет Христов просвещает всех&quot;', '../../images/biblioteka/publishing_blocks/20190325013714206.jpg', 'Газета Воскресной школы храма святого Великомученика и Целителя Пантелеимона г. Ставрополя.', '', 0);
 
 -- --------------------------------------------------------
 
@@ -546,6 +566,13 @@ INSERT INTO `user_groups` (`user_id`, `group_id`) VALUES
 --
 
 --
+-- Индексы таблицы `bread`
+--
+ALTER TABLE `bread`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
 -- Индексы таблицы `calendar`
 --
 ALTER TABLE `calendar`
@@ -609,6 +636,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
+
+--
+-- AUTO_INCREMENT для таблицы `bread`
+--
+ALTER TABLE `bread`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `calendar`

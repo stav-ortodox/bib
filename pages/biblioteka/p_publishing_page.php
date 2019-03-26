@@ -8,15 +8,14 @@ get_menu ();
 get_sm_menu ();
 get_sm_sidebar ();
 
-page_title ('Страница издания: '.$name_page.'');
-
-?>
+page_title ('Страница издания: '.$row['path'].'');?>
 
 <main>
 	<div class="col-sm-0 col-lg-2">
 		<?php get_sidebar (); ?>
 	</div> <!-- /cайдбар -->
 	<section class="container">
+		<?php echo bread() ?>
 		<div class="row">
 
 			<div class="page-header">

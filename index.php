@@ -7,6 +7,7 @@ get_header_site ('Главная', 'Электронная библиотека 
  // get_menu ();
 // get_sm_menu ();
     new_menu ();
+    
 
 ?>
 <main>
