@@ -563,52 +563,53 @@ function arr ($var) {
 /**************************************************************************************************************/
 // хлебные крошки
 function bread ()	{
-	
 	global $link;
-	$query = ("SELECT * FROM bread");
-	$result = mysqli_query($link, $query);
-	//$row = mysqli_fetch_array($result);
+	$id = $_GET['id'];
+	// $path = explode('/', PATH, 4);
+	// $path = $path[0] . '//' . $path[2];
 
 
-	foreach ($result as $row) {
+	// ссылка на библиотеку
+	if ($_SERVER["REQUEST_URI"] == '/pages/p_biblioteka.php') {
+		$href_bib = PATH . 'pages/p_biblioteka.php';
+		$_SESSION['href_bib'] = $href_bib;
+		$bread = "<div class='bread'>Библиотека /</div>";
+	} 
+
+		$href_bib = $_SESSION['href_bib'];
+
+
+	// ссылка на блок
+	if ($_SERVER["SCRIPT_NAME"] == '/pages/biblioteka/p_publishing_page.php') {
+		$id = explode('=', $_SERVER["REQUEST_URI"], 2);
+		$id = $id[1];
 		
-		if (isset($SESSION['bread'])){
+		$query = ("SELECT block_name FROM publishing_blocks WHERE id = $id");
+		$result = mysqli_query($link, $query);
+		$row = mysqli_fetch_assoc($result);
+		$block_name = $row['block_name'];
+		$bread = "<div class='bread'><a href=".$href_bib.">Библиотека / </a>$block_name</div>";
+		$href_block = $path . $_SERVER["REQUEST_URI"];
+		$_SESSION['block_name'] = $block_name;
+		$_SESSION['href_block'] = $href_block;
+	} 
 
-		} else {
-			$_SERVER["REQUEST_URI"] == $row['path_page'];
-			$bread = $row['name_page'].' / ';
-			$SESSION['bread'] = $bread;
-		}
+		$block_name = $_SESSION['block_name'];
+		$href_block = $_SESSION['href_block'];
+
+
+	// ссылка на публикацию
+	if ($_SERVER["SCRIPT_NAME"] == '/pages/biblioteka/p_opened_post.php') {
+		$id = explode('=', $_SERVER["REQUEST_URI"], 2);
+		$id = $id[1];
+		
+		$query = ("SELECT pub_name FROM publishing_post WHERE id = $id");
+		$result = mysqli_query($link, $query);
+		$row = mysqli_fetch_assoc($result);
+		$block_post = $row['pub_name'];
+		$bread = "<div class='bread'><a href=".$href_bib.">Библиотека</a>" . ' / ' . "<a href=". $href_block .">$block_name</a> / $block_post</div>";
 	}
-
-		// if (expr) {
-			
-		// }
-	return $SESSION['bread'];
-		
-		// if (isset($bread1)) {
-		// 	$SESSION['bread'] = $bread1;
-
-		// 	foreach ($result as $row) {
-		// 		if ($_SERVER["REQUEST_URI"] == $row['path_page']) {
-		// 			$bread2 = $bread1 . $row['name_page'].' / ';
-		// 			// $SESSION['bread'] = $bread2;
-		// 		} 
-		// 	}
-		// } else {
-
-		// }
-
-		
-	// echo $page;
-	 arr($_SERVER["REQUEST_URI"]);
-	// arr($row);
-
-	// $name = $row["name"];
-	// $name_img = $row["name_img"];
-	// $path = $row["path"];
-	// $server = $_SERVER["REQUEST_URI"];
-
+	return $bread;
 }
 
 

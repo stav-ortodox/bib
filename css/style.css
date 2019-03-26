@@ -1,8 +1,8 @@
 
-/*font-family: 'Caveat', cursive;
-font-family: 'Marck Script', cursive;
-font-family: 'Lobster', cursive;
-font-family: 'Ruslan Display', cursive;*/
+/*font-family: 'Caveat', cursive;*/
+/*font-family: 'Marck Script', cursive;*/
+/*font-family: 'Lobster', cursive;*/
+/*font-family: 'Ruslan Display', cursive;*/
 
 
 @font-face {
@@ -549,7 +549,7 @@ table td {
 }
 
 .page_title {
-	margin-bottom: 50px;
+	margin-bottom: 10px;
 	border-bottom: solid 2px #E47F50;
 }
 
@@ -736,7 +736,7 @@ table td {
 	-ms-flex-direction: row;
 	-o-flex-direction: row;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: center;
 	-ms-align-items: center;
 	align-items: center;
 	margin-bottom: 50px;
@@ -753,6 +753,8 @@ table td {
  	-o-transition: all 0.4s ease-out;
  	-webkit-transition: all 0.4s ease-out;
 	border-bottom: 1px white solid;
+	padding-right: 3rem;
+	padding-left: 3rem;
 }
 
 .nav_item:hover {
@@ -763,6 +765,20 @@ table td {
 	border-bottom: 1px grey solid;
 }
 
+.bread {
+	background: lightgrey;
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 40px;
+	padding: 10px;
+	border-radius: 3px;
+	font-size: 18px;
+	
+}
+
+.bread a{
+	color: green;
+}
 
  
 

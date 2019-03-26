@@ -5,11 +5,11 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
 get_header_site ('Главная', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
  // get_menu ();
-// get_sm_menu ();
-    new_menu ();
-    
+// get_sm_menu (); -->
+  
+    new_menu ();?>
+  
 
-?>
 <main>
       <div class="col-sm-0 col-lg-2">
        <?php get_sidebar (); ?>
