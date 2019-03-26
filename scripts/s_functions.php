@@ -581,9 +581,9 @@ function bread ()	{
 		}
 	}
 
-		if (expr) {
+		// if (expr) {
 			
-		}
+		// }
 	return $SESSION['bread'];
 		
 		// if (isset($bread1)) {
@@ -601,7 +601,7 @@ function bread ()	{
 
 		
 	// echo $page;
-	// arr($_SERVER["REQUEST_URI"]);
+	 arr($_SERVER["REQUEST_URI"]);
 	// arr($row);
 
 	// $name = $row["name"];

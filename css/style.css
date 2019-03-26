@@ -717,13 +717,13 @@ table td {
 	color: white !important;
 }
 
-/*.container:after {
+.container:after {
   content: " ";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
-}*/
+}
 
 #new_menu {
 	display: -webkit-flex;
