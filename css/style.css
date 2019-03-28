@@ -25,10 +25,11 @@ body {
 
 a {
 	text-decoration: none !important;
+	color: #722321;
 }
 
 a:hover {
-	color: red;
+	color: grey;
 }
 
 /* внешние границы таблицы серого цвета толщиной 1px */
@@ -332,7 +333,6 @@ table td {
 
 .user_form select{
 	display: block;
-	/*margin-left: 25%;*/
 	padding: 4px;
 }
 
@@ -374,15 +374,12 @@ table td {
 }
 
 .header_site {
-	/*background-color: #E77948;*/
 	background-size: cover;
-	/*padding-top: 50px;*/
 }
 
 .header_title {
 	display: inline;
 	padding: 0 !important;
-	/*text-align: center;*/
 }
 
 .header_title h1 {
@@ -766,21 +763,67 @@ table td {
 }
 
 .bread {
-	background: lightgrey;
+	background: #e0f7fa;
 	padding: 0px;
 	margin: 0px;
 	margin-bottom: 40px;
 	padding: 10px;
 	border-radius: 3px;
 	font-size: 18px;
-	
 }
 
-.bread a{
+.bread a {
 	color: green;
 }
 
- 
+.news {
+	margin: 0 auto;
+	margin-bottom: 30px;
+	max-width: 25vw;
+}
+
+.news_img img {
+	max-height: 400px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.big_news_img {
+	margin: 0 auto;
+}
+
+.big_news_img img{
+	max-height: 400px;
+	justify-content: center;
+}
+
+.bn_card-body p {
+	margin: 0 auto;
+	width: 50%;
+	font-size: 18px;
+	text-align: justify;
+}
+
+.repost {
+	width:60%;	
+}
+
+.repost_hover {
+	padding: 5px;
+	cursor: pointer;
+	border: 1px white solid;
+	border-radius: 25px;
+	-webkit-transition: 0.3s ease-out 0.1s;
+	-o-transition: 0.3s ease-out 0.1s;
+	transition: 0.3s ease-out 0.1s;
+}
+
+.repost_hover:hover {
+	border: 1px #00C851 solid;
+	border-radius: 25px;
+}
+
+
 
 /*// Малые девайсы («ландшафтные телефоны», <= 576px)*/
 @media (max-width: 576px) {

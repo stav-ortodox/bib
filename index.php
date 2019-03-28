@@ -15,20 +15,20 @@ get_header_site ('Главная', 'Электронная библиотека 
        <?php get_sidebar (); ?>
       </div>
   <section class="container">
+    <!-- блок что нового? -->
     <div>
       <div class="page_title"><h2>Что нового?</h2></div>
     </div>
-    
     <div class="row">
-     
         <div class="content">
           <div class="row">
-
             <?php template_pp();?>
-
           </div>    
         </div>
+    </div>
       
+    <div>
+      <div class="page_title"><h2>Что нового?</h2></div>
     </div>
   </section>
 </main>

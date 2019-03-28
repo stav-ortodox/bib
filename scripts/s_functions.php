@@ -18,6 +18,7 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 	<!-- Bootstrap core CSS -->
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -67,7 +68,6 @@ function new_menu () {
 	global $link;
 	$query = ("SELECT * FROM menu");
 	$result = mysqli_query($link, $query);
-	// $row = mysqli_fetch_array($result);
 	?>
 
 	<div class="container" id="new_menu"><?
@@ -495,7 +495,7 @@ function template_pp () {
 										continue(1);
 									}
 								}
-								include 'templates.php';
+								include 'templates/templates.php';
 							}
 	} else {
 		$query = "SELECT * FROM publishing_post WHERE pub_hidden = '0' ORDER BY `id` DESC LIMIT 6";
@@ -510,7 +510,6 @@ function template_pp () {
             	$block_name = $row['block_name'];
 
             		// выводим данные
-
             		if (strlen($descr_pp)>120) {
             			$str = "..."; 
             		} 
@@ -545,7 +544,7 @@ function template_pp () {
             					continue(1);
             				}
             			}
-            	include 'templates.php';
+            	include 'templates/templates.php';
             }
 					}
 				}
@@ -565,10 +564,7 @@ function arr ($var) {
 function bread ()	{
 	global $link;
 	$id = $_GET['id'];
-	// $path = explode('/', PATH, 4);
-	// $path = $path[0] . '//' . $path[2];
-
-
+	
 	// ссылка на библиотеку
 	if ($_SERVER["REQUEST_URI"] == '/pages/p_biblioteka.php') {
 		$href_bib = PATH . 'pages/p_biblioteka.php';
@@ -613,4 +609,35 @@ function bread ()	{
 }
 
 
+/**************************************************************************************************************/
+// НОВОСТИ
+function news() {
+	global $link;
+		
+	require_once '../templates/news_tmp.php';
+	
+}
+
+// НОВОСТИ
+function big_news() {
+	global $link;
+		$id = $_GET['id'];
+    
+		$query = ("SELECT * FROM news WHERE id = '$id'");
+		$result = mysqli_query($link, $query);
+    $row = mysqli_fetch_assoc($result);
+
+		$title = $row['title'];
+		$text = $row['text'];
+		$image = $row['image'];
+		$date = $row['date'];
+		$views = $row['views'];
+		$repost_fb = $row['repost_fb'];
+		$repost_vk = $row['repost_vk'];
+		$repost_ok = $row['repost_ok'];
+		$author = $row['author'];
+
+	require_once '../templates/big_news_tmp.php';
+
+}
 ?>
