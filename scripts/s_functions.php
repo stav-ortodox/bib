@@ -20,6 +20,11 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
+	<!-- <script type="text/javascript" src="<?=PATH?>js/jquery-3.3.1.min.js"></script> -->
+	<link rel="stylesheet" type="text/css" href="<?=PATH?>slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="<?=PATH?>slick/slick-theme.css"/>
+
+
 	<!-- Bootstrap core CSS -->
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 
@@ -30,16 +35,18 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 	<link href="/css/style.css" rel="stylesheet">
 	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 
-	<!-- My js -->
+	<!-- carousel -->
 	
-
+	
+	
+	
 	<!-- Fonts -->
 	<link href="http://allfont.ru/allfont.css?fonts=ds-russia-demo" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
-	<link href="http://allfont.ru/allfont.css?fonts=zanesennyj" rel="stylesheet" type="text/css">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Caveat|Lobster|Marck+Script|Ruslan+Display" rel="stylesheet">
-
+	
+	
 </head>
 
 <body>
@@ -318,8 +325,8 @@ button {display: none; }
 }
 // *************************************************************************
 
-function get_footer () {
-echo <<<EOD
+function get_footer () {?>
+
 	<footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
 	<div class="pt-4">
 		<a href="#" class="btn btn-outline-white">
@@ -342,14 +349,22 @@ echo <<<EOD
 г. Ставрополь
 	</div>
 </footer>
-</body>
-</html>
-
+<script src="http://yastatic.net/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="<?=PATH?>js/bootstrap.min.js"></script>
+<!-- fotorama.css & fotorama.js. -->
+<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+<script type="text/javascript" src="<?=PATH?>js/my_js.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-EOD;
-}
+
+
+</body>
+</html>
+
+
+<?}
 
 // *************************************************************************
 // функция вывода шаблонов блоков изданий
@@ -495,7 +510,7 @@ function template_pp () {
 										continue(1);
 									}
 								}
-								include 'templates/templates.php';
+								require_once $_SERVER['DOCUMENT_ROOT'].'/templates/templates.php';
 							}
 	} else {
 		$query = "SELECT * FROM publishing_post WHERE pub_hidden = '0' ORDER BY `id` DESC LIMIT 6";
@@ -544,7 +559,7 @@ function template_pp () {
             					continue(1);
             				}
             			}
-            	include 'templates/templates.php';
+            	require_once $_SERVER['DOCUMENT_ROOT'].'/templates/templates.php';
             }
 					}
 				}
@@ -572,7 +587,14 @@ function bread ()	{
 		$bread = "<div class='bread'>Библиотека /</div>";
 	} 
 
+	if ($_SERVER["REQUEST_URI"] == '/pages/p_news.php') {
+		$href_news = PATH . 'pages/p_news.php';
+		$_SESSION['href_news'] = $href_news;
+		$bread = "<div class='bread'>Жизнь прихода /</div>";
+	} 
+
 		$href_bib = $_SESSION['href_bib'];
+		$href_news = $_SESSION['href_news'];
 
 
 	// ссылка на блок
@@ -590,7 +612,36 @@ function bread ()	{
 		$_SESSION['href_block'] = $href_block;
 	} 
 
-		$block_name = $_SESSION['block_name'];
+	
+
+	if ($_SERVER["SCRIPT_NAME"] == '/pages/p_taxonomy.php' || '/pages/p_news.php') {
+		$id = explode('=', $_SERVER["REQUEST_URI"], 2);
+		$id = $id[1];
+		
+		$query = ("SELECT title, taxonomy FROM news WHERE id = $id");
+		$result = mysqli_query($link, $query);
+		$row = mysqli_fetch_assoc($result);
+
+		$title = $row['title'];
+		$taxonomy = $row['taxonomy'];
+
+			if ($_SERVER["SCRIPT_NAME"] == '/pages/p_news.php') {
+				$bread = "<div class='bread'>Жизнь прихода / $title</div>";
+			}
+
+			if ($_SERVER["SCRIPT_NAME"] == '/pages/p_big_news.php') {
+				$href_taxonomy = PATH . 'pages/p_taxonomy.php';
+				$bread = "<div class='bread'><a href=".$href_news.">Жизнь прихода / </a><a href=".$href_taxonomy.">$taxonomy  / </a>$title</div>";
+			}
+
+		
+		$_SESSION['title'] = $title;
+		$_SESSION['taxonomy'] = $taxonomy;
+		$_SESSION['href_block'] = $href_block;
+	} 
+
+		$taxonomy = $_SESSION['taxonomy'];
+		$title = $_SESSION['title'];
 		$href_block = $_SESSION['href_block'];
 
 
