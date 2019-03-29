@@ -614,27 +614,23 @@ function bread ()	{
 
 	
 
-	if ($_SERVER["SCRIPT_NAME"] == '/pages/p_taxonomy.php' || '/pages/p_news.php') {
+	if ($_SERVER["SCRIPT_NAME"] == '/pages/p_news.php') {
 		$id = explode('=', $_SERVER["REQUEST_URI"], 2);
 		$id = $id[1];
 		
+		$bread = "<div class='bread'>Жизнь прихода / $title</div>";
+	}
+
+	if ($_SERVER["SCRIPT_NAME"] == '/pages/p_big_news.php') {
 		$query = ("SELECT title, taxonomy FROM news WHERE id = $id");
 		$result = mysqli_query($link, $query);
 		$row = mysqli_fetch_assoc($result);
 
 		$title = $row['title'];
 		$taxonomy = $row['taxonomy'];
+		$href_taxonomy = PATH . 'pages/p_taxonomy.php?id='.$id;
+		$bread = "<div class='bread'><a href=".$href_news.">Жизнь прихода / </a><a href=".$href_taxonomy.">$taxonomy  / </a>$title</div>";
 
-			if ($_SERVER["SCRIPT_NAME"] == '/pages/p_news.php') {
-				$bread = "<div class='bread'>Жизнь прихода / $title</div>";
-			}
-
-			if ($_SERVER["SCRIPT_NAME"] == '/pages/p_big_news.php') {
-				$href_taxonomy = PATH . 'pages/p_taxonomy.php';
-				$bread = "<div class='bread'><a href=".$href_news.">Жизнь прихода / </a><a href=".$href_taxonomy.">$taxonomy  / </a>$title</div>";
-			}
-
-		
 		$_SESSION['title'] = $title;
 		$_SESSION['taxonomy'] = $taxonomy;
 		$_SESSION['href_block'] = $href_block;
