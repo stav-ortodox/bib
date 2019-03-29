@@ -1,13 +1,5 @@
-<script type="text/javascript"> 
-function ShareToVk() {  
-tltl = document.title  
-width = 550  
-height = 268  
-w_top = (window.screen.height - height)/2  
-w_left = (window.screen.width - width)/2  
-window.open('http://vk.com/share.php?url='+document.location.href+'&tltl='+tltl+'&cmg=1', 'shareSite','width=550px,height=268px,resizable=yes,scrollbars=yes,left='+w_left+',top='+w_top);}  
-} 
-</script>
+
+
     <main>
       <div class="col-sm-0 col-lg-2">
        <?php get_sidebar (); ?>
@@ -15,8 +7,9 @@ window.open('http://vk.com/share.php?url='+document.location.href+'&tltl='+tltl+
      <section class="container m-auto">
       <!-- блок что нового? -->
       <div>
-        <div class="page_title mb-5 text-center"><h2><?=$title?></h2></div>
+        <div class="page_title text-center"><h2><?=$title?></h2></div>
       </div>
+      <?php echo bread('/pages/p_big_news.php'); ?>
       <div class="row m-auto">
         <div class="content m-auto">
           <div class="row m-auto">
@@ -35,22 +28,35 @@ window.open('http://vk.com/share.php?url='+document.location.href+'&tltl='+tltl+
             <p class="card-text"><?=$text?></p>
           </div>
 
-          <div class="repost pt-3">
-            <ul class="list-unstyled list-inline ml-5">
-              <b class="mr-5 text-success">Поделиться:</b>
-              <li class="list-inline-item text-success pr-2 repost_hover"><i class="fab fa-odnoklassniki pr-1"></i> <?=$repost_ok?></li>
-              <a href=""><li class="list-inline-item text-success pr-2 repost_hover"><i class="fab fa-facebook-f pr-1"> </i> <?=$repost_fb?></li></a>
-              <a href="javascript://" onclick="ShareToVk()"><li class="list-inline-item text-success repost_hover"><i class="fab fa-vk pr-1"></i> <?=$repost_vk?></li></a>
-            </ul>
-          </div>
-
+        
+         <div class="fotorama fotorama1 m-auto" 
+             data-width="100%"
+             data-ratio="800/600"
+             data-minwidth="600"
+             data-maxwidth="600"
+             data-minheight="400"
+             data-maxheight="400" 
+             data-nav="thumbs" 
+             data-allowfullscreen="native"
+             data-transition="crossfade"
+             data-autoplay="true">
+          <img class="z-depth-2 card" src="<?=PATH.'images/news/'.$image?>" alt="">
+          <img class="z-depth-2 card" src="<?=PATH.'images/news/'.$image?>" alt="">
+         </div>
+          
           <!-- Card footer -->
-          <div class="text-center pt-3">
-            <ul class="list-unstyled list-inline ml-5">
-              <li class="list-inline-item pr-2 grey-text"><i class="fas fa-pen-alt pr-1"></i><?=$author?></li>
-              <li class="list-inline-item pr-2 grey-text"><i class="far fa-clock pr-1"></i><?=$date?></li>
-              <li class="list-inline-item grey-text pr-2"><i class="far fa-eye pr-1"></i><?=$views?></li>
-            </ul>
+          <div class="ull justify-content-center">
+            <li class="list-inline-item pr-2 grey-text"><i class="fas fa-pen-alt pr-1"></i><?=$author?></li>
+            <li class="list-inline-item pr-2 grey-text"><i class="far fa-clock pr-1"></i><?=$date?></li>
+            <li class="list-inline-item grey-text pr-2"><i class="far fa-eye pr-1"></i><?=$views?></li>
+            
+            <br>
+            <div class="justify-content-center">
+              <b class="mr-2 text-success">Поделиться:</b>
+              <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+              <script src="//yastatic.net/share2/share.js"></script>
+              <div class="ya-share2 ull" data-services="vkontakte,facebook,odnoklassniki" data-counter=""></div>
+            </div>
           </div>
         </div>    
       </div>
@@ -59,7 +65,6 @@ window.open('http://vk.com/share.php?url='+document.location.href+'&tltl='+tltl+
     
   </section>
 </main>
-
 
 
 
