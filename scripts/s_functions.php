@@ -80,18 +80,22 @@ function new_menu () {
 	<div class="container" id="new_menu"><?
 
 	foreach ($result as $row) { 
+		$id_item = $row["id"];
 		$name = $row["name"];
 		$name_img = $row["name_img"];
 		$path = $row["path"];
 		$server = $_SERVER["REQUEST_URI"];
 		
-		if ('/'.$path == $server) {
+		if ('/'.$path == $server || $_SERVER["SCRIPT_NAME"] == '/pages/biblioteka/p_publishing_page.php' && $id_item == '2' || $_SERVER["SCRIPT_NAME"] == '/pages/biblioteka/p_opened_post.php' && $id_item == '2') {
+			$active = 'nav_item_active';
+		} 
+		elseif ($_SERVER["SCRIPT_NAME"] == '/pages/p_big_news.php' && $id_item == '3' || $_SERVER["SCRIPT_NAME"] == '/pages/p_taxonomy.php' && $id_item == '3' || $_SERVER["SCRIPT_NAME"] == '/pages/p_news.php' && $id_item == '3') {
 			$active = 'nav_item_active';
 		} else {
 			$active = '';
 		}
-		?>
-
+		// arr($id_item);
+	?>
 			<div class="nav_item <?=$active?>">
 				<a href="<?=PATH . $path?>">
 				<img src="<?=PATH?>images/menu/<?=$name_img?>" style="max-height: 60px; min-height: 50px;" alt="" id=""><br>
@@ -375,10 +379,6 @@ function taplate_pb () {
 	$result = mysqli_query($link, $query);
 	while ($row = mysqli_fetch_assoc($result)) {
 
-		// echo "<pre>";
-		// 	 var_dump($row);
-		// echo "</pre>";
-			
 			$id_pb = $row["id"];
 			$name_pb = $row["block_name"];
 			$descr_pb = $row["block_description"];
@@ -386,7 +386,6 @@ function taplate_pb () {
 			$hidden = $row['block_hidden'];
 
 		// выводим данные
-
 		if (strlen($descr_pb)>170) {
 			$str = "..."; 
 		} 
@@ -394,7 +393,6 @@ function taplate_pb () {
 			$str = "";
 		}
 		$descr_cut = mb_substr(strip_tags($descr_pb), 0, 120, 'utf-8');
-
 
 		if ($_SESSION['id'] == 1) {  #Для админа
 			
@@ -413,7 +411,6 @@ function taplate_pb () {
 			}
 		}
 		if ($_SESSION['id'] == null or $_SESSION['id'] > 1) {
-			
 
 			if ($hidden == 0) {
 				$color = "display: none";}
@@ -422,7 +419,6 @@ function taplate_pb () {
 				}
 			} 
 	?>
-
 	<div class='col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center'>
 		<div class='card pub-block'>
 			<div class='no_error' style='<?= $color . $border ?>'><strong><?=$no_error?></strong><br><?=$edit?><br><?=$delete?></div>
@@ -434,7 +430,6 @@ function taplate_pb () {
 				</tbody>
 			</table>
 			<div class='view overlay'>
-				
 					<img class='img-fluid m-0 p-0' src=/<?=$image_pb?> alt=''>
 				<a href='/pages/biblioteka/p_publishing_page.php?id=<?=$id_pb?>'>
 					<div class='mask rgba-stylish-light'></div>
@@ -452,7 +447,6 @@ function taplate_pb () {
 			</div>
 		</div>
 	</div>
-
 <? } }
 
 
@@ -475,7 +469,6 @@ function template_pp () {
 								$block_name = $row['block_name'];
 
 							// выводим данные
-
 							if (strlen($descr_pp)>120) {
 								$str = "..."; 
 							} 
@@ -484,9 +477,7 @@ function template_pp () {
 							}
 							$descr_cut = mb_substr(strip_tags($descr_pp), 0, 80, 'utf-8');
 
-
-							if ($_SESSION['id'] == 1) {  #Для админа
-								
+							if ($_SESSION['id'] == 1) {  #Для админа	
 								$edit = "<a href= /pages/biblioteka/p_edit_publisher_block.php?id=".$id_pb.">Редактировать</a>";
 								$delete = "<a href= /pages/biblioteka/s_delete_publisher_block.php?id=".$id_pb.">Удалить блок</a>";
 								
@@ -502,7 +493,6 @@ function template_pp () {
 								}
 							}
 							if ($_SESSION['id'] == null or $_SESSION['id'] > 1) {
-								
 
 								if ($hidden == 0) {
 									$color = "display: none";}
@@ -510,10 +500,10 @@ function template_pp () {
 										continue(1);
 									}
 								}
-								require_once $_SERVER['DOCUMENT_ROOT'].'/templates/templates.php';
+								include $_SERVER['DOCUMENT_ROOT'].'/templates/templates.php';
 							}
-	} else {
-		$query = "SELECT * FROM publishing_post WHERE pub_hidden = '0' ORDER BY `id` DESC LIMIT 6";
+							} else {
+						$query = "SELECT * FROM publishing_post WHERE pub_hidden = '0' ORDER BY `id` DESC LIMIT 6";
             $result = mysqli_query($link, $query);
             while ($row = mysqli_fetch_array($result)) {
             	$id_pp = $row["id"];
@@ -533,9 +523,7 @@ function template_pp () {
             		}
             		$descr_cut = mb_substr(strip_tags($descr_pp), 0, 80, 'utf-8');
 
-
             		if ($_SESSION['id'] == 1) {  #Для админа
-            			
             			$edit = "<a href= /pages/biblioteka/p_edit_publisher_block.php?id=".$id_pb.">Редактировать</a>";
             			$delete = "<a href= /pages/biblioteka/s_delete_publisher_block.php?id=".$id_pb.">Удалить блок</a>";
             			
@@ -551,15 +539,13 @@ function template_pp () {
             			}
             		}
             		if ($_SESSION['id'] == null or $_SESSION['id'] > 1) {
-            			
-
             			if ($hidden == 0) {
             				$color = "display: none";}
             				else {
             					continue(1);
             				}
             			}
-            	require_once $_SERVER['DOCUMENT_ROOT'].'/templates/templates.php';
+            	include $_SERVER['DOCUMENT_ROOT'].'/templates/templates.php';
             }
 					}
 				}
@@ -592,16 +578,13 @@ function bread ()	{
 		$_SESSION['href_news'] = $href_news;
 		$bread = "<div class='bread'>Жизнь прихода /</div>";
 	} 
-
 		$href_bib = $_SESSION['href_bib'];
 		$href_news = $_SESSION['href_news'];
-
 
 	// ссылка на блок
 	if ($_SERVER["SCRIPT_NAME"] == '/pages/biblioteka/p_publishing_page.php') {
 		$id = explode('=', $_SERVER["REQUEST_URI"], 2);
 		$id = $id[1];
-		
 		$query = ("SELECT block_name FROM publishing_blocks WHERE id = $id");
 		$result = mysqli_query($link, $query);
 		$row = mysqli_fetch_assoc($result);
@@ -611,13 +594,12 @@ function bread ()	{
 		$_SESSION['block_name'] = $block_name;
 		$_SESSION['href_block'] = $href_block;
 	} 
-
-	
+		$href_block = $_SESSION['href_block'];
+		$block_name = $_SESSION['block_name'];
 
 	if ($_SERVER["SCRIPT_NAME"] == '/pages/p_news.php') {
 		$id = explode('=', $_SERVER["REQUEST_URI"], 2);
 		$id = $id[1];
-		
 		$bread = "<div class='bread'>Жизнь прихода / $title</div>";
 	}
 
@@ -625,33 +607,33 @@ function bread ()	{
 		$query = ("SELECT title, taxonomy FROM news WHERE id = $id");
 		$result = mysqli_query($link, $query);
 		$row = mysqli_fetch_assoc($result);
-
 		$title = $row['title'];
 		$taxonomy = $row['taxonomy'];
 		$href_taxonomy = PATH . 'pages/p_taxonomy.php?id='.$id;
-		$bread = "<div class='bread'><a href=".$href_news.">Жизнь прихода / </a><a href=".$href_taxonomy.">$taxonomy  / </a>$title</div>";
-
+		$bread = "<div class='bread'><a href=".$href_news.">Жизнь прихода / </a><a href=".$href_taxonomy.">Категория: "."'$taxonomy'"."  / </a>$title</div>";
 		$_SESSION['title'] = $title;
 		$_SESSION['taxonomy'] = $taxonomy;
-		$_SESSION['href_block'] = $href_block;
 	} 
-
 		$taxonomy = $_SESSION['taxonomy'];
 		$title = $_SESSION['title'];
-		$href_block = $_SESSION['href_block'];
-
+		
+	if ($_SERVER["SCRIPT_NAME"] == '/pages/p_taxonomy.php') {
+		$id = explode('=', $_SERVER["REQUEST_URI"], 2);
+		$id = $id[1];
+		$bread = "<div class='bread'><a href=".$href_news.">Жизнь прихода / </a> Категория: "."'$taxonomy'"."</div>";
+	}
 
 	// ссылка на публикацию
 	if ($_SERVER["SCRIPT_NAME"] == '/pages/biblioteka/p_opened_post.php') {
 		$id = explode('=', $_SERVER["REQUEST_URI"], 2);
 		$id = $id[1];
-		
 		$query = ("SELECT pub_name FROM publishing_post WHERE id = $id");
 		$result = mysqli_query($link, $query);
 		$row = mysqli_fetch_assoc($result);
 		$block_post = $row['pub_name'];
 		$bread = "<div class='bread'><a href=".$href_bib.">Библиотека</a>" . ' / ' . "<a href=". $href_block .">$block_name</a> / $block_post</div>";
 	}
+	// arr ($block_name);
 	return $bread;
 }
 
@@ -660,9 +642,7 @@ function bread ()	{
 // НОВОСТИ
 function news() {
 	global $link;
-		
-	require_once '../templates/news_tmp.php';
-	
+	require_once $_SERVER['DOCUMENT_ROOT'].'/templates/news_tmp.php';
 }
 
 // НОВОСТИ

@@ -1,8 +1,12 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
-		$query = ("SELECT * FROM news");
+
+    if ($_SERVER["SCRIPT_NAME"] == '/index.php') {
+      $query = ("SELECT * FROM news ORDER BY id DESC LIMIT 4");
+    } elseif ($_SERVER["SCRIPT_NAME"] == '/pages/p_news.php'){
+      $query = ("SELECT * FROM news");
+    }
 		$result = mysqli_query($link, $query);
-		
 		foreach ($result as $row) {
 		$id = $row['id'];
 		$title = $row['title'];
