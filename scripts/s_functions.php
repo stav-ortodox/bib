@@ -37,16 +37,11 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 
 	<!-- carousel -->
 	
-	
-	
-	
 	<!-- Fonts -->
 	<link href="http://allfont.ru/allfont.css?fonts=ds-russia-demo" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Caveat|Lobster|Marck+Script|Ruslan+Display" rel="stylesheet">
-	
-	
 </head>
 
 <body>
@@ -56,7 +51,6 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 	</header> -->
 
 	<div class="container header_site">
-
 		<div class="logo_block">
 			<img class="ml-4" src="/images/nestor.gif" style="height: 150px" alt="">
 			<div class="header_title">
@@ -106,7 +100,6 @@ function new_menu () {
 		<?}?>
 	</div>
 <?}
-
 
 
 // *************************************************************************	
@@ -194,35 +187,33 @@ echo
 <<<EOD
 <img src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" class="img-fluid z-depth-2 mb-3" alt=""> 
 EOD;
-			if ($_SESSION['id'] == 1) {
-   	echo "
-   	<div class='admin-panel'>
-   	<hr>
-		<h4 class='text-center'>Панель администратора</h4>
-			<small>(Вам доступна эта панель, потому что Вы являетесь администратором сайта)</small>
-		<ul>
-		<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить новый блок издания</p></a></li>
-		<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить новую единицу издания</p></a></li>
-		</ul>
-		<ul>
-		<h4 class='text-center'>Документы</h4>
-			<li><a href='/reestres/reestr_RGIA/p_reestr_RGIA.php'>Реестр дел из РГИА</a></li>
-			<li><a href='/reestres/reestr_comps/p_reestr_comps.php'>Реестр техники</a></li>
-			<li><a href='/reestres/reestr_icons/index.php'>Реестр икон</a></li>
-			<li><a href='/reestres/raspisanie/index.php'>Расписание богослужений</a></li>
-			<li><a href='/RGIA_editions/index.php'>Издания документов РГИА</a></li>
-			<li><a href='/reestres/inventory_altar/index.php'>Журнал инвентаризации алтарей</a></li>
-			<li><a href='/reestres/annual_review/index.php'>Годовая Богослужебная статистика</a></li>
-			<li><a href='http://bib/akafist/'>Редактор акафистов</a></li>
-			
-		</ul>
-		<hr>
-		</div>";
-}
-echo <<<EOD
-</div>
-EOD;
-}
+			if ($_SESSION['id'] == 1) {?>
+				<div class='admin-panel'>
+					<hr>
+					<h4 class='text-center'>Панель администратора</h4>
+					<small>(Вам доступна эта панель, потому что Вы являетесь администратором сайта)</small>
+					<ul>
+						<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить блок издания</p></a></li>
+						<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить единицу издания</p></a></li>
+						<li><a href='<?=PATH?>/pages/admins/index.php'><p>Добавить новость</p></a></li>
+					</ul>
+					<ul>
+						<h4 class='text-center'>Документы</h4>
+						<li><a href='/reestres/reestr_RGIA/p_reestr_RGIA.php'>Реестр дел из РГИА</a></li>
+						<li><a href='/reestres/reestr_comps/p_reestr_comps.php'>Реестр техники</a></li>
+						<li><a href='/reestres/reestr_icons/index.php'>Реестр икон</a></li>
+						<li><a href='/reestres/raspisanie/index.php'>Расписание богослужений</a></li>
+						<li><a href='/RGIA_editions/index.php'>Издания документов РГИА</a></li>
+						<li><a href='/reestres/inventory_altar/index.php'>Журнал инвентаризации алтарей</a></li>
+						<li><a href='/reestres/annual_review/index.php'>Годовая Богослужебная статистика</a></li>
+						<li><a href='http://bib/akafist/'>Редактор акафистов</a></li>
+						
+					</ul>
+					<hr>
+				</div>
+				<?}?>
+			</div>
+<?}
 
 // *************************************************************************
 
@@ -245,14 +236,14 @@ EOD;
 				</div>";			
 			}
 			
-		if ($_SESSION['id'] == 1) {
-	   	echo "
+		if ($_SESSION['id'] == 1) { ?>
 	   	<div class='sm-admin-panel'>
 			Панель администратора <br>
 			<small>(Вам доступна эта панель, потому что Вы являетесь администратором сайта)</small>
 			<ul>
-			<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить новый блок издания</p></a></li>
-			<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить новую единицу издания</p></a></li>
+			<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить блок издания</p></a></li>
+			<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить единицу издания</p></a></li>
+			<li><a href='<?=PATH?>/pages/admins/index.php'><p>Добавить новость</p></a></li>
 			</ul>
 			<hr>
 			<ul>
@@ -265,15 +256,12 @@ EOD;
 				<li><a href='/reestres/inventory_altar/index.php'>Журнал инвентаризации алтарей</a></li>
 				<li><a href='/reestres/annual_review/index.php'>Годовая Богослужебная статистика</a></li>
 				<li><a href='http://bib/akafist/'>Редактор акафистов</a></li>
-				
 			</ul>
 			<hr>
-			</div>";
-}
-echo <<<EOD
+			</div>
+<?}?>
 </div>
-EOD;
-}
+?<}
 
 // *************************************************************************
 
