@@ -9,6 +9,6 @@ get_header_site ('Новости', 'Электронная библиотека 
 
 new_menu ();
 
-big_news();
+// big_news();
         
 get_footer ();?>

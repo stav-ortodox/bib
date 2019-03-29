@@ -630,29 +630,29 @@ function bread ()	{
 // НОВОСТИ
 function news() {
 	global $link;
-	require_once $_SERVER['DOCUMENT_ROOT'].'/templates/news_tmp.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/templates/news_tmp.php';
 }
 
 // НОВОСТИ
 function big_news() {
 	global $link;
-		$id = $_GET['id'];
-    
-		$query = ("SELECT * FROM news WHERE id = '$id'");
-		$result = mysqli_query($link, $query);
-    $row = mysqli_fetch_assoc($result);
+	$id = $_GET['id'];
+  
+	$query = ("SELECT * FROM news WHERE id = '$id'");
+	$result = mysqli_query($link, $query);
+  $row = mysqli_fetch_assoc($result);
 
-		$title = $row['title'];
-		$text = $row['text'];
-		$image = $row['image'];
-		$date = $row['date'];
-		$views = $row['views'];
-		$repost_fb = $row['repost_fb'];
-		$repost_vk = $row['repost_vk'];
-		$repost_ok = $row['repost_ok'];
-		$author = $row['author'];
+	$title = $row['title'];
+	$text = $row['text'];
+	$image = $row['image'];
+	$date = $row['date'];
+	$views = $row['views'];
+	$repost_fb = $row['repost_fb'];
+	$repost_vk = $row['repost_vk'];
+	$repost_ok = $row['repost_ok'];
+	$author = $row['author'];
 
-	require_once '../templates/big_news_tmp.php';
+	include $_SERVER['DOCUMENT_ROOT'].'/templates/big_news_tmp.php';
 
 }
 ?>
