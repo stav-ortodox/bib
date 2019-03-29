@@ -1,6 +1,5 @@
 <?php 
-// require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
-
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 
 function get_header_site ($title_br, $header_subtitle) { ?>
 	
@@ -195,7 +194,8 @@ EOD;
 					<ul>
 						<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить блок издания</p></a></li>
 						<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить единицу издания</p></a></li>
-						<li><a href='<?=PATH?>/pages/admins/index.php'><p>Добавить новость</p></a></li>
+						<li><a href='<?=PATH?>/pages/admins/new_news.php'><p>Добавить новость</p></a></li>
+						<li><a href='<?=PATH?>/pages/admins/index.php'><p>Редактировать новость</p></a></li>
 					</ul>
 					<ul>
 						<h4 class='text-center'>Документы</h4>
@@ -207,7 +207,6 @@ EOD;
 						<li><a href='/reestres/inventory_altar/index.php'>Журнал инвентаризации алтарей</a></li>
 						<li><a href='/reestres/annual_review/index.php'>Годовая Богослужебная статистика</a></li>
 						<li><a href='http://bib/akafist/'>Редактор акафистов</a></li>
-						
 					</ul>
 					<hr>
 				</div>
@@ -243,7 +242,8 @@ EOD;
 			<ul>
 			<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить блок издания</p></a></li>
 			<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить единицу издания</p></a></li>
-			<li><a href='<?=PATH?>/pages/admins/index.php'><p>Добавить новость</p></a></li>
+			<li><a href='<?=PATH?>/pages/admins/new_news.php'><p>Добавить новость</p></a></li>
+			<li><a href='<?=PATH?>/pages/admins/index.php'><p>Редактировать новость</p></a></li>
 			</ul>
 			<hr>
 			<ul>
@@ -261,7 +261,7 @@ EOD;
 			</div>
 <?}?>
 </div>
-?<}
+<?}
 
 // *************************************************************************
 
@@ -350,12 +350,8 @@ function get_footer () {?>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-
 </body>
 </html>
-
-
 <?}
 
 // *************************************************************************
@@ -466,8 +462,8 @@ function template_pp () {
 							$descr_cut = mb_substr(strip_tags($descr_pp), 0, 80, 'utf-8');
 
 							if ($_SESSION['id'] == 1) {  #Для админа	
-								$edit = "<a href= /pages/biblioteka/p_edit_publisher_block.php?id=".$id_pb.">Редактировать</a>";
-								$delete = "<a href= /pages/biblioteka/s_delete_publisher_block.php?id=".$id_pb.">Удалить блок</a>";
+								$edit = "<a href= /pages/biblioteka/p_edit_publisher_post.php?id=".$id_pb.">Редактировать</a>";
+								$delete = "<a href= /pages/biblioteka/s_delete_publisher_post.php?id=".$id_pb.">Удалить блок</a>";
 								
 								if ($hidden == 0) {
 									$no_error = 'блок открыт';
@@ -512,8 +508,8 @@ function template_pp () {
             		$descr_cut = mb_substr(strip_tags($descr_pp), 0, 80, 'utf-8');
 
             		if ($_SESSION['id'] == 1) {  #Для админа
-            			$edit = "<a href= /pages/biblioteka/p_edit_publisher_block.php?id=".$id_pb.">Редактировать</a>";
-            			$delete = "<a href= /pages/biblioteka/s_delete_publisher_block.php?id=".$id_pb.">Удалить блок</a>";
+            			$edit = "<a href= /pages/biblioteka/p_edit_publisher_post.php?id=".$id_pb.">Редактировать</a>";
+            			$delete = "<a href= /pages/biblioteka/s_delete_publisher_post.php?id=".$id_pb.">Удалить блок</a>";
             			
             			if ($hidden == 0) {
             				$no_error = 'блок открыт';
@@ -653,6 +649,5 @@ function big_news() {
 	$author = $row['author'];
 
 	include $_SERVER['DOCUMENT_ROOT'].'/templates/big_news_tmp.php';
-
 }
 ?>
