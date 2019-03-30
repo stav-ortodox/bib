@@ -5,6 +5,7 @@ define("DATABASE_PASSWORD", "");
 define("DATABASE_NAME", "stavr213_stavpant");
 define("MY_PASS", "123vc3718123");
 define("PATH", "http://bib/");
+define("NEWS", "C:/Users/user/Desktop/OSPanel/domains/bib/images/news/");
 
 
 $link = mysqli_connect( 

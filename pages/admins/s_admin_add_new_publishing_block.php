@@ -1,5 +1,4 @@
 <?php 
-session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 
 $block_name = trim($_REQUEST['block_name']);

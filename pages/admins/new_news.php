@@ -9,7 +9,7 @@ get_sm_sidebar ();
 page_title ('Админка');
 ?>
 
-<main class="grey">
+<main>
 	<div class="col-sm-0 col-lg-2">
 		<?php get_sidebar (); ?>
 	</div> <!-- /cайдбар -->
@@ -18,61 +18,89 @@ page_title ('Админка');
 			<div class="content">
 				<div class="row">
 					<div class="new_news mt-4">
-						<p class="card text-center"><a href="#" class="">Новая новость</a></p>
-							<div class="card mb-3">
-								<form class="news_form" action="" method="post" multiple>
+						<p class="card text-center grey"><a href="#" class="">Новая новость</a></p>
+							<div class="card mb-3 grey">
+								<form class="news_form m-auto" action="action_new_news.php" method="post" multipart="" enctype="multipart/form-data">
 
 									<!-- инпут заголовка -->
-									<div class="md-form m-0">
-										<input id="form1" class="text-center form-control" type="text" placeholder="Введите заголовок">
+									<div class="md-form">
+										<input id="form1" name="title" class="text-center form-control" type="text" placeholder="Введите заголовок" required>
 									</div>
 
 									<!-- инпут главного изображения -->
-									<div class="form-group">
-								    <label class="text-center" for="exampleFormControlFile1">Выберите главное изображение</label>
-								    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+									<label class="text-center pointer view" for="exampleFormControlFile1">
+										<div class="d-flex justify-content-center">
+											<img class="img-fluid w-25 h-25" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
+										</div>
+									<div class="mask flex-center rgba-stylish-strong">
+									   <p class="white-text">Выберите главное изображение</p>
 									</div>
+									</label>
+								    <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1" required>
 									<hr>
 
 									<!-- текст новости -->
 									<div class="form-group">
 								    <label class="text-center" for="exampleFormControlTextarea1">Добавьте текст новости</label>
-								    <textarea class="form-control m-0" id="exampleFormControlTextarea1" rows="3"></textarea>
+								    <textarea class="form-control m-0" id="exampleFormControlTextarea1" name="text" rows="3" required></textarea>
 									</div>
 
 									<!-- категория -->
 						      <label class="mr-sm-2 text-center" for="inlineFormCustomSelect">Выберите категорию для статьи</label>
-						      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+						      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="taxonomy" required>
 						        <option selected>Выбор категории...</option>
-						        <option value="1">Богослужение</option>
-						        <option value="1">Настоятель</option>
-						        <option value="2">Больничное служение</option>
-						        <option value="3">Социальное служение</option>
-						        <option value="4">Миссионерство</option>
+						        <option value="Богослужение">Богослужение</option>
+						        <option value="Настоятель">Настоятель</option>
+						        <option value="Больничное служение">Больничное служение</option>
+						        <option value="Социальное служение">Социальное служение</option>
+						        <option value="Миссионерство">Миссионерство</option>
 						      </select>
-	
+
 									<!-- автор -->
 						      <label class="mr-sm-2 text-center mt-3" for="inlineFormCustomSelect1">Выберите автора</label>
-						      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect1">
+						      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect1" name="author" required>
 						        <option selected>Выбор автора...</option>
 						        <option value="1">м/прот. Павел Самойленко</option>
-						        <option value="1">иерей Иоанн Шестаков</option>
-						        <option value="2">иерей Иоанн Половин</option>
-						        <option value="3">иерей Игнатий Переходченко</option>
+						        <option value="2">иерей Иоанн Шестаков</option>
+						        <option value="3">иерей Иоанн Половин</option>
+						        <option value="4">иерей Игнатий Переходченко</option>
 						      </select>
-									    
 
+					      	<!-- инпут остальных изображений -->
+					      	<label class="text-center mt-5 pointer view" for="exampleFormControlFile2">
+					      		<div class="d-flex justify-content-center">
+					      			<img class="img-fluid w-25 h-25 mr-1" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
+					      			<img class="img-fluid w-25 h-25 mr-1" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
+					      			<img class="img-fluid w-25 h-25 mr-1" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
+					      			<img class="img-fluid w-25 h-25 mr-1" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
+					      		</div>
+					      	<div class="mask flex-center rgba-stylish-strong">
+					      	   <p class="white-text">Выберите ещё изображения для статьи</p>
+					      	</div>
+					      	</label>
+					          <input type="file" class="form-control-file" id="exampleFormControlFile2" name="slide_image[]" multiple>
+					      	<hr>
 
-
-
-									<div class="d-flex justify-content-center"><img class="img-fluid w-50 h-100" src="<?=$row['block_image']?>" alt="">
-									</div>
-									<hr class="m-0">
-									<p class="text-center m-0"></p>
-									<hr>
-									<p class="text-center m-0"></p>
-									<hr>
-								</form>
+						      <!-- чек и сабмит -->
+						      <div class="d-flex m-5">
+						      	<div class="d-flex flex-column mr-auto">
+						      		<div class="form-group row">
+						      			<label for="example-datetime-local-input" class="col-xs-2 col-form-label">Дата и время публикации:</label>
+						      			<div class="col-xs-10 ml-2">
+						      				<input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input" name="date">
+						      			</div>
+						      		</div>
+						      		<div class="form-check has-success mr-auto">
+						      			<label class="form-check-label">
+						      				<input type="checkbox" name="hidden" class="form-check-input">
+						      				Опубликовать 
+						      			</label>
+						      		</div>
+						      	</div>
+						      	<button type="submit" name="ok" class="btn btn-primary">Готово</button>
+						      </div>  
+								<hr>
+							</form>
 						</div>
 					</div>
 				</div>
