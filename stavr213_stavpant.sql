@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 30 2019 г., 02:50
+-- Время создания: Апр 01 2019 г., 02:39
 -- Версия сервера: 8.0.12
 -- Версия PHP: 7.2.10
 
@@ -178,8 +178,8 @@ INSERT INTO `menu` (`id`, `name`, `name_img`, `path`) VALUES
 CREATE TABLE `news` (
   `id` int(11) NOT NULL,
   `title` varchar(500) NOT NULL DEFAULT '0',
-  `text` varchar(5000) NOT NULL DEFAULT '0',
-  `image` varchar(50) NOT NULL DEFAULT '0',
+  `n_text` varchar(5000) NOT NULL DEFAULT '0',
+  `image` varchar(150) NOT NULL DEFAULT '0',
   `date` varchar(50) DEFAULT NULL,
   `views` int(11) DEFAULT '0',
   `repost_fb` int(11) DEFAULT '0',
@@ -194,13 +194,62 @@ CREATE TABLE `news` (
 -- Дамп данных таблицы `news`
 --
 
-INSERT INTO `news` (`id`, `title`, `text`, `image`, `date`, `views`, `repost_fb`, `repost_ok`, `repost_vk`, `author`, `taxonomy`, `hidden`) VALUES
-(1, 'Какой-то дядя вручил отцу Павлу Икону', 'Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Предупреждал его которое запятой необходимыми, заглавных назад продолжил приставка текста но, безопасную эта сбить однажды. Необходимыми текста текстами скатился вопроса взобравшись курсивных! Рукопись журчит, рукописи эта большого все, языкового букв переписали он прямо своего сбить коварных дал, мир. Дороге текста прямо даже, вопроса своего она вершину, безорфографичный инициал ручеек безопасную свой коварных о, осталось если единственное, его встретил. Диких то путь если над образ пунктуация ты составитель. Ручеек безорфографичный курсивных реторический всемогущая запятых сбить по всей переулка, пор маленькая. Заманивший речью запятых меня продолжил ведущими коварных, реторический гор бросил маленькая пор.', '14115ea2-0db8-4a39-a741-0c4893dc42b6.jpg', '20/03/2019', 156, 45, 66, 77, 'иерей Игнатий Переходченко', 'Настоятель', 0),
-(2, 'Прихожане поздравили Настоятеля с Престольным праздником', 'Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Предупреждал его которое запятой необходимыми, заглавных назад продолжил приставка текста но, безопасную эта сбить однажды. Необходимыми текста текстами скатился вопроса взобравшись курсивных! Рукопись журчит, рукописи эта большого все, языкового букв переписали он прямо своего сбить коварных дал, мир. Дороге текста прямо даже, вопроса своего она вершину, безорфографичный инициал ручеек безопасную свой коварных о, осталось если единственное, его встретил. Диких то путь если над образ пунктуация ты составитель. Ручеек безорфографичный курсивных реторический всемогущая запятых сбить по всей переулка, пор маленькая. Заманивший речью запятых меня продолжил ведущими коварных, реторический гор бросил маленькая пор.', 'a91f5755-4116-4f75-83bd-f30fc617278c.jpg', '22/03/2019', 467, 4, 4, 5, 'иерей Игнатий Переходченко', 'Настоятель', 0),
-(3, 'Настоятель поздравил директора Издательского центра с 55-летием', 'Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Предупреждал его которое запятой необходимыми, заглавных назад продолжил приставка текста но, безопасную эта сбить однажды. Необходимыми текста текстами скатился вопроса взобравшись курсивных! Рукопись журчит, рукописи эта большого все, языкового букв переписали он прямо своего сбить коварных дал, мир. Дороге текста прямо даже, вопроса своего она вершину, безорфографичный инициал ручеек безопасную свой коварных о, осталось если единственное, его встретил. Диких то путь если над образ пунктуация ты составитель. Ручеек безорфографичный курсивных реторический всемогущая запятых сбить по всей переулка, пор маленькая. Заманивший речью запятых меня продолжил ведущими коварных, реторический гор бросил маленькая пор.', '0932bfdb-7928-4591-8a11-ec2e421ab068.jpg', '28/03/2019', 756, 44, 5, 6, 'иерей Игнатий Переходченко', 'Настоятель', 0),
-(4, '30 лет окончания Академии. После молебна в академическом храме', 'Железная дорога ещё с давних времён притягивала к себе внимание людей своей красотой и уникальной самобытностью, а бег паровоза завораживал и вдохновлял на произведения многих писателей, художников, литераторов, кинематографистов и фотографов. Но железная дорога это не бла-бла-кар где можно легко договориться с машинистом и попросить остановить поезд в нужном месте ради красивого кадра. Конечно поезд можно просто подкараулить на станции или даже на перегоне в нужном месте и в нужное время, зная расписание следования поезда, но попытка для того чтобы сделать нужный фото снимок или отснять серию кино-кадров будет всего одна длинною в несколько секунд пока мимо проносится состав. И всё, поезд убежит дальше в своём направлении. Но этим на первый взгляд самым обычным ребятам, что на фото выше, такое вполне под силу и каждый раз им это удавалось. Они останавливали поезд прямо посреди перегона, доставали фото- и кинокамеры и начинали снимать. Кто они такие и как такое возможно?', 'bff6470e-e75f-4334-a738-02359f66ce57.jpg', '28/03/2019', 0, 0, 0, 0, 'иерей Игнатий Переходченко', 'Настоятель', 0),
-(5, 'Священники отслужили молебен в роддоме.', 'Железная дорога ещё с давних времён притягивала к себе внимание людей своей красотой и уникальной самобытностью, а бег паровоза завораживал и вдохновлял на произведения многих писателей, художников, литераторов, кинематографистов и фотографов. Но железная дорога это не бла-бла-кар где можно легко договориться с машинистом и попросить остановить поезд в нужном месте ради красивого кадра. Конечно поезд можно просто подкараулить на станции или даже на перегоне в нужном месте и в нужное время, зная расписание следования поезда, но попытка для того чтобы сделать нужный фото снимок или отснять серию кино-кадров будет всего одна длинною в несколько секунд пока мимо проносится состав. И всё, поезд убежит дальше в своём направлении. Но этим на первый взгляд самым обычным ребятам, что на фото выше, такое вполне под силу и каждый раз им это удавалось. Они останавливали поезд прямо посреди перегона, доставали фото- и кинокамеры и начинали снимать. Кто они такие и как такое возможно?', 'a3231917-6dfa-4a7f-89ce-c3936237157d.jpg', '28/03/2019', 0, 0, 0, 0, 'иерей Игнатий Переходченко', 'Больничное служение', 0),
-(6, 'Отец Павел Самойленко посетил РГИА.', 'Во многом благодаря именно его усилиям и связям с руководством компании ОАО \"РЖД\" в целях проведение фото и видеосъёмок для пополнения архивов кинохроники об отечественных железных дорогах неоднократно проводились паровозные обкатки по заповедным железным дорогам, в том числе и Бологое-Полоцкой. Основной целью паровозной обкатки является испытания паровоза после проведения его ремонта или восстановления для проверки в действии всех его узлов и механизмов. А для этого необходимо отправить паровоз в какой-нибудь рейс, желательно с поездом чтобы не гонять локомотив просто так впустую без вагонов и по возможности на какой-нибудь малодеятельный участок российских железных дорог. Туда где он не будет мешать движению других поездов и обязательно на те маршруты где всё ещё сохранилась старинная железнодорожная фактура: паровозные гидроколонки для заправки паровоза водой, старинные мосты, вокзалы, водонапорные башни, телеграфные линии, семафоры и тому подобные элементы железнодорожной старины.', '64cf6693-9187-4818-947a-9cc295e08dc5.jpg', '28/03/2019', 0, 0, 0, 0, 'иерей Игнатий Переходченко', 'Настоятель', 0);
+INSERT INTO `news` (`id`, `title`, `n_text`, `image`, `date`, `views`, `repost_fb`, `repost_ok`, `repost_vk`, `author`, `taxonomy`, `hidden`) VALUES
+(16, 'Прихожане поздравили Настоятеля с Престольным праздником', 'Заманивший речью запятых меня продолжил ведущими коварных, реторический гор бросил маленькая пор.', 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/2019-04-01_01-56-22.jpg', NULL, 0, 0, 0, 0, 'иерей Игнатий Переходченко', 'Настоятель', 1),
+(17, 'Состоялась первая беседа с прихожанами на предмет изучения Священного Писания Нового Завета.', '31 марта 2019 года при храме святага великомученика и целителя Пантелейимона состоялась\r\nпервая беседа с прихожанами на предмет изучения Священного Писания Нового Завета. Со\r\nвступительным словом выступил настоятель храма митрофорный протоиерей Павел Самойленко.\r\nБыло сказано о важности изучения Священного Писания, авторов писавших богодухновенные\r\nкниги и той исторической ситуации, в которой они писались. Преподано благословение на\r\nведение данных бесед каждое воскресение в 14-00.\r\nБеседу провел иерей Иоанн Шестаков. Она была посвященна введению в предмет. Были\r\nрассмотрены темы: введение в Новый Завет, состав НЗ, распределение НЗ книг по содержанию,\r\nкраткая история канона свящ. книг НЗ, на каком языке написаны свящ. книги НЗ, текст НЗ,\r\nпереводы и цитаты, Четвероевангелие, взаимные отношения Евангелий, достоверность\r\nЕвангелий.\r\nВстреча закончилась подытоживанием настоятелем поднятых тем и заключительным словом.', 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/2019-04-01_02-29-36.jpg', NULL, 0, 0, 0, 0, 'иерей Иоанн Шестаков', 'Миссионерство', 1),
+(18, 'Состоялась первая беседа с прихожанами на предмет изучения Священного Писания Нового Завета.', '31 марта 2019 года при храме святага великомученика и целителя Пантелейимона состоялась\r\nпервая беседа с прихожанами на предмет изучения Священного Писания Нового Завета. Со\r\nвступительным словом выступил настоятель храма митрофорный протоиерей Павел Самойленко.\r\nБыло сказано о важности изучения Священного Писания, авторов писавших богодухновенные\r\nкниги и той исторической ситуации, в которой они писались. Преподано благословение на\r\nведение данных бесед каждое воскресение в 14-00.\r\nБеседу провел иерей Иоанн Шестаков. Она была посвященна введению в предмет. Были\r\nрассмотрены темы: введение в Новый Завет, состав НЗ, распределение НЗ книг по содержанию,\r\nкраткая история канона свящ. книг НЗ, на каком языке написаны свящ. книги НЗ, текст НЗ,\r\nпереводы и цитаты, Четвероевангелие, взаимные отношения Евангелий, достоверность\r\nЕвангелий.\r\nВстреча закончилась подытоживанием настоятелем поднятых тем и заключительным словом.', 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/2019-04-01_02-30-26.jpg', NULL, 0, 0, 0, 0, 'иерей Иоанн Шестаков', 'Миссионерство', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `path_image`
+--
+
+CREATE TABLE `path_image` (
+  `id` int(11) NOT NULL,
+  `id_news` int(11) NOT NULL DEFAULT '0',
+  `path_image` varchar(500) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `path_image`
+--
+
+INSERT INTO `path_image` (`id`, `id_news`, `path_image`) VALUES
+(1, 0, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-7fbd0d5ab54b7e1b201de4278e05cf01.jpg'),
+(2, 0, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-4c57516dc54c440012400815ba0b3b0f.jpg'),
+(3, 0, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-46416c0aece5af8e9ada7686c2728c54.jpg'),
+(4, 0, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-150047cab5e50894fb04e1fa53ed85df.jpg'),
+(5, 0, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-c7de4ab9e968fd1ac751abb5105b0adc.jpg'),
+(6, 0, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-bc8b8a13d1d9dd84e0fe710aeeee4401.jpg'),
+(7, 15, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-7fbd0d5ab54b7e1b201de4278e05cf01.jpg'),
+(8, 15, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-4c57516dc54c440012400815ba0b3b0f.jpg'),
+(9, 15, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-46416c0aece5af8e9ada7686c2728c54.jpg'),
+(10, 15, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-150047cab5e50894fb04e1fa53ed85df.jpg'),
+(11, 15, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-c7de4ab9e968fd1ac751abb5105b0adc.jpg'),
+(12, 15, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-bc8b8a13d1d9dd84e0fe710aeeee4401.jpg'),
+(13, 16, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-7fbd0d5ab54b7e1b201de4278e05cf01.jpg'),
+(14, 16, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-4c57516dc54c440012400815ba0b3b0f.jpg'),
+(15, 16, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-46416c0aece5af8e9ada7686c2728c54.jpg'),
+(16, 16, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-150047cab5e50894fb04e1fa53ed85df.jpg'),
+(17, 16, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-c7de4ab9e968fd1ac751abb5105b0adc.jpg'),
+(18, 16, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-bc8b8a13d1d9dd84e0fe710aeeee4401.jpg'),
+(19, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-176896df71d38d8fac9e02126b380b90.jpg'),
+(20, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-557cc3ef3b4a7e8ce4c7d0aa3fb002fd.jpg'),
+(21, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-c37f8f45ebe4908b3e4961686354ed91.jpg'),
+(22, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-8a14e6151a08734b8567f602fdbaad83.jpg'),
+(23, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-7d0b9100d9a4fc63f326e1e52a542272.jpg'),
+(24, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-22e14ca8ad3cad6480505090898c4654.jpg'),
+(25, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-cb798cf24ceff2218db55cb7146c90bf.jpg'),
+(26, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-cbf0b96bbc68afcdba7c431f02d0a2ff.jpg'),
+(27, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-ed5880677edf381212f9058d2da642c8.jpg'),
+(28, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-c4e50610451a5025c7c54a2b78f4f291.jpg'),
+(29, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-229b91c2c61518ab19035ca500c25035.jpg'),
+(30, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-f105ff0ebbf4e8495c2d422764f3f63f.jpg'),
+(31, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-6cf3a0ff0e6c880892d3b5fc4ce9c676.jpg'),
+(32, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-1b574ce8b18a96d33d3a9b66469991e7.jpg'),
+(33, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-93e40408172c843b1d3b6f2ef15688f3.jpg'),
+(34, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-b9b5efd476a8f10cc1a2ade595de6d13.jpg');
 
 -- --------------------------------------------------------
 
@@ -638,6 +687,13 @@ ALTER TABLE `news`
   ADD KEY `id` (`id`);
 
 --
+-- Индексы таблицы `path_image`
+--
+ALTER TABLE `path_image`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
 -- Индексы таблицы `publishing_blocks`
 --
 ALTER TABLE `publishing_blocks`
@@ -711,7 +767,13 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT для таблицы `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT для таблицы `path_image`
+--
+ALTER TABLE `path_image`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT для таблицы `publishing_blocks`

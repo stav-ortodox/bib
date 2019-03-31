@@ -4,19 +4,25 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
     if ($_SERVER["SCRIPT_NAME"] == '/index.php') {
       $query = ("SELECT * FROM news ORDER BY id DESC LIMIT 4");
     } elseif ($_SERVER["SCRIPT_NAME"] == '/pages/p_news.php'){
-      $query = ("SELECT * FROM news");
+      $query = ("SELECT * FROM news ORDER BY id DESC");
     }
+
 		$result = mysqli_query($link, $query);
+
 		foreach ($result as $row) {
-		$id = $row['id'];
-		$title = $row['title'];
-		$text = $row['text'];
-		$image = $row['image'];
-		$date = $row['date'];
-		$views = $row['views'];
-		$repost_fb = $row['repost_fb'];
-		$repost_vk = $row['repost_vk'];
-		$repost_ok = $row['repost_ok'];
+  		$id = $row['id'];
+  		$title = $row['title'];
+  		$text = $row['n_text'];
+  		$image = $row['image'];
+  		$date = $row['date'];
+  		$views = $row['views'];
+  		$repost_fb = $row['repost_fb'];
+  		$repost_vk = $row['repost_vk'];
+  		$repost_ok = $row['repost_ok'];
+
+      // вывод картинок слайдера
+      $query = ("SELECT path_image FROM path_image WHERE id_news = '$id'");
+      $result = mysqli_query($link, $query);
 
 		if (strlen($text)>120) {
 			$str = "..."; 

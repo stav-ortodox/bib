@@ -56,7 +56,7 @@ page_title ('Админка');
 									<!-- инпут главного изображения -->
 									<label class="text-center pointer view" for="exampleFormControlFile1">
 										<div class="d-flex justify-content-center">
-											<img class="img-fluid w-25 h-25" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
+											<img class="img-fluid w-25 h-25" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="" required>
 										</div>
 									<div class="mask flex-center rgba-stylish-strong">
 									   <p class="white-text">Выберите главное изображение</p>
@@ -119,7 +119,7 @@ page_title ('Админка');
 						      		</div>
 						      		<div class="form-check has-success mr-auto">
 						      			<label class="form-check-label">
-						      				<input type="checkbox" name="hidden" class="form-check-input">
+						      				<input type="checkbox" name="hidden" value="1" class="form-check-input" checked>
 						      				Опубликовать 
 						      			</label>
 						      		</div>

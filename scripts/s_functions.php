@@ -637,7 +637,7 @@ function big_news() {
   $row = mysqli_fetch_assoc($result);
 
 	$title = $row['title'];
-	$text = $row['text'];
+	$text = $row['n_text'];
 	$image = $row['image'];
 	$date = $row['date'];
 	$views = $row['views'];
@@ -648,4 +648,6 @@ function big_news() {
 
 	include $_SERVER['DOCUMENT_ROOT'].'/templates/big_news_tmp.php';
 }
+
+
 ?>

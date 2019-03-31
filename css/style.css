@@ -224,6 +224,13 @@ table td {
 	color: red;
 }
 
+.success {
+	padding-top: 20px;
+	text-align: center;
+	font-size: 18px;
+	color: green;
+}
+
 .no_error {
 	padding: 0;
 	text-align: center;

@@ -1,6 +1,7 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/translit.php';
 
 // переменные статьи
 $title = $_POST['title'];
@@ -20,8 +21,16 @@ $_SESSION['author'] = $author;
 $_SESSION['date'] = $date;
 $_SESSION['hidden'] = $hidden;
 $image = $_FILES['image'];
-$dir = $_SERVER['DOCUMENT_ROOT'].'/images/news/'.$taxonomy;
-$dir1 = $_SERVER['DOCUMENT_ROOT'].'/images/news/'.$taxonomy.'/'.$title;
+$slide_image = $_FILES['slide_image'];
+
+
+// переводим в транслит название категории и статьи
+$tr_title = str2url($title);
+$tr_taxonomy = str2url($taxonomy);
+$_SESSION['tr_taxonomy'] = $tr_taxonomy;
+$_SESSION['tr_title'] = $tr_title;
+$dir = $_SERVER['DOCUMENT_ROOT'].'/images/news/'.$tr_taxonomy;
+$dir1 = $_SERVER['DOCUMENT_ROOT'].'/images/news/'.$tr_taxonomy.'/'.$tr_title;
 
 // Проверка на повтор статьи - если повтор, сразу редирект с указанием на ошибку
 if (file_exists($dir1)) {
@@ -38,7 +47,7 @@ if (!file_exists($dir1)) {
 	$_SESSION['success'] = $success;
 	}
 
-// проверка главного изображения
+// загрузка главного изображения
 $image_tmp = $_FILES['image']['tmp_name'];
 if (is_uploaded_file($image_tmp)) {
 	$image_name = $_FILES['image']['name'];
@@ -54,16 +63,56 @@ if (is_uploaded_file($image_tmp)) {
 				$errors[] = 'Недопустимый формат изображения';
 			}
 			if (empty($errors) == true) {
-				$name_img = $title.'-'.date('YmdHis').'.jpg';  
-				$mov = move_uploaded_file($image_tmp, $dir1.$name_img);
-			} else {
-				arr($errors);
-				exit();
-			}
+				$name_img = date('Y-m-d_H-i-s').'.jpg'; 
+				$name_img = mysqli_real_escape_string($link, $name_img);
+				$mov = move_uploaded_file($image_tmp, $dir1.'/'.$name_img);
+				$path_image = $tr_taxonomy.'/'.$tr_title.'/'.$name_img;
+				
+				$insert_sql = "INSERT INTO news (`title`, `n_text`, `image`, `author`, `taxonomy`, `hidden`) 
+					VALUES ('$title', '$text', '$path_image', '$author', '$taxonomy', '$hidden')";
+					mysqli_query($link, $insert_sql)or die(mysqli_error($link));
+					$id_news = mysqli_insert_id($link);
+			} 
 		}
 
+// загрузка изображений слайдера
+foreach ($slide_image as $key => $value) {
+	foreach ($value as $k => $v) {
+		$slide_image[$k][$key] = $v;
+		}
+		unset($slide_image[$key]);
+	}
+foreach ($slide_image as $k => $v) {
+	if (is_uploaded_file($slide_image[$k]['tmp_name'])) {
+		$image_name = $slide_image[$k]['name'];
+		$image_size = $slide_image[$k]['size'];
+		$image_type = $slide_image[$k]['type'];
+		$image_ext = strtolower(end(explode('.', $image_name)));
+		$expensions = array("jpeg", "JPEG", "JPG", "jpg", "png");
+		if ($file_size > 2097152) {
+			$errors[] = 'Файл должен быть не более 2мб';
+		}
+		if (!in_array($image_ext, $expensions)) {
+			$errors[] = 'Недопустимый формат изображения';
+		}
+		if (empty($errors) == true) {
+			$name_img = 'slide-'.md5($image_name).'.jpg';  
+			$mov = move_uploaded_file($slide_image[$k]['tmp_name'], $dir1.'/'.$name_img);
+			$path_image = $tr_taxonomy.'/'.$tr_title.'/'.$name_img;
+			$insert_sql = "INSERT INTO path_image (`id_news`, `path_image`) 
+				VALUES ('$id_news', '$path_image')";
+				mysqli_query($link, $insert_sql)or die(mysqli_error($link));
+		} else {
+		}
+	}
+}
+	
+
+$_SESSION['success'] = $success;
+$_SESSION['errors'] = $errors;
+	
 	header('Location: '.PATH.'pages/admins/new_news.php');
-	arr($errors);
+	
 	// arr($expensions);
 	// exit();
 	// redirect ();

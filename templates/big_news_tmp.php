@@ -28,7 +28,6 @@
             <p class="card-text"><?=$text?></p>
           </div>
 
-        
          <div class="fotorama fotorama1 m-auto" 
              data-width="100%"
              data-ratio="800/600"
@@ -40,8 +39,15 @@
              data-allowfullscreen="native"
              data-transition="crossfade"
              data-autoplay="true">
-          <img class="z-depth-2 card" src="<?=PATH.'images/news/'.$image?>" alt="">
-          <img class="z-depth-2 card" src="<?=PATH.'images/news/'.$image?>" alt="">
+             <?php  
+              $query = ("SELECT path_image FROM path_image WHERE id_news = '$id'");
+              $result = mysqli_query($link, $query);
+              $row = mysqli_fetch_assoc($result);
+
+              foreach ($result as $row) { 
+                $image = $row['path_image']?>
+                <img class="z-depth-2 card" src="<?=PATH.'images/news/'.$image?>" alt="">
+              <?}?>
          </div>
           
           <!-- Card footer -->
