@@ -1,6 +1,4 @@
-<?php 
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
-
+<?php  
 function get_header_site ($title_br, $header_subtitle) { ?>
 	
 	<!DOCTYPE html>

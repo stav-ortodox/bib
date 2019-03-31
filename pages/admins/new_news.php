@@ -16,15 +16,40 @@ page_title ('Админка');
 	<section class="container">
 		<div class="row">
 			<div class="content">
+				
+					<?php 
+// 					$_SESSION['title'] = $title;
+// $_SESSION['text'] = $text;
+// $_SESSION['taxonomy'] = $taxonomy;
+// $_SESSION['author'] = $author;
+// $_SESSION['date'] = $date;
+// $_SESSION['hidden'] = $hidden;
+					// arr($_SESSION['errors']);
+					if (isset($_SESSION['errors'])) {?>
+						<div class="error">
+							<ul>НЕ УДАЛОСЬ СФОРМИРОВАТЬ СТАТЬЮ!<hr><?
+						foreach ($_SESSION['errors'] as $row) {?>
+								<li>
+									<?=$row;
+									arr($_SESSION['errors']);
+									unset($_SESSION['errors'])?>
+
+
+								</li>	
+						<?}?>
+						</ul>
+					</div>
+				<?}?>
+					
 				<div class="row">
 					<div class="new_news mt-4">
 						<p class="card text-center grey"><a href="#" class="">Новая новость</a></p>
 							<div class="card mb-3 grey">
-								<form class="news_form m-auto" action="action_new_news.php" method="post" multipart="" enctype="multipart/form-data">
+								<form class="news_form m-auto" action="action_new_news.php" method="post" multipart="" enctype="multipart/form-data"">
 
 									<!-- инпут заголовка -->
 									<div class="md-form">
-										<input id="form1" name="title" class="text-center form-control" type="text" placeholder="Введите заголовок" required>
+										<input id="form1" name="title" class="text-center form-control" type="text" placeholder="Введите заголовок" value="<?=$_SESSION['title']?>" required>
 									</div>
 
 									<!-- инпут главного изображения -->
@@ -42,13 +67,13 @@ page_title ('Админка');
 									<!-- текст новости -->
 									<div class="form-group">
 								    <label class="text-center" for="exampleFormControlTextarea1">Добавьте текст новости</label>
-								    <textarea class="form-control m-0" id="exampleFormControlTextarea1" name="text" rows="3" required></textarea>
+								    <textarea class="form-control m-0" id="exampleFormControlTextarea1" name="text" rows="3" required><?=$_SESSION['text']?></textarea>
 									</div>
 
 									<!-- категория -->
 						      <label class="mr-sm-2 text-center" for="inlineFormCustomSelect">Выберите категорию для статьи</label>
 						      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="taxonomy" required>
-						        <option selected>Выбор категории...</option>
+						        <option selected><?=$_SESSION['taxonomy']?></option>
 						        <option value="Богослужение">Богослужение</option>
 						        <option value="Настоятель">Настоятель</option>
 						        <option value="Больничное служение">Больничное служение</option>
@@ -59,7 +84,7 @@ page_title ('Админка');
 									<!-- автор -->
 						      <label class="mr-sm-2 text-center mt-3" for="inlineFormCustomSelect1">Выберите автора</label>
 						      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect1" name="author" required>
-						        <option selected>Выбор автора...</option>
+						        <option selected><?=$_SESSION['author']?></option>
 						        <option value="1">м/прот. Павел Самойленко</option>
 						        <option value="2">иерей Иоанн Шестаков</option>
 						        <option value="3">иерей Иоанн Половин</option>

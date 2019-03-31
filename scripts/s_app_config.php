@@ -1,8 +1,5 @@
 ﻿<?php
-
-
  function get_header_doc ($header_subtitle, $title_br) {
-
 	echo <<<EOD
 	<!DOCTYPE html>
 		<html lang='ru'>
