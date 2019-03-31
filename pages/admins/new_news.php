@@ -18,25 +18,27 @@ page_title ('Админка');
 			<div class="content">
 				
 					<?php 
-// 					$_SESSION['title'] = $title;
-// $_SESSION['text'] = $text;
-// $_SESSION['taxonomy'] = $taxonomy;
-// $_SESSION['author'] = $author;
-// $_SESSION['date'] = $date;
-// $_SESSION['hidden'] = $hidden;
-					// arr($_SESSION['errors']);
-					if (isset($_SESSION['errors'])) {?>
+					if (!empty($_SESSION['errors'])) {?>
 						<div class="error">
 							<ul>НЕ УДАЛОСЬ СФОРМИРОВАТЬ СТАТЬЮ!<hr><?
 						foreach ($_SESSION['errors'] as $row) {?>
 								<li>
 									<?=$row;
-									arr($_SESSION['errors']);
-									unset($_SESSION['errors'])?>
-
-
+									unset($_SESSION['errors']);?>
 								</li>	
-						<?}?>
+						<?}?> 
+							</ul>
+						</div>
+						<?} elseif (!empty($_SESSION['success'])) 
+						 {?>
+							<div class="success">
+								<ul>ГОТОВО!<hr><?
+							foreach ($_SESSION['success'] as $row) {?>
+									<li>
+										<?=$row;
+										unset($_SESSION['success']);?>
+									</li>
+								<?}?>
 						</ul>
 					</div>
 				<?}?>
@@ -61,7 +63,7 @@ page_title ('Админка');
 									   <p class="white-text">Выберите главное изображение</p>
 									</div>
 									</label>
-								    <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1" required>
+								    <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
 									<hr>
 
 									<!-- текст новости -->
@@ -85,10 +87,10 @@ page_title ('Админка');
 						      <label class="mr-sm-2 text-center mt-3" for="inlineFormCustomSelect1">Выберите автора</label>
 						      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect1" name="author" required>
 						        <option selected><?=$_SESSION['author']?></option>
-						        <option value="1">м/прот. Павел Самойленко</option>
-						        <option value="2">иерей Иоанн Шестаков</option>
-						        <option value="3">иерей Иоанн Половин</option>
-						        <option value="4">иерей Игнатий Переходченко</option>
+						        <option value="м/прот. Павел Самойленко">м/прот. Павел Самойленко</option>
+						        <option value="иерей Иоанн Шестаков">иерей Иоанн Шестаков</option>
+						        <option value="иерей Иоанн Половин">иерей Иоанн Половин</option>
+						        <option value="иерей Игнатий Переходченко">иерей Игнатий Переходченко</option>
 						      </select>
 
 					      	<!-- инпут остальных изображений -->

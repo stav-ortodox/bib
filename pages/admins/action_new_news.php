@@ -11,6 +11,7 @@ $date = $_POST["date"];
 $hidden = $_POST["hidden"];
 $ok = $_POST["ok"];
 $errors = array();
+$success = array();
 // переменные глав. изображения
 
 
@@ -23,10 +24,13 @@ if (file_exists($dir)) {
 }
 
 if (file_exists($dir1)) {
-	$_SESSION['errors'] = $errors;
 	$errors[] = 'Возможно, статья с таким именем в категории '.'"'.$taxonomy.'"'. ' уже существует! <br> Попробуйте задать другое имя или поменять категорию.';
+} else {
+	$success[] = 'Поздравляем! Cтатья '.'"'.$title.'"'. 'в категории '.'"'.$taxonomy.'"'. ' успешно сформирована.';
 }
 
+$_SESSION['errors'] = $errors;
+$_SESSION['success'] = $success;
 $_SESSION['title'] = $title;
 $_SESSION['text'] = $text;
 $_SESSION['taxonomy'] = $taxonomy;
@@ -34,7 +38,7 @@ $_SESSION['author'] = $author;
 $_SESSION['date'] = $date;
 $_SESSION['hidden'] = $hidden;
 
-if (isset($errors)) {
+if (isset($_SESSION['errors'])) {
 	header('Location: '.PATH.'pages/admins/new_news.php');
 }
 
