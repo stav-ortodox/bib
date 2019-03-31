@@ -29,8 +29,7 @@ page_title ('Админка');
 						<?}?> 
 							</ul>
 						</div>
-						<?} elseif (!empty($_SESSION['success'])) 
-						 {?>
+						<?} elseif (!empty($_SESSION['success'])) {?>
 							<div class="success">
 								<ul>ГОТОВО!<hr><?
 							foreach ($_SESSION['success'] as $row) {?>
@@ -76,6 +75,7 @@ page_title ('Админка');
 						      <label class="mr-sm-2 text-center" for="inlineFormCustomSelect">Выберите категорию для статьи</label>
 						      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="taxonomy" required>
 						        <option selected><?=$_SESSION['taxonomy']?></option>
+						        <option value="Ortodox">Ortodox</option>
 						        <option value="Богослужение">Богослужение</option>
 						        <option value="Настоятель">Настоятель</option>
 						        <option value="Больничное служение">Больничное служение</option>
