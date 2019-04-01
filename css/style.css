@@ -773,10 +773,10 @@ table td {
 }
 
 .bread {
-	background: #e0f7fa;
+	background: #e8e8e8;
 	padding: 0px;
 	margin: 0px;
-	margin-bottom: 20px;
+	margin-bottom: 4px;
 	padding: 10px;
 	border-radius: 3px;
 	font-size: 14px;
@@ -796,6 +796,13 @@ table td {
 	max-height: 400px;
 	overflow: hidden;
 	margin: 0 auto;
+}
+
+.big_news {
+	/*border: 1px solid #E0F7A0;*/
+	background-color: #e8e8e8;
+	padding-top: 30px;
+	border-radius: 3px;
 }
 
 .big_news_img {

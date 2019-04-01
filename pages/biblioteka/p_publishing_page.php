@@ -7,7 +7,7 @@ get_header_site ('Страница издания', 'Электронная би
 new_menu ();
 get_sm_menu ();	
 get_sm_sidebar ();
-
+views_update('publishing_blocks', $_GET["id"]);
 page_title ('Страница издания: '.$row['path'].'');?>
 
 <main>

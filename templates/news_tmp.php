@@ -34,7 +34,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 		$text = mb_substr(strip_tags($text), 0, 200, 'utf-8');
 		?>
   <!-- Card image -->
-  <div class="news card">
+  <div class="news card big_news">
   <div class="view overlay news_img">
     <img class="img-fluid" src="<?=PATH.'images/news/'.$image?>" alt="Card image cap">
     <a href="<?=PATH?>pages/p_big_news.php?id=<?=$id?>">

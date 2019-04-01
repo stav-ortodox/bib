@@ -1,5 +1,3 @@
-
-
     <main>
       <div class="col-sm-0 col-lg-2">
        <?php get_sidebar (); ?>
@@ -12,7 +10,7 @@
       <?php echo bread('/pages/p_big_news.php'); ?>
       <div class="row m-auto">
         <div class="content m-auto">
-          <div class="row m-auto">
+          <div class="row m-auto big_news">
 
           <!-- Card image -->
           <div class="view overlay big_news_img z-depth-2">

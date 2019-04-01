@@ -33,9 +33,10 @@ new_menu ();
               foreach ($result as $row) {
               $id = $row['id'];
               $title = $row['title'];
-              $text = $row['text'];
+              $text = $row['n_text'];
               $image = $row['image'];
-              $date = $row['date'];
+              $SelectDate = htmlspecialchars($row['date']);
+              $date = date('d-m-Y', strtotime($SelectDate));
               $views = $row['views'];
               $repost_fb = $row['repost_fb'];
               $repost_vk = $row['repost_vk'];
@@ -50,7 +51,7 @@ new_menu ();
               $text = mb_substr(strip_tags($text), 0, 200, 'utf-8');
               ?>
             <!-- Card image -->
-            <div class="news card">
+            <div class="news card big_news">
             <div class="view overlay news_img">
               <img class="img-fluid" src="<?=PATH.'images/news/'.$image?>" alt="Card image cap">
               <a href="<?=PATH?>pages/p_big_news.php?id=<?=$id?>">
@@ -62,7 +63,7 @@ new_menu ();
             <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3"></a>
 
             <!-- Card content -->
-            <div class="card-body">
+            <div class="card-body text-justify">
 
               <!-- Title -->
               <a href="<?=PATH?>pages/p_big_news.php?id=<?=$id?>"><h4 class="card-title"><?=$title?></h4></a>

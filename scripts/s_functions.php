@@ -399,6 +399,7 @@ function taplate_pb () {
 				else {
 					continue(1);
 				}
+
 			} 
 	?>
 	<div class='col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center'>
@@ -437,100 +438,100 @@ function taplate_pb () {
 function template_pp () { 
 	global $link;
 	$id_pb = $_GET["id"];
-
+	views_update('publishing_post', $_GET["id"]);
 	if (isset($id_pb)) {
-		$query = sprintf("SELECT * FROM publishing_post where block_id = $id_pb ORDER BY `id` DESC");
-						$result = mysqli_query($link, $query);
-						while ($row = mysqli_fetch_assoc($result)) {
-								$id_pp = $row["id"];
-								$name_pp = $row["pub_name"];
-								$descr_pp = $row["pub_description"];
-								$image_pp = $row["pub_image"];
-								$image_pf = $row["pub_file"];
-								$hidden = $row['pub_hidden'];
-								$block_name = $row['block_name'];
+	$query = sprintf("SELECT * FROM publishing_post where block_id = $id_pb ORDER BY `id` DESC");
+			$result = mysqli_query($link, $query);
+			while ($row = mysqli_fetch_assoc($result)) {
+					$id_pp = $row["id"];
+					$name_pp = $row["pub_name"];
+					$descr_pp = $row["pub_description"];
+					$image_pp = $row["pub_image"];
+					$image_pf = $row["pub_file"];
+					$hidden = $row['pub_hidden'];
+					$block_name = $row['block_name'];
 
-							// выводим данные
-							if (strlen($descr_pp)>120) {
-								$str = "..."; 
-							} 
-							else {
-								$str = "";
-							}
-							$descr_cut = mb_substr(strip_tags($descr_pp), 0, 80, 'utf-8');
+				// выводим данные
+				if (strlen($descr_pp)>120) {
+					$str = "..."; 
+				} 
+				else {
+					$str = "";
+				}
+				$descr_cut = mb_substr(strip_tags($descr_pp), 0, 80, 'utf-8');
 
-							if ($_SESSION['id'] == 1) {  #Для админа	
-								$edit = "<a href= /pages/biblioteka/p_edit_publisher_post.php?id=".$id_pb.">Редактировать</a>";
-								$delete = "<a href= /pages/biblioteka/s_delete_publisher_post.php?id=".$id_pb.">Удалить блок</a>";
-								
-								if ($hidden == 0) {
-									$no_error = 'блок открыт';
-									$color = "color: green;";
-									$border = "border: solid 1px green;";
-								}
-								if ($hidden == 1) {
-									$no_error = 'блок скрыт';
-									$color = "color: red;";
-									$border = "border: solid 1px #E47F50;";
-								}
-							}
-							if ($_SESSION['id'] == null or $_SESSION['id'] > 1) {
-
-								if ($hidden == 0) {
-									$color = "display: none";}
-									else {
-										continue(1);
-									}
-								}
-								include $_SERVER['DOCUMENT_ROOT'].'/templates/templates.php';
-							}
-							} else {
-						$query = "SELECT * FROM publishing_post WHERE pub_hidden = '0' ORDER BY `id` DESC LIMIT 6";
-            $result = mysqli_query($link, $query);
-            while ($row = mysqli_fetch_array($result)) {
-            	$id_pp = $row["id"];
-            	$name_pp = $row["pub_name"];
-            	$descr_pp = $row["pub_description"];
-            	$image_pp = $row["pub_image"];
-            	$image_pf = $row["pub_file"];
-            	$hidden = $row['pub_hidden'];
-            	$block_name = $row['block_name'];
-
-            		// выводим данные
-            		if (strlen($descr_pp)>120) {
-            			$str = "..."; 
-            		} 
-            		else {
-            			$str = "";
-            		}
-            		$descr_cut = mb_substr(strip_tags($descr_pp), 0, 80, 'utf-8');
-
-            		if ($_SESSION['id'] == 1) {  #Для админа
-            			$edit = "<a href= /pages/biblioteka/p_edit_publisher_post.php?id=".$id_pb.">Редактировать</a>";
-            			$delete = "<a href= /pages/biblioteka/s_delete_publisher_post.php?id=".$id_pb.">Удалить блок</a>";
-            			
-            			if ($hidden == 0) {
-            				$no_error = 'блок открыт';
-            				$color = "color: green;";
-            				$border = "border: solid 1px green;";
-            			}
-            			if ($hidden == 1) {
-            				$no_error = 'блок скрыт';
-            				$color = "color: red;";
-            				$border = "border: solid 1px #E47F50;";
-            			}
-            		}
-            		if ($_SESSION['id'] == null or $_SESSION['id'] > 1) {
-            			if ($hidden == 0) {
-            				$color = "display: none";}
-            				else {
-            					continue(1);
-            				}
-            			}
-            	include $_SERVER['DOCUMENT_ROOT'].'/templates/templates.php';
-            }
+				if ($_SESSION['id'] == 1) {  #Для админа	
+					$edit = "<a href= /pages/biblioteka/p_edit_publisher_post.php?id=".$id_pb.">Редактировать</a>";
+					$delete = "<a href= /pages/biblioteka/s_delete_publisher_post.php?id=".$id_pb.">Удалить блок</a>";
+					
+					if ($hidden == 0) {
+						$no_error = 'блок открыт';
+						$color = "color: green;";
+						$border = "border: solid 1px green;";
+					}
+					if ($hidden == 1) {
+						$no_error = 'блок скрыт';
+						$color = "color: red;";
+						$border = "border: solid 1px #E47F50;";
 					}
 				}
+				if ($_SESSION['id'] == null or $_SESSION['id'] > 1) {
+
+					if ($hidden == 0) {
+						$color = "display: none";}
+						else {
+							continue(1);
+						}
+					}
+					include $_SERVER['DOCUMENT_ROOT'].'/templates/templates.php';
+				}
+				} else {
+			$query = "SELECT * FROM publishing_post WHERE pub_hidden = '0' ORDER BY `id` DESC LIMIT 6";
+	    $result = mysqli_query($link, $query);
+	    while ($row = mysqli_fetch_array($result)) {
+	    	$id_pp = $row["id"];
+	    	$name_pp = $row["pub_name"];
+	    	$descr_pp = $row["pub_description"];
+	    	$image_pp = $row["pub_image"];
+	    	$image_pf = $row["pub_file"];
+	    	$hidden = $row['pub_hidden'];
+	    	$block_name = $row['block_name'];
+
+	    		// выводим данные
+	    		if (strlen($descr_pp)>120) {
+	    			$str = "..."; 
+	    		} 
+	    		else {
+	    			$str = "";
+	    		}
+	    		$descr_cut = mb_substr(strip_tags($descr_pp), 0, 80, 'utf-8');
+
+	    		if ($_SESSION['id'] == 1) {  #Для админа
+	    			$edit = "<a href= /pages/biblioteka/p_edit_publisher_post.php?id=".$id_pb.">Редактировать</a>";
+	    			$delete = "<a href= /pages/biblioteka/s_delete_publisher_post.php?id=".$id_pb.">Удалить блок</a>";
+	    			
+	    			if ($hidden == 0) {
+	    				$no_error = 'блок открыт';
+	    				$color = "color: green;";
+	    				$border = "border: solid 1px green;";
+	    			}
+	    			if ($hidden == 1) {
+	    				$no_error = 'блок скрыт';
+	    				$color = "color: red;";
+	    				$border = "border: solid 1px #E47F50;";
+	    			}
+	    		}
+	    		if ($_SESSION['id'] == null or $_SESSION['id'] > 1) {
+	    			if ($hidden == 0) {
+	    				$color = "display: none";}
+	    				else {
+	    					continue(1);
+	    				}
+	    			}
+	    	include $_SERVER['DOCUMENT_ROOT'].'/templates/templates.php';
+	    }
+		}
+	}
 
 
 /**************************************************************************************************************/
@@ -650,5 +651,10 @@ function big_news() {
 	include $_SERVER['DOCUMENT_ROOT'].'/templates/big_news_tmp.php';
 }
 
+// счётчик просмотров
+function views_update($table, $id) {
+	global $link;
+	$link -> query("UPDATE $table SET views = views + 1 WHERE id = $id");
+}
 
 ?>
