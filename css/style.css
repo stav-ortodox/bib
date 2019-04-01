@@ -557,8 +557,11 @@ table td {
 	border-bottom: solid 2px #E47F50;
 }
 
-.page-break {
+.rasporka {
+	margin-bottom: 40px;
+}
 
+.page-break {
 }
 
 .prew label {
@@ -776,7 +779,7 @@ table td {
 	margin-bottom: 20px;
 	padding: 10px;
 	border-radius: 3px;
-	font-size: 18px;
+	font-size: 14px;
 }
 
 .bread a {

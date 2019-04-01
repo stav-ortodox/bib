@@ -56,7 +56,7 @@ page_title ('Админка');
 									<!-- инпут главного изображения -->
 									<label class="text-center pointer view" for="exampleFormControlFile1">
 										<div class="d-flex justify-content-center">
-											<img class="img-fluid w-25 h-25" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="" required>
+											<img class="img-fluid w-25 h-25" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
 										</div>
 									<div class="mask flex-center rgba-stylish-strong">
 									   <p class="white-text">Выберите главное изображение</p>
@@ -114,7 +114,7 @@ page_title ('Админка');
 						      		<div class="form-group row">
 						      			<label for="example-datetime-local-input" class="col-xs-2 col-form-label">Дата и время публикации:</label>
 						      			<div class="col-xs-10 ml-2">
-						      				<input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input" name="date">
+						      				<input class="form-control" type="datetime-local" value="<?php echo date('Y-m-d\TH:i:s'); ?>" id="example-datetime-local-input" name="date">
 						      			</div>
 						      		</div>
 						      		<div class="form-check has-success mr-auto">
@@ -135,7 +135,6 @@ page_title ('Админка');
 		</div>
 	</section>
 </main>
-
 
 
 <?php

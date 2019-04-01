@@ -14,7 +14,7 @@ new_menu ();?>
   <section class="container">
     <!-- блок что нового? -->
     <div>
-      <div class="page_title"><h2>Последние публикации</h2></div>
+      <div class="page_title rasporka"><h2>Последние публикации</h2></div>
     </div>
     <div class="row">
         <div class="content">
@@ -25,7 +25,7 @@ new_menu ();?>
     </div>
       
     <div>
-      <div class="page_title"><h2>Жизнь прихода (последнее)</h2></div>
+      <div class="page_title rasporka"><h2>Жизнь прихода (последнее)</h2></div>
     </div>
     <div class="row">
         <div class="content">
@@ -36,10 +36,6 @@ new_menu ();?>
     </div>
   </section>
 </main>
-
-
-
-
 
 <?php get_footer ();
 ?>

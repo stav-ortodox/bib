@@ -26,6 +26,9 @@ $slide_image = $_FILES['slide_image'];
 
 // переводим в транслит название категории и статьи
 $tr_title = str2url($title);
+if (strlen($tr_title)>25) {
+		$tr_title = mb_substr(strip_tags($tr_title), 0, 25, 'utf-8');
+	}
 $tr_taxonomy = str2url($taxonomy);
 $_SESSION['tr_taxonomy'] = $tr_taxonomy;
 $_SESSION['tr_title'] = $tr_title;
@@ -68,8 +71,8 @@ if (is_uploaded_file($image_tmp)) {
 				$mov = move_uploaded_file($image_tmp, $dir1.'/'.$name_img);
 				$path_image = $tr_taxonomy.'/'.$tr_title.'/'.$name_img;
 				
-				$insert_sql = "INSERT INTO news (`title`, `n_text`, `image`, `author`, `taxonomy`, `hidden`) 
-					VALUES ('$title', '$text', '$path_image', '$author', '$taxonomy', '$hidden')";
+				$insert_sql = "INSERT INTO news (`title`, `n_text`, `image`, `date`, `author`, `taxonomy`, `hidden`) 
+					VALUES ('$title', '$text', '$path_image', '$date', '$author', '$taxonomy', '$hidden')";
 					mysqli_query($link, $insert_sql)or die(mysqli_error($link));
 					$id_news = mysqli_insert_id($link);
 			} 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 01 2019 г., 02:39
+-- Время создания: Апр 01 2019 г., 17:09
 -- Версия сервера: 8.0.12
 -- Версия PHP: 7.2.10
 
@@ -180,7 +180,7 @@ CREATE TABLE `news` (
   `title` varchar(500) NOT NULL DEFAULT '0',
   `n_text` varchar(5000) NOT NULL DEFAULT '0',
   `image` varchar(150) NOT NULL DEFAULT '0',
-  `date` varchar(50) DEFAULT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `views` int(11) DEFAULT '0',
   `repost_fb` int(11) DEFAULT '0',
   `repost_ok` int(11) DEFAULT '0',
@@ -195,9 +195,7 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `title`, `n_text`, `image`, `date`, `views`, `repost_fb`, `repost_ok`, `repost_vk`, `author`, `taxonomy`, `hidden`) VALUES
-(16, 'Прихожане поздравили Настоятеля с Престольным праздником', 'Заманивший речью запятых меня продолжил ведущими коварных, реторический гор бросил маленькая пор.', 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/2019-04-01_01-56-22.jpg', NULL, 0, 0, 0, 0, 'иерей Игнатий Переходченко', 'Настоятель', 1),
-(17, 'Состоялась первая беседа с прихожанами на предмет изучения Священного Писания Нового Завета.', '31 марта 2019 года при храме святага великомученика и целителя Пантелейимона состоялась\r\nпервая беседа с прихожанами на предмет изучения Священного Писания Нового Завета. Со\r\nвступительным словом выступил настоятель храма митрофорный протоиерей Павел Самойленко.\r\nБыло сказано о важности изучения Священного Писания, авторов писавших богодухновенные\r\nкниги и той исторической ситуации, в которой они писались. Преподано благословение на\r\nведение данных бесед каждое воскресение в 14-00.\r\nБеседу провел иерей Иоанн Шестаков. Она была посвященна введению в предмет. Были\r\nрассмотрены темы: введение в Новый Завет, состав НЗ, распределение НЗ книг по содержанию,\r\nкраткая история канона свящ. книг НЗ, на каком языке написаны свящ. книги НЗ, текст НЗ,\r\nпереводы и цитаты, Четвероевангелие, взаимные отношения Евангелий, достоверность\r\nЕвангелий.\r\nВстреча закончилась подытоживанием настоятелем поднятых тем и заключительным словом.', 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/2019-04-01_02-29-36.jpg', NULL, 0, 0, 0, 0, 'иерей Иоанн Шестаков', 'Миссионерство', 1),
-(18, 'Состоялась первая беседа с прихожанами на предмет изучения Священного Писания Нового Завета.', '31 марта 2019 года при храме святага великомученика и целителя Пантелейимона состоялась\r\nпервая беседа с прихожанами на предмет изучения Священного Писания Нового Завета. Со\r\nвступительным словом выступил настоятель храма митрофорный протоиерей Павел Самойленко.\r\nБыло сказано о важности изучения Священного Писания, авторов писавших богодухновенные\r\nкниги и той исторической ситуации, в которой они писались. Преподано благословение на\r\nведение данных бесед каждое воскресение в 14-00.\r\nБеседу провел иерей Иоанн Шестаков. Она была посвященна введению в предмет. Были\r\nрассмотрены темы: введение в Новый Завет, состав НЗ, распределение НЗ книг по содержанию,\r\nкраткая история канона свящ. книг НЗ, на каком языке написаны свящ. книги НЗ, текст НЗ,\r\nпереводы и цитаты, Четвероевангелие, взаимные отношения Евангелий, достоверность\r\nЕвангелий.\r\nВстреча закончилась подытоживанием настоятелем поднятых тем и заключительным словом.', 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/2019-04-01_02-30-26.jpg', NULL, 0, 0, 0, 0, 'иерей Иоанн Шестаков', 'Миссионерство', 1);
+(23, 'Состоялась первая беседа с прихожанами на предмет изучения Священного Писания Нового Завета.', '31 марта 2019 года при храме святого Великомученика и Целителя Пантелеимона состоялась первая беседа с прихожанами на предмет изучения Священного Писания Нового Завета. Со вступительным словом выступил настоятель храма митрофорный протоиерей Павел Самойленко, который благословил ведение данных бесед каждое воскресение в 14-00.\r\nНа первой беседе было сказано о важности изучения Священного Писания, авторов  писавших  богодухновенные книги и той исторической ситуации, в которой они писались. \r\nБеседу провел иерей Иоанн Шестаков. Она была посвящена введению в предмет. Были рассмотрены темы:  введение в Новый Завет, канон книг Нового Завета, распределение книг Нового Завета по содержанию,  краткая история канона книг Нового Завета, на каком языке написаны книги Нового Завета, текст Нового Завета, переводы и цитаты, Четвероевангелие, взаимные отношения Евангелий, достоверность Евангелий.\r\nВстреча закончилась подитоживанием  настоятелем поднятых тем и заключительным словом.\r\n', 'missionerstvo/sostoyalas_pervaya_beseda/2019-04-01_16-56-29.jpg', '2019-04-01 13:55:30', 0, 0, 0, 0, 'иерей Иоанн Шестаков', 'Миссионерство', 1);
 
 -- --------------------------------------------------------
 
@@ -216,40 +214,22 @@ CREATE TABLE `path_image` (
 --
 
 INSERT INTO `path_image` (`id`, `id_news`, `path_image`) VALUES
-(1, 0, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-7fbd0d5ab54b7e1b201de4278e05cf01.jpg'),
-(2, 0, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-4c57516dc54c440012400815ba0b3b0f.jpg'),
-(3, 0, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-46416c0aece5af8e9ada7686c2728c54.jpg'),
-(4, 0, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-150047cab5e50894fb04e1fa53ed85df.jpg'),
-(5, 0, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-c7de4ab9e968fd1ac751abb5105b0adc.jpg'),
-(6, 0, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-bc8b8a13d1d9dd84e0fe710aeeee4401.jpg'),
-(7, 15, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-7fbd0d5ab54b7e1b201de4278e05cf01.jpg'),
-(8, 15, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-4c57516dc54c440012400815ba0b3b0f.jpg'),
-(9, 15, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-46416c0aece5af8e9ada7686c2728c54.jpg'),
-(10, 15, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-150047cab5e50894fb04e1fa53ed85df.jpg'),
-(11, 15, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-c7de4ab9e968fd1ac751abb5105b0adc.jpg'),
-(12, 15, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-bc8b8a13d1d9dd84e0fe710aeeee4401.jpg'),
-(13, 16, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-7fbd0d5ab54b7e1b201de4278e05cf01.jpg'),
-(14, 16, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-4c57516dc54c440012400815ba0b3b0f.jpg'),
-(15, 16, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-46416c0aece5af8e9ada7686c2728c54.jpg'),
-(16, 16, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-150047cab5e50894fb04e1fa53ed85df.jpg'),
-(17, 16, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-c7de4ab9e968fd1ac751abb5105b0adc.jpg'),
-(18, 16, 'nastoyatel/prihozhane_pozdravili_nastoyatelya_s_prestolnym_prazdnikom/slide-bc8b8a13d1d9dd84e0fe710aeeee4401.jpg'),
-(19, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-176896df71d38d8fac9e02126b380b90.jpg'),
-(20, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-557cc3ef3b4a7e8ce4c7d0aa3fb002fd.jpg'),
-(21, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-c37f8f45ebe4908b3e4961686354ed91.jpg'),
-(22, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-8a14e6151a08734b8567f602fdbaad83.jpg'),
-(23, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-7d0b9100d9a4fc63f326e1e52a542272.jpg'),
-(24, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-22e14ca8ad3cad6480505090898c4654.jpg'),
-(25, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-cb798cf24ceff2218db55cb7146c90bf.jpg'),
-(26, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-cbf0b96bbc68afcdba7c431f02d0a2ff.jpg'),
-(27, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-ed5880677edf381212f9058d2da642c8.jpg'),
-(28, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-c4e50610451a5025c7c54a2b78f4f291.jpg'),
-(29, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-229b91c2c61518ab19035ca500c25035.jpg'),
-(30, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-f105ff0ebbf4e8495c2d422764f3f63f.jpg'),
-(31, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-6cf3a0ff0e6c880892d3b5fc4ce9c676.jpg'),
-(32, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-1b574ce8b18a96d33d3a9b66469991e7.jpg'),
-(33, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-93e40408172c843b1d3b6f2ef15688f3.jpg'),
-(34, 18, 'missionerstvo/sostoyalas_pervaya_beseda_s_prihozhanami_na_predmet_izucheniya_svyaschennogo_pisaniya_novogo_zaveta_/slide-b9b5efd476a8f10cc1a2ade595de6d13.jpg');
+(51, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-36c5188cdc51677ec9a8b0fde16fced8.jpg'),
+(52, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-194ccf6cf1c7b3f42fef9d66dca0fb97.jpg'),
+(53, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-3bf63ea7132106fbbe71d4dc0a384be1.jpg'),
+(54, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-2bab1089ca93f6eda81077e18ac8b18b.jpg'),
+(55, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-1cb646eece2e3f8b4993c6a70c055d18.jpg'),
+(56, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-12200ef5e350268c84f1c9248e0c2e70.jpg'),
+(57, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-d4ba6fd71da253421724c5e32ca30171.jpg'),
+(58, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-3980d8b7bfaefcf40d3528824a29ee5b.jpg'),
+(59, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-5c4249e8c0f1388fe8156a9d7606023d.jpg'),
+(60, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-078750fd6d9d4e2be703564f1334ec39.jpg'),
+(61, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-e498389bc32d8a5064cb2d9c6fdd688b.jpg'),
+(62, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-0def82b8052a2757ae5d70ad69e26241.jpg'),
+(63, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-4777c00e6b51242486528d1a848ead06.jpg'),
+(64, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-dbef317f028ec4149e4c94f55fc3f3e8.jpg'),
+(65, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-28983433be72b2bd522f85d05a789898.jpg'),
+(66, 23, 'missionerstvo/sostoyalas_pervaya_beseda/slide-b964f62d7d950b61f5f81344d3c90895.jpg');
 
 -- --------------------------------------------------------
 
@@ -767,13 +747,13 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT для таблицы `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `path_image`
 --
 ALTER TABLE `path_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT для таблицы `publishing_blocks`

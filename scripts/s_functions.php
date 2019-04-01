@@ -639,7 +639,8 @@ function big_news() {
 	$title = $row['title'];
 	$text = $row['n_text'];
 	$image = $row['image'];
-	$date = $row['date'];
+	$SelectDate = htmlspecialchars($row['date']);
+  $date = date('d-m-Y', strtotime($SelectDate));
 	$views = $row['views'];
 	$repost_fb = $row['repost_fb'];
 	$repost_vk = $row['repost_vk'];
