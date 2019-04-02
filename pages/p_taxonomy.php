@@ -26,30 +26,38 @@ new_menu ();
     <div class="row">
       <div class="container content m-auto">
         <?php echo bread() ?>
-        <div class="row"><?
-              $query = ("SELECT * FROM news WHERE taxonomy = '$taxonomy'");
-              $result = mysqli_query($link, $query);
-              
-              foreach ($result as $row) {
-              $id = $row['id'];
-              $title = $row['title'];
-              $text = $row['n_text'];
-              $image = $row['image'];
-              $SelectDate = htmlspecialchars($row['date']);
-              $date = date('d-m-Y', strtotime($SelectDate));
-              $views = $row['views'];
-              $repost_fb = $row['repost_fb'];
-              $repost_vk = $row['repost_vk'];
-              $repost_ok = $row['repost_ok'];
+        <div class="row pt-4"><?
+            $query = ("SELECT * FROM news WHERE taxonomy = '$taxonomy'");
+            $result = mysqli_query($link, $query);
+            
+            foreach ($result as $row) {
+            $id = $row['id'];
+            $title = $row['title'];
+            $text = $row['n_text'];
+            $image = $row['image'];
+            $SelectDate = htmlspecialchars($row['date']);
+            $date = date('d-m-Y', strtotime($SelectDate));
+            $views = $row['views'];
+            $repost_fb = $row['repost_fb'];
+            $repost_vk = $row['repost_vk'];
+            $repost_ok = $row['repost_ok'];
 
-              if (strlen($text)>120) {
-                $str = "..."; 
-              } 
-              else {
-                $str = "";
-              }
-              $text = mb_substr(strip_tags($text), 0, 200, 'utf-8');
-              ?>
+            if (strlen($title)>45) {
+                  $str1 = "..."; 
+                } 
+                else {
+                  $str1 = "";
+                }
+                $title = mb_substr(strip_tags($title), 0, 45, 'utf-8');
+
+                if (strlen($text)>120) {
+                  $str = "..."; 
+                } 
+                else {
+                  $str = "";
+                }
+                $text = mb_substr(strip_tags($text), 0, 200, 'utf-8');
+            ?>
             <!-- Card image -->
             <div class="news card big_news">
             <div class="view overlay news_img">
@@ -63,13 +71,13 @@ new_menu ();
             <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3"></a>
 
             <!-- Card content -->
-            <div class="card-body text-justify">
+            <div class="card-body">
 
               <!-- Title -->
-              <a href="<?=PATH?>pages/p_big_news.php?id=<?=$id?>"><h4 class="card-title"><?=$title?></h4></a>
+              <a href="<?=PATH?>pages/p_big_news.php?id=<?=$id?>"><h5 class="card-title text-center"><?=$title . $str1?></h5></a>
               <hr>
               <!-- Text -->
-              <p class="card-text"><?=$text . $str?><a href="<?=PATH?>pages/p_big_news.php?id=<?=$id?>">подробнее</a></p>
+              <p class="card-text text-justify"><?=$text . $str?><a href="<?=PATH?>pages/p_big_news.php?id=<?=$id?>">подробнее</a></p>
 
             </div>
 

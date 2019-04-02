@@ -3,11 +3,12 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/translit.php';
 
+
 // переменные статьи
 $title = $_POST['title'];
 $text = $_POST['text'];
-$taxonomy = $_POST['taxonomy'];
 $author = $_POST["author"];
+$taxonomy = $_POST['taxonomy'];
 $date = $_POST["date"];
 $hidden = $_POST["hidden"];
 $ok = $_POST["ok"];

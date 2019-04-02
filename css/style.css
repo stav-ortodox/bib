@@ -553,12 +553,12 @@ table td {
 }
 
 .page_title {
-	margin-bottom: 10px;
 	border-bottom: solid 2px #E47F50;
+	width: 100%;
 }
 
 .rasporka {
-	margin-bottom: 40px;
+	margin-bottom: 40px !important;
 }
 
 .page-break {
@@ -789,20 +789,26 @@ table td {
 .news {
 	margin: 0 auto;
 	margin-bottom: 30px;
-	max-width: 25vw;
+	max-width: 30%;
 }
 
-.news_img img {
+.news_img {
 	max-height: 400px;
 	overflow: hidden;
 	margin: 0 auto;
 }
 
+.news_img img {
+	
+	/*margin: 0 auto;*/
+	-ms-align-items: center;
+	align-items: center;
+}
+
 .big_news {
-	/*border: 1px solid #E0F7A0;*/
 	background-color: #e8e8e8;
 	padding-top: 30px;
-	border-radius: 3px;
+	border-radius: 2px;
 }
 
 .big_news_img {
@@ -842,16 +848,6 @@ table td {
 	padding-bottom: 30px;
 }
 
-.ya-share2 {
-	margin: 0 !important;
-	width: 30%;
-}
-
-.ya-share2_inited {
-	margin: 0 !important;
-	width: 30%;
-}
-
 .fotorama1 {
 	width: 100%;
 	margin-bottom: 20px !important;
@@ -883,8 +879,8 @@ table td {
 }
 
 .new_news {
-	min-width: 60vw !important;
-	max-width: 60vw !important;
+	/*min-width: 80% !important;*/
+	/*max-width: 60vw !important;*/
 }
 
 .news_form {
@@ -905,6 +901,37 @@ table td {
 .pointer {
 	cursor: pointer !important;
 }
+
+#upload{
+	margin: 10px 30px; 
+	padding: 10px;
+	font-weight: bold; 
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	background: #f2f2f2;
+	color: #3366cc;
+	border: 2px solid #ccc;
+	width: 150px;
+	cursor: pointer !important;
+	-moz-border-radius: 5px; -webkit-border-radius:5px;
+}
+.darkbg{
+	background: #ddd !important;
+}
+#status{
+	font-family: Arial; 
+	padding: 5px;
+}
+ul#files{ list-style: none; padding: 0; margin: 0; }
+ul#files li{ padding: 10px; margin-bottom: 2px; width: 150px; float: left; margin-right: 10px;}
+ul#files li img{ 
+	max-width: 500px; 
+	max-height: 500px; 
+	margin-right: auto !important;
+}
+.success{}
+.error{ background: #f0c6c3; border: 1px solid #cc6622; }
 
 
 
@@ -975,7 +1002,9 @@ table td {
 
 /*// Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
 @media (min-width: 1200px) {
-
+.container {
+     max-width: 900px !important; 
+}
 }
 
 

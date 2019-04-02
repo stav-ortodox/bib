@@ -15,7 +15,7 @@ page_title ('Админка');
 	</div> <!-- /cайдбар -->
 	<section class="container">
 		<div class="row">
-			<div class="content">
+			<div class="content m-auto w-90">
 				
 					<?php 
 					if (!empty($_SESSION['errors'])) {?>
@@ -46,7 +46,7 @@ page_title ('Админка');
 					<div class="new_news mt-4">
 						<p class="card text-center grey"><a href="#" class="">Новая новость</a></p>
 							<div class="card mb-3 grey">
-								<form class="news_form m-auto" action="action_new_news.php" method="post" multipart="" enctype="multipart/form-data"">
+								<form class="news_form m-auto" action="action_new_news.php" method="post" multipart="" enctype="multipart/form-data">
 
 									<!-- инпут заголовка -->
 									<div class="md-form">
@@ -71,27 +71,62 @@ page_title ('Админка');
 								    <textarea class="form-control m-0" id="exampleFormControlTextarea1" name="text" rows="3" required><?=$_SESSION['text']?></textarea>
 									</div>
 
+
+
 									<!-- категория -->
-						      <label class="mr-sm-2 text-center" for="inlineFormCustomSelect">Выберите категорию для статьи</label>
-						      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="taxonomy" required>
-						        <option selected><?=$_SESSION['taxonomy']?></option>
-						        <option value="Ortodox">Ortodox</option>
-						        <option value="Богослужение">Богослужение</option>
-						        <option value="Настоятель">Настоятель</option>
-						        <option value="Больничное служение">Больничное служение</option>
-						        <option value="Социальное служение">Социальное служение</option>
-						        <option value="Миссионерство">Миссионерство</option>
-						      </select>
+									<label class="mr-sm-2 text-center" for="inlineFormCustomSelect">Выберите категорию для статьи</label>
+
+
+									<div class="d-flex flex-row justify-content-around">
+										
+
+
+										<div>
+											<select class="custom-select" id="inlineFormCustomSelect" name="taxonomy" required>
+												<?php  
+												$query = ("SELECT DISTINCT taxonomy FROM news");
+												$result = mysqli_query($link, $query);
+												$row = mysqli_fetch_assoc($result);
+
+												foreach ($result as $row) { 
+													$taxonomy = $row['taxonomy']?>
+													<option><?=$taxonomy?></option>
+													<?}?>
+												</select>
+											</div>
+											<div>
+												<textarea class="form-control m-0" id="val" placeholder="Введите свой вариант" rows="1"></textarea>
+											</div>
+
+											<!-- <input class="text-center form-control" type="text" id="val"> -->
+											<button class="btn btn-info m-0 p-0 pr-1 pl-1" type="button" onclick="insertValue();">Добавить свой вариант</button>
+											<script>
+												function insertValue() {
+													var select = document.getElementById("inlineFormCustomSelect"),
+													txtVal = document.getElementById("val").value,
+													newOption = document.createElement("OPTION"),
+													newOptionVal = document.createTextNode(txtVal);
+													newOption.appendChild(newOptionVal);
+													select.insertBefore(newOption,select.firstChild);
+												}
+											</script>
+										</div>
 
 									<!-- автор -->
 						      <label class="mr-sm-2 text-center mt-3" for="inlineFormCustomSelect1">Выберите автора</label>
 						      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect1" name="author" required>
-						        <option selected><?=$_SESSION['author']?></option>
-						        <option value="м/прот. Павел Самойленко">м/прот. Павел Самойленко</option>
-						        <option value="иерей Иоанн Шестаков">иерей Иоанн Шестаков</option>
-						        <option value="иерей Иоанн Половин">иерей Иоанн Половин</option>
-						        <option value="иерей Игнатий Переходченко">иерей Игнатий Переходченко</option>
+						        <?php  
+						      	 $query = ("SELECT DISTINCT author FROM news");
+						      	 $result = mysqli_query($link, $query);
+						      	 $row = mysqli_fetch_assoc($result);
+
+						      	 foreach ($result as $row) { 
+						      	   $author = $row['author']?>
+						      	   <option selected><?=$author?></option>
+						      	 <?}?>
+						      	 <option>Свой вариант...</option>
 						      </select>
+						      
 
 					      	<!-- инпут остальных изображений -->
 					      	<label class="text-center mt-5 pointer view" for="exampleFormControlFile2">
@@ -135,6 +170,8 @@ page_title ('Админка');
 		</div>
 	</section>
 </main>
+
+
 
 
 <?php

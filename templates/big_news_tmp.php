@@ -1,3 +1,4 @@
+   <?php views_update('news', $_GET['id']);  ?> 
     <main>
       <div class="col-sm-0 col-lg-2">
        <?php get_sidebar (); ?>
@@ -54,19 +55,26 @@
             <li class="list-inline-item pr-2 grey-text"><i class="far fa-clock pr-1"></i><?=$date?></li>
             <li class="list-inline-item grey-text pr-2"><i class="far fa-eye pr-1"></i><?=$views?></li>
             
-            <br>
+            <br><br>
             <div class="justify-content-center">
-              <b class="mr-2 text-success">Поделиться:</b>
-              <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
-              <script src="//yastatic.net/share2/share.js"></script>
-              <div class="ya-share2 ull" data-services="vkontakte,facebook,odnoklassniki" data-counter=""></div>
+
+              <div class="like">Понравилось? Поделитесь с друзьями!</div>
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-likes/dist/social-likes_classic.css">
+
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+              <script src="https://cdn.jsdelivr.net/npm/social-likes/dist/social-likes.min.js"></script>
+
+              <div class="social-likes" data-url="">
+                <div class="facebook" title="Поделиться ссылкой на Фейсбуке">Facebook</div>
+                <div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Вконтакте</div>
+                <div class="odnoklassniki" title="Поделиться ссылкой в Одноклассниках">Одноклассники</div>
+              </div>
+
             </div>
           </div>
         </div>    
       </div>
     </div>
-
-    
   </section>
 </main>
 

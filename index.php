@@ -28,7 +28,7 @@ new_menu ();?>
       <div class="page_title rasporka"><h2>Жизнь прихода (последнее)</h2></div>
     </div>
     <div class="row">
-        <div class="content">
+        <div class="container content m-auto">
           <div class="row">
             <?php news();?>
           </div>    

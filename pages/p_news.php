@@ -20,15 +20,13 @@ new_menu ();
     <div class="row">
       <div class="container content m-auto">
         <?php echo bread() ?>
-        <div class="row">
+        <div class="row pt-4">
           <?php news();?>
         </div>    
       </div>
     </div>
   </section>
 </main>
-
-
 
 <?get_footer ();
 ?>
