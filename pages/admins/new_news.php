@@ -20,23 +20,29 @@ page_title ('Админка');
 					<?php 
 					if (!empty($_SESSION['errors'])) {?>
 						<div class="error">
-							<ul>НЕ УДАЛОСЬ СФОРМИРОВАТЬ СТАТЬЮ!<hr><?
+							<p>НЕ УДАЛОСЬ СФОРМИРОВАТЬ СТАТЬЮ!</p><hr>
+							<ol><?
 						foreach ($_SESSION['errors'] as $row) {?>
 								<li>
 									<?=$row;
-									unset($_SESSION['errors']);?>
-								</li>	
+									unset($_SESSION['errors']);
+									unset($_SESSION['success']);?>
+								</li>
+								<br>
 						<?}?> 
-							</ul>
+							</ol>
+
 						</div>
 						<?} elseif (!empty($_SESSION['success'])) {?>
 							<div class="success">
-								<ul>ГОТОВО!<hr><?
+								<p>ГОТОВО!</p><hr>
+								<ul><?
 							foreach ($_SESSION['success'] as $row) {?>
 									<li>
 										<?=$row;
 										unset($_SESSION['success']);?>
 									</li>
+									<br>
 								<?}?>
 						</ul>
 					</div>
@@ -71,23 +77,15 @@ page_title ('Админка');
 								    <textarea class="form-control m-0" id="exampleFormControlTextarea1" name="text" rows="3" required><?=$_SESSION['text']?></textarea>
 									</div>
 
-
-
 									<!-- категория -->
 									<label class="mr-sm-2 text-center" for="inlineFormCustomSelect">Выберите категорию для статьи</label>
-
-
-									<div class="d-flex flex-row justify-content-around">
-										
-
-
+									<div class="d-flex flex-row justify-content-center">
 										<div>
 											<select class="custom-select" id="inlineFormCustomSelect" name="taxonomy" required>
 												<?php  
 												$query = ("SELECT DISTINCT taxonomy FROM news");
 												$result = mysqli_query($link, $query);
 												$row = mysqli_fetch_assoc($result);
-
 												foreach ($result as $row) { 
 													$taxonomy = $row['taxonomy']?>
 													<option><?=$taxonomy?></option>
@@ -95,11 +93,9 @@ page_title ('Админка');
 												</select>
 											</div>
 											<div>
-												<textarea class="form-control m-0" id="val" placeholder="Введите свой вариант" rows="1"></textarea>
+											<input class="form-control" id="val" placeholder="Введите свой вариант">
+											<button class="btn btn-success m-0 p-0 pr-1 pl-1" id="but" type="button" onclick="insertValue();">Добавить!</button>
 											</div>
-
-											<!-- <input class="text-center form-control" type="text" id="val"> -->
-											<button class="btn btn-info m-0 p-0 pr-1 pl-1" type="button" onclick="insertValue();">Добавить свой вариант</button>
 											<script>
 												function insertValue() {
 													var select = document.getElementById("inlineFormCustomSelect"),
@@ -108,25 +104,50 @@ page_title ('Админка');
 													newOptionVal = document.createTextNode(txtVal);
 													newOption.appendChild(newOptionVal);
 													select.insertBefore(newOption,select.firstChild);
+													newOption.selected = true;
+													var elem = document.getElementById("val");
+													elem.parentNode.removeChild(elem);
+													var elem1 = document.getElementById("but");
+													elem1.parentNode.removeChild(elem1);
 												}
 											</script>
 										</div>
 
 									<!-- автор -->
 						      <label class="mr-sm-2 text-center mt-3" for="inlineFormCustomSelect1">Выберите автора</label>
-						      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect1" name="author" required>
+						      <div class="d-flex flex-row justify-content-center">
+						      <div>
+						      <select class="custom-select" id="inlineFormCustomSelect1" name="author" required>
 						        <?php  
 						      	 $query = ("SELECT DISTINCT author FROM news");
 						      	 $result = mysqli_query($link, $query);
 						      	 $row = mysqli_fetch_assoc($result);
-
 						      	 foreach ($result as $row) { 
 						      	   $author = $row['author']?>
 						      	   <option selected><?=$author?></option>
 						      	 <?}?>
-						      	 <option>Свой вариант...</option>
 						      </select>
-						      
+						      	</div>
+						      	<div>
+						      	<input class="form-control" id="author" placeholder="Введите свой вариант">
+						      	<button class="btn btn-success m-0 p-0 pr-1 pl-1" id="butauthor" type="button" onclick="insertValueauthor();">Добавить!</button>
+						      	</div>
+						      	<script>
+						      		function insertValueauthor() {
+						      			var selectauthor = document.getElementById("inlineFormCustomSelect1"),
+						      			txtauthor = document.getElementById("author").value,
+						      			newOptionauthor = document.createElement("OPTION"),
+						      			newOptionValauthor = document.createTextNode(txtauthor);
+						      			newOptionauthor.appendChild(newOptionValauthor);
+						      			selectauthor.insertBefore(newOptionauthor,selectauthor.firstChild);
+						      			newOptionauthor.selected = true;
+						      			var elemauthor = document.getElementById("author");
+						      			elemauthor.parentNode.removeChild(elemauthor);
+						      			var elem1author = document.getElementById("butauthor");
+						      			elem1author.parentNode.removeChild(elem1author);
+						      		}
+						      	</script>
+						      </div>
 
 					      	<!-- инпут остальных изображений -->
 					      	<label class="text-center mt-5 pointer view" for="exampleFormControlFile2">

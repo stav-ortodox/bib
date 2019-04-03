@@ -658,4 +658,22 @@ function views_update($table, $id) {
 	$link -> query("UPDATE $table SET views = views + 1 WHERE id = $id");
 }
 
+// сжатие фото 
+function resize_photo($path,$filename,$filesize,$type,$tmp_name){
+    $quality = 50; //Качество в процентах. В данном случае будет сохранено 60% от начального качества.
+    $size = 104857; //Максимальный размер файла в байтах. В данном случае приблизительно 10 МБ.
+    if($filesize>$size){
+        switch($type){
+            case 'image/jpeg': $source = imagecreatefromjpeg($tmp_name); break; //Создаём изображения по
+            case 'image/png': $source = imagecreatefrompng($tmp_name); break;  //образцу загруженного  
+            case 'image/gif': $source = imagecreatefromgif($tmp_name); break; //исходя из его формата
+            return false;
+        }
+        imagejpeg($source, $path.$filename, $quality); //Сохраняем созданное изображение по указанному пути в формате jpg
+        imagedestroy($source);//Чистим память
+        return true;
+    }
+    else return false;     
+}
+
 ?>

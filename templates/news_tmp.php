@@ -5,6 +5,13 @@ if ($_SERVER["SCRIPT_NAME"] == '/index.php') {
   $query = ("SELECT * FROM news ORDER BY id DESC LIMIT 6");
 } elseif ($_SERVER["SCRIPT_NAME"] == '/pages/p_news.php'){
   $query = ("SELECT * FROM news ORDER BY id DESC");
+} elseif ($_SERVER["SCRIPT_NAME"] == '/pages/p_taxonomy.php') {
+  $id = $_GET['id'];
+  $query = ("SELECT taxonomy FROM news WHERE id = $id");
+  $result = mysqli_query($link, $query);
+  $row = mysqli_fetch_assoc($result);
+  $taxonomy = $row['taxonomy'];
+  $query = ("SELECT * FROM news WHERE taxonomy = '$taxonomy'");
 }
 
 $result = mysqli_query($link, $query);
@@ -13,6 +20,7 @@ foreach ($result as $row) {
   $id = $row['id'];
   $title = $row['title'];
   $text = $row['n_text'];
+  $taxonomy = $row['taxonomy'];
   $image = $row['image'];
   $SelectDate = htmlspecialchars($row['date']);
   $date = date('d-m-Y', strtotime($SelectDate));
@@ -24,14 +32,6 @@ foreach ($result as $row) {
 // вывод картинок слайдера
   $query = ("SELECT path_image FROM path_image WHERE id_news = '$id'");
   $result = mysqli_query($link, $query);
-
-  if (strlen($title)>45) {
-    $str1 = "..."; 
-  } 
-  else {
-    $str1 = "";
-  }
-  $title = mb_substr(strip_tags($title), 0, 45, 'utf-8');
 
   if (strlen($text)>120) {
     $str = "..."; 
@@ -46,8 +46,9 @@ foreach ($result as $row) {
     <div class="d-flex flex-row mdb-color lighten-5">
 
       <div class="news_img">
-        <img class="" src="<?=PATH.'images/news/'.$image?>" alt="Card image cap">
         <a href="<?=PATH?>pages/p_big_news.php?id=<?=$id?>">
+        <img class="" src="<?=PATH.'images/news/'.$image?>" alt="Card image cap">
+        
         <div class="mask rgba-white-slight"></div>
         </a>
       </div>
@@ -61,7 +62,6 @@ foreach ($result as $row) {
         <hr>
       </div>
     
-    
       <div class="card-body pt-0">
         <!-- Text -->
         <p class="card-text text-justify"><?=$text . $str?>
@@ -71,11 +71,9 @@ foreach ($result as $row) {
       </div>
     </div>
     
-
-    
     <!-- Card footer -->
     <div class="d-flex column rounded-bottom mdb-color lighten-3 text-center pt-3">
-      <ul class="list-unstyled list-inline font-small">
+      <ul class="list-unstyled list-inline font-small ml-4">
         <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i><?=$date?></li>
         <li class="list-inline-item white-text pr-2"><i class="far fa-eye pr-1"></i><?=$views?></li>
         <li class="list-inline-item white-text pr-2"><i class="fab fa-odnoklassniki pr-1"></i><?=$repost_ok?></li>
