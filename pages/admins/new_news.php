@@ -8,9 +8,7 @@ new_menu ();
 get_sm_sidebar ();
 page_title ('Админка');
 ?>
-<div id="page-preloader" class="preloader">
-	<div class="loader"></div>
-</div>
+
 <main>
 	<div class="col-sm-0 col-lg-2">
 		<?php get_sidebar (); ?>
@@ -205,3 +203,106 @@ page_title ('Админка');
 <?php
 get_footer ();
 ?>
+
+
+
+
+<!-- var gulp 				= require('gulp');
+//var browserSync = require('browser-sync');
+var sass        = require('gulp-sass');
+
+// Static Server + watching scss/html files
+
+gulp.task('sass', function(){ // Создаем таск "sass"
+    return gulp.src('scss/style.scss') // Берем источник
+        .pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
+        .pipe(gulp.dest('demo/css')) // Выгружаем результата в папку app/css
+}); -->
+
+
+
+<!-- .preloader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	z-index: 3;
+	transition: 1s all;
+	opacity: 1;
+	visibility: visible;
+
+	.loader {
+		width: 75px;
+		height: 75px;
+		bottom: 10px solid white;
+		border-radius: 50%
+		border-top-color: red;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		animation: 1s spin infinite linear;
+	}
+
+	&.done {
+		opacity: 0;
+		visibility: hidden;
+	}
+	
+}
+
+@keyframes spin {
+	from {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	to {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+} -->
+
+
+<!-- .preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 3;
+  -webkit-transition: 1s all;
+  transition: 1s all;
+  opacity: 1;
+  visibility: visible; }
+  .preloader .loader {
+    width: 75px;
+    height: 75px;
+    bottom: 10px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-animation: 1s spin infinite linear;
+    animation: 1s spin infinite linear; }
+  .preloader.done {
+    opacity: 0;
+    visibility: hidden; }
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg); }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg); } }
+
+@keyframes spin {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg); }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg); } } -->
