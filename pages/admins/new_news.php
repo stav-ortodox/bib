@@ -8,7 +8,9 @@ new_menu ();
 get_sm_sidebar ();
 page_title ('Админка');
 ?>
-
+<div id="page-preloader" class="preloader">
+	<div class="loader"></div>
+</div>
 <main>
 	<div class="col-sm-0 col-lg-2">
 		<?php get_sidebar (); ?>
@@ -181,11 +183,12 @@ page_title ('Админка');
 						      		</div>
 						      	</div>
 						      	<button type="submit" name="ok" class="btn btn-primary">Готово</button>
-						      </div> 
+						      </div>
+
 						      <div class="d-flex align-items-center">
-								  <strong>Loading...</strong>
-								  <div class="spinner-border ml-auto" role="status" aria-hidden="true" ></div>
-								</div> 
+								  <!-- <strong>Загружаются фотографии...</strong>
+								  <div class="spinner-border ml-auto" role="status" aria-hidden="true" ></div> -->
+									</div> 
 								<hr>
 							</form>
 						</div>

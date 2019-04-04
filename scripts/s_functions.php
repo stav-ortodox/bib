@@ -30,10 +30,11 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 	<link href="/css/mdb.min.css" rel="stylesheet">
 
 	<!-- Your custom styles (optional) -->
-	<link href="/css/style.css" rel="stylesheet">
+	<link href="/css/style.min.css" rel="stylesheet">
 	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 
 	<!-- carousel -->
+	<script type="text/javascript" src="<?=PATH?>js/my_js.js"></script>
 	
 	<!-- Fonts -->
 	<link href="http://allfont.ru/allfont.css?fonts=ds-russia-demo" rel="stylesheet" type="text/css">
