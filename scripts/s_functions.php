@@ -618,7 +618,6 @@ function bread ()	{
 		$block_post = $row['pub_name'];
 		$bread = "<div class='bread'><a href=".$href_bib.">Библиотека</a>" . ' / ' . "<a href=". $href_block .">$block_name</a> / $block_post</div>";
 	}
-	// arr ($block_name);
 	return $bread;
 }
 
