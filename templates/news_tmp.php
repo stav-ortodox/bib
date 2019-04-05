@@ -62,7 +62,7 @@ foreach ($result as $row) {
         <hr>
       </div>
     
-      <div class="card-body pt-0">
+      <div class="card-body pt-0 pb-0">
         <!-- Text -->
         <p class="card-text text-justify"><?=$text . $str?>
           <a href="<?=PATH?>pages/p_big_news.php?id=<?=$id?>">подробнее</a>

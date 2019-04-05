@@ -722,8 +722,6 @@ table td {
   display: flex;
   min-width: 40%;
   max-width: 40%;
-  max-height: 250px;
-  overflow: hidden;
   -ms-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;

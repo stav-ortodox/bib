@@ -52,7 +52,16 @@ page_title ('Админка');
 					<div class="new_news mt-4">
 						<p class="card text-center grey"><a href="#" class="">Новая новость</a></p>
 							<div class="card mb-3 grey">
+								<?php $show_loading_screen="onclick=\"getElementById('form-preloader').classList.remove('done')";
+								echo '<div class="preloader done" id="form-preloader">
+										<div class="loader"></div>
+									</div>';
+								 ?>
+								<!-- начало формы -->
 								<form class="news_form m-auto" action="action_new_news.php" method="post" multipart="" enctype="multipart/form-data">
+
+								
+									
 
 									<!-- инпут заголовка -->
 									<div class="md-form">
@@ -180,8 +189,10 @@ page_title ('Админка');
 						      			</label>
 						      		</div>
 						      	</div>
-						      	<button type="submit" name="ok" class="btn btn-primary">Готово</button>
+						      	<button type="submit" id="ok" <?php $show_loading_screen ?> class="btn btn-primary">Готово</button>
 						      </div>
+
+						      
 
 						      <div class="d-flex align-items-center">
 								  <!-- <strong>Загружаются фотографии...</strong>
@@ -196,9 +207,6 @@ page_title ('Админка');
 		</div>
 	</section>
 </main>
-
-
-
 
 <?php
 get_footer ();
