@@ -9,14 +9,12 @@ document.body.onload = function() {
 	}, 1000);
 }
 
-// document.body.onload = function() {
-// 	setTimeout(function() {
-// 		var preloader1 = document.getElementById('form-preloader');
-// 		if ( !preloader1.classList.contains('done') ) {
-// 			preloader1.classList.add('done');
-// 		}
-// 	}, 1000);
-// }
+const input = document.getElementById('exampleFormControlFile2');
+input.addEventListener('change', function (ev){
+	const files = ev.target.files;
+
+	const file = files[0];
+});
 
 
 

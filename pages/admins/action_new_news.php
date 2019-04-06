@@ -105,10 +105,10 @@ foreach ($slide_image as $key => $value) {
 	foreach ($value as $k => $v) {
 		$slide_image[$k][$key] = $v;
 	}
-	if (count($v) > 15) {
+	// if (count($v) > 15) {
 
-		exit('фото больше 15');
-	}
+	// 	exit('фото больше 15');
+	// }
 	unset($slide_image[$key]);
 }
 
