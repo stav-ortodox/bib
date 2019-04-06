@@ -27,12 +27,12 @@ $_SESSION['hidden'] = $hidden;
 $image = $_FILES['image'];
 $slide_image = $_FILES['slide_image'];
 
-if (isset($_GET['processed']) && (! isset($_FILES) || (count($_FILES) == 0))) {
-	$errors[] = 'Превышен лимит общего размера загружаемых файлов!';
-	$_SESSION['errors'] = $errors;
-	header('Location: '.PATH.'pages/admins/new_news.php');
-	exit();
-}
+// if (isset($_GET['processed']) && (! isset($_FILES) || (count($_FILES) == 0))) {
+// 	$errors[] = 'Превышен лимит общего размера загружаемых файлов!';
+// 	$_SESSION['errors'] = $errors;
+// 	header('Location: '.PATH.'pages/admins/new_news.php');
+// 	exit();
+// }
 
 
 if (empty($title) || empty($text) || empty($author) || empty($taxonomy)) {

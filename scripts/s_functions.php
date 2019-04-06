@@ -325,7 +325,7 @@ button {display: none; }
 // *************************************************************************
 
 function get_footer () {?>
-
+	</body>
 	<footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
 	<div class="pt-4">
 		<a href="#" class="btn btn-outline-white">
