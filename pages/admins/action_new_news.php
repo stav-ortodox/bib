@@ -4,6 +4,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/translit.php';
 
 
+
+
 // переменные статьи
 unset($_SESSION['errors']);
 $title = $_POST['title'];
@@ -25,6 +27,20 @@ $_SESSION['hidden'] = $hidden;
 $image = $_FILES['image'];
 $slide_image = $_FILES['slide_image'];
 
+if (isset($_GET['processed']) && (! isset($_FILES) || (count($_FILES) == 0))) {
+	$errors[] = 'Превышен лимит общего размера загружаемых файлов!';
+	$_SESSION['errors'] = $errors;
+	header('Location: '.PATH.'pages/admins/new_news.php');
+	exit();
+}
+
+
+if (empty($title) || empty($text) || empty($author) || empty($taxonomy)) {
+	$errors[] = 'Внимательно проверьте заполненность всех полей!';
+	$_SESSION['errors'] = $errors;
+	header('Location: '.PATH.'pages/admins/new_news.php');
+	exit();
+}
 
 // переводим в транслит название категории и статьи
 $tr_title = str2url($title);
@@ -38,7 +54,7 @@ $dir = $_SERVER['DOCUMENT_ROOT'].'/images/news/'.$tr_taxonomy;
 $dir1 = $_SERVER['DOCUMENT_ROOT'].'/images/news/'.$tr_taxonomy.'/'.$tr_title.'/';
 
 // Проверка на повтор статьи - если повтор, сразу редирект с указанием на ошибку
-if (file_exists($dir1)) {
+if (file_exists($dir1) && $title !== '') {
 	$errors[] = 'Возможно, статья с таким именем в категории '.'"'.$taxonomy.'"'. ' уже существует! <br> Попробуйте задать другое имя или поменять категорию.';
 	$_SESSION['errors'] = $errors;
 	header('Location: '.PATH.'pages/admins/new_news.php');
@@ -78,7 +94,10 @@ if (is_uploaded_file($image_tmp)) {
 } 
 else {
 	$errors[] = 'Вы не загрузили главное изображение!';
+	$_SESSION['errors'] = $errors;
+	rmdir($dir1);
 	header('Location: '.PATH.'pages/admins/new_news.php');
+	exit();
 }
 
 // загрузка изображений слайдера
@@ -86,8 +105,13 @@ foreach ($slide_image as $key => $value) {
 	foreach ($value as $k => $v) {
 		$slide_image[$k][$key] = $v;
 	}
+	if (count($v) > 15) {
+
+		exit('фото больше 15');
+	}
 	unset($slide_image[$key]);
 }
+
 foreach ($slide_image as $k => $v) {
 	if (is_uploaded_file($slide_image[$k]['tmp_name'])) {
 		$image_tmp = $slide_image[$k]['tmp_name'];

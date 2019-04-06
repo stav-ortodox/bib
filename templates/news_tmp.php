@@ -11,7 +11,7 @@ if ($_SERVER["SCRIPT_NAME"] == '/index.php') {
   $result = mysqli_query($link, $query);
   $row = mysqli_fetch_assoc($result);
   $taxonomy = $row['taxonomy'];
-  $query = ("SELECT * FROM news WHERE taxonomy = '$taxonomy'");
+  $query = ("SELECT * FROM news WHERE taxonomy = '$taxonomy' ORDER BY id DESC");
 }
 
 $result = mysqli_query($link, $query);

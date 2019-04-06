@@ -50,22 +50,33 @@ page_title ('Админка');
 					
 				<div class="row">
 					<div class="new_news mt-4">
-						<p class="card text-center grey"><a href="#" class="">Новая новость</a></p>
+						<p class="card text-center grey"><a href="#" class="">НОВАЯ СТАТЬЯ</a></p>
 							<div class="card mb-3 grey">
-								<?php $show_loading_screen="onclick=\"getElementById('form-preloader').classList.remove('done')";
-								echo '<div class="preloader done" id="form-preloader">
-										<div class="loader"></div>
-									</div>';
-								 ?>
+
+								<script>
+									function removeDone(el) {
+										var el1 = document.getElementById("form-preloader");
+										el1.classList.remove("done"); // удалить класс «class-name»
+										var el2 = document.getElementById("text-preloader");
+										el2.classList.remove("done1");
+									}
+								</script>
+
+								<div class="preloader done" id="form-preloader">
+									<div class="loader"></div>
+								</div>
+								<div class="text-preloader done1 animated pulse infinite" id="text-preloader">
+									<h5>Подождите, фотографии загружаются и обрабатываются...</h5>
+								</div>
+								
+								 
 								<!-- начало формы -->
-								<form class="news_form m-auto" action="action_new_news.php" method="post" multipart="" enctype="multipart/form-data">
+								<form class="news_form m-auto" action="action_new_news.php?processed=1" method="post" multipart="" enctype="multipart/form-data">
 
 								
-									
-
 									<!-- инпут заголовка -->
 									<div class="md-form">
-										<input id="form1" name="title" class="text-center form-control" type="text" placeholder="Введите заголовок" value="<?=$_SESSION['title']?>" required>
+										<input id="form1" name="title" class="text-center form-control" type="text" placeholder="Введите заголовок" value="<?=$_SESSION['title']?>">
 									</div>
 
 									<!-- инпут главного изображения -->
@@ -83,14 +94,14 @@ page_title ('Админка');
 									<!-- текст новости -->
 									<div class="form-group">
 								    <label class="text-center" for="exampleFormControlTextarea1">Добавьте текст новости</label>
-								    <textarea class="form-control m-0" id="exampleFormControlTextarea1" name="text" rows="3" required><?=$_SESSION['text']?></textarea>
+								    <textarea class="form-control m-0" id="exampleFormControlTextarea1" name="text" rows="3"><?=$_SESSION['text']?></textarea>
 									</div>
 
 									<!-- категория -->
 									<label class="mr-sm-2 text-center" for="inlineFormCustomSelect">Выберите категорию для статьи</label>
 									<div class="d-flex flex-row justify-content-center">
 										<div>
-											<select class="custom-select" id="inlineFormCustomSelect" name="taxonomy" required>
+											<select class="custom-select" id="inlineFormCustomSelect" name="taxonomy">
 												<?php  
 												$query = ("SELECT DISTINCT taxonomy FROM news");
 												$result = mysqli_query($link, $query);
@@ -99,6 +110,7 @@ page_title ('Админка');
 													$taxonomy = $row['taxonomy']?>
 													<option><?=$taxonomy?></option>
 													<?}?>
+													<option selected><?=$_SESSION['taxonomy']?></option>
 												</select>
 											</div>
 											<div>
@@ -126,15 +138,16 @@ page_title ('Админка');
 						      <label class="mr-sm-2 text-center mt-3" for="inlineFormCustomSelect1">Выберите автора</label>
 						      <div class="d-flex flex-row justify-content-center">
 						      <div>
-						      <select class="custom-select" id="inlineFormCustomSelect1" name="author" required>
+						      <select class="custom-select" id="inlineFormCustomSelect1" name="author">
 						        <?php  
 						      	 $query = ("SELECT DISTINCT author FROM news");
 						      	 $result = mysqli_query($link, $query);
 						      	 $row = mysqli_fetch_assoc($result);
 						      	 foreach ($result as $row) { 
 						      	   $author = $row['author']?>
-						      	   <option selected><?=$author?></option>
+						      	   <option><?=$author?></option>
 						      	 <?}?>
+						      	 	 <option selected><?=$_SESSION['author']?></option>
 						      </select>
 						      	</div>
 						      	<div>
@@ -167,7 +180,7 @@ page_title ('Админка');
 					      			<img class="img-fluid w-25 h-25 mr-1" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
 					      		</div>
 					      	<div class="mask flex-center rgba-stylish-strong">
-					      	   <p class="white-text">Выберите ещё изображения для статьи</p>
+					      	   <p class="white-text">Выберите изображения для слайдера <br> Максимально разрешенное кол-во - 10 шт.</p>
 					      	</div>
 					      	</label>
 					          <input type="file" class="form-control-file" id="exampleFormControlFile2" name="slide_image[]" multiple>
@@ -189,10 +202,8 @@ page_title ('Админка');
 						      			</label>
 						      		</div>
 						      	</div>
-						      	<button type="submit" id="ok" <?php $show_loading_screen ?> class="btn btn-primary">Готово</button>
+						      	<button type="submit" id="ok" onclick="return removeDone(this)" class="btn btn-primary">Готово</button>
 						      </div>
-
-						      
 
 						      <div class="d-flex align-items-center">
 								  <!-- <strong>Загружаются фотографии...</strong>
