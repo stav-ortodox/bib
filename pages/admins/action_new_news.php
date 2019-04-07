@@ -2,8 +2,9 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/translit.php';
-
-
+header('Content-Type: application/json; charset=utf-8');
+$response = array();
+$response['status'] = 'bad';
 
 
 // переменные статьи
@@ -24,15 +25,8 @@ $_SESSION['taxonomy'] = $taxonomy;
 $_SESSION['author'] = $author;
 $_SESSION['date'] = $date;
 $_SESSION['hidden'] = $hidden;
-$image = $_FILES['image'];
-$slide_image = $_FILES['slide_image'];
-
-// if (isset($_GET['processed']) && (! isset($_FILES) || (count($_FILES) == 0))) {
-// 	$errors[] = 'Превышен лимит общего размера загружаемых файлов!';
-// 	$_SESSION['errors'] = $errors;
-// 	header('Location: '.PATH.'pages/admins/new_news.php');
-// 	exit();
-// }
+// $image = $_FILES['image'];
+// $slide_image = $_FILES['slide_image'];
 
 
 if (empty($title) || empty($text) || empty($author) || empty($taxonomy)) {
@@ -101,43 +95,66 @@ else {
 }
 
 // загрузка изображений слайдера
-foreach ($slide_image as $key => $value) {
-	foreach ($value as $k => $v) {
-		$slide_image[$k][$key] = $v;
-	}
-	// if (count($v) > 15) {
+// foreach ($slide_image as $key => $value) {
+// 	foreach ($value as $k => $v) {
+// 		$slide_image[$k][$key] = $v;
+// 	}
+// 	unset($slide_image[$key]);
+// }
 
-	// 	exit('фото больше 15');
-	// }
-	unset($slide_image[$key]);
-}
-
-foreach ($slide_image as $k => $v) {
-	if (is_uploaded_file($slide_image[$k]['tmp_name'])) {
-		$image_tmp = $slide_image[$k]['tmp_name'];
-		$image_name = $slide_image[$k]['name'];
-		$image_size = $slide_image[$k]['size'];
-		$image_type = $slide_image[$k]['type'];
-		$image_ext = strtolower(end(explode('.', $image_name)));
-		$expensions = array("jpeg", "JPEG", "JPG", "jpg", "png");
+// foreach ($slide_image as $k => $v) {
+// 	if (is_uploaded_file($slide_image[$k]['tmp_name'])) {
+// 		$image_tmp = $slide_image[$k]['tmp_name'];
+// 		$image_name = $slide_image[$k]['name'];
+// 		$image_size = $slide_image[$k]['size'];
+// 		$image_type = $slide_image[$k]['type'];
+// 		$image_ext = strtolower(end(explode('.', $image_name)));
+// 		$expensions = array("jpeg", "JPEG", "JPG", "jpg", "png");
 		
-		if (!in_array($image_ext, $expensions)) {
-			$errors[] = 'Недопустимый формат изображения';
+// 		if (!in_array($image_ext, $expensions)) {
+// 			$errors[] = 'Недопустимый формат изображения';
+// 		}
+// 		if (empty($errors) == true) {
+// 			$name_img = 'slide-'.md5($image_name).'.jpg'; 
+// 			resize_photo($dir1, $name_img, $image_size, $image_type, $image_tmp); 
+// 			$path_image = $tr_taxonomy.'/'.$tr_title.'/'.$name_img;
+// 			$insert_sql = "INSERT INTO path_image (`id_news`, `path_image`) 
+// 			VALUES ('$id_news', '$path_image')";
+// 			mysqli_query($link, $insert_sql)or die(mysqli_error($link));
+// 		} 
+// 	} 
+// 	else {
+// 		$success[] = 'Вы не загрузили ни одного изображения в слайдер, но статья всё равно будет опубликована.';
+// 	}
+// }
+
+
+if(!empty($_FILES['file']['tmp_name'])){
+
+	for($key = 0; $key < count($_FILES['file']['tmp_name']); $key++) {
+		$upload_path = __DIR__ . "/upload/";
+		$user_filename = $_FILES['file']['name'][$key];
+		$userfile_basename = pathinfo($user_filename, PATHINFO_FILENAME);
+		$userfile_extension = pathinfo($user_filename, PATHINFO_EXTENSION);
+
+		$server_filename = $userfile_basename . "." . $userfile_extension;
+		$server_filepath = $upload_path . $server_filename;
+
+		$i = 0;
+		while (file_exists($server_filepath)) {
+		    $i++;
+		    $server_filepath = $upload_path . $userfile_basename . "($i)." . $userfile_extension;
 		}
-		if (empty($errors) == true) {
-			$name_img = 'slide-'.md5($image_name).'.jpg'; 
-			resize_photo($dir1, $name_img, $image_size, $image_type, $image_tmp); 
-			$path_image = $tr_taxonomy.'/'.$tr_title.'/'.$name_img;
-			$insert_sql = "INSERT INTO path_image (`id_news`, `path_image`) 
-			VALUES ('$id_news', '$path_image')";
-			mysqli_query($link, $insert_sql)or die(mysqli_error($link));
-		} 
-	} 
-	else {
-		$success[] = 'Вы не загрузили ни одного изображения в слайдер, но статья всё равно будет опубликована.';
+		if (copy($_FILES['file']['tmp_name'][$key], $server_filepath)) {
+			$response['status'] = 'ok';
+			$response['files'][] = $server_filename;
+		}
 	}
 }
+
 $_SESSION['success'] = $success;
 $_SESSION['errors'] = $errors;
-header('Location: '.PATH.'pages/admins/new_news.php');
+echo json_encode($response);
+
+// header('Location: '.PATH.'pages/admins/new_news.php');
 ?>

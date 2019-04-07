@@ -8,12 +8,56 @@ new_menu ();
 get_sm_sidebar ();
 page_title ('Админка');
 ?>
-<!-- <script>
 
-$('#files').on('change', function(){
-    console.log(this.files.length);
-});
-</script> -->
+<script>
+		$(document).ready(
+			function(){
+				var form = $('#myform');
+				var message = $('#myform_status');
+
+				form.on('submit', function(){
+					var formData = new FormData();
+					if(($('#myfile')[0].files).length !=0){
+						$.each($('#myfile')[0].files, function(i, file){
+							formData.append("file[" + i + "]", file);
+						});
+					}
+					else {
+						message.html('Нужно выбрать файл');
+						return false;
+					}
+					$.ajax({
+						type:"POST",
+						url:"action_new_news.php",
+						data:formData,
+						cache:false,
+						dataType:"json",
+						contentType:false,
+						processData:false,
+						beforeSend:function(){
+							console.log('Запрос начат');
+							message.text('Запрос начат');
+							form.find('input').prop("disabled", true);
+						},
+						success:function(data){
+							if(data.status == 'ok'){
+								message.text('Файлы загружены');
+								$('#myfile').val('');
+							}
+							else{
+								message.text('Что-то пошло не так!');
+							}
+						},
+						complete:function(){
+							console.log('Запрос окончен');
+							form.find('input').prop("disabled", false);
+						}
+					});
+					return false;
+				});
+			});
+		</script>
+
 <main>
 	<div class="col-sm-0 col-lg-2">
 		<?php get_sidebar (); ?>
@@ -74,17 +118,16 @@ $('#files').on('change', function(){
 									<h5>Подождите, фотографии загружаются и обрабатываются...</h5>
 								</div>
 								
-								 
-								<!-- начало формы -->
-								<form class="news_form m-auto" name="uploader" action="" method="post" multipart="" enctype="multipart/form-data">
+<!-- начало формы -->
+								<form id="myform" class="news_form m-auto" name="uploader" method="post" enctype="multipart/form-data">
 
 								
-									<!-- инпут заголовка -->
+<!-- инпут заголовка -->
 									<div class="md-form">
 										<input id="form1" name="title" class="text-center form-control" type="text" placeholder="Введите заголовок" value="<?=$_SESSION['title']?>">
 									</div>
 
-									<!-- инпут главного изображения -->
+<!-- инпут главного изображения -->
 									<label class="text-center pointer view" for="exampleFormControlFile1">
 										<div class="d-flex justify-content-center">
 											<img class="img-fluid w-25 h-25" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
@@ -96,13 +139,13 @@ $('#files').on('change', function(){
 								    <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
 									<hr>
 
-									<!-- текст новости -->
+<!-- текст новости -->
 									<div class="form-group">
 								    <label class="text-center" for="exampleFormControlTextarea1">Добавьте текст новости</label>
 								    <textarea class="form-control m-0" id="exampleFormControlTextarea1" name="text" rows="3"><?=$_SESSION['text']?></textarea>
 									</div>
 
-									<!-- категория -->
+<!-- категория -->
 									<label class="mr-sm-2 text-center" for="inlineFormCustomSelect">Выберите категорию для статьи</label>
 									<div class="d-flex flex-row justify-content-center">
 										<div>
@@ -139,7 +182,7 @@ $('#files').on('change', function(){
 											</script>
 										</div>
 
-									<!-- автор -->
+<!-- автор -->
 						      <label class="mr-sm-2 text-center mt-3" for="inlineFormCustomSelect1">Выберите автора</label>
 						      <div class="d-flex flex-row justify-content-center">
 						      <div>
@@ -176,8 +219,8 @@ $('#files').on('change', function(){
 						      	</script>
 						      </div>
 
-					      	<!-- инпут остальных изображений -->
-					      	<label class="text-center mt-5 pointer view" for="exampleFormControlFile2">
+<!-- инпут остальных изображений -->
+					      	<label class="text-center mt-5 pointer view" for="myfile">
 					      		<div class="d-flex justify-content-center">
 					      			<img class="img-fluid w-25 h-25 mr-1" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
 					      			<img class="img-fluid w-25 h-25 mr-1" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
@@ -188,10 +231,10 @@ $('#files').on('change', function(){
 					      	   <p class="white-text">Выберите изображения для слайдера <br> Максимально разрешенное кол-во - 10 шт.</p>
 					      	</div>
 					      	</label>
-					          <input type="file" class="exampleFormControlFile2 form-control-file" id="exampleFormControlFile2" name="slide_image[]" multiple>
+					          <input type="file" class="exampleFormControlFile2 form-control-file" id="myfile" name="myfile" multiple="multiple">
 					      	<hr>
 
-						      <!-- чек и сабмит -->
+<!-- чек и сабмит -->
 						      <div class="d-flex m-5">
 						      	<div class="d-flex flex-column mr-auto">
 						      		<div class="form-group row">
@@ -207,10 +250,12 @@ $('#files').on('change', function(){
 						      			</label>
 						      		</div>
 						      	</div>
-						      	<button type="submit" id="ok" onclick="return removeDone(this)" class="btn btn-primary">Готово</button>
+						      	<!-- <button type="submit" id="ok" onclick="return removeDone(this)" class="btn btn-primary">Готово</button> -->
+						      	<input type="submit">
 						      </div>
 								<hr>
 							</form>
+							<div id="myform_status"></div>
 						</div>
 					</div>
 				</div>
@@ -218,15 +263,21 @@ $('#files').on('change', function(){
 		</div>
 	</section>
 </main>
-<script>
 
-$('#exampleFormControlFile2').on('change', function(){
+<script>
+$('#myfile').on('change', function(){
     console.log(this.files.length);
 });
-
-
-  
 </script>
+
+<style>
+		
+		
+		#myform_status {
+			margin-top: 1em;
+			font-size: 0.85em;
+		}
+	</style>
 
 
 <!-- 

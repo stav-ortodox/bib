@@ -23,7 +23,6 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 	<link rel="stylesheet" type="text/css" href="<?=PATH?>slick/slick.css"/>
 	<link rel="stylesheet" type="text/css" href="<?=PATH?>slick/slick-theme.css"/>
 
-
 	<!-- Bootstrap core CSS -->
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 
@@ -34,14 +33,13 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 	<link href="/css/style.css" rel="stylesheet">
 	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 
-	<!-- carousel -->
-	
-	
 	<!-- Fonts -->
 	<link href="http://allfont.ru/allfont.css?fonts=ds-russia-demo" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Caveat|Lobster|Marck+Script|Ruslan+Display" rel="stylesheet">
+	<!-- google ajax -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 
 <body>
