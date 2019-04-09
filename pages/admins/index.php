@@ -48,7 +48,6 @@
 							console.log('Запрос окончен');
 							form.find('input').prop("disabled", false);
 						}
-
 					});
 					return false;
 				});

@@ -3,7 +3,7 @@ header('Content-Type: application/json; charset=utf-8');
 $response = array();
 $response['status'] = 'bad';
 
-var_dump($_FILES);
+
 
 if(!empty($_FILES['file']['tmp_name'])){
 
