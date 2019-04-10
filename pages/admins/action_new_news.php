@@ -123,14 +123,14 @@ $response['status'] = 'bad';
 // 	}
 // }
 
-// if (empty($title) || empty($text) || empty($author) || empty($taxonomy)) {
-// 	$response['status'] = 'bad';
-// 	$response['errors'] = 'Внимательно проверьте заполненность всех полей!';
-// 	echo json_encode($response);
-// 	exit();
-// }
+if (empty($title) || empty($text) || empty($author) || empty($taxonomy)) {
+	$response['status'] = 'bad';
+	$response['errors'] = 'Внимательно проверьте заполненность всех полей!';
+	echo json_encode($response);
+	exit();
+}
 
-elseif(!empty($_FILES['file']['tmp_name'])){
+if(!empty($_FILES['file']['tmp_name'])){
 
 		for($key = 0; $key < count($_FILES['file']['tmp_name']); $key++) {
 			$upload_path = __DIR__ . "/upload/";
