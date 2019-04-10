@@ -7,25 +7,25 @@ $response = array();
 $response['status'] = 'bad';
 
 // переменные статьи
-unset($_SESSION['errors']);
-$title = $_POST['title'];
-$text = $_POST['text'];
-$author = $_POST["author"];
-$taxonomy = $_POST['taxonomy'];
-$date = $_POST["date"];
-$hidden = $_POST["hidden"];
-$ok = $_POST["ok"];
-$errors = array();
-$success = array();
-$_SESSION['success'] = $success;
-$_SESSION['title'] = $title;
-$_SESSION['text'] = $text;
-$_SESSION['taxonomy'] = $taxonomy;
-$_SESSION['author'] = $author;
-$_SESSION['date'] = $date;
-$_SESSION['hidden'] = $hidden;
-$image = $_FILES['image'];
-$slide_image = $_FILES['slide_image'];
+// unset($_SESSION['errors']);
+// $title = $_POST['title'];
+// $text = $_POST['text'];
+// $author = $_POST["author"];
+// $taxonomy = $_POST['taxonomy'];
+// $date = $_POST["date"];
+// $hidden = $_POST["hidden"];
+// $ok = $_POST["ok"];
+// $errors = array();
+// $success = array();
+// $_SESSION['success'] = $success;
+// $_SESSION['title'] = $title;
+// $_SESSION['text'] = $text;
+// $_SESSION['taxonomy'] = $taxonomy;
+// $_SESSION['author'] = $author;
+// $_SESSION['date'] = $date;
+// $_SESSION['hidden'] = $hidden;
+// $image = $_FILES['image'];
+// $slide_image = $_FILES['slide_image'];
 
 
 
@@ -123,12 +123,12 @@ $slide_image = $_FILES['slide_image'];
 // 	}
 // }
 
-if (empty($title) || empty($text) || empty($author) || empty($taxonomy)) {
-	$response['status'] = 'bad';
-	$response['errors'] = 'Внимательно проверьте заполненность всех полей!';
-	echo json_encode($response);
-	exit();
-}
+// if (empty($title) || empty($text) || empty($author) || empty($taxonomy)) {
+// 	$response['status'] = 'bad';
+// 	$response['errors'] = 'Внимательно проверьте заполненность всех полей!';
+// 	echo json_encode($response);
+// 	exit();
+// }
 
 elseif(!empty($_FILES['file']['tmp_name'])){
 

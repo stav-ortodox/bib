@@ -6,64 +6,61 @@ get_header_site ('Библиотека', 'Электронная библиот�
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
 <script>
-		$(document).ready(
-			function(){
-				var form = $('#myform');
-				var message = $('#myform_status');
+$(document).ready(
+	function(){
+		var form = $('#myform');
+		var message = $('#myform_status');
 
-				form.on('submit', function(){
-					var formData = new FormData();
-					if(($('#myfile')[0].files).length !=0){
-						$.each($('#myfile')[0].files, function(i, file){
-							formData.append("file[" + i + "]", file);
-						});
-					}
-					else {
-						message.html('Нужно выбрать файл');
-						return false;
-					}
-					$.ajax({
-						type:"POST",
-						url:"action_new_news.php",
-						data:formData,
-						cache:false,
-						dataType:"json",
-						contentType:false,
-						processData:false,
-						beforeSend:function(){
-							// console.log('Запрос начат');
-							message.text('Запрос начат');
-							form.find('input').prop("disabled", true);
-							var el1 = document.getElementById("form-preloader");
-							el1.classList.remove("done"); // удалить класс «class-name»
-							var el2 = document.getElementById("text-preloader");
-							el2.classList.remove("done1");
-							$('#myfile').on('change', function(){
-							    console.log(this.files.length);
-							});
-						},
-						success:function(data){
-							if(data.status == 'ok'){
-								message.text('Файлы загружены');
-								$('#myfile').val('');
-							}
-							else{
-								alert(data.errors);
-							}
-						},
-						complete:function(){
-							// console.log('Запрос окончен');
-							form.find('input').prop("disabled", false);
-							var el1 = document.getElementById("form-preloader");
-							el1.classList.add("done"); // удалить класс «class-name»
-							var el2 = document.getElementById("text-preloader");
-							el2.classList.add("done1");
-						}
-					});
-					return false;
+		form.on('submit', function(){
+			var formData = new FormData();
+			if(($('#myfile')[0].files).length !=0){
+				$.each($('#myfile')[0].files, function(i, file){
+					formData.append("file[" + i + "]", file);
 				});
+			}
+			else {
+				message.html('Нужно выбрать файл');
+				return false;
+			}
+			$.ajax({
+				type:"POST",
+				url:"action_new_news.php",
+				data:formData,
+				cache:false,
+				dataType:"json",
+				contentType:false,
+				processData:false,
+				beforeSend:function(){
+					// console.log('Запрос начат');
+					message.text('Запрос начат');
+					form.find('input').prop("disabled", true);
+					var el1 = document.getElementById("form-preloader");
+					el1.classList.remove("done"); // удалить класс «class-name»
+					var el2 = document.getElementById("text-preloader");
+					el2.classList.remove("done1");
+				},
+				success:function(data){
+					if(data.status == 'ok'){
+						alert('Файлы загружены');
+						$('#myfile').val('');
+					}
+					else{
+						alert(data.errors);
+					}
+				},
+				complete:function(){
+					// console.log('Запрос окончен');
+					form.find('input').prop("disabled", false);
+					var el1 = document.getElementById("form-preloader");
+					el1.classList.add("done"); // удалить класс «class-name»
+					var el2 = document.getElementById("text-preloader");
+					el2.classList.add("done1");
+				}
 			});
-		</script><?
+			return false;
+		});
+	});
+</script><?
 new_menu ();
 // get_sm_menu ();
 get_sm_sidebar ();
@@ -80,9 +77,9 @@ page_title ('Админка');
 		<div class="row">
 			<div class="content m-auto w-90">
 				
-					<!-- <?php 
+					<?php 
 					if (!empty($_SESSION['errors'])) {?>
-						<div id="myform_status" class="error">
+						<div class="error">
 							<p>НЕ УДАЛОСЬ СФОРМИРОВАТЬ СТАТЬЮ!</p><hr>
 							<ol><?
 						foreach ($_SESSION['errors'] as $row) {?>
@@ -109,7 +106,7 @@ page_title ('Админка');
 								<?}?>
 						</ul>
 					</div>
-									<?}?> -->
+					<?}?>
 					
 				<div class="row">
 					<div class="new_news mt-4">
@@ -270,7 +267,7 @@ page_title ('Админка');
 						      </div>
 								<hr>
 							</form>
-							<!-- <div id="myform_status"></div> -->
+							<div id="myform_status"></div>
 						</div>
 					</div>
 				</div>
@@ -280,19 +277,17 @@ page_title ('Админка');
 </main>
 
 <script>
-// $('#myfile').on('change', function(){
-//     console.log(this.files.length);
-// });
+	$('#myfile').on('change', function(){
+	    console.log(this.files.length);
+	});
 </script>
 
 <style>
-		
-		
-		#myform_status {
-			margin-top: 1em;
-			font-size: 0.85em;
-		}
-	</style>
+	#myform_status {
+		margin-top: 1em;
+		font-size: 0.85em;
+	}
+</style>
 
 
 <!-- 
