@@ -2,65 +2,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
-get_header_site ('Библиотека', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-
-<script>
-$(document).ready(
-	function(){
-		var form = $('#myform');
-		var message = $('#myform_status');
-
-		form.on('submit', function(){
-			var formData = new FormData();
-			if(($('#myfile')[0].files).length !=0){
-				$.each($('#myfile')[0].files, function(i, file){
-					formData.append("file[" + i + "]", file);
-				});
-			}
-			else {
-				message.html('Нужно выбрать файл');
-				return false;
-			}
-			$.ajax({
-				type:"POST",
-				url:"action_new_news.php",
-				data:formData,
-				cache:false,
-				dataType:"json",
-				contentType:false,
-				processData:false,
-				beforeSend:function(){
-					// console.log('Запрос начат');
-					message.text('Запрос начат');
-					form.find('input').prop("disabled", true);
-					var el1 = document.getElementById("form-preloader");
-					el1.classList.remove("done"); // удалить класс «class-name»
-					var el2 = document.getElementById("text-preloader");
-					el2.classList.remove("done1");
-				},
-				success:function(data){
-					if(data.status == 'ok'){
-						alert('Файлы загружены');
-						$('#myfile').val('');
-					}
-					else{
-						alert(data.errors);
-					}
-				},
-				complete:function(){
-					// console.log('Запрос окончен');
-					form.find('input').prop("disabled", false);
-					var el1 = document.getElementById("form-preloader");
-					el1.classList.add("done"); // удалить класс «class-name»
-					var el2 = document.getElementById("text-preloader");
-					el2.classList.add("done1");
-				}
-			});
-			return false;
-		});
-	});
-</script><?
+get_header_site ('Библиотека', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
 new_menu ();
 // get_sm_menu ();
 get_sm_sidebar ();
@@ -114,12 +56,12 @@ page_title ('Админка');
 							<div class="card mb-3 grey">
 
 								<script>
-									// function removeDone(el) {
-									// 	var el1 = document.getElementById("form-preloader");
-									// 	el1.classList.remove("done"); // удалить класс «class-name»
-									// 	var el2 = document.getElementById("text-preloader");
-									// 	el2.classList.remove("done1");
-									// }
+									function removeDone(el) {
+										var el1 = document.getElementById("form-preloader");
+										el1.classList.remove("done"); // удалить класс «class-name»
+										var el2 = document.getElementById("text-preloader");
+										el2.classList.remove("done1");
+									}
 								</script>
 
 								<div class="preloader done" id="form-preloader">
@@ -130,7 +72,7 @@ page_title ('Админка');
 								</div>
 								
 <!-- начало формы -->
-								<form id="myform" class="news_form m-auto" name="uploader" method="post" enctype="multipart/form-data">
+								<form class="news_form m-auto" action="action_new_news.php" method="POST" enctype="multipart/form-data">
 
 								
 <!-- инпут заголовка -->
@@ -173,7 +115,7 @@ page_title ('Админка');
 												</select>
 											</div>
 											<div>
-											<input class="form-control" id="val" placeholder="Введите свой вариант">
+											<input class="form-control" id="val" name="taxonomy" placeholder="Введите свой вариант">
 											<button class="btn btn-success m-0 p-0 pr-1 pl-1" id="but" type="button" onclick="insertValue();">Добавить!</button>
 											</div>
 											<script>
@@ -231,7 +173,7 @@ page_title ('Админка');
 						      </div>
 
 <!-- инпут остальных изображений -->
-					      	<label class="text-center mt-5 pointer view" for="myfile">
+					      	<label class="text-center mt-5 pointer view" for="exampleFormControlFile2">
 					      		<div class="d-flex justify-content-center">
 					      			<img class="img-fluid w-25 h-25 mr-1" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
 					      			<img class="img-fluid w-25 h-25 mr-1" src="/images/341acbc6-a2da-467d-81b3-8ec7269ed109.jfif" alt="">
@@ -242,7 +184,7 @@ page_title ('Админка');
 					      	   <p class="white-text">Выберите изображения для слайдера <br> Максимально разрешенное кол-во - 10 шт.</p>
 					      	</div>
 					      	</label>
-					          <input type="file" class="exampleFormControlFile2 form-control-file" id="myfile" name="myfile" multiple="multiple">
+					          <input type="file" id="exampleFormControlFile2" class="exampleFormControlFile2 form-control-file" name="slide_image" multiple="multiple">
 					      	<hr>
 
 <!-- чек и сабмит -->
@@ -261,9 +203,9 @@ page_title ('Админка');
 						      			</label>
 						      		</div>
 						      	</div>
-						      	<button type="submit" id="ok" class="btn btn-primary">Готово</button>
-						      	<!-- <button type="submit" id="ok" onclick="return removeDone(this)" class="btn btn-primary">Готово</button> -->
-						      	<!-- <input type="submit"> -->
+						      	
+						      	<button type="submit" id="ok" onclick="return removeDone(this)" class="btn btn-primary">Готово</button>
+						      	
 						      </div>
 								<hr>
 							</form>
@@ -282,12 +224,6 @@ page_title ('Админка');
 	});
 </script>
 
-<style>
-	#myform_status {
-		margin-top: 1em;
-		font-size: 0.85em;
-	}
-</style>
 
 
 <!-- 
