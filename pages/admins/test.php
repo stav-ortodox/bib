@@ -1,5 +1,8 @@
 <?php 
 header('Content-Type: application/json; charset=utf-8');
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/translit.php';
 $response = array();
 $response['status'] = 'bad';
 

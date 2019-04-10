@@ -1,41 +1,35 @@
 <?php 
+header('Content-Type: application/json; charset=utf-8');
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/translit.php';
-header('Content-Type: application/json; charset=utf-8');
 $response = array();
 $response['status'] = 'bad';
-var_dump($_FILES);
-exit();
 
 // переменные статьи
-// unset($_SESSION['errors']);
-// $title = $_POST['title'];
-// $text = $_POST['text'];
-// $author = $_POST["author"];
-// $taxonomy = $_POST['taxonomy'];
-// $date = $_POST["date"];
-// $hidden = $_POST["hidden"];
-// $ok = $_POST["ok"];
-// $errors = array();
-// $success = array();
-// $_SESSION['success'] = $success;
-// $_SESSION['title'] = $title;
-// $_SESSION['text'] = $text;
-// $_SESSION['taxonomy'] = $taxonomy;
-// $_SESSION['author'] = $author;
-// $_SESSION['date'] = $date;
-// $_SESSION['hidden'] = $hidden;
-// $image = $_FILES['image'];
-// $slide_image = $_FILES['slide_image'];
+unset($_SESSION['errors']);
+$title = $_POST['title'];
+$text = $_POST['text'];
+$author = $_POST["author"];
+$taxonomy = $_POST['taxonomy'];
+$date = $_POST["date"];
+$hidden = $_POST["hidden"];
+$ok = $_POST["ok"];
+$errors = array();
+$success = array();
+$_SESSION['success'] = $success;
+$_SESSION['title'] = $title;
+$_SESSION['text'] = $text;
+$_SESSION['taxonomy'] = $taxonomy;
+$_SESSION['author'] = $author;
+$_SESSION['date'] = $date;
+$_SESSION['hidden'] = $hidden;
+$image = $_FILES['image'];
+$slide_image = $_FILES['slide_image'];
 
 
-// if (empty($title) || empty($text) || empty($author) || empty($taxonomy)) {
-// 	$errors[] = 'Внимательно проверьте заполненность всех полей!';
-// 	$_SESSION['errors'] = $errors;
-// 	header('Location: '.PATH.'pages/admins/new_news.php');
-// 	exit();
-// }
+
+
 
 // переводим в транслит название категории и статьи
 // $tr_title = str2url($title);
@@ -129,32 +123,38 @@ exit();
 // 	}
 // }
 
-
-if(!empty($_FILES['file']['tmp_name'])){
-
-	for($key = 0; $key < count($_FILES['file']['tmp_name']); $key++) {
-		$upload_path = __DIR__ . "/upload/";
-		$user_filename = $_FILES['file']['name'][$key];
-		$userfile_basename = pathinfo($user_filename, PATHINFO_FILENAME);
-		$userfile_extension = pathinfo($user_filename, PATHINFO_EXTENSION);
-
-		$server_filename = $userfile_basename . "." . $userfile_extension;
-		$server_filepath = $upload_path . $server_filename;
-
-		$i = 0;
-		while (file_exists($server_filepath)) {
-		    $i++;
-		    $server_filepath = $upload_path . $userfile_basename . "($i)." . $userfile_extension;
-		}
-		if (copy($_FILES['file']['tmp_name'][$key], $server_filepath)) {
-			$response['status'] = 'ok';
-			$response['files'][] = $server_filename;
-		}
-	}
+if (empty($title) || empty($text) || empty($author) || empty($taxonomy)) {
+	$response['status'] = 'bad';
+	$response['errors'] = 'Внимательно проверьте заполненность всех полей!';
+	echo json_encode($response);
+	exit();
 }
 
-$_SESSION['success'] = $success;
-$_SESSION['errors'] = $errors;
+elseif(!empty($_FILES['file']['tmp_name'])){
+
+		for($key = 0; $key < count($_FILES['file']['tmp_name']); $key++) {
+			$upload_path = __DIR__ . "/upload/";
+			$user_filename = $_FILES['file']['name'][$key];
+			$userfile_basename = pathinfo($user_filename, PATHINFO_FILENAME);
+			$userfile_extension = pathinfo($user_filename, PATHINFO_EXTENSION);
+
+			$server_filename = $userfile_basename . "." . $userfile_extension;
+			$server_filepath = $upload_path . $server_filename;
+
+			$i = 0;
+			while (file_exists($server_filepath)) {
+			    $i++;
+			    $server_filepath = $upload_path . $userfile_basename . "($i)." . $userfile_extension;
+			}
+			if (copy($_FILES['file']['tmp_name'][$key], $server_filepath)) {
+				$response['status'] = 'ok';
+				$response['files'][] = $server_filename;
+			}
+		}
+	}
+
+// $_SESSION['success'] = $success;
+// $_SESSION['errors'] = $errors;
 echo json_encode($response);
 
 // header('Location: '.PATH.'pages/admins/new_news.php');
