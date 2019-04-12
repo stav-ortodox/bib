@@ -49,10 +49,13 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 		</div>
 
 
-	<!-- <header id="header" class="container">
+	<header id="header" class="container-fluid">
 		<img id="logo_2" src="/images/logo.png" alt="">
-		<img class="card" id="logo_3" src="/images/iconPanteleimon.jpg" alt="">
-	</header> -->
+		<p class="text-center">Русская Православная Церковь (Московский Патриархат)</p>
+		<p class="text-center">Ставропольская и Невинномысская Епархия</p>
+		<p class="text-center">Храм святого Великомученика и Целителя Пантелеимона г. Ставрополя</p>
+		<img class="img-thumbnail img-fluid" id="logo_3" src="/images/iconPanteleimon.jpg" alt="">
+	</header>
 
 	<div class="container header_site">
 		<div class="logo_block">

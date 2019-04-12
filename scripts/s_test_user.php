@@ -16,6 +16,8 @@ if (empty($login) or empty($password)) //если пользователь не 
 //удаляем лишние пробелы
     $login = trim($login);
     $password = trim($password);
+    $errors = array();
+    $success = array();
 
  
     $result = mysqli_query($link, "SELECT * FROM users WHERE login='$login'"); //извлекаем из базы все данные о пользователе с ввеливеденным логином
@@ -23,7 +25,10 @@ if (empty($login) or empty($password)) //если пользователь не 
     if (empty($myrow['password']))
     {
     //если пользователя с введенным логином не существует
-    exit ("Извините, введённый вами login или пароль неверный.");
+    $errors[] = "Извините, введённый вами login или пароль неверный.";
+    $_SESSION['errors'] = $errors;
+    header('Location: '.PATH.'pages/p_login.php');
+    exit();
     }
     else {
     //если существует, то сверяем пароли
@@ -31,12 +36,16 @@ if (empty($login) or empty($password)) //если пользователь не 
     //если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
     $_SESSION['login']=$myrow['login']; 
     $_SESSION['id']=$myrow['id'];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
+    $success = 'ok';
+    $_SESSION['success'] = $success;
     header('Location: /index.php');
     }
     else {
     //если пароли не сошлись
-
-    exit ("Извините, введённый вами login или пароль неверный.");
+    $errors[] = "Извините, введённый вами login или пароль неверный.";
+    $_SESSION['errors'] = $errors;
+    header('Location: '.PATH.'pages/p_login.php');
+    exit();
     }
     }
     ?>

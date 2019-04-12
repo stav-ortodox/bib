@@ -8,10 +8,17 @@ get_sm_menu ();
 new_menu ();?>
 
 <main>
+
       <div class="col-sm-0 col-lg-2">
        <?php get_sidebar (); ?>
       </div>
-  <section class="container">
+  <section class="container"><?
+    if (!empty($_SESSION['success'])) {?>
+            <div class="success">
+              <p>Добро пожаловать <?=$_SESSION['login']?>!</p><hr>
+            </div>
+            <?}
+            unset($_SESSION['success'])?>
     <!-- блок что нового? -->
     <div>
       <div class="page_title rasporka"><h2>Последние публикации</h2></div>

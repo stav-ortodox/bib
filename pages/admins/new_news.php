@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 get_header_site ('Библиотека', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
 new_menu ();
-get_sm_menu ();
+// get_sm_menu ();
 get_sm_sidebar ();
 page_title ('Добавление новости');
 ?>
