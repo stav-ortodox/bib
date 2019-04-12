@@ -1,10 +1,6 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 
-// echo "<pre>";
-// var_dump($_REQUEST);
-// echo "</pre>";
-
 $id_pb = (int)$_REQUEST['id_pb'];
 $pub_name = trim(htmlentities($_REQUEST['pub_name']));
 $pub_description = trim(htmlentities($_REQUEST['pub_description']));
@@ -16,11 +12,9 @@ $query = ("SELECT block_name FROM publishing_blocks WHERE id = $id_pb");
 $result = mysqli_query($link, $query);
 $row = mysqli_fetch_assoc($result);
 $name_pb = $row["block_name"]; 
-
-
+$errors = array();
 
 if (isset($_FILES['pub_image'])) {
-	$errors = array();
 	$file_name = $_FILES['pub_image']['name'];
 	$file_size = $_FILES['pub_image']['size'];
 	$file_tmp = $_FILES['pub_image']['tmp_name'];
@@ -33,9 +27,9 @@ if (isset($_FILES['pub_image'])) {
 			}
 
 			if (empty($errors) == true) {
-				$upload_dir = '../../images/biblioteka/publishing_blocks/';
-				$name_img = $upload_dir.date('YmdHis').rand(100,1000).'.jpg'; // 
-				$mov = move_uploaded_file($_FILES['pub_image']['tmp_name'],$name_img);
+				$upload_dir = '../../images/biblioteka/publishing_posts/';
+				$name_img = $upload_dir.date('YmdHis').rand(100,1000).'.jpg';
+				$mov = move_uploaded_file($file_tmp, $name_img);
 					
 			} else {
 				echo "<pre>";
@@ -52,7 +46,7 @@ if (isset($_FILES['pub_file'])) {
 	$file_tmp_file = $_FILES['pub_file']['tmp_name'];
 	$file_type_file = $_FILES['pub_file']['type'];
 	$file_ext_file = strtolower(end(explode('.', $_FILES['pub_file']['name'])));
-	$expensions_file = array("jpeg", "jpg", "png");
+	$expensions_file = array("pdf");
 
 			if ($file_size_file > 3097152) {
 				$errors_file[] = 'Файл должен быть не более 3 мб';
@@ -60,8 +54,8 @@ if (isset($_FILES['pub_file'])) {
 
 			if (empty($errors) == true) {
 				$upload_file_dir = '../../images/biblioteka/publishing_files/';
-				$name_file = $upload_file_dir.date('YmdHis').rand(100,1000).'.jpg'; // 
-				$mov_file = move_uploaded_file($_FILES['pub_file']['tmp_name'],$name_file);
+				$name_file = $upload_file_dir.date('YmdHis').rand(100,1000).'.pdf'; 
+				$mov_file = move_uploaded_file($file_tmp_file, $name_file);
 					
 			} else {
 				echo "<pre>";
@@ -86,9 +80,7 @@ $insert_sql = sprintf("INSERT INTO publishing_post (block_id, block_name, pub_na
 mysqli_query($link, $insert_sql) or die(mysqli_connect_error($link));
 $id = mysqli_insert_id($link);
 
-// var_dump($_POST);
-// exit();
-// Redirect the user to the page that displays user information
+
 header("Location: /pages/biblioteka/p_publishing_page.php?id=$id_pb");
 
 exit('!');

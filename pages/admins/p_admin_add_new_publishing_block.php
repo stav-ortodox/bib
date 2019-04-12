@@ -1,12 +1,11 @@
 <?php 
-session_start();
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';  
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_biblioteka_functions.php';
 
 
 get_header_site ('Добавление нового блока издания', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
-get_menu ();
+new_menu ();
 // get_sidebar ();
 page_title ('Добавление нового блока издания');
 
@@ -16,7 +15,7 @@ get_open_form ("/pages/admins/s_admin_add_new_publishing_block.php", "POST", "В
 		<input type="text" name="block_name" >
 
 		<label for="block_description">Описание нового блока издания:</label>
-		<input type="text" name="block_description">
+		<textarea name="block_description" id="" cols="30" rows="5"></textarea>
 
 		<label for="block_hidden">Тип хранения данных:</label>
 		<p><input type="radio" name="block_hidden" value="0" checked>Доступный</p>

@@ -251,18 +251,19 @@ table td {
   text-align: center; }
 
 .img_edit {
+  display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flex;
   display: -o-flex;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  border: solid 1px lime;
   margin-bottom: 20px;
-  width: 200px; }
+  /*width: 200px; */
+}
+
+.img_edit img {
+  /*margin-left: auto;*/
+}
 
 #input_file:hover {
   border-radius: 2px;
@@ -548,7 +549,6 @@ table td {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  max-width: 80%;
   max-height: 500px; }
 
 .pub-block-wrap td, table {

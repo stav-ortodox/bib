@@ -521,16 +521,15 @@ function taplate_pb () {
 				else {
 					continue(1);
 				}
-
 			} 
 	?>
-	<div class='col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center'>
+	<div class='col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center mb-5'>
 		<div class='card pub-block'>
 			<div class='no_error' style='<?= $color . $border ?>'><strong><?=$no_error?></strong><br><?=$edit?><br><?=$delete?></div>
 			<table class='pub-block-wrap card-title-block-color'>
 				<tbody>
 					<tr>
-						<td class=''><h4 class='card-title-my'><?=$name_pb?></h4></td>
+						<td><h4 class='card-title-my'><?=$name_pb?></h4></td>
 					</tr> 
 				</tbody>
 			</table>

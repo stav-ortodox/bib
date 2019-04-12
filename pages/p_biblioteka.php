@@ -8,9 +8,7 @@ get_header_site ('Библиотека', 'Электронная библиот�
 new_menu ();
 // get_sm_menu ();
 get_sm_sidebar ();
-page_title ('Издания нашего храма');
-
-?>
+page_title ('Издания нашего храма');?>
 
 <main>
 	<div class="col-sm-0 col-lg-2">
@@ -22,15 +20,9 @@ page_title ('Издания нашего храма');
 
 				<div class="content">
 					<div class="row">
-
-				<?php 
-				// функция выводит блоки издания
-					taplate_pb ();
-				?>
-				
+						<?php taplate_pb ();?>
 					</div>
 				</div>
-			
 		</div>
 	</section>
 </main>

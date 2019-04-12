@@ -13,14 +13,12 @@
 		<div class='view overlay'>
 
 			<img class='img-fluid m-0 p-0' src=/<?=$image_pp?> alt=''>
-			<img class='img-fluid m-0 p-0' src=/<?=$image_pf?> alt=''>
 
 			<a href='/pages/biblioteka/p_opened_post.php?id=<?=$id_pp?>'>
 				<div class='mask rgba-stylish-light'></div>
 			</a>
 		</div>
 		<div class='card-body card-title-color'>
-			
 			<table class='pub-block-wrap'>
 				<tbody>
 					<tr>
