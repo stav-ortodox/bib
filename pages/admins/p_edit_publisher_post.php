@@ -1,5 +1,4 @@
-<?php 
-session_start(); 
+<?php  
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php'; 
 // require_once $_SERVER['DOCUMENT_ROOT'].'/pages/admins/s_edit_publisher_post.php';   

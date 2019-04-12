@@ -4,6 +4,22 @@
        <?php get_sidebar (); ?>
      </div>
      <section class="container m-auto">
+      <?php 
+        if (!empty($_SESSION['success'])) {?>
+        <div class="success">
+          <p>ГОТОВО!</p><hr>
+          <ul><?
+          foreach ($_SESSION['success'] as $row) {?>
+            <li>
+              <?=$row;
+              unset($_SESSION['success']);?>
+            </li>
+            <br>
+            <?}?>
+          </ul>
+        </div>
+        <?}?>
+
       <!-- блок что нового? -->
       <div>
         <div class="page_title text-center"><h2><?=$title?></h2></div>
@@ -17,7 +33,9 @@
           <div class="view overlay big_news_img z-depth-2">
             <img class="img-fluid" src="<?=PATH.'images/news/'.$image?>" alt="Card image cap">
             <a>
-              <div class="mask rgba-white-slight"></div>
+              <div class="mask rgba-white-slight">
+                <?php btn_edit($_GET['id']) ?>
+              </div>
             </a>
           </div>
 

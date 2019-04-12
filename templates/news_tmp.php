@@ -12,7 +12,7 @@ if ($_SERVER["SCRIPT_NAME"] == '/index.php') {
   $row = mysqli_fetch_assoc($result);
   $taxonomy = $row['taxonomy'];
   $query = ("SELECT * FROM news WHERE taxonomy = '$taxonomy' ORDER BY id DESC");
-}
+} 
 
 $result = mysqli_query($link, $query);
 
@@ -46,10 +46,13 @@ foreach ($result as $row) {
     <div class="d-flex flex-row mdb-color lighten-5">
 
       <div class="news_img">
+       
         <a href="<?=PATH?>pages/p_big_news.php?id=<?=$id?>">
         <img class="" src="<?=PATH.'images/news/'.$image?>" alt="Card image cap">
         
-        <div class="mask rgba-white-slight"></div>
+        <div class="mask rgba-white-slight"> 
+        
+        </div>
         </a>
       </div>
       <div class="d-flex flex-column">
@@ -80,6 +83,7 @@ foreach ($result as $row) {
         <li class="list-inline-item white-text pr-2"><i class="fab fa-facebook-f pr-1"> </i><?=$repost_fb?></li>
         <li class="list-inline-item white-text "><i class="fab fa-vk pr-1"></i><?=$repost_vk?></li>
       </ul>
+      <?php btn_edit($id) ?>
     </div>
 
   </div>

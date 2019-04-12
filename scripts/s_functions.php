@@ -20,8 +20,6 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 	
 	<!-- <script type="text/javascript" src="<?=PATH?>js/my_js.js"></script> -->
 	<script type="text/javascript" src="<?=PATH?>js/jquery-3.3.1.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="<?=PATH?>slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="<?=PATH?>slick/slick-theme.css"/>
 
 	<!-- Bootstrap core CSS -->
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -31,6 +29,7 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 
 	<!-- Your custom styles (optional) -->
 	<link href="/css/style.css" rel="stylesheet">
+	<link href="<?=PATH?>css/dropzone.css" rel="stylesheet">
 	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 
 	<!-- Fonts -->
@@ -201,7 +200,7 @@ EOD;
 						<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить блок издания</p></a></li>
 						<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить единицу издания</p></a></li>
 						<li><a href='<?=PATH?>/pages/admins/new_news.php'><p>Добавить новость</p></a></li>
-						<li><a href='<?=PATH?>/pages/admins/index.php'><p>Редактировать новость</p></a></li>
+						<li><a href='<?=PATH?>/pages/admins/edit_news.php'><p>Редактировать новость</p></a></li>
 					</ul>
 					<ul>
 						<h4 class='text-center'>Документы</h4>
@@ -249,7 +248,7 @@ EOD;
 			<li><a href='/pages/admins/p_admin_add_new_publishing_block.php'><p>Добавить блок издания</p></a></li>
 			<li><a href='/pages/admins/p_admin_add_new_publishing_post.php'><p>Добавить единицу издания</p></a></li>
 			<li><a href='<?=PATH?>/pages/admins/new_news.php'><p>Добавить новость</p></a></li>
-			<li><a href='<?=PATH?>/pages/admins/index.php'><p>Редактировать новость</p></a></li>
+			<li><a href='<?=PATH?>/pages/admins/edit_news.php'><p>Редактировать новость</p></a></li>
 			</ul>
 			<hr>
 			<ul>
@@ -294,6 +293,115 @@ function admin () {
 		exit();
 	} 
 }
+
+
+// *************************************************************************
+
+
+// редактирование
+function btn_edit ($id) {
+global $link;
+if ($_SESSION['id'] == 1) {?>
+  <button type="button" class="btn btn-warning btn-edit" onclick="function(); return false;" data-toggle="modal" data-target="#basicExampleModal<?=$id?>"><i class="fas fa-edit fa-lg"></i></button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="basicExampleModal<?=$id?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Редактор статьи</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <?php 
+          
+            $query = ("SELECT * FROM news WHERE id = '$id'");
+          	$result = mysqli_query($link, $query);
+          	$row = mysqli_fetch_assoc($result);
+          	$_SESSION['id_news'] = $id;
+          	
+          ?>
+
+          <!-- <p>Изображение статьи</p> -->
+         <!--  <label class="pointer" for="<?=$row['id']?>">Изображение статьи</label>
+          <img src="<?=PATH.'images/news/'.$row['image']?>" alt="thumbnail" class="img-thumbnail pointer"
+  style="width: 200px"> -->
+  				
+  				<p>Изображение статьи</p>
+					<div class="md-form">
+	          <div id="new_upload<?=$row['id']?>" class="upload"></div>
+	        </div>
+          
+          <p>Название статьи</p>
+					<div class="md-form">
+	          <textarea type="text" id="form8" class="form-control" rows="2"><?=$row['title']?></textarea>
+	        </div>
+
+	        <p>Текст статьи</p>
+					<div class="md-form">
+	          <textarea type="text" id="form8" class="form-control" rows="4"><?=$row['n_text']?></textarea>
+	        </div>
+
+	        <p>Автор статьи</p>
+					<div class="md-form">
+	          <input type="text" class="form-control" value="<?=$row['author']?>">
+	        </div>
+
+	        <p>Категория статьи</p>
+					<div class="md-form">
+	          <input type="text" class="form-control" value="<?=$row['taxonomy']?>">
+	        </div>
+          
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          <button type="submit" name="go" class="btn btn-primary">Сохранить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-danger btn-delete"><a href="http://bib/pages/admins/delete_news.php?id=<?=$id?>"><i class="fas fa-trash-alt fa-lg"></i></a></button>
+
+
+ <script type="text/javascript" src="<?=PATH?>js/dropzone.js"></script>
+ <script>
+
+ 	// Dropzone class:
+ 	var myDropzone = new Dropzone('div#new_upload<?=$id?>', { 
+	paramName: "file",
+	url: "http://bib/pages/admins/edit_news.php",
+	maxFiles: 1,
+	acceptedFiles: '.jpg',
+	success: function (file, responce) {
+
+		var id_news = '<?=$id?>';
+		console.log(file);
+		console.log(responce);
+		console.log(id_news);
+	},
+	init: function() {
+		$(this.element).html(this.options.dictDefaultMessage);
+	},
+	processing: function()
+	{
+		$('.dz-message').remove();
+	},
+	dictDefaultMessage: 
+	'<div class="dz-message">Нажмите здесь или перетащите сюда новое изображение статьи</div>',
+	dictMaxFilesExceeded: 'Можно выбрать только {{maxFiles}} файл'
+});
+
+ </script>
+ 	<?php 
+ }
+}
+
 
 // *************************************************************************
 
@@ -356,7 +464,9 @@ function get_footer () {?>
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- <script type="text/javascript" src="<?=PATH?>js/dropzone.js"></script> -->
 <script type="text/javascript" src="<?=PATH?>js/my_js.js"></script>
+
 </body>
 </html>
 <?}
@@ -659,6 +769,11 @@ function big_news() {
 
 	include $_SERVER['DOCUMENT_ROOT'].'/templates/big_news_tmp.php';
 }
+
+// редактирование новости
+function edit_news() {?>
+	
+<?}
 
 // счётчик просмотров
 function views_update($table, $id) {

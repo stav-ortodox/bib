@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/translit.php';
 
-// arr($_POST['title']);
+// arr($_POST);
 // exit();
 // переменные статьи
 unset($_SESSION['errors']);
@@ -29,8 +29,9 @@ $slide_image = $_FILES['slide_image'];
 
 
 if (empty($title) || empty($text) || empty($author) || empty($taxonomy)) {
-	$errors[] = 'Недопустимый формат изображения';
+	$errors[] = 'Не все поля заполнены!';
 	$_SESSION['errors'] = $errors;
+	header('Location: '.PATH.'pages/admins/new_news.php');
 	exit();
 }
 
@@ -40,11 +41,11 @@ $tr_title = str2url($title);
 if (strlen($tr_title)>25) {
 	$tr_title = mb_substr(strip_tags($tr_title), 0, 25, 'utf-8');
 }
-$tr_taxonomy = str2url($taxonomy);
-$_SESSION['tr_taxonomy'] = $tr_taxonomy;
-$_SESSION['tr_title'] = $tr_title;
-$dir = $_SERVER['DOCUMENT_ROOT'].'/images/news/'.$tr_taxonomy;
-$dir1 = $_SERVER['DOCUMENT_ROOT'].'/images/news/'.$tr_taxonomy.'/'.$tr_title.'/';
+	$tr_taxonomy = str2url($taxonomy);
+	$_SESSION['tr_taxonomy'] = $tr_taxonomy;
+	$_SESSION['tr_title'] = $tr_title;
+	$dir = $_SERVER['DOCUMENT_ROOT'].'/images/news/'.$tr_taxonomy;
+	$dir1 = $_SERVER['DOCUMENT_ROOT'].'/images/news/'.$tr_taxonomy.'/'.$tr_title.'/';
 
 // Проверка на повтор статьи - если повтор, сразу редирект с указанием на ошибку
 if (file_exists($dir1) && $title !== '') {
@@ -59,7 +60,7 @@ if (!file_exists($dir)) {
 if (!file_exists($dir1)) {
 	$upload_dir = mkdir($dir1, true);
 	$success[] = 'Поздравляем! Cтатья '.'"'.$title.'"'. ' в категории '.'"'.$taxonomy.'"'. ' успешно сформирована.';
-	$_SESSION['success'] = $success;
+	// $_SESSION['success'] = $success;
 	}
 
 // загрузка главного изображения
@@ -127,8 +128,12 @@ foreach ($slide_image as $k => $v) {
 	}
 }
 
+if (!empty($_SESSION['errors'])) {
+	$_SESSION['errors'] = $errors;
+	header('Location: '.PATH.'pages/admins/new_news.php');
+} else {
+	$_SESSION['success'] = $success;
+	header('Location: '.PATH.'pages/p_big_news.php?id='.$id_news.'');
+}
 
-$_SESSION['success'] = $success;
-$_SESSION['errors'] = $errors;
-header('Location: '.PATH.'pages/admins/new_news.php');
 ?>
