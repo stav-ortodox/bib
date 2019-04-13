@@ -16,6 +16,28 @@ page_title ('Издания нашего храма');?>
 			</div> <!-- /cайдбар -->
 	<section class="container">
 		<?php echo bread (); ?>
+		<?
+		if (!empty($_SESSION['errors'])) {?>
+			<div class="error">
+				<p>НЕ УДАЛОСЬ СФОРМИРОВАТЬ СТАТЬЮ!</p><hr>
+				<ol><?
+				foreach ($_SESSION['errors'] as $row) {?>
+					<li>
+						<?=$row;
+						unset($_SESSION['errors']);
+						unset($_SESSION['success']);?>
+					</li>
+					<br>
+					<?}?> 
+				</ol>
+			</div>
+			<?}
+    if (!empty($_SESSION['success'])) {?>
+      <div class="success">
+        <p>Издание успешно отредактированно</p><hr>
+      </div>
+      <?}
+      unset($_SESSION['success'])?>
 		<div class="row">
 
 				<div class="content">
@@ -26,6 +48,8 @@ page_title ('Издания нашего храма');?>
 		</div>
 	</section>
 </main>
+
+
 
 
 

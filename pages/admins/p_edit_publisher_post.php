@@ -14,16 +14,16 @@ get_header_site ("Редактирование единицы издания", '
 
 // Получаем id блока в котором находится данная единица издания
 $sql = "SELECT block_id FROM publishing_post WHERE id=$id";
-            $result = mysqli_query($link, $sql);
-             while($object = mysqli_fetch_object($result)){
+$result = mysqli_query($link, $sql);
+while($object = mysqli_fetch_object($result)){
 $block_id = $object->block_id;
 }    
 
 // Получаем названия блока в котором находится данная единица издания
 $sql = "SELECT block_name FROM publishing_blocks WHERE id=$block_id";
-            $result = mysqli_query($link, $sql);
-             while($object = mysqli_fetch_object($result)){
-  $block_name_sel = $object->block_name;
+$result = mysqli_query($link, $sql);
+while($object = mysqli_fetch_object($result)){
+$block_name_sel = $object->block_name;
 }   
 ?>
 
@@ -76,19 +76,18 @@ $sql = "SELECT block_name FROM publishing_blocks WHERE id=$block_id";
 
             <p>Обложка единицы издания: <br> 
             <div class='img_edit'>
-            <img src='<?php echo $pub_image ?>' width=300 height=300>
+            <img src='<?php echo $pub_image ?>' class='img-thumbnail img-fluid' style="height: 300px">
             </div>
             </p>
 
             <p>Выберите новую обложку: <br>
-
             <input type='file' name='pub_image' id='pub_image'></p>
 
-            <p>Файл единицы издания: <br> 
+            <!-- <p>Файл единицы издания: <br> 
             <div class='img_edit'>
-            <img src='<?php echo $pub_file ?>' width=300 height=300>
+            <img src='<?php echo $pub_file ?>' class='img-thumbnail img-fluid' style="height: 300px">
             </div>
-            </p>
+            </p> -->
 
             <p>Выберите новый файл: <br>
             <input type='file' name='pub_file' id='pub_file'></p>
@@ -105,5 +104,4 @@ $sql = "SELECT block_name FROM publishing_blocks WHERE id=$block_id";
 <?php
 
 get_footer ();
-
 ?>

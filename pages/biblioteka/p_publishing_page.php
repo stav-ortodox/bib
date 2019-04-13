@@ -16,6 +16,28 @@ page_title ('Страница издания: '.$row['path'].'');?>
 		<?php get_sidebar (); ?>
 	</div> <!-- /cайдбар -->
 	<section class="container">
+		<?
+		if (!empty($_SESSION['errors'])) {?>
+			<div class="error">
+				<p>ЧТО_ТО ПОШЛО НЕ ТАК!</p><hr>
+				<ol><?
+				foreach ($_SESSION['errors'] as $row) {?>
+					<li>
+						<?=$row;
+						unset($_SESSION['errors']);
+						unset($_SESSION['success']);?>
+					</li>
+					<br>
+					<?}?> 
+				</ol>
+			</div>
+			<?}
+    if (!empty($_SESSION['success'])) {?>
+      <div class="success">
+        <p>ИЗДАНИЕ УСПЕШНО ОТРЕДАКТИРОВАННО</p><hr>
+      </div>
+      <?}
+      unset($_SESSION['success'])?>
 		<?php echo bread() ?>
 		<div class="row">
 
