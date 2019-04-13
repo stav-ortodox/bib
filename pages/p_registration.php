@@ -33,7 +33,7 @@ get_open_form ('/scripts/s_save_user.php', 'POST', 'Регистрация', '')
             <input type="password" name="password2">
             
             <label for="email">Ваш Email:</label>
-            <input type="text" name="email" > 
+            <input type="text" name="email"> 
             
 
            

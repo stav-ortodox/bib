@@ -582,8 +582,8 @@ function template_pp () {
 				$descr_cut = mb_substr(strip_tags($descr_pp), 0, 80, 'utf-8');
 
 				if ($_SESSION['id'] == 1) {  #Для админа	
-					$edit = "<a href= /pages/biblioteka/p_edit_publisher_post.php?id=".$id_pb.">Редактировать</a>";
-					$delete = "<a href= /pages/biblioteka/s_delete_publisher_post.php?id=".$id_pb.">Удалить блок</a>";
+					$edit = "<a href= /pages/admins/p_edit_publisher_post.php?id=".$id_pp.">Редактировать</a>";
+					$delete = "<a href= /pages/admins/s_delete_publisher_post.php?id=".$id_pp.">Удалить блок</a>";
 					
 					if ($hidden == 0) {
 						$no_error = 'блок открыт';
@@ -628,8 +628,8 @@ function template_pp () {
 	    		$descr_cut = mb_substr(strip_tags($descr_pp), 0, 80, 'utf-8');
 
 	    		if ($_SESSION['id'] == 1) {  #Для админа
-	    			$edit = "<a href= /pages/biblioteka/p_edit_publisher_post.php?id=".$id_pb.">Редактировать</a>";
-	    			$delete = "<a href= /pages/biblioteka/s_delete_publisher_post.php?id=".$id_pb.">Удалить блок</a>";
+	    			$edit = "<a href= /pages/admins/p_edit_publisher_post.php?id=".$id_pp.">Редактировать</a>";
+	    			$delete = "<a href= /pages/admins/s_delete_publisher_post.php?id=".$id_pp.">Удалить блок</a>";
 	    			
 	    			if ($hidden == 0) {
 	    				$no_error = 'блок открыт';

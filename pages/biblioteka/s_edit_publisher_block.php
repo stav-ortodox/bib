@@ -8,35 +8,24 @@ if (isset($_POST['close']) && $_POST['close'] == 'yes') {
     $id = $_POST['id'];
     $query ="UPDATE publishing_blocks SET 
         block_hidden='1'
-
         WHERE id='$id'";
         $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
-    
 }
-else
-{}
 
 if (isset($_POST['close']) && $_POST['close'] == 'no') {
     $id = $_POST['id'];
     $query ="UPDATE publishing_blocks SET 
         block_hidden='0'
-
         WHERE id='$id'";
         $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
     
 }
-else
-{}
-
-
 
 
 if(isset($_POST['block_name']) && isset($_POST['id'])){
-
     $id = htmlentities(mysqli_real_escape_string($link, $_POST['id']));
     $block_name = htmlentities(mysqli_real_escape_string($link, $_POST['block_name']));
     $block_description = htmlentities(mysqli_real_escape_string($link, $_POST['block_description']));
-    
     
         if ($_FILES['block_image']['size'] > 0) { 
         // файл прислан
@@ -64,23 +53,15 @@ if(isset($_POST['block_name']) && isset($_POST['id'])){
                     $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
                     
                     if($result)
-                        
-                        header('Location: /pages/p_biblioteka.php');    
-                            
+                        header('Location: /pages/p_biblioteka.php');        
                     } 
-
                     else {
                         print $errors;
-                    }
+            }
         }
-
-     
     $query ="UPDATE publishing_blocks SET 
-
     block_name='$block_name', 
     block_description='$block_description'
-    
-    
     WHERE id='$id'";
     $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
  
@@ -89,12 +70,8 @@ if(isset($_POST['block_name']) && isset($_POST['id'])){
 }
  
 
-
-
 // если запрос GET
 if(isset($_GET['id'])) {   
-
-
     $id = htmlentities(mysqli_real_escape_string($link, $_GET['id']));
      
     // создание строки запроса
@@ -114,10 +91,6 @@ if(isset($_GET['id'])) {
 
     }
 }
-
-
-    
-
 
 // закрываем подключение
   mysqli_close($link);
