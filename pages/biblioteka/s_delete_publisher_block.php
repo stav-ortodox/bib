@@ -3,7 +3,7 @@
  require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
  require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
  
-get_header_site ("Удаление блока издания", "Удаление блока издания");
+get_header_site ("Удаление блока издания", "Удаление блока издания", "Удаление блока издания");
 new_menu ();
 
  

@@ -552,7 +552,10 @@ table td {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  max-height: 500px; }
+  max-height: 500px; 
+  min-height: 500px;
+  min-width: 100%;
+}
 
 .pub-block-wrap td, table {
   border: none; }

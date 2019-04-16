@@ -1,19 +1,22 @@
-<?php session_start();//  вся процедура работает на сессиях. Именно в ней хранятся данные  пользователя, пока он находится на сайте. Очень важно запустить их в  самом начале странички!!!
+<?php
 if (isset($_POST['login'])) { $login = $_POST['login']; if ($login == '') { unset($login);} } //заносим введенный пользователем логин в переменную $login, если он пустой, то уничтожаем переменную
-    if (isset($_POST['password'])) { $password=$_POST['password']; if ($password =='') { unset($password);} }
+if (isset($_POST['password'])) { $password=$_POST['password']; if ($password =='') { unset($password);} }
     //заносим введенный пользователем пароль в переменную $password, если он пустой, то уничтожаем переменную
 if (empty($login) or empty($password)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
     {
     exit ("Вы ввели не всю информацию, вернитесь назад и заполните все поля!");
     }
     // подключаемся к базе
-    require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
+    require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
     //если логин и пароль введены,то обрабатываем их, чтобы теги и скрипты не работали, мало ли что люди могут ввести
+    $email = stripslashes($email);
+    $email = htmlspecialchars(mysqli_real_escape_string($link, $email));
     $login = stripslashes($login);
     $login = htmlspecialchars(mysqli_real_escape_string($link, $login));
     $password = stripslashes($password);
     $password = htmlspecialchars(mysqli_real_escape_string($link, $password));
-//удаляем лишние пробелы
+    $email = trim($email);
     $login = trim($login);
     $password = trim($password);
     $errors = array();
@@ -34,9 +37,12 @@ if (empty($login) or empty($password)) //если пользователь не 
     //если существует, то сверяем пароли
     if ($myrow['password']==$password) {
     //если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
-    $_SESSION['login']=$myrow['login']; 
-    $_SESSION['id']=$myrow['id'];
-    $_SESSION['email']=$myrow['email'];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
+    $login = $myrow['login'];
+    $id = $myrow['id'];
+    $email = $myrow['email'];
+    
+    cookies($login, $id, $email);
+
     $success = 'ok';
     $_SESSION['success'] = $success;
     header('Location: /index.php');

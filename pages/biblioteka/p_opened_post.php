@@ -12,7 +12,7 @@ $post_file = $row['pub_file'];
 
 
 
-get_header_site ($post_name, 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
+get_header_site ($post_name, $post_name, 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
 new_menu ();
 // get_sidebar ();
 page_title ($post_name);?>

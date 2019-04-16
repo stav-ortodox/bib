@@ -96,10 +96,12 @@ $success = array();
             //если существует, то сверяем пароли
             if ($myrow['password']==$password) {
             //если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
-            $_SESSION['login']=$myrow['login']; 
-            $_SESSION['id']=$myrow['id'];
-            $_SESSION['email']=$myrow['email'];
-            //эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
+            $login = $myrow['login'];
+            $id = $myrow['id'];
+            $email = $myrow['email'];
+
+            cookies($login, $id, $email);
+
             header('Location: /index.php');
             }
             else {

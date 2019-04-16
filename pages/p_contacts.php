@@ -158,13 +158,13 @@ new_menu ();?>
 				      <!--Body-->
 				      <div class="md-form">
 				        <i class="fas fa-user prefix grey-text"></i>
-				        <input type="text" id="form-name" name="form-name" class="form-control" value="<?= $name ?>" placeholder="Вы не вошли или не зарегистрированны!" disabled>
+				        <input type="text" id="form-name" name="form-name" class="form-control" value="<?= $name ?>" placeholder="Вы не вошли или не зарегистрированны!">
 				        
 				      </div>
 
 				      <div class="md-form">
 				        <i class="fas fa-envelope prefix grey-text"></i>
-				        <input type="email" id="form-email" name="form-email" class="form-control" value="<?= $email ?>" placeholder="Вы не вошли или не зарегистрированны!" disabled>
+				        <input type="email" id="form-email" name="form-email" class="form-control" value="<?= $email ?>" placeholder="Вы не вошли или не зарегистрированны!">
 				        
 				      </div>
 

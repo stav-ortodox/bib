@@ -1,6 +1,6 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
-
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 $id_pb = (int)$_REQUEST['id_pb'];
 $pub_name = trim(htmlentities($_REQUEST['pub_name']));
 $pub_description = trim(htmlentities($_REQUEST['pub_description']));
@@ -22,20 +22,20 @@ if (isset($_FILES['pub_image'])) {
 	$file_ext = strtolower(end(explode('.', $_FILES['pub_image']['name'])));
 	$expensions = array("jpeg", "jpg", "png");
 
-			if ($file_size > 3097152) {
-				$errors[] = 'Файл должен быть не более 3 мб';
-			}
+		// if ($file_size > 3097152) {
+		// 	$errors[] = 'Файл должен быть не более 3 мб';
+		// }
 
-			if (empty($errors) == true) {
-				$upload_dir = '../../images/biblioteka/publishing_posts/';
-				$name_img = $upload_dir.date('YmdHis').rand(100,1000).'.jpg';
-				$mov = move_uploaded_file($file_tmp, $name_img);
-					
-			} else {
-				echo "<pre>";
-				var_dump($errors);
-				echo "</pre>";
-			}
+		if (empty($errors) == true) {
+			$upload_dir = '../../images/biblioteka/publishing_posts/';
+			$name_img = $upload_dir.date('YmdHis').rand(100,1000).'.jpg';
+			$ex_name_img = explode('/', $name_img);
+			$path = $_SERVER['DOCUMENT_ROOT'].'/images/biblioteka/publishing_posts/';
+			resize_photo($path, $ex_name_img[5], $file_size, $file_type, $file_tmp);	
+		} else {
+			$_SESSION['errors'] = $errors;
+				header('Location: '.PATH.'pages/admins/s_admin_add_new_publishing_post.php');
+		}
 }
 
 
@@ -48,20 +48,19 @@ if (isset($_FILES['pub_file'])) {
 	$file_ext_file = strtolower(end(explode('.', $_FILES['pub_file']['name'])));
 	$expensions_file = array("pdf");
 
-			if ($file_size_file > 3097152) {
-				$errors_file[] = 'Файл должен быть не более 3 мб';
-			}
+		// if ($file_size_file > 3097152) {
+		// 	$errors_file[] = 'Файл должен быть не более 3 мб';
+		// }
 
-			if (empty($errors) == true) {
-				$upload_file_dir = '../../images/biblioteka/publishing_files/';
-				$name_file = $upload_file_dir.date('YmdHis').rand(100,1000).'.pdf'; 
-				$mov_file = move_uploaded_file($file_tmp_file, $name_file);
-					
-			} else {
-				echo "<pre>";
-				var_dump($errors_file);
-				echo "</pre>";
-			}
+		if (empty($errors) == true) {
+			$upload_file_dir = '../../images/biblioteka/publishing_files/';
+			$name_file = $upload_file_dir.date('YmdHis').rand(100,1000).'.pdf'; 
+			$mov_file = move_uploaded_file($file_tmp_file, $name_file);
+				
+		} else {
+			$_SESSION['errors'] = $errors;
+				header('Location: '.PATH.'pages/admins/s_admin_add_new_publishing_post.php');
+		}
 }
 
 

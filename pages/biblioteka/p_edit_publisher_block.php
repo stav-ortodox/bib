@@ -6,7 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
 
   
 
-get_header_site ("Редактирование блока издания", 'Редактирование блока издания');
+get_header_site ("Редактирование блока издания", "Редактирование блока издания", 'Редактирование блока издания');
 new_menu ();
 page_title ('Редактирование блока');
 $id = $_GET['id'];

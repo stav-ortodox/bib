@@ -807,10 +807,14 @@ function resize_photo($path,$filename,$filesize,$type,$tmp_name){
 
 
 /**************************************************************************************************************/
-// function contacts_form() {
-//   global $link;
-  
-  
-// }
+function cookies($login, $id, $email) {
+  global $link;
+  setcookie('login', $login, time()+60*60*24*30, '/');
+	setcookie('id', $id, time()+60*60*24*30, '/');
+	setcookie('email', $email, time()+60*60*24*30, '/');
+  $_SESSION['login']=$_COOKIE['login']; 
+  $_SESSION['id']=$_COOKIE['id'];
+  $_SESSION['email']=$_COOKIE['email']; 
+}
 
 ?>

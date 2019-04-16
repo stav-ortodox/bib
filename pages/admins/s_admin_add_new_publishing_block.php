@@ -1,13 +1,12 @@
 <?php 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
-
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 $block_name = trim($_REQUEST['block_name']);
 $block_description = trim($_REQUEST['block_description']);
 $block_hidden = $_REQUEST['block_hidden'];
-
+$errors = array();
 
 if (isset($_FILES['block_image'])) {
-	$errors = array();
 	$file_name = $_FILES['block_image']['name'];
 	$file_size = $_FILES['block_image']['size'];
 	$file_tmp = $_FILES['block_image']['tmp_name'];
@@ -15,18 +14,20 @@ if (isset($_FILES['block_image'])) {
 	$file_ext = strtolower(end(explode('.', $_FILES['block_image']['name'])));
 	$expensions = array("jpeg", "jpg", "png");
 
-			if ($file_size > 2097152) {
-				$errors[] = 'Файл должен быть не более 2мб';
-			}
+			// if ($file_size > 2097152) {
+			// 	$errors[] = 'Файл должен быть не более 2мб';
+			// }
 
 			if (empty($errors) == true) {
 				$upload_dir = '../../images/biblioteka/publishing_blocks/';
 				$name_img = $upload_dir.date('YmdHis').rand(100,1000).'.jpg'; 
-				$mov = move_uploaded_file($file_tmp, $name_img);
-					
+				$ex_name_img = explode('/', $name_img);
+				$path = $_SERVER['DOCUMENT_ROOT'].'/images/biblioteka/publishing_blocks';
+				resize_photo($path, $ex_name_img[5], $file_size, $file_type, $file_tmp);	
 			} else {
 				$_SESSION['errors'] = $errors;
-				header('Location: '.PATH.'pages/admins/s_admin_add_new_publishing_block.php');
+				header('Location: '.PATH.'pages/admins/p_admin_add_new_publishing_block.php');
+				exit();
 		}
 }
 

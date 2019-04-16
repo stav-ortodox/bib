@@ -7,6 +7,7 @@ define("MY_PASS", "123vc3718123");
 define("PATH", "http://bib/");
 define("NEWS", "C:/Users/user/Desktop/OSPanel/domains/bib/images/news/");
 
+$path = 'bib/';
 
 $link = mysqli_connect( 
             DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME); 
@@ -17,5 +18,10 @@ if (!$link) {
    exit; 
 } 
 
+if (isset($_COOKIE['login'])) {
+	$_SESSION['login']=$_COOKIE['login']; 
+	$_SESSION['id']=$_COOKIE['id'];
+	$_SESSION['email']=$_COOKIE['email'];
+}
 
 ?>
