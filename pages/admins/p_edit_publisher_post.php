@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 // require_once $_SERVER['DOCUMENT_ROOT'].'/pages/admins/s_edit_publisher_post.php';   
    
 $id = $_REQUEST['id'];
-get_header_site ("Редактирование единицы издания", 'Редактирование единицы издания');
+get_header_site ("Редактирование единицы издания", "Редактирование единицы издания", 'Редактирование единицы издания');
 
 // var_dump($_REQUEST);
 // var_dump($_COOKIE);

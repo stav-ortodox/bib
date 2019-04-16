@@ -1,5 +1,5 @@
 <?php  
-function get_header_site ($title_br, $header_subtitle) { ?>
+function get_header_site ($main_title, $title_br, $header_subtitle) { ?>
 	
 	<!DOCTYPE html>
 	<html lang='ru'>
@@ -12,7 +12,7 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 	<meta name="description" content="Hover Effect Ideas: Inspiration for subtle hover effects" />
 	<meta name="keywords" content="hover effect, inspiration, grid, thumbnail, transition, subtle, web design" />
 	<meta name="author" content="Stav_Orthodox" />
-
+	<title><?=$main_title?></title>
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -57,7 +57,7 @@ function get_header_site ($title_br, $header_subtitle) { ?>
 		<img class="img-thumbnail img-fluid" id="logo_3" src="/images/iconPanteleimon.jpg" alt="">
 	</header>
 
-	<div class="container header_site">
+	<div class="container-fluid header_site">
 		<div class="logo_block">
 			<img class="ml-4" src="/images/nestor.gif" style="height: 150px" alt="">
 			<div class="header_title">
@@ -78,7 +78,7 @@ function new_menu () {
 	$result = mysqli_query($link, $query);
 	?>
 
-	<div class="container" id="new_menu"><?
+	<div class="w-100" id="new_menu"><?
 
 	foreach ($result as $row) { 
 		$id_item = $row["id"];
@@ -408,8 +408,14 @@ if ($_SESSION['id'] == 1) {?>
 
 // *************************************************************************
 
-function redirect () {
-	echo "<script>window.location.href = history.go(-2);</script>";
+/**
+* редирект
+ **/
+function redirect($http = false) {
+		if ($http) $redirect = $http;
+		else $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : PATH;
+    header("Location: $redirect");
+    exit;
 }
 
 // *************************************************************************
@@ -436,15 +442,7 @@ button {display: none; }
 
 function get_footer () {?>
 	</body>
-	<footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
-	<div class="pt-4">
-		<a href="#" class="btn btn-outline-white">
-			Bootstrap <i class="fa fa-download"></i>
-		</a>
-		<a href="#" class="btn btn-outline-white">
-			Обучение вёрстке <i class="fa fa-graduation-cap"></i>
-		</a>
-	</div>
+	<footer class="page-footer text-center font-small mdb-color darken-2 mt-5 wow fadeIn">
 
 	<hr class="my-4">
 
@@ -772,17 +770,23 @@ function big_news() {
 	include $_SERVER['DOCUMENT_ROOT'].'/templates/big_news_tmp.php';
 }
 
+/**************************************************************************************************************/
+
 // редактирование новости
 function edit_news() {?>
 	
 <?}
 
+
+/**************************************************************************************************************/
 // счётчик просмотров
 function views_update($table, $id) {
 	global $link;
 	$link -> query("UPDATE $table SET views = views + 1 WHERE id = $id");
 }
 
+
+/**************************************************************************************************************/
 // сжатие фото 
 function resize_photo($path,$filename,$filesize,$type,$tmp_name){
     $quality = 50; //Качество в процентах. В данном случае будет сохранено 60% от начального качества.
@@ -800,5 +804,13 @@ function resize_photo($path,$filename,$filesize,$type,$tmp_name){
     }
     else return false;     
 }
+
+
+/**************************************************************************************************************/
+// function contacts_form() {
+//   global $link;
+  
+  
+// }
 
 ?>

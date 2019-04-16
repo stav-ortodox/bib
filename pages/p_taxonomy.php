@@ -3,7 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
-get_header_site ('$title', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
+get_header_site ('Категории', 'Категории', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
 new_menu ();?>
 <main>
   <div class="col-sm-0 col-lg-2">

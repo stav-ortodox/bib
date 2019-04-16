@@ -10,8 +10,6 @@ new_menu ();
 
  if(isset($_POST['id'])){
 
-
-
     $id = mysqli_real_escape_string($link, $_POST['id']);
 
 
@@ -30,8 +28,6 @@ new_menu ();
     $query ="DELETE FROM publishing_blocks WHERE id = '$id'";
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
 
-// var_dump($_POST['id']);
-// var_dump($object->block_image);
     
     mysqli_close($link);
 

@@ -44,9 +44,9 @@ if (!empty($_FILES['pub_image']['name'])) {
 	$file_ext = strtolower(end(explode('.', $_FILES['pub_image']['name'])));
 	$expensions = array("jpeg", "jpg", "png");
 
-		if ($file_size > 3097152) {
-			$errors[] = 'Изображение должно быть не более 3 мб';
-		}
+		// if ($file_size > 3097152) {
+		// 	$errors[] = 'Изображение должно быть не более 3 мб';
+		// }
 
 		if (!in_array($file_ext, $expensions)) {
 			$errors[] = 'Недопустимый формат изображения';
@@ -63,7 +63,8 @@ if (!empty($_FILES['pub_image']['name'])) {
   	if (!$result) {
   		$errors[] = 'Ошибка загрузки изображения!';
   		$_SESSION['errors'] = $errors;
-      header('Location: /pages/biblioteka/p_publishing_page.php?id='.$id_option.'');        
+      header('Location: /pages/biblioteka/p_publishing_page.php?id='.$id_option.'');    
+			exit();
   	}
 	}
 }
@@ -106,7 +107,8 @@ if (!empty($_FILES['pub_file']['name'])) {
   	if (!$result) {
   		$errors[] = 'Ошибка загрузки файла издания!';
   		$_SESSION['errors'] = $errors;
-      header('Location: /pages/biblioteka/p_publishing_page.php?id='.$id_option.'');        
+      header('Location: /pages/biblioteka/p_publishing_page.php?id='.$id_option.''); 
+      exit();       
   	}
 	}
 }

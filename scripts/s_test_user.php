@@ -35,7 +35,8 @@ if (empty($login) or empty($password)) //если пользователь не 
     if ($myrow['password']==$password) {
     //если пароли совпадают, то запускаем пользователю сессию! Можете его поздравить, он вошел!
     $_SESSION['login']=$myrow['login']; 
-    $_SESSION['id']=$myrow['id'];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
+    $_SESSION['id']=$myrow['id'];
+    $_SESSION['email']=$myrow['email'];//эти данные очень часто используются, вот их и будет "носить с собой" вошедший пользователь
     $success = 'ok';
     $_SESSION['success'] = $success;
     header('Location: /index.php');

@@ -340,7 +340,8 @@ table td {
   align-items: center; }
 
 .header_site {
-  background-size: cover; }
+  background-size: cover; 
+}
 
 .header_title {
   display: inline;
@@ -425,7 +426,9 @@ table td {
   -ms-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center; }
+  align-items: center;
+  justify-content: center;
+  }
 
 /*#logo_1 {
 	max-height: 77%;
@@ -879,6 +882,38 @@ table td {
   visibility: hidden;
 }
 
+.flex-center {
+display: -webkit-flex;
+display: -moz-flex;
+display: -ms-flex;
+display: -o-flex;
+display: flex;
+-moz-flex-direction: column;
+-ms-flex-direction: column;
+-o-flex-direction: column;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+flex-direction: column;
+justify-content: center;
+}
+
+.block-center {
+  margin-left: 10%;
+  width: 85%;
+  height: auto;
+}
+
+.overflow {
+  margin-bottom: 20px;
+  width: 95%;
+  overflow: hidden;
+}
+
+.overflow img {
+  width: 103% ;
+  margin: -10px;
+}
+
 @-webkit-keyframes spin {
   from {
     -webkit-transform: translate(-50%, -50%) rotate(0deg);
@@ -909,10 +944,17 @@ table td {
   left: 35px;
 }
 
+.vw-80 {
+  width: 60vw !important;
+  margin-left: 20%;
+}
 
-
-
-
+.clergy {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  align-items: center;
+}
 
 
 

@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
 
-get_header_site ('Регистрация', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
+get_header_site ('Регистрация', 'Регистрация', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
 new_menu ();
 get_open_form ('/scripts/s_save_user.php', 'POST', 'Регистрация', '');
 						if (!empty($_SESSION['errors'])) {?>
