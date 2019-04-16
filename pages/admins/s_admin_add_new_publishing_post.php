@@ -22,10 +22,6 @@ if (isset($_FILES['pub_image'])) {
 	$file_ext = strtolower(end(explode('.', $_FILES['pub_image']['name'])));
 	$expensions = array("jpeg", "jpg", "png");
 
-		// if ($file_size > 3097152) {
-		// 	$errors[] = 'Файл должен быть не более 3 мб';
-		// }
-
 		if (empty($errors) == true) {
 			$upload_dir = '../../images/biblioteka/publishing_posts/';
 			$name_img = $upload_dir.date('YmdHis').rand(100,1000).'.jpg';
@@ -47,10 +43,6 @@ if (isset($_FILES['pub_file'])) {
 	$file_type_file = $_FILES['pub_file']['type'];
 	$file_ext_file = strtolower(end(explode('.', $_FILES['pub_file']['name'])));
 	$expensions_file = array("pdf");
-
-		// if ($file_size_file > 3097152) {
-		// 	$errors_file[] = 'Файл должен быть не более 3 мб';
-		// }
 
 		if (empty($errors) == true) {
 			$upload_file_dir = '../../images/biblioteka/publishing_files/';
@@ -85,3 +77,4 @@ header("Location: /pages/biblioteka/p_publishing_page.php?id=$id_pb");
 exit('!');
 
 ?>
+

@@ -12,44 +12,35 @@ new_menu ();
 
     $id = mysqli_real_escape_string($link, $_POST['id']);
 
-
     $query = "SELECT * FROM publishing_blocks WHERE
     id='$id'";
     $result = mysqli_query($link, $query) or die ("ОШИБКА " . mysqli_error($link));
     while($object = mysqli_fetch_object($result))
     $name_del_img = $object->block_image; 
 
-
     if (isset($name_del_img) && $name_del_img != null) {
         @unlink($name_del_img);
     }
     
-
     $query ="DELETE FROM publishing_blocks WHERE id = '$id'";
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
-
-    
     mysqli_close($link);
 
     // перенаправление на скрипт index.php
     echo "<script>window.location.href = history.go(-2);
     </script>";
     header('Location: /pages/biblioteka/p_biblioteka.php');
-}
-
-?>
+}?>
 
 <?php
-if(isset($_GET['id']))
-{   
+if(isset($_GET['id'])) {   
     $id = htmlentities($_GET['id']);
 
     $query ="SELECT * FROM publishing_blocks WHERE id = '$id'";
     // выполняем запрос
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
     //если в запросе более нуля строк
-    if($result && mysqli_num_rows($result)>0) 
-    {
+    if($result && mysqli_num_rows($result)>0) {
         $row = mysqli_fetch_row($result); // получаем первую строку
         $block_name = $row[1];
         $block_image = $row[2];
@@ -57,7 +48,7 @@ if(isset($_GET['id']))
         $block_hidden = $row[4];
     }
     
-        mysqli_free_result($result);
+    mysqli_free_result($result);
 
 
     get_open_form ('', 'POST', '<p class="warning">Внимание! Удаление этого блока повлечёт за собой удаление всех изданий содержащихся в блоке </p><strong>'.$block_name.'</strong><p class="warning">!</p>', '');

@@ -6,11 +6,6 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 $id = $_REQUEST['id'];
 get_header_site ("Редактирование единицы издания", "Редактирование единицы издания", 'Редактирование единицы издания');
 
-// var_dump($_REQUEST);
-// var_dump($_COOKIE);
-// echo "<br>";
-// echo "<br>";
-// var_dump($_SERVER["REQUEST_URI"]);
 
 // Получаем id блока в котором находится данная единица издания
 $sql = "SELECT block_id FROM publishing_post WHERE id=$id";
@@ -24,8 +19,7 @@ $sql = "SELECT block_name FROM publishing_blocks WHERE id=$block_id";
 $result = mysqli_query($link, $sql);
 while($object = mysqli_fetch_object($result)){
 $block_name_sel = $object->block_name;
-}   
-?>
+}?>
 
 
 <div class='user_form'>
@@ -82,12 +76,6 @@ $block_name_sel = $object->block_name;
 
             <p>Выберите новую обложку: <br>
             <input type='file' name='pub_image' id='pub_image'></p>
-
-            <!-- <p>Файл единицы издания: <br> 
-            <div class='img_edit'>
-            <img src='<?php echo $pub_file ?>' class='img-thumbnail img-fluid' style="height: 300px">
-            </div>
-            </p> -->
 
             <p>Выберите новый файл: <br>
             <input type='file' name='pub_file' id='pub_file'></p>
