@@ -31,7 +31,7 @@ new_menu ();?>
 				
 					<div class="card w-100 m-auto">
 						
-					 	<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A418f1c8197cd27aed6cc341da87442327fe9417620ddc71d71d980a3ea53d9ad&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+					 	<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A418f1c8197cd27aed6cc341da87442327fe9417620ddc71d71d980a3ea53d9ad&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false"></script>
 					
 				</div> 
 
