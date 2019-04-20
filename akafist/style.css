@@ -2,6 +2,44 @@
     width: 700px;
     margin: 0 auto;
 }
+.akafist-icon img{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.logo_block {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  padding-top: 40px;
+  -ms-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: space-around;
+  }
+
+#logo_1 {
+	max-height: 10%;
+	max-width: 20%;
+}
+#logo_2 {
+  height: 100px; }
+
+#logo_3 {
+  height: 125px; }
+
+
+
 @media print {
     .copyright {
         margin: 20px;

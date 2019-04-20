@@ -1,6 +1,5 @@
 ﻿<?php
- function get_header_doc ($header_subtitle, $title_br) {
-	echo <<<EOD
+ function get_header_doc ($header_subtitle, $title_br) {?>
 	<!DOCTYPE html>
 		<html lang='ru'>
 		<head>
@@ -21,11 +20,7 @@
  <!-- Material Design Bootstrap -->
  <link href="/css/mdb.min.css" rel="stylesheet">
  
- <!-- Your custom styles (optional) -->
- <link href="/css/style.css" rel="stylesheet">
-
 	<!-- My css -->
-	<link rel='stylesheet' href='/css/test.css'>
 	<link rel='stylesheet' href='/css/bootstrap-grid.min.css'>
 	<link rel='stylesheet' href='/css/bootstrap.css'>
 	
@@ -34,57 +29,25 @@
 	<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
 	<link href="http://allfont.ru/allfont.css?fonts=zanesennyj" rel="stylesheet" type="text/css">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,800,300' rel='stylesheet' type='text/css'>
+	<!-- Your custom styles (optional) -->
+ <link href="/css/style.css" rel="stylesheet">
 
-
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter51093191 = new Ya.Metrika2({
-                    id:51093191,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    webvisor:true
-                });
-            } catch(e) { }
-        });
-
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/tag.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks2");
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/51093191" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-	<script
-  src="http://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-	<title>$title_br</title>
+	<title><?=$title_br?></title>
 </head>
 <body>
 <div class="logo_block">
-	<img id="logo_1" src="/images/original-233x285.png" alt="">
+	<img id="logo_1" src="/images/original-233x285.png" style="width: 100px" alt="">
 	<img id="logo_2" src="/images/logo.png" alt="">
 	<img id="logo_3" src="/images/iconPanteleimon.jpg" alt="">
 </div>
-<div class="header_title">
-<h4>Больничный храм святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь</h4>
-<img id="pigeon" src="/images/58388f74ceff21589cf06070.png" alt="">
+<div class="header_title_doc">
+	<h4>Больничный храм святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь</h4>
+	<img id="pigeon" src="/images/58388f74ceff21589cf06070.png" alt="">
 </div>
+
 <div class="header_subtitle_doc">
-<h4>$header_subtitle</h4>
-</div>
-EOD;
+<h4><?=$header_subtitle?></h4>
+</div><?
 }
 
 // **************************************************************
