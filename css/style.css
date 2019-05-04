@@ -518,7 +518,7 @@ table td {
   padding-top: 80vw; }
 
 .page_title {
-  border-bottom: solid 2px #E47F50;
+  /*border-bottom: solid 2px #E47F50;*/
   width: 100%; }
 
 .rasporka {
@@ -682,6 +682,13 @@ table td {
   height: 0;
   clear: both;
   visibility: hidden; }
+
+.container {
+  max-width: 65vw !important; 
+  margin: 0 auto !important;
+  padding: 0 !important;
+  padding-left: 20px !important;
+}
 
 #new_menu {
   display: -moz-flex;
@@ -980,6 +987,9 @@ justify-content: center;
   align-items: center;
 }
 
+.row {
+  margin: 0 !important;
+}
 
 
 
@@ -1032,8 +1042,8 @@ justify-content: center;
 
 /*// Экстрабольшие девайсы (большие десктопы, >= 1200px)*/
 @media (min-width: 1200px) {
-  .container {
-    max-width: 900px !important; } }
+  /*.container {
+    max-width: 900px !important; }*/ }
 
 /*******************************************/
 #sem {
