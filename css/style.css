@@ -347,11 +347,31 @@ table td {
   display: inline;
   padding: 0 !important; }
 
+.header_title_doc {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+}
+
 .header_title h1 {
   text-align: center;
   font-family: 'Marck Script', cursive;
   font-weight: 400;
   font-size: 32px;
+  color: #722321; }
+
+.header_title_doc h4 {
+  text-align: center;
+  font-family: 'Izhitsa Regular';
+  /*font-weight: 400;*/
+  font-size: 18px;
   color: #722321; }
 
 .header_subtitle_doc {
@@ -430,10 +450,10 @@ table td {
   justify-content: center;
   }
 
-/*#logo_1 {
+#logo_1 {
 	max-height: 77%;
 	max-width: 20%;
-}*/
+}
 #logo_2 {
   height: 100px; }
 
@@ -486,7 +506,8 @@ table td {
   color: #eee; }
 
 #pigeon {
-  width: 25%; }
+  margin: 0 auto;
+  width: 20%; }
 
 .place_to_sign {
   margin-bottom: 200px;
