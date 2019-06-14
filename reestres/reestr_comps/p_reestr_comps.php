@@ -314,8 +314,8 @@ $select_query =
 sprintf("SELECT COUNT(1) FROM reestr_comps");
 $result = mysqli_query($link, $select_query);
 $row = mysqli_fetch_array($result);
-$count = $row[0];	
-// ?>
+$count = $row[0];
+?>
 
 
 <div class="reestr-comps-parrent ml-5 mt-5">

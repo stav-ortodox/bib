@@ -1,4 +1,4 @@
-<?php session_start();
+<?php 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';   
@@ -27,12 +27,8 @@ if(isset($_POST['id'])){
     mysqli_close($link);
    
     echo "<script>window.location.href = history.go(-2);
-    </script>";
-    
-    
-}
-
-?>
+    </script>";  
+}?>
 
 <?php
 if(isset($_GET['id']))
