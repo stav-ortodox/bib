@@ -11,5 +11,8 @@ function add_new_publishing_block ($block_name, $block_image, $block_hidden, $bl
 EOD;
 }
 
+// Шаблон вывода блоков изданий
+
+
 
 ?>

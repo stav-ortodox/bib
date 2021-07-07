@@ -1,44 +1,41 @@
 <?php 
-session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';  
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
 
 
-get_header_site ('Добавление нового издания', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
-get_menu ();
+get_header_site ('Добавление нового издания', 'Добавление нового издания', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
+new_menu ();
 // get_sidebar ();
 page_title ('Добавление нового издания');
-
-
 get_open_form ("/pages/admins/s_admin_add_new_publishing_post.php", "POST", "Введите данные", '');?>
 		
 
-<label for="select_block">Выберите блок издания:</label>
+<label for="id_pb">Выберите блок издания:</label>
 <?php 
-
-
-$sql = "SELECT * FROM publishing_blocks";
+$sql = "SELECT block_name, id FROM publishing_blocks";
 
 $result_select = mysqli_query($link, $sql);
 
 /*Выпадающий список*/
 
-echo "<select name = 'select_block' autofocus>";
+?><select name = 'id_pb' autofocus><?
 
 while($object = mysqli_fetch_object($result_select)){
-$block_name_sel = $object->block_name;
-echo "<option value = '$block_name_sel'> $block_name_sel </option>
-	";}
-echo "</select>";
+$name_pb = $object->block_name;
+$id_pb = $object->id;?>
+<option value = '<?=$id_pb?>'> <?=$name_pb?> </option>
+<? } ?>
+</select>
 
-?>
+
 
 <br>
 
 		<label for="pub_name">Имя новой единицы издания:</label>
 		<input type="text" name="pub_name" >
+		
 
 		<label for="pub_description">Описание новой единицы издания:</label>
 		<input type="text" name="pub_description" >
@@ -56,5 +53,7 @@ echo "</select>";
 
 <?php get_close_form (); 
 get_footer ();
+
+
 
 ?>

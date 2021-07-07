@@ -1,16 +1,27 @@
 <?php
+define("DATABASE_HOST", "localhost");
+define("DATABASE_USERNAME", "root");
+define("DATABASE_PASSWORD", "");
+define("DATABASE_NAME", "stavr213_stavpant");
+define("MY_PASS", "123vc3718123");
+define("PATH", "http://bib/");
+define("NEWS", "C:/Users/user/Desktop/OSPanel/domains/bib/images/news/");
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
-
-
-
+$path = 'bib/';
 
 $link = mysqli_connect( 
-            DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME);     /* База данных для запросов по умолчанию */ 
+            DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME); 
+            session_start();    /* База данных для запросов по умолчанию */ 
+            
 if (!$link) { 
    printf("Невозможно подключиться к базе данных. Код ошибки: %s\n", mysqli_connect_error()); 
    exit; 
 } 
 
+if (isset($_COOKIE['login'])) {
+	$_SESSION['login']=$_COOKIE['login']; 
+	$_SESSION['id']=$_COOKIE['id'];
+	$_SESSION['email']=$_COOKIE['email'];
+}
 
 ?>

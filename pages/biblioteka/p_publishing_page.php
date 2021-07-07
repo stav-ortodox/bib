@@ -1,120 +1,53 @@
 <?php 
-session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';  
+require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 
 
-get_header_site ('Страница издания', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
-get_menu ();
-get_sm_menu ();
+get_header_site ('Страница издания', 'Страница издания', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
+new_menu ();
+// get_sm_menu ();	
 get_sm_sidebar ();
-
-
-$select_query = sprintf("SELECT publishing_post.*, publishing_blocks.id FROM	publishing_post, publishing_blocks WHERE publishing_post.block_id = publishing_blocks.id");
-
-$id_page = $_REQUEST['id'];
-
-$query_id_page = sprintf("SELECT * FROM	publishing_blocks WHERE id = $id_page");
-$result = mysqli_query($link, $query_id_page) or die ("Ошибка " . mysqli_error($link));
-
-    //если в запросе более нуля строк
-    if($result && mysqli_num_rows($result)>0) 
-    {
-        $row = mysqli_fetch_row($result); // получаем первую строку
-        $name_page = $row[1];
-        $block_image = $row[2];
-        $block_description = $row[3];
-        $block_hidden = $row[4];
-	
-        mysqli_free_result($result);
-}
-
-page_title ('Страница издания: '.$name_page.'');
-
-?>
+views_update('publishing_blocks', $_GET["id"]);
+page_title ('Страница издания: '.$row['path'].'');?>
 
 <main>
-	<section class="container-fluid">
+	<div class="col-sm-0 col-lg-2">
+		<?php get_sidebar (); ?>
+	</div> <!-- /cайдбар -->
+	<section class="container">
+		<?
+		if (!empty($_SESSION['errors'])) {?>
+			<div class="error">
+				<p>ЧТО_ТО ПОШЛО НЕ ТАК!</p><hr>
+				<ol><?
+				foreach ($_SESSION['errors'] as $row) {?>
+					<li>
+						<?=$row;
+						unset($_SESSION['errors']);
+						unset($_SESSION['success']);?>
+					</li>
+					<br>
+					<?}?> 
+				</ol>
+			</div>
+			<?}
+    if (!empty($_SESSION['success'])) {?>
+      <div class="success">
+        <p>ИЗДАНИЕ УСПЕШНО ОТРЕДАКТИРОВАННО</p><hr>
+      </div>
+      <?}
+      unset($_SESSION['success'])?>
+		<?php echo bread() ?>
 		<div class="row">
 
-			<div class="col-sm-0 col-lg-2">
-				<?php get_sidebar (); ?>
-			</div> <!-- /cайдбар -->
-
-			<div class="col-sm-12 col-lg-10">
-				<div class="page-header">
-				  <h1><small><?php echo $block_description; ?></small></h1>
-				</div>
-				<div class="content">
-					<div class="row">
-
-				<?php 
-				$result = mysqli_query($link, $select_query);
-				while ($row = mysqli_fetch_array($result)) {
-				 // выводим данные
-
-							if ($_SESSION['id'] == 1) {  #Для админа
-
-								$hidden = $row['pub_hidden'];
-								$edit = "<a href= /pages/admins/p_edit_publisher_post.php?id=".$row["0"].">Редактировать</a>";
-								$delete = "<a href= /pages/admins/s_delete_publisher_post.php?id=".$row["0"].">Удалить единицу</a>";
-
-								if ($hidden == 0) {
-									$no_error = 'файл открыт';
-									$color = "color: green";
-									$border = "border: solid 1px green;";
-								}
-
-								if ($hidden == 1) {
-									$no_error = 'файл скрыт';
-									$color = "color: red";
-									$border = "border: solid 1px #E47F50;";
-								}
-							}
-
-							if ($_SESSION['id'] == null or $_SESSION['id'] > 1) {
-								$hidden = $row['pub_hidden'];
-
-								if ($hidden == 0) {
-									$color = "display: none";
-								}
-								else {
-									continue(1);
-								}
-							}
-
-							if ($_GET['id'] == $row["block_id"]) {
-								
-								echo"
-									<div class='col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center'>
-									<div class='card pub-block'>
-									<div class='no_error' style='".$color." ".$border."'><strong>".$no_error."</strong><br>".$edit."<br>".$delete."</div>
-									<div class='view overlay'>
-
-									<img class='card-img-top m-0 p-0' src=/".$row["pub_image"]." alt=''>
-									<img class='card-img-top m-0 p-0' src=/".$row["pub_file"]." alt=''>
-
-									<a href='/pages/biblioteka/p_opened_post.php?id=".$row["0"]."'>
-									<div class='mask rgba-white-slight'></div>
-									</a>
-									</div>
-									<div class='card-body'>
-									<table class='pub-block-wrap' style='height: 150px;'>
-								  <tbody>
-								    <tr>
-								      <td class='align-top'><h4 class='card-title'>".$row["pub_name"]."<hr></h4></td>
-								    </tr> 
-								    <tr>
-								      <td class='align-bottom'><a href='/pages/biblioteka/p_opened_post.php?id=".$row["0"]."'><p class='card-text align-text-bottom'>".$row["pub_description"]."</p></a>
-								      </td>
-								    </tr>
-								  </tbody>
-									</table>
-									</div>
-									</div>
-									</div>";}}?>
-					</div>
+			<div class="page-header">
+				<h1><small><?php echo $block_description; ?></small></h1>
+			</div>
+			<div class="content">
+				<div class="row">
+					<!-- вызов функции выводы шаблона единицы издания -->
+					<?php template_pp () ?>
 				</div>
 			</div>
 		</div>

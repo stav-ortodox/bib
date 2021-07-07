@@ -3,12 +3,14 @@ session_start();
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
-
+$link_css = "<link rel='stylesheet' href='my_style.css'>";
+echo $link_css;
 get_header_doc ('', 'Реестр архивных дел РГИА');
+
 admin ();
 get_menu ();
 
-$select_query = sprintf("SELECT * FROM reestr_rgia");
+$select_query = sprintf("SELECT * FROM reestr_rgia ORDER BY tom+0 ASC LIMIT 22");
 
 echo "<button type='button' class='button1 btn aqua-gradient' id='printPageButton'><a href='form_reestr_RGIA.php'>Вызвать форму</a></button>";
 // echo '<pre>';
@@ -45,8 +47,11 @@ echo "
 </tr>\n";
 }
 
-echo "</table>
+echo "
+</tbody>
+</table>
 </div>
+</section>
 ";?>
 
 

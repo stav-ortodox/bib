@@ -66,7 +66,7 @@ echo "
 <td>".$row[""]."</td>"."\n"."
 <td>".$row["name"]."</td>"."\n"."
 <td>".$row["name_type"]."</td>"."\n"."
-<td>".preg_replace("/[\r\n]+/", "</p><p>", $row['characterics'])."</td>"."\n"."
+<td>".$row['characterics']."</td>"."\n"."
 <td>".$row["place"]."</td>"."\n"."	
 <td>".$row["of_face"]."</td>"."\n"."
 <td>".$row["sost"]."</td>"."\n"."
@@ -128,7 +128,7 @@ echo "
 <td>".$row[""]."</td>"."\n"."
 <td>".$row["name"]."</td>"."\n"."
 <td>".$row["name_type"]."</td>"."\n"."
-<td>".preg_replace("/[\r\n]+/", "</p><p>", $row['characterics'])."</td>"."\n"."
+<td>".$row['characterics']."</td>"."\n"."
 <td>".$row["place"]."</td>"."\n"."	
 <td>".$row["of_face"]."</td>"."\n"."
 <td>".$row["sost"]."</td>"."\n"."
@@ -314,8 +314,8 @@ $select_query =
 sprintf("SELECT COUNT(1) FROM reestr_comps");
 $result = mysqli_query($link, $select_query);
 $row = mysqli_fetch_array($result);
-$count = $row[0];	
-// ?>
+$count = $row[0];
+?>
 
 
 <div class="reestr-comps-parrent ml-5 mt-5">

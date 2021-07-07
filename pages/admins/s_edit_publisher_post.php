@@ -2,197 +2,123 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
 
 
-    
+$block_name_sel = htmlentities(mysqli_real_escape_string($link, $_REQUEST['select_block']));
+$pub_name = trim(htmlentities(mysqli_real_escape_string($link, $_REQUEST['pub_name'])));
+$pub_description = trim(htmlentities(mysqli_real_escape_string($link, $_REQUEST['pub_description'])));
+$pub_hidden = (int)($_REQUEST['pub_hidden']);
+$block_id = (int)$_REQUEST['block_id'];;           
+$id = (int)($_REQUEST['id']);
+$id_option = (int)($_REQUEST['select_block']);
+$errors = array();
+$success = array();
+
+// echo "<pre>";
 // var_dump($_REQUEST);
-// echo "<br>";
-// echo "<br>";
-// var_dump($_GET);
-// echo "<br>";
-// echo "<br>";
+// echo "</pre>";
+// exit();
 
-if (isset($_POST['id'])) {
-    $id = htmlentities(mysqli_real_escape_string($link, $_POST['id']));
-
-
-    if (isset($_POST['select_block'])) {
-        $block_name_sel=$_POST['select_block'];
-        $block_id=$_POST['block_id'];
-        
-
-        $query ="UPDATE publishing_post SET 
-        select_block='$block_name_sel'
-
-        WHERE id='$id'";
-        $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
-          // echo "загруженa переменная ".$select_block."";
-
+if (isset($id)) {
+$query ="UPDATE publishing_post SET pub_name='$pub_name', pub_description='$pub_description', pub_hidden='$pub_hidden' WHERE id='$id'";
+$result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
 }
 
-// перехожу к редакции id блока
-    if (isset($_POST['block_id'])) {
-        
-            $query ="SELECT id FROM publishing_blocks WHERE block_name='$block_name_sel'";
-            $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link));
-
-            while($object = mysqli_fetch_object($result)) 
-            $new_block_id = $object->id;
-            
-
-            $query ="UPDATE publishing_post SET 
-            block_id='$new_block_id'
-
-            WHERE id='$id'";
-            $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
-               // echo "загруженa переменная ".$new_block_id."";
-        
-    }
+if ($block_id !== $id_option) {
+	$query ="UPDATE publishing_post SET block_id='$id_option' WHERE id='$id'";
+	$result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link));
 }
-//     if (isset($_POST['pub_name'])) {
-//         $pub_name=$_POST['pub_name'];
 
-//         $query ="UPDATE publishing_post SET 
-//         pub_name='$pub_name'
+if (!empty($_FILES['pub_image']['name'])) {
+	$query = ("SELECT pub_image FROM publishing_post WHERE id = $id");
+	$result = mysqli_query($link, $query);
+	$row = mysqli_fetch_assoc($result);
+	$pub_image = $row["pub_image"]; 
+	
 
-//         WHERE id='$id'";
-//         $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
-//          // echo "загруженa переменная ".$pub_name."";
-//     }
+	@unlink($pub_image);
+	unset($pub_image);
 
-//     if (isset($_POST['pub_description'])) {
-//         $pub_description=$_POST['pub_description'];
+	$file_name = $_FILES['pub_image']['name'];
+	$file_size = $_FILES['pub_image']['size'];
+	$file_tmp = $_FILES['pub_image']['tmp_name'];
+	$file_type = $_FILES['pub_image']['type'];
+	$file_ext = strtolower(end(explode('.', $_FILES['pub_image']['name'])));
+	$expensions = array("jpeg", "jpg", "png");
 
-//         $query ="UPDATE publishing_post SET 
-//         pub_description='$pub_description'
+		// if ($file_size > 3097152) {
+		// 	$errors[] = 'Изображение должно быть не более 3 мб';
+		// }
 
-//         WHERE id='$id'";
-//         $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
-//          // echo "загруженa переменная ".$pub_description."";
-//     }
-// }
+		if (!in_array($file_ext, $expensions)) {
+			$errors[] = 'Недопустимый формат изображения';
+		}
 
-
-//     $id = htmlentities(mysqli_real_escape_string($link, $_REQUEST['id']));
-//     $pub_name = htmlentities(mysqli_real_escape_string($link, $_REQUEST['pub_name']));
-//     $pub_description = htmlentities(mysqli_real_escape_string($link, $_REQUEST['pub_description']));
-    
-// if ($_SESSION['id'] == 1) {
-   
-
-//     if ($_FILES['pub_image']['size'] > 0) { 
-//     // файл прислан
-//         $errors = array();
-//         $file_name = $_FILES['pub_image']['name'];
-//         $file_size = $_FILES['pub_image']['size'];
-//         $file_tmp = $_FILES['pub_image']['tmp_name'];
-//         $file_type = $_FILES['pub_image']['type'];
-//         $file_ext = strtolower(end(explode('.', $_FILES['pub_image']['name'])));
-//         $expensions = array("jpeg", "jpg", "png");
-
-//                 if ($file_size > 2097152) {
-//                     $errors[] = 'Файл должен быть не более 2мб';
-//                 }
-
-//                 if (empty($errors) == true) {
-//                     $upload_dir = '../../images/biblioteka/publishing_blocks/';
-//                     $name_img = $upload_dir.date('YmdHis').rand(100,1000).'.jpg'; // 
-//                     $mov = move_uploaded_file($_FILES['pub_image']['tmp_name'],$name_img);       
-//                 } 
-
-//                 else {
-//                     print $errors;
-//                 }
-
-//                 if(isset($name_img)) {
-         
-//         $query ="UPDATE publishing_post SET 
-//         pub_image='$name_img'
-
-//         WHERE id='$id'";
-//         $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
-//         echo "Загружена картинка";
-//         }
-//     }
-        
-
-/**********************************************************************************************************/
-
-    // if ($_FILES['pub_file']['size'] > 0) { 
-    // // файл прислан
-    //     $errors = array();
-    //     $file_name = $_FILES['pub_file']['name'];
-    //     $file_size = $_FILES['pub_file']['size'];
-    //     $file_tmp = $_FILES['pub_file']['tmp_name'];
-    //     $file_type = $_FILES['pub_file']['type'];
-    //     $file_ext = strtolower(end(explode('.', $_FILES['pub_file']['name'])));
-    //     $expensions = array("jpeg", "jpg", "png");
-
-    //             if ($file_size > 2097152) {
-    //                 $errors[] = 'Файл должен быть не более 2мб';
-    //             }
-
-    //             if (empty($errors) == true) {
-    //                 $upload_dir = '../../images/biblioteka/publishing_blocks/';
-    //                 $name_file = $upload_dir.date('YmdHis').rand(100,1000).'.jpg'; // 
-    //                 $mov_file = move_uploaded_file($_FILES['pub_file']['tmp_name'],$name_file);       
-    //             } 
-
-    //             else {
-    //                 print $errors;
-    //             }
-
-    //             if (isset($name_file)) {
-         
-    //     $query ="UPDATE publishing_post SET 
-    //     pub_file='$name_file'
-
-    //     WHERE id='$id'";
-    //     $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
-    //     // echo "загружен файл";
-    //         }
-    //     }
-    // }
-
-/******************************************************************************************************************/
-// var_dump($_REQUEST);
-
-    // if(isset($_REQUEST['pub_name']))  {
-    //     $id = htmlentities(mysqli_real_escape_string($link, $_REQUEST['id']));
-    //   // создание строки запроса
-    //     $query ="SELECT * FROM publishing_post WHERE id = '$id'";
-    //     // выполняем запрос
-    //     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
-
-    //     //если в запросе более нуля строк
-    //     if($result && mysqli_num_rows($result)>0) {
-    //         $row = mysqli_fetch_row($result); // получаем первую строку
-    //         $block_id = $row[1];
-    //         $pub_name = $row[2];
-    //         $pub_description = $row[3];
-    //         $pub_image = $row[4];
-    //         $pub_file = $row[5];
-    //         $pub_hidden = $row[6];
-        
-    //         mysqli_free_result($result);
-   
-    
-    //         $query ="UPDATE publishing_post SET 
-
-    //         block_id='$block_id',
-    //         pub_name='$pub_name', 
-    //         pub_description='$pub_description', 
-    //         pub_image='$name_img',
-    //         pub_file='$name_file',
-    //         pub_hidden='$pub_hidden'
-
-    //         WHERE id=$id";
-    //         $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
-    //         if($result)
-             header('Location: /pages/biblioteka/p_publishing_page.php?id='.$block_id.'');
-
-    //     }
-    // }
+		if (empty($errors) == true) {
+			$upload_dir = '../../images/biblioteka/publishing_posts/';
+			$name_img = $upload_dir.date('YmdHis').rand(100,1000).'.jpg';
+			$mov = move_uploaded_file($file_tmp, $name_img);		
+		  
+			$query ="UPDATE publishing_post SET pub_image='$name_img' WHERE id='$id'";
+      $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
+      
+  	if (!$result) {
+  		$errors[] = 'Ошибка загрузки изображения!';
+  		$_SESSION['errors'] = $errors;
+      header('Location: /pages/biblioteka/p_publishing_page.php?id='.$id_option.'');    
+			exit();
+  	}
+	}
+}
 
 
-// закрываем подключение
- // mysqli_close($link);
+
+if (!empty($_FILES['pub_file']['name'])) {
+	$query = ("SELECT pub_file FROM publishing_post WHERE id = $id");
+	$result = mysqli_query($link, $query);
+	$row = mysqli_fetch_assoc($result);
+	$pub_file = $row["pub_file"]; 
+
+	@unlink($pub_file);
+	unset($pub_file);
+
+	$file_name_file = $_FILES['pub_file']['name'];
+	$file_size_file = $_FILES['pub_file']['size'];
+	$file_tmp_file = $_FILES['pub_file']['tmp_name'];
+	$file_type_file = $_FILES['pub_file']['type'];
+	$file_ext_file = strtolower(end(explode('.', $_FILES['pub_file']['name'])));
+	$expensions_file = array("pdf");
+
+	// if ($file_size_file > 3097152) {
+	// 	$errors[] = 'Файл должен быть не более 3 мб';
+	// }
+
+	if (!in_array($file_ext_file, $expensions_file)) {
+		$errors[] = 'Недопустимый формат файла';
+	}
+
+	if (empty($errors) == true) {
+
+		$upload_file_dir = '../../images/biblioteka/publishing_files/';
+		$name_file = $upload_file_dir.date('YmdHis').rand(100,1000).'.pdf';
+		$mov_file = move_uploaded_file($file_tmp_file, $name_file);
+	
+		$query ="UPDATE publishing_post SET pub_file='$name_file' WHERE id='$id'";
+	  $result = mysqli_query($link, $query) or die ("Ошибка " . mysqli_error($link)); 
+	      
+  	if (!$result) {
+  		$errors[] = 'Ошибка загрузки файла издания!';
+  		$_SESSION['errors'] = $errors;
+      header('Location: /pages/biblioteka/p_publishing_page.php?id='.$id_option.''); 
+      exit();       
+  	}
+	}
+}
+
+if (empty($errors)) {
+	$success[] = 'ok';
+	$_SESSION['success'] = $success; 
+} else {
+	$_SESSION['errors'] = $errors;
+}
+
+ header('Location: /pages/biblioteka/p_publishing_page.php?id='.$id_option.'');
 ?>

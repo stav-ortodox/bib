@@ -1,0 +1,90 @@
+.font-icons {
+		font-size: 25px;
+	}
+
+th {
+	display: none;
+}
+
+td {
+	font-family: 'Old Standard TT', serif;
+	font-size: 30px !important;
+	height: 500px;
+	border: none !important;
+	padding-top: 120px !important;
+}
+
+table {
+	border: none !important;
+}
+
+#icon {
+	width: 400px;
+}
+
+#name {
+	font-family: 'Izhitsa Regular';
+	font-size: 35px !important;
+}
+
+
+.title_table h1{
+	font-size: 50px !important;
+}
+
+.clergy {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 10px;
+	align-items: center;
+}
+
+.clergy img {
+	/*margin-left: 50px;*/
+	margin-right: 50px;
+}
+
+.image {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+}
+
+.copyright {}
+
+.image img {
+	position: relative;
+	margin: 0 auto;
+}
+
+.count {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-left: 50px;
+	/*margin-bottom: 150px;*/
+}
+
+@media print {
+	.copyright {
+		margin: 0px;
+		margin-top: 13px;
+	}
+	.clergy {
+		/*page-break-before: always;*/
+		/*page-break-after: avoid;*/
+		page-break-inside: avoid;
+	}
+	.image {
+		/*page-break-before: always;*/
+		page-break-after: avoid;
+		/*page-break-inside: avoid;*/
+	}
+ 	}

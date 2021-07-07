@@ -1,32 +1,35 @@
-<?php session_start();
+<?php 
  require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_connect.php';
  require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
  require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
  
 get_header_doc ("Удаление единицы издания из блока", "Удаление единицы издания из блока");
 
- if(isset($_POST['id'])){
+ if(isset($_POST['id'])) {
 
- 
     $id = mysqli_real_escape_string($link, $_POST['id']);
      
+    $query ="SELECT * FROM publishing_post WHERE id = '$id'";
+    $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
+    $object = mysqli_fetch_assoc($result);
+    $name_del_img = $object['pub_image'];
+    $name_del_file = $object['pub_file'];
+    
+    @unlink($name_del_img);
+    @unlink($name_del_file);
+
     $query ="DELETE FROM publishing_post WHERE id = '$id'";
     $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
- 
     mysqli_close($link);
     // перенаправление на скрипт index.php
     
     echo "<script>window.location.href = history.go(-2);
     </script>";
-    header('Location: /pages/biblioteka/p_publishing_page.php?id=$id');
-    
-}
-
-?>
+    header('Location: /pages/biblioteka/p_publishing_page.php?id=$id'); 
+}?>
 
 <?php
-if(isset($_GET['id']))
-{   
+if(isset($_GET['id'])) {   
     $id = htmlentities($_GET['id']);
 
     get_open_form ('', 'POST', 'Внимание! Это действие удалит только файл единицы издания!', '');

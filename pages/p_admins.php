@@ -4,8 +4,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_app_config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_functions.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/scripts/s_biblioteka_functions.php';
 admin ();
-get_header_site ('Администрация', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
-get_menu ();
+get_header_site ('Администрация', 'Администрация', 'Электронная библиотека храма святого Великомученика и Целителя Пантелеимона <br> г. Ставрополь');
+new_menu ();
 page_title ('Страница администратора'); 
 ?>
 
